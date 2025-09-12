@@ -15,9 +15,9 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        neon: "btn-neon font-bold text-black shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300",
-        food: "btn-food font-bold text-black shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300",
-        hero: "relative overflow-hidden bg-gradient-to-r from-neon-green to-neon-yellow text-black font-bold shadow-[0_0_20px_theme(colors.neon.green)] hover:shadow-[0_0_30px_theme(colors.neon.green)] transform hover:-translate-y-2 transition-all duration-300",
+        appetizing: "btn-appetizing font-semibold shadow-lg hover:shadow-xl",
+        harvest: "btn-harvest font-semibold shadow-lg hover:shadow-xl",
+        hero: "relative overflow-hidden bg-gradient-to-r from-warm-amber to-rich-orange text-white font-semibold shadow-[0_0_25px_theme(colors.warm.amber)] hover:shadow-[0_0_35px_theme(colors.warm.amber)] transform hover:-translate-y-3 hover:scale-105 transition-all duration-500",
       },
       size: {
         default: "h-10 px-4 py-2",

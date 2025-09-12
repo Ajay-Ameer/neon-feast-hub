@@ -26,13 +26,13 @@ const Home = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="space-y-4">
-                <Badge variant="outline" className="text-neon-green border-neon-green px-4 py-1">
+                <Badge variant="outline" className="text-fresh-green border-fresh-green px-4 py-1">
                   🚀 Revolutionary Food Tech
                 </Badge>
-                <h1 className="text-4xl lg:text-6xl font-orbitron font-black leading-tight">
-                  <span className="text-gradient-neon pulse-neon">Healthy Food</span><br />
-                  <span className="text-gradient-food">Delivered Fresh</span><br />
-                  <span className="text-neon-yellow">Every Morning!</span>
+                <h1 className="text-4xl lg:text-6xl font-playfair font-bold leading-tight">
+                  <span className="text-gradient-sunrise pulse-appetizing">Healthy Food</span><br />
+                  <span className="text-gradient-harvest">Delivered Fresh</span><br />
+                  <span className="text-golden-yellow">Every Morning!</span>
                 </h1>
                 <p className="text-xl text-muted-foreground leading-relaxed">
                   Experience the future of nutrition with our AI-powered meal plans, 
@@ -46,22 +46,22 @@ const Home = () => {
                   <Zap className="mr-2" />
                   Start My Transformation
                 </Button>
-                <Button variant="outline" size="lg" className="text-lg border-neon-orange text-neon-orange hover:bg-neon-orange hover:text-black">
+                <Button variant="outline" size="lg" className="text-lg border-rich-orange text-rich-orange hover:bg-rich-orange hover:text-white">
                   View Meal Plans
                 </Button>
               </div>
 
               <div className="flex items-center space-x-8 text-sm">
                 <div className="flex items-center space-x-2">
-                  <CheckCircle className="h-5 w-5 text-neon-green" />
+                  <CheckCircle className="h-5 w-5 text-fresh-green" />
                   <span>Fresh Daily Delivery</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <Shield className="h-5 w-5 text-neon-blue" />
+                  <Shield className="h-5 w-5 text-warm-amber" />
                   <span>Patented Tech</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <Heart className="h-5 w-5 text-neon-pink" />
+                  <Heart className="h-5 w-5 text-spice-red" />
                   <span>Nutrient Intact</span>
                 </div>
               </div>
@@ -82,10 +82,10 @@ const Home = () => {
       {/* How It Works */}
       <section className="py-20 bg-card">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="text-center space-y-4 mb-16">
-            <h2 className="text-3xl lg:text-5xl font-orbitron font-bold text-gradient-neon">
-              How ZestyMonk Works
-            </h2>
+            <div className="text-center space-y-4 mb-16">
+              <h2 className="text-3xl lg:text-5xl font-playfair font-bold text-gradient-sunrise">
+                How ZestyMonk Works
+              </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Four simple steps to transform your health and taste buds forever
             </p>
@@ -97,28 +97,28 @@ const Home = () => {
                 icon: <Users className="h-8 w-8" />,
                 title: "Personalized Nutrition",
                 description: "AI analyzes your health goals, dietary preferences, and nutritional needs",
-                color: "neon-green",
+                color: "fresh-green",
                 step: "01"
               },
               {
                 icon: <ChefHat className="h-8 w-8" />,
                 title: "We Cook Fresh",
                 description: "Expert chefs prepare your meals with the finest ingredients daily",
-                color: "neon-orange",
+                color: "rich-orange",
                 step: "02"
               },
               {
                 icon: <Package className="h-8 w-8" />,
                 title: "Patented Packaging",
                 description: "Revolutionary retort technology preserves nutrients and enhances flavor",
-                color: "neon-pink",
+                color: "warm-amber",
                 step: "03"
               },
               {
                 icon: <Truck className="h-8 w-8" />,
                 title: "Daily Delivery",
                 description: "Fresh meals delivered to your doorstep every morning, ready to heat and eat",
-                color: "neon-yellow",
+                color: "spice-red",
                 step: "04"
               }
             ].map((step, index) => (
@@ -127,10 +127,10 @@ const Home = () => {
                   {step.step}
                 </div>
                 <CardContent className="space-y-4 p-0">
-                  <div className={`mx-auto w-16 h-16 rounded-full bg-gradient-to-r from-${step.color} to-${step.color}/70 flex items-center justify-center text-black`}>
+                  <div className={`mx-auto w-16 h-16 rounded-full bg-gradient-to-r from-${step.color} to-${step.color}/70 flex items-center justify-center text-white float-animation`}>
                     {step.icon}
                   </div>
-                  <h3 className="text-xl font-orbitron font-bold text-foreground">
+                  <h3 className="text-xl font-playfair font-bold text-foreground">
                     {step.title}
                   </h3>
                   <p className="text-muted-foreground">
@@ -146,10 +146,10 @@ const Home = () => {
       {/* Why Choose ZestyMonk */}
       <section className="py-20">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="text-center space-y-4 mb-16">
-            <h2 className="text-3xl lg:text-5xl font-orbitron font-bold text-gradient-food">
-              Why Choose ZestyMonk?
-            </h2>
+            <div className="text-center space-y-4 mb-16">
+              <h2 className="text-3xl lg:text-5xl font-playfair font-bold text-gradient-harvest">
+                Why Choose ZestyMonk?
+              </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               We're not just another meal delivery service - we're your health transformation partner
             </p>
@@ -161,37 +161,37 @@ const Home = () => {
                 icon: <Shield className="h-8 w-8" />,
                 title: "Patented Technology",
                 description: "Our exclusive retort packaging keeps nutrients 98% intact while enhancing flavors",
-                gradient: "from-neon-blue to-neon-purple"
+                gradient: "from-warm-amber to-rich-orange"
               },
               {
                 icon: <Heart className="h-8 w-8" />,
                 title: "Personalized Nutrition",
                 description: "AI-powered meal planning based on your unique health profile and goals",
-                gradient: "from-neon-pink to-neon-orange"
+                gradient: "from-spice-red to-rich-orange"
               },
               {
                 icon: <Clock className="h-8 w-8" />,
                 title: "Fresh Daily Delivery",
                 description: "No meal prep, no cooking stress - just heat and enjoy restaurant-quality meals",
-                gradient: "from-neon-green to-neon-yellow"
+                gradient: "from-fresh-green to-sage-green"
               },
               {
                 icon: <CheckCircle className="h-8 w-8" />,
                 title: "100% Natural",
                 description: "No preservatives, no artificial additives - just pure, wholesome ingredients",
-                gradient: "from-neon-yellow to-neon-green"
+                gradient: "from-fresh-green to-warm-amber"
               },
               {
                 icon: <Star className="h-8 w-8" />,
                 title: "Chef-Crafted",
                 description: "Every meal designed by nutrition experts and prepared by professional chefs",
-                gradient: "from-neon-orange to-neon-pink"
+                gradient: "from-rich-orange to-spice-red"
               },
               {
                 icon: <Zap className="h-8 w-8" />,
                 title: "Instant Results",
                 description: "Feel the energy boost and health improvements from day one",
-                gradient: "from-neon-purple to-neon-blue"
+                gradient: "from-golden-yellow to-warm-amber"
               }
             ].map((feature, index) => (
               <Card key={index} className="card-glow p-6 group">
@@ -199,7 +199,7 @@ const Home = () => {
                   <div className={`w-16 h-16 rounded-full bg-gradient-to-r ${feature.gradient} flex items-center justify-center text-black group-hover:scale-110 transition-transform`}>
                     {feature.icon}
                   </div>
-                  <h3 className="text-xl font-orbitron font-bold text-foreground">
+                  <h3 className="text-xl font-playfair font-bold text-foreground">
                     {feature.title}
                   </h3>
                   <p className="text-muted-foreground">
@@ -215,10 +215,10 @@ const Home = () => {
       {/* Subscription Plans Preview */}
       <section className="py-20 bg-card">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="text-center space-y-4 mb-16">
-            <h2 className="text-3xl lg:text-5xl font-orbitron font-bold text-gradient-neon">
-              Choose Your Health Journey
-            </h2>
+            <div className="text-center space-y-4 mb-16">
+              <h2 className="text-3xl lg:text-5xl font-playfair font-bold text-gradient-sunrise">
+                Choose Your Health Journey
+              </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Tailored nutrition plans for every lifestyle and health goal
             </p>
@@ -230,28 +230,28 @@ const Home = () => {
                 name: "Weight Loss",
                 description: "Burn fat, boost metabolism",
                 price: "₹2,999",
-                color: "neon-green",
+                color: "fresh-green",
                 features: ["Calorie-controlled", "Fat-burning foods", "Portion optimized"]
               },
               {
                 name: "Muscle Gain",
                 description: "Build strength, gain muscle",
                 price: "₹3,499",
-                color: "neon-orange",
+                color: "rich-orange",
                 features: ["High protein", "Recovery foods", "Performance focused"]
               },
               {
                 name: "Diabetic-Friendly",
                 description: "Blood sugar management",
                 price: "₹3,299",
-                color: "neon-pink",
+                color: "warm-amber",
                 features: ["Low glycemic", "Sugar-free", "Doctor approved"]
               },
               {
                 name: "General Wellness",
                 description: "Balanced nutrition",
                 price: "₹2,799",
-                color: "neon-yellow",
+                color: "spice-red",
                 features: ["All nutrients", "Immunity boost", "Energy focused"]
               }
             ].map((plan, index) => (
@@ -261,7 +261,7 @@ const Home = () => {
                   <div className={`w-12 h-12 rounded-full bg-gradient-to-r from-${plan.color} to-${plan.color}/70 mx-auto flex items-center justify-center`}>
                     <Heart className="h-6 w-6 text-black" />
                   </div>
-                  <h3 className="text-xl font-orbitron font-bold text-foreground">
+                  <h3 className="text-xl font-playfair font-bold text-foreground">
                     {plan.name}
                   </h3>
                   <p className="text-muted-foreground text-sm">
@@ -276,12 +276,12 @@ const Home = () => {
                   <ul className="space-y-1 text-sm">
                     {plan.features.map((feature, idx) => (
                       <li key={idx} className="flex items-center justify-center space-x-1">
-                        <CheckCircle className="h-3 w-3 text-neon-green" />
+                        <CheckCircle className="h-3 w-3 text-fresh-green" />
                         <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
-                  <Button variant="outline" className="w-full border-neon-green text-neon-green hover:bg-neon-green hover:text-black">
+                  <Button variant="outline" className="w-full border-fresh-green text-fresh-green hover:bg-fresh-green hover:text-white">
                     Choose Plan
                   </Button>
                 </CardContent>
@@ -300,10 +300,10 @@ const Home = () => {
       {/* Testimonials */}
       <section className="py-20">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="text-center space-y-4 mb-16">
-            <h2 className="text-3xl lg:text-5xl font-orbitron font-bold text-gradient-food">
-              What Our Members Say
-            </h2>
+            <div className="text-center space-y-4 mb-16">
+              <h2 className="text-3xl lg:text-5xl font-playfair font-bold text-gradient-harvest">
+                What Our Members Say
+              </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Real transformations, real results, real taste explosions!
             </p>
@@ -337,14 +337,14 @@ const Home = () => {
                 <CardContent className="space-y-4 p-0">
                   <div className="flex justify-center space-x-1">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-neon-yellow text-neon-yellow" />
+                      <Star key={i} className="h-5 w-5 fill-golden-yellow text-golden-yellow" />
                     ))}
                   </div>
                   <p className="text-muted-foreground italic leading-relaxed">
                     "{testimonial.content}"
                   </p>
                   <div className="flex items-center space-x-3">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-r from-neon-green to-neon-yellow flex items-center justify-center text-2xl">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-r from-warm-amber to-rich-orange flex items-center justify-center text-2xl">
                       {testimonial.image}
                     </div>
                     <div>
@@ -360,10 +360,10 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-neon-green/10 to-neon-orange/10">
+      <section className="py-20 bg-gradient-to-r from-warm-amber/10 to-rich-orange/10">
         <div className="container mx-auto px-4 lg:px-8 text-center">
           <div className="space-y-8 max-w-4xl mx-auto">
-            <h2 className="text-3xl lg:text-5xl font-orbitron font-bold text-gradient-neon">
+            <h2 className="text-3xl lg:text-5xl font-playfair font-bold text-gradient-sunrise">
               Ready to Transform Your Health?
             </h2>
             <p className="text-xl text-muted-foreground">
@@ -374,7 +374,7 @@ const Home = () => {
                 <Zap className="mr-2" />
                 Start My Free Trial
               </Button>
-              <Button variant="outline" size="lg" className="text-lg border-neon-pink text-neon-pink hover:bg-neon-pink hover:text-black">
+              <Button variant="outline" size="lg" className="text-lg border-spice-red text-spice-red hover:bg-spice-red hover:text-white">
                 Learn More
               </Button>
             </div>

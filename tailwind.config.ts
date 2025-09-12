@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        'orbitron': ['Orbitron', 'monospace'],
-        'exo': ['Exo 2', 'sans-serif'],
+        'playfair': ['Playfair Display', 'serif'],
+        'inter': ['Inter', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -51,14 +51,30 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Neon color palette
-        neon: {
-          green: "hsl(var(--neon-green))",
-          orange: "hsl(var(--neon-orange))",
-          yellow: "hsl(var(--neon-yellow))",
-          pink: "hsl(var(--neon-pink))",
-          blue: "hsl(var(--neon-blue))",
-          purple: "hsl(var(--neon-purple))",
+        // Food-inspired color palette
+        warm: {
+          amber: "hsl(var(--warm-amber))",
+        },
+        rich: {
+          orange: "hsl(var(--rich-orange))",
+        },
+        golden: {
+          yellow: "hsl(var(--golden-yellow))",
+        },
+        fresh: {
+          green: "hsl(var(--fresh-green))",
+        },
+        spice: {
+          red: "hsl(var(--spice-red))",
+        },
+        cream: {
+          white: "hsl(var(--cream-white))",
+        },
+        chocolate: {
+          brown: "hsl(var(--chocolate-brown))",
+        },
+        sage: {
+          green: "hsl(var(--sage-green))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
