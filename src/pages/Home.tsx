@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import heroImage from "@/assets/hero-food.jpg";
 import processIcons from "@/assets/process-icons.jpg";
+import FoodCarousel from "@/components/FoodCarousel";
 
 const Home = () => {
   return (
@@ -227,30 +228,30 @@ const Home = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                name: "Weight Loss",
+                name: "Weight Loss (Veg/Non-Veg)",
                 description: "Burn fat, boost metabolism",
-                price: "₹2,999",
+                price: "₹22,999",
                 color: "fresh-green",
                 features: ["Calorie-controlled", "Fat-burning foods", "Portion optimized"]
               },
               {
-                name: "Muscle Gain",
+                name: "Muscle Gain (Veg/Non-Veg)",
                 description: "Build strength, gain muscle",
-                price: "₹3,499",
+                price: "₹24,999",
                 color: "rich-orange",
                 features: ["High protein", "Recovery foods", "Performance focused"]
               },
               {
-                name: "Diabetic-Friendly",
+                name: "Diabetic-Friendly (Veg/Non-Veg)",
                 description: "Blood sugar management",
-                price: "₹3,299",
+                price: "₹23,999",
                 color: "warm-amber",
                 features: ["Low glycemic", "Sugar-free", "Doctor approved"]
               },
               {
-                name: "General Wellness",
+                name: "General Wellness (Veg/Non-Veg)",
                 description: "Balanced nutrition",
-                price: "₹2,799",
+                price: "₹21,999",
                 color: "spice-red",
                 features: ["All nutrients", "Immunity boost", "Energy focused"]
               }
@@ -296,6 +297,9 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Food Carousel */}
+      <FoodCarousel />
 
       {/* Testimonials */}
       <section className="py-20">

@@ -23,11 +23,12 @@ const Plans = () => {
         "High protein, low carb focus",
         "Metabolism boosting ingredients",
         "Weekly body composition tracking",
-        "Dedicated nutritionist support"
+        "Dedicated nutritionist support",
+        "Both Vegetarian & Non-Vegetarian options"
       ],
-      weeklyPrice: "₹2,499",
-      monthlyPrice: "₹8,999",
-      originalPrice: "₹10,500",
+      weeklyPrice: "₹5,999",
+      monthlyPrice: "₹22,999",
+      originalPrice: "₹26,000",
       popular: false,
       icon: <Heart className="h-6 w-6" />,
       color: "from-spice-red to-rich-orange"
@@ -40,11 +41,12 @@ const Plans = () => {
         "High protein (30g+ per meal)",
         "Pre & post workout meal timing",
         "Creatine and BCAA enriched options",
-        "Fitness trainer consultation"
+        "Fitness trainer consultation",
+        "Both Vegetarian & Non-Vegetarian options"
       ],
-      weeklyPrice: "₹2,899",
-      monthlyPrice: "₹10,499",
-      originalPrice: "₹12,000",
+      weeklyPrice: "₹6,499",
+      monthlyPrice: "₹24,999",
+      originalPrice: "₹28,000",
       popular: true,
       icon: <Zap className="h-6 w-6" />,
       color: "from-warm-amber to-golden-yellow"
@@ -57,11 +59,12 @@ const Plans = () => {
         "Portion-controlled carbohydrates",
         "High fiber, nutrient-dense meals",
         "Blood sugar tracking integration",
-        "Diabetic specialist consultation"
+        "Diabetic specialist consultation",
+        "Both Vegetarian & Non-Vegetarian options"
       ],
-      weeklyPrice: "₹2,699",
-      monthlyPrice: "₹9,499",
-      originalPrice: "₹11,000",
+      weeklyPrice: "₹6,199",
+      monthlyPrice: "₹23,999",
+      originalPrice: "₹27,000",
       popular: false,
       icon: <Shield className="h-6 w-6" />,
       color: "from-fresh-green to-warm-amber"
@@ -74,11 +77,12 @@ const Plans = () => {
         "Balanced macro & micronutrients",
         "Seasonal ingredient variety",
         "Immunity boosting superfoods",
-        "Monthly health check-ins"
+        "Monthly health check-ins",
+        "Both Vegetarian & Non-Vegetarian options"
       ],
-      weeklyPrice: "₹2,299",
-      monthlyPrice: "₹7,999",
-      originalPrice: "₹9,500",
+      weeklyPrice: "₹5,699",
+      monthlyPrice: "₹21,999",
+      originalPrice: "₹25,000",
       popular: false,
       icon: <Star className="h-6 w-6" />,
       color: "from-golden-yellow to-warm-amber"
