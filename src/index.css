@@ -7,64 +7,63 @@
 
 @layer base {
   :root {
-    /* Warm dark theme base */
-    --background: 20 8% 8%;
-    --foreground: 40 15% 95%;
+    /* Dark neon cyberpunk theme */
+    --background: 222 84% 4%;
+    --foreground: 210 100% 95%;
 
-    --card: 25 12% 12%;
-    --card-foreground: 40 15% 95%;
+    --card: 222 84% 6%;
+    --card-foreground: 210 100% 95%;
 
-    --popover: 25 12% 12%;
-    --popover-foreground: 40 15% 95%;
+    --popover: 222 84% 6%;
+    --popover-foreground: 210 100% 95%;
 
-    /* Food-Inspired Colors */
-    --warm-amber: 45 95% 65%;
-    --rich-orange: 25 85% 60%;
-    --golden-yellow: 48 100% 70%;
-    --fresh-green: 140 60% 50%;
-    --spice-red: 15 85% 55%;
-    --cream-white: 45 25% 92%;
-    --chocolate-brown: 30 25% 25%;
-    --sage-green: 120 25% 45%;
+    /* Neon-Inspired Colors */
+    --neon-blue: 180 100% 50%;
+    --neon-cyan: 180 100% 70%;
+    --neon-green: 120 100% 50%;
+    --electric-blue: 200 100% 60%;
+    --cyber-pink: 300 100% 70%;
+    --dark-bg: 222 84% 4%;
+    --darker-bg: 222 84% 2%;
+    --neon-glow: 180 100% 50%;
 
-    /* Primary brand color - Warm Amber */
-    --primary: 45 95% 65%;
-    --primary-foreground: 20 8% 8%;
+    /* Primary brand color - Neon Blue */
+    --primary: 180 100% 50%;
+    --primary-foreground: 222 84% 4%;
 
-    /* Secondary - Rich Orange */
-    --secondary: 25 85% 60%;
-    --secondary-foreground: 20 8% 8%;
+    /* Secondary - Electric Blue */
+    --secondary: 200 100% 60%;
+    --secondary-foreground: 222 84% 4%;
 
-    /* Muted warm tones */
-    --muted: 25 15% 18%;
-    --muted-foreground: 40 8% 65%;
+    /* Muted dark tones */
+    --muted: 210 100% 12%;
+    --muted-foreground: 210 30% 70%;
 
-    /* Accent - Fresh Green */
-    --accent: 140 60% 50%;
-    --accent-foreground: 20 8% 8%;
+    /* Accent - Neon Green */
+    --accent: 120 100% 50%;
+    --accent-foreground: 222 84% 4%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 84% 50%;
+    --destructive-foreground: 210 100% 95%;
 
-    --border: 25 20% 25%;
-    --input: 25 15% 18%;
-    --ring: 45 95% 65%;
+    --border: 210 100% 15%;
+    --input: 210 100% 12%;
+    --ring: 180 100% 50%;
 
     --radius: 0.75rem;
 
-    /* Food-Inspired Gradients */
-    --gradient-sunrise: linear-gradient(135deg, hsl(var(--warm-amber)), hsl(var(--rich-orange)));
-    --gradient-harvest: linear-gradient(135deg, hsl(var(--rich-orange)), hsl(var(--spice-red)));
-    --gradient-fresh: linear-gradient(135deg, hsl(var(--fresh-green)), hsl(var(--sage-green)));
-    --gradient-golden: linear-gradient(135deg, hsl(var(--golden-yellow)), hsl(var(--warm-amber)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--warm-amber) / 0.9), hsl(var(--rich-orange) / 0.8));
-    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(25 15% 15%));
+    /* Neon Gradients */
+    --gradient-neon: linear-gradient(135deg, hsl(var(--neon-blue)), hsl(var(--neon-green)));
+    --gradient-cyber: linear-gradient(135deg, hsl(var(--electric-blue)), hsl(var(--cyber-pink)));
+    --gradient-electric: linear-gradient(135deg, hsl(var(--neon-cyan)), hsl(var(--neon-green)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--neon-blue) / 0.9), hsl(var(--neon-green) / 0.8));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(210 100% 8%));
 
-    /* Warm Glows */
-    --glow-amber: 0 0 30px hsl(var(--warm-amber) / 0.4);
-    --glow-orange: 0 0 30px hsl(var(--rich-orange) / 0.4);
-    --glow-green: 0 0 30px hsl(var(--fresh-green) / 0.3);
-    --glow-golden: 0 0 30px hsl(var(--golden-yellow) / 0.3);
+    /* Neon Glows */
+    --glow-neon: 0 0 30px hsl(var(--neon-blue) / 0.7);
+    --glow-green: 0 0 30px hsl(var(--neon-green) / 0.7);
+    --glow-cyber: 0 0 30px hsl(var(--cyber-pink) / 0.7);
+    --glow-electric: 0 0 30px hsl(var(--electric-blue) / 0.6);
 
     /* Smooth Animations */
     --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -88,33 +87,33 @@
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 222 84% 4%;
+    --foreground: 210 100% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 222 84% 6%;
+    --card-foreground: 210 100% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 222 84% 6%;
+    --popover-foreground: 210 100% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 180 100% 50%;
+    --primary-foreground: 222 84% 4%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 200 100% 60%;
+    --secondary-foreground: 222 84% 4%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 210 100% 12%;
+    --muted-foreground: 210 30% 70%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 120 100% 50%;
+    --accent-foreground: 222 84% 4%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 50%;
+    --destructive-foreground: 210 100% 95%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 210 100% 15%;
+    --input: 210 100% 12%;
+    --ring: 180 100% 50%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -143,109 +142,109 @@
 }
 
 @layer components {
-  /* Food-inspired button variants */
-  .btn-appetizing {
+  /* Neon cyberpunk button variants */
+  .btn-neon {
     @apply relative overflow-hidden rounded-xl px-6 py-3 font-semibold text-black transition-all duration-500;
-    background: var(--gradient-sunrise);
-    box-shadow: var(--glow-amber);
+    background: var(--gradient-neon);
+    box-shadow: var(--glow-neon);
   }
   
-  .btn-appetizing:hover {
+  .btn-neon:hover {
     transform: translateY(-3px) scale(1.02);
-    box-shadow: var(--glow-amber), 0 15px 35px hsl(var(--warm-amber) / 0.4);
+    box-shadow: var(--glow-neon), 0 15px 35px hsl(var(--neon-blue) / 0.6);
   }
 
-  .btn-harvest {
+  .btn-cyber {
     @apply relative overflow-hidden rounded-xl px-6 py-3 font-semibold text-white transition-all duration-500;
-    background: var(--gradient-harvest);
-    box-shadow: var(--glow-orange);
+    background: var(--gradient-cyber);
+    box-shadow: var(--glow-cyber);
   }
   
-  .btn-harvest:hover {
+  .btn-cyber:hover {
     transform: translateY(-3px) scale(1.02);
-    box-shadow: var(--glow-orange), 0 15px 35px hsl(var(--rich-orange) / 0.4);
+    box-shadow: var(--glow-cyber), 0 15px 35px hsl(var(--cyber-pink) / 0.6);
   }
 
-  /* Food-inspired text effects */
-  .text-warm-amber {
-    color: hsl(var(--warm-amber));
-    text-shadow: 0 0 15px hsl(var(--warm-amber) / 0.4);
+  /* Neon cyberpunk text effects */
+  .text-neon-blue {
+    color: hsl(var(--neon-blue));
+    text-shadow: 0 0 15px hsl(var(--neon-blue) / 0.8);
   }
 
-  .text-rich-orange {
-    color: hsl(var(--rich-orange));
-    text-shadow: 0 0 15px hsl(var(--rich-orange) / 0.4);
+  .text-neon-green {
+    color: hsl(var(--neon-green));
+    text-shadow: 0 0 15px hsl(var(--neon-green) / 0.8);
   }
 
-  .text-fresh-green {
-    color: hsl(var(--fresh-green));
-    text-shadow: 0 0 15px hsl(var(--fresh-green) / 0.3);
+  .text-cyber-pink {
+    color: hsl(var(--cyber-pink));
+    text-shadow: 0 0 15px hsl(var(--cyber-pink) / 0.8);
   }
 
-  .text-golden-yellow {
-    color: hsl(var(--golden-yellow));
-    text-shadow: 0 0 15px hsl(var(--golden-yellow) / 0.4);
+  .text-electric-blue {
+    color: hsl(var(--electric-blue));
+    text-shadow: 0 0 15px hsl(var(--electric-blue) / 0.7);
   }
 
-  .text-spice-red {
-    color: hsl(var(--spice-red));
-    text-shadow: 0 0 15px hsl(var(--spice-red) / 0.4);
+  .text-neon-cyan {
+    color: hsl(var(--neon-cyan));
+    text-shadow: 0 0 15px hsl(var(--neon-cyan) / 0.7);
   }
 
-  /* Appetizing card effects */
+  /* Neon cyberpunk card effects */
   .card-glow {
     background: var(--gradient-card);
     border: 1px solid hsl(var(--border));
-    box-shadow: 0 8px 25px hsl(var(--warm-amber) / 0.15);
+    box-shadow: 0 8px 25px hsl(var(--neon-blue) / 0.3);
     transition: var(--transition-smooth);
     backdrop-filter: blur(10px);
   }
 
   .card-glow:hover {
     transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 20px 40px hsl(var(--warm-amber) / 0.25);
-    border-color: hsl(var(--warm-amber) / 0.4);
+    box-shadow: 0 20px 40px hsl(var(--neon-blue) / 0.5);
+    border-color: hsl(var(--neon-blue) / 0.6);
   }
 
-  /* Appetite-stimulating pulse animation */
-  .pulse-appetizing {
-    animation: pulse-appetizing var(--pulse-duration) ease-in-out infinite alternate;
+  /* Neon pulse animation */
+  .pulse-neon {
+    animation: pulse-neon var(--pulse-duration) ease-in-out infinite alternate;
   }
 
-  @keyframes pulse-appetizing {
+  @keyframes pulse-neon {
     from {
-      text-shadow: 0 0 15px hsl(var(--warm-amber) / 0.4);
+      text-shadow: 0 0 15px hsl(var(--neon-blue) / 0.7);
     }
     to {
-      text-shadow: 0 0 25px hsl(var(--warm-amber) / 0.7), 0 0 35px hsl(var(--rich-orange) / 0.3);
+      text-shadow: 0 0 25px hsl(var(--neon-blue) / 1), 0 0 35px hsl(var(--neon-green) / 0.6);
     }
   }
 
-  /* Food-inspired gradient text */
-  .text-gradient-sunrise {
-    background: var(--gradient-sunrise);
+  /* Neon gradient text */
+  .text-gradient-neon {
+    background: var(--gradient-neon);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
-  .text-gradient-harvest {
-    background: var(--gradient-harvest);
+  .text-gradient-cyber {
+    background: var(--gradient-cyber);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
-  .text-gradient-fresh {
-    background: var(--gradient-fresh);
+  .text-gradient-electric {
+    background: var(--gradient-electric);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
-  /* Hero section background */
+  /* Neon hero background */
   .hero-bg {
-    background: radial-gradient(ellipse at center, hsl(var(--warm-amber) / 0.15) 0%, hsl(var(--background)) 70%);
+    background: radial-gradient(ellipse at center, hsl(var(--neon-blue) / 0.2) 0%, hsl(var(--background)) 70%);
   }
 
   /* Floating animation for food elements */

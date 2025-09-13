@@ -51,30 +51,19 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Food-inspired color palette
-        warm: {
-          amber: "hsl(var(--warm-amber))",
+        // Neon cyberpunk color palette
+        neon: {
+          blue: "hsl(var(--neon-blue))",
+          cyan: "hsl(var(--neon-cyan))",
+          green: "hsl(var(--neon-green))",
+          pink: "hsl(var(--cyber-pink))",
         },
-        rich: {
-          orange: "hsl(var(--rich-orange))",
+        electric: {
+          blue: "hsl(var(--electric-blue))",
         },
-        golden: {
-          yellow: "hsl(var(--golden-yellow))",
-        },
-        fresh: {
-          green: "hsl(var(--fresh-green))",
-        },
-        spice: {
-          red: "hsl(var(--spice-red))",
-        },
-        cream: {
-          white: "hsl(var(--cream-white))",
-        },
-        chocolate: {
-          brown: "hsl(var(--chocolate-brown))",
-        },
-        sage: {
-          green: "hsl(var(--sage-green))",
+        dark: {
+          bg: "hsl(var(--dark-bg))",
+          darker: "hsl(var(--darker-bg))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
