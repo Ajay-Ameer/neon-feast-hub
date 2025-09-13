@@ -21,9 +21,23 @@ import TestimonialCard from "@/components/ui/testimonial-card";
 
 const Home = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gradient-to-b from-background via-pastel-green/20 to-pastel-orange/10 relative overflow-hidden">
+      {/* Floating Vegetable Decorations */}
+      <div className="fixed inset-0 pointer-events-none opacity-5 z-0">
+        <div className="absolute top-10 left-10 text-8xl text-fresh-green animate-float-slow">🥕</div>
+        <div className="absolute top-20 right-20 text-6xl text-success-green animate-float-medium">🥬</div>
+        <div className="absolute bottom-40 left-20 text-7xl text-vitality-orange animate-float-fast">🍅</div>
+        <div className="absolute bottom-20 right-40 text-5xl text-fresh-green animate-float-slow">🥒</div>
+        <div className="absolute top-1/2 left-1/4 text-6xl text-success-green animate-float-medium">🥦</div>
+        <div className="absolute bottom-1/3 right-1/4 text-7xl text-vitality-orange animate-float-fast">🌶️</div>
+        <div className="absolute top-1/3 right-10 text-5xl text-fresh-green animate-float-slow">🫑</div>
+        <div className="absolute bottom-10 left-1/3 text-6xl text-success-green animate-float-medium">🥬</div>
+      </div>
+
       {/* Hero Section */}
-      <HeroSection />
+      <div className="relative z-10">
+        <HeroSection />
+      </div>
 
       {/* How It Works Animation */}
       <HowItWorks />
@@ -130,10 +144,9 @@ const Home = () => {
             ].map((plan, index) => (
               <PlanCard 
                 key={index}
-                name={plan.name}
+                title={plan.name}
                 description={plan.description}
                 price={plan.price}
-                color={plan.color}
                 features={plan.features}
               />
             ))}

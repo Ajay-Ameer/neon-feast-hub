@@ -8,8 +8,12 @@
 @layer base {
   :root {
     /* Health-Focused Natural Light Theme */
-    --background: 45 25% 98%;
+    --background: 120 60% 97%;
     --foreground: 25 25% 25%;
+    
+    /* Pastel Food Colors */
+    --pastel-green: 120 40% 92%;
+    --pastel-orange: 25 80% 92%;
 
     --card: 0 0% 100%;
     --card-foreground: 25 25% 25%;
@@ -58,6 +62,7 @@
     --gradient-fresh: linear-gradient(135deg, hsl(var(--fresh-green)), hsl(var(--fresh-green-light)));
     --gradient-vitality: linear-gradient(135deg, hsl(var(--vitality-orange)), hsl(var(--energy-yellow)));
     --gradient-earth: linear-gradient(135deg, hsl(var(--earth-green)), hsl(var(--fresh-green)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--pastel-green)) 50%, hsl(var(--pastel-orange)) 100%);
     --gradient-warm: linear-gradient(135deg, hsl(var(--warm-orange)), hsl(var(--energy-yellow)));
     --gradient-sunrise: linear-gradient(135deg, hsl(var(--energy-yellow)), hsl(var(--vitality-orange)));
     --gradient-hero: linear-gradient(135deg, hsl(var(--soft-cream)), hsl(var(--pure-white)));
@@ -381,5 +386,30 @@
   .vitality-icon:hover {
     transform: scale(1.1);
     box-shadow: var(--shadow-vitality);
+  }
+
+  /* Floating Animation for Vegetables */
+  @keyframes float {
+    0%, 100% { 
+      transform: translateY(0px) rotate(0deg); 
+    }
+    33% { 
+      transform: translateY(-10px) rotate(5deg); 
+    }
+    66% { 
+      transform: translateY(5px) rotate(-3deg); 
+    }
+  }
+
+  .animate-float-slow {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-medium {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .animate-float-fast {
+    animation: float 3s ease-in-out infinite;
   }
 }
