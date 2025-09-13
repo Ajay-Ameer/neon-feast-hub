@@ -22,7 +22,7 @@ const TestimonialCard = ({ name, role, content, rating, image }: TestimonialCard
           "{content}"
         </p>
         <div className="flex items-center space-x-3">
-          <div className="w-12 h-12 rounded-full bg-gradient-to-r from-neon-cyan to-neon-blue flex items-center justify-center text-2xl hover-glow">
+          <div className="w-12 h-12 rounded-full bg-dark-darker border-2 border-electric-blue/50 flex items-center justify-center text-2xl hover-glow transition-all duration-300 hover:border-electric-blue hover:shadow-[0_0_30px_hsl(var(--electric-blue)/0.5)] text-electric-blue">
             {image}
           </div>
           <div>

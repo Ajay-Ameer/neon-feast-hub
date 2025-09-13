@@ -80,22 +80,22 @@ const FoodCarousel = () => {
           <CarouselContent className="-ml-2 md:-ml-4">
             {foodItems.map((item, index) => (
               <CarouselItem key={index} className="pl-2 md:pl-4 basis-1/2 md:basis-1/3 lg:basis-1/4">
-                <div className="group cursor-pointer">
-                  <div className="relative p-6 rounded-2xl bg-gradient-to-br from-background to-card/50 backdrop-blur-sm cyber-border shadow-soft transition-all duration-500 hover-glow hover:scale-105">
-                    <div className="text-center space-y-3">
-                      <div className="text-4xl md:text-5xl transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12 float-animation">
-                        {item.emoji}
+                  <div className="group cursor-pointer">
+                    <div className="relative p-6 rounded-2xl bg-dark-darker/80 backdrop-blur-sm border-2 border-neon-cyan/30 hover:border-neon-cyan/80 transition-all duration-300 shadow-lg hover:shadow-[0_0_40px_hsl(var(--neon-cyan)/0.3)] card-glow hover:scale-105">
+                      <div className="text-center space-y-3">
+                        <div className="text-4xl md:text-5xl transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12 float-animation filter drop-shadow-[0_0_10px_hsl(var(--neon-cyan)/0.8)]">
+                          {item.emoji}
+                        </div>
+                        <h4 className="font-orbitron font-semibold text-neon-cyan text-sm md:text-base">
+                          {item.name}
+                        </h4>
+                        <p className="text-xs text-muted-foreground font-exo">
+                          {item.description}
+                        </p>
                       </div>
-                      <h4 className="font-orbitron font-semibold text-foreground text-sm md:text-base">
-                        {item.name}
-                      </h4>
-                      <p className="text-xs text-muted-foreground font-exo">
-                        {item.description}
-                      </p>
+                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-neon-cyan/10 to-neon-purple/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
-                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-neon-cyan/10 to-neon-purple/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>
-                </div>
               </CarouselItem>
             ))}
           </CarouselContent>

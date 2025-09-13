@@ -19,7 +19,7 @@ const FeatureCard = ({ icon, title, description, gradient, step, className = "" 
         </div>
       )}
       <CardContent className="space-y-4 p-0">
-        <div className={`mx-auto w-16 h-16 rounded-full ${gradient || 'bg-gradient-to-r from-neon-cyan to-neon-blue'} flex items-center justify-center text-white float-animation hover-glow`}>
+        <div className="mx-auto w-16 h-16 rounded-full bg-dark-darker border-2 border-neon-cyan/50 flex items-center justify-center text-neon-cyan float-animation hover-glow transition-all duration-300 hover:border-neon-cyan hover:shadow-[0_0_30px_hsl(var(--neon-cyan)/0.5)]">
           {icon}
         </div>
         <h3 className="text-xl font-orbitron font-bold text-foreground">

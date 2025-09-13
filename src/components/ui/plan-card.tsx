@@ -15,8 +15,8 @@ const PlanCard = ({ name, description, price, color, features }: PlanCardProps) 
     <Card className="card-glow cyber-border p-6 text-center relative overflow-hidden group hover-glow">
       <div className="absolute inset-0 bg-gradient-to-br from-background to-card opacity-90"></div>
       <CardContent className="relative z-10 space-y-4 p-0">
-        <div className={`w-12 h-12 rounded-full bg-gradient-to-r from-${color} to-${color}/70 mx-auto flex items-center justify-center float-animation`}>
-          <Heart className="h-6 w-6 text-black" />
+        <div className="w-12 h-12 rounded-full bg-dark-darker border-2 border-neon-purple/50 mx-auto flex items-center justify-center float-animation hover-glow transition-all duration-300 hover:border-neon-purple hover:shadow-[0_0_30px_hsl(var(--neon-purple)/0.5)]">
+          <Heart className="h-6 w-6 text-neon-purple" />
         </div>
         <h3 className="text-xl font-orbitron font-bold text-foreground">
           {name}
