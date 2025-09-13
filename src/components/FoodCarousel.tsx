@@ -55,10 +55,10 @@ const FoodCarousel = () => {
     <div className="py-12 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8">
-          <h3 className="text-2xl font-playfair font-bold text-gradient-sunrise mb-2">
+          <h3 className="text-2xl font-orbitron font-bold text-gradient-cyber pulse-cyber mb-2">
             Delicious Meals Waiting for You
           </h3>
-          <p className="text-muted-foreground">
+          <p className="text-muted-foreground font-exo">
             Fresh, flavorful, and perfectly crafted for your health goals
           </p>
         </div>
@@ -81,19 +81,19 @@ const FoodCarousel = () => {
             {foodItems.map((item, index) => (
               <CarouselItem key={index} className="pl-2 md:pl-4 basis-1/2 md:basis-1/3 lg:basis-1/4">
                 <div className="group cursor-pointer">
-                  <div className="relative p-6 rounded-2xl bg-gradient-to-br from-background to-card/50 backdrop-blur-sm border border-border/50 shadow-soft transition-all duration-500 hover:shadow-glow hover:scale-105">
+                  <div className="relative p-6 rounded-2xl bg-gradient-to-br from-background to-card/50 backdrop-blur-sm cyber-border shadow-soft transition-all duration-500 hover-glow hover:scale-105">
                     <div className="text-center space-y-3">
-                      <div className="text-4xl md:text-5xl transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12">
+                      <div className="text-4xl md:text-5xl transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12 float-animation">
                         {item.emoji}
                       </div>
-                      <h4 className="font-playfair font-semibold text-foreground text-sm md:text-base">
+                      <h4 className="font-orbitron font-semibold text-foreground text-sm md:text-base">
                         {item.name}
                       </h4>
-                      <p className="text-xs text-muted-foreground">
+                      <p className="text-xs text-muted-foreground font-exo">
                         {item.description}
                       </p>
                     </div>
-                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-warm-amber/10 to-rich-orange/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-neon-cyan/10 to-neon-purple/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>
                 </div>
               </CarouselItem>

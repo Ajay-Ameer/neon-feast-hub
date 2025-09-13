@@ -233,7 +233,7 @@ const Plans = () => {
               based on your goals, lifestyle, and preferences.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="appetizing" size="lg" className="text-lg px-8 py-4">
+              <Button variant="cyber" size="lg" className="text-lg px-8 py-4">
                 <Phone className="mr-2" />
                 Free Nutrition Consultation
               </Button>

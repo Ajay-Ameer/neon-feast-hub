@@ -14,6 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
+        'orbitron': ['Orbitron', 'monospace'],
+        'exo': ['Exo 2', 'sans-serif'],
         'playfair': ['Playfair Display', 'serif'],
         'inter': ['Inter', 'sans-serif'],
       },
@@ -51,15 +53,20 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Neon cyberpunk color palette
+        // Futuristic neon color palette
         neon: {
-          blue: "hsl(var(--neon-blue))",
           cyan: "hsl(var(--neon-cyan))",
-          green: "hsl(var(--neon-green))",
-          pink: "hsl(var(--cyber-pink))",
+          blue: "hsl(var(--neon-blue))",
+          purple: "hsl(var(--neon-purple))",
         },
         electric: {
           blue: "hsl(var(--electric-blue))",
+        },
+        cyber: {
+          purple: "hsl(var(--cyber-purple))",
+        },
+        plasma: {
+          pink: "hsl(var(--plasma-pink))",
         },
         dark: {
           bg: "hsl(var(--dark-bg))",

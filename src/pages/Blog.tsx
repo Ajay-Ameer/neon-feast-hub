@@ -164,7 +164,7 @@ const Blog = () => {
                       {post.readTime}
                     </div>
                   </div>
-                  <Button variant="harvest" className="w-full group">
+                  <Button variant="cyber" className="w-full group">
                     Read Article
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
@@ -235,7 +235,7 @@ const Blog = () => {
                 placeholder="Enter your email"
                 className="flex-1 px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-warm-amber"
               />
-              <Button variant="appetizing" className="px-6">
+              <Button variant="cyber" className="px-6">
                 Subscribe
               </Button>
             </div>

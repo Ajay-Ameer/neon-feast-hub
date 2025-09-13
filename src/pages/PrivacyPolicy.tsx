@@ -313,7 +313,7 @@ const PrivacyPolicy = () => {
               Our privacy team is here to help you understand how we protect your data 
               and assist with any privacy-related requests or concerns.
             </p>
-            <Button variant="appetizing" size="lg" className="text-lg px-8 py-4">
+            <Button variant="cyber" size="lg" className="text-lg px-8 py-4">
               <Mail className="mr-2" />
               Contact Privacy Team
             </Button>

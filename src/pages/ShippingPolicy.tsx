@@ -270,7 +270,7 @@ const ShippingPolicy = () => {
               and instant communication with delivery partners.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="appetizing" size="lg" className="text-lg px-8 py-4">
+              <Button variant="cyber" size="lg" className="text-lg px-8 py-4">
                 <Phone className="mr-2" />
                 Download Mobile App
               </Button>

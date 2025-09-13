@@ -2,46 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ZestyMonk Food-Inspired Design System */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+/* ZestyMonk Futuristic Design System */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Exo+2:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700;900&display=swap');
 
 @layer base {
   :root {
-    /* Dark neon cyberpunk theme */
-    --background: 222 84% 4%;
-    --foreground: 210 100% 95%;
+    /* Futuristic dark cyberpunk theme */
+    --background: 222 84% 2%;
+    --foreground: 190 100% 95%;
 
-    --card: 222 84% 6%;
-    --card-foreground: 210 100% 95%;
+    --card: 222 84% 4%;
+    --card-foreground: 190 100% 95%;
 
-    --popover: 222 84% 6%;
-    --popover-foreground: 210 100% 95%;
+    --popover: 222 84% 4%;
+    --popover-foreground: 190 100% 95%;
 
-    /* Neon-Inspired Colors */
-    --neon-blue: 180 100% 50%;
-    --neon-cyan: 180 100% 70%;
-    --neon-green: 120 100% 50%;
-    --electric-blue: 200 100% 60%;
-    --cyber-pink: 300 100% 70%;
-    --dark-bg: 222 84% 4%;
-    --darker-bg: 222 84% 2%;
-    --neon-glow: 180 100% 50%;
+    /* Futuristic Neon Colors */
+    --neon-cyan: 180 100% 60%;
+    --neon-blue: 200 100% 65%;
+    --neon-purple: 280 100% 70%;
+    --electric-blue: 210 100% 55%;
+    --cyber-purple: 270 85% 75%;
+    --plasma-pink: 320 100% 75%;
+    --dark-bg: 222 84% 2%;
+    --darker-bg: 222 84% 1%;
+    --neon-glow: 180 100% 60%;
 
-    /* Primary brand color - Neon Blue */
-    --primary: 180 100% 50%;
-    --primary-foreground: 222 84% 4%;
+    /* Primary brand color - Neon Cyan */
+    --primary: 180 100% 60%;
+    --primary-foreground: 222 84% 2%;
 
-    /* Secondary - Electric Blue */
-    --secondary: 200 100% 60%;
-    --secondary-foreground: 222 84% 4%;
+    /* Secondary - Electric Purple */
+    --secondary: 280 100% 70%;
+    --secondary-foreground: 222 84% 2%;
 
     /* Muted dark tones */
-    --muted: 210 100% 12%;
-    --muted-foreground: 210 30% 70%;
+    --muted: 210 100% 8%;
+    --muted-foreground: 210 30% 65%;
 
-    /* Accent - Neon Green */
-    --accent: 120 100% 50%;
-    --accent-foreground: 222 84% 4%;
+    /* Accent - Neon Blue */
+    --accent: 200 100% 65%;
+    --accent-foreground: 222 84% 2%;
 
     --destructive: 0 84% 50%;
     --destructive-foreground: 210 100% 95%;
@@ -52,18 +53,19 @@
 
     --radius: 0.75rem;
 
-    /* Neon Gradients */
-    --gradient-neon: linear-gradient(135deg, hsl(var(--neon-blue)), hsl(var(--neon-green)));
-    --gradient-cyber: linear-gradient(135deg, hsl(var(--electric-blue)), hsl(var(--cyber-pink)));
-    --gradient-electric: linear-gradient(135deg, hsl(var(--neon-cyan)), hsl(var(--neon-green)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--neon-blue) / 0.9), hsl(var(--neon-green) / 0.8));
-    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(210 100% 8%));
+    /* Futuristic Gradients */
+    --gradient-cyber: linear-gradient(135deg, hsl(var(--neon-cyan)), hsl(var(--neon-blue)));
+    --gradient-plasma: linear-gradient(135deg, hsl(var(--neon-purple)), hsl(var(--plasma-pink)));
+    --gradient-electric: linear-gradient(135deg, hsl(var(--electric-blue)), hsl(var(--cyber-purple)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--neon-cyan) / 0.9), hsl(var(--neon-blue) / 0.8));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(210 100% 6%));
+    --gradient-glow: radial-gradient(circle at 50% 50%, hsl(var(--neon-cyan) / 0.3), transparent 70%);
 
-    /* Neon Glows */
-    --glow-neon: 0 0 30px hsl(var(--neon-blue) / 0.7);
-    --glow-green: 0 0 30px hsl(var(--neon-green) / 0.7);
-    --glow-cyber: 0 0 30px hsl(var(--cyber-pink) / 0.7);
-    --glow-electric: 0 0 30px hsl(var(--electric-blue) / 0.6);
+    /* Futuristic Glows */
+    --glow-cyan: 0 0 30px hsl(var(--neon-cyan) / 0.8), 0 0 60px hsl(var(--neon-cyan) / 0.4);
+    --glow-blue: 0 0 30px hsl(var(--neon-blue) / 0.8), 0 0 60px hsl(var(--neon-blue) / 0.4);
+    --glow-purple: 0 0 30px hsl(var(--neon-purple) / 0.8), 0 0 60px hsl(var(--neon-purple) / 0.4);
+    --glow-plasma: 0 0 30px hsl(var(--plasma-pink) / 0.8), 0 0 60px hsl(var(--plasma-pink) / 0.4);
 
     /* Smooth Animations */
     --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -131,108 +133,151 @@
   }
 
   body {
-    @apply bg-background text-foreground font-inter;
-    font-family: 'Inter', sans-serif;
+    @apply bg-background text-foreground font-exo;
+    font-family: 'Exo 2', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Orbitron', monospace;
     font-weight: 600;
+  }
+
+  .font-futuristic {
+    font-family: 'Orbitron', monospace;
+  }
+
+  .font-elegant {
+    font-family: 'Playfair Display', serif;
   }
 }
 
 @layer components {
-  /* Neon cyberpunk button variants */
-  .btn-neon {
-    @apply relative overflow-hidden rounded-xl px-6 py-3 font-semibold text-black transition-all duration-500;
-    background: var(--gradient-neon);
-    box-shadow: var(--glow-neon);
-  }
-  
-  .btn-neon:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: var(--glow-neon), 0 15px 35px hsl(var(--neon-blue) / 0.6);
-  }
-
+  /* Futuristic button variants */
   .btn-cyber {
-    @apply relative overflow-hidden rounded-xl px-6 py-3 font-semibold text-white transition-all duration-500;
+    @apply relative overflow-hidden rounded-xl px-6 py-3 font-semibold text-black transition-all duration-500 font-futuristic;
     background: var(--gradient-cyber);
-    box-shadow: var(--glow-cyber);
+    box-shadow: var(--glow-cyan);
+    border: 1px solid hsl(var(--neon-cyan) / 0.3);
   }
   
   .btn-cyber:hover {
     transform: translateY(-3px) scale(1.02);
-    box-shadow: var(--glow-cyber), 0 15px 35px hsl(var(--cyber-pink) / 0.6);
+    box-shadow: var(--glow-cyan), 0 15px 35px hsl(var(--neon-cyan) / 0.6);
+    border-color: hsl(var(--neon-cyan) / 0.8);
   }
 
-  /* Neon cyberpunk text effects */
+  .btn-plasma {
+    @apply relative overflow-hidden rounded-xl px-6 py-3 font-semibold text-white transition-all duration-500 font-futuristic;
+    background: var(--gradient-plasma);
+    box-shadow: var(--glow-purple);
+    border: 1px solid hsl(var(--neon-purple) / 0.3);
+  }
+  
+  .btn-plasma:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: var(--glow-purple), 0 15px 35px hsl(var(--neon-purple) / 0.6);
+    border-color: hsl(var(--neon-purple) / 0.8);
+  }
+
+  /* Futuristic text effects */
+  .text-neon-cyan {
+    color: hsl(var(--neon-cyan));
+    text-shadow: 0 0 15px hsl(var(--neon-cyan) / 0.9), 0 0 30px hsl(var(--neon-cyan) / 0.5);
+  }
+
   .text-neon-blue {
     color: hsl(var(--neon-blue));
-    text-shadow: 0 0 15px hsl(var(--neon-blue) / 0.8);
+    text-shadow: 0 0 15px hsl(var(--neon-blue) / 0.9), 0 0 30px hsl(var(--neon-blue) / 0.5);
   }
 
-  .text-neon-green {
-    color: hsl(var(--neon-green));
-    text-shadow: 0 0 15px hsl(var(--neon-green) / 0.8);
+  .text-neon-purple {
+    color: hsl(var(--neon-purple));
+    text-shadow: 0 0 15px hsl(var(--neon-purple) / 0.9), 0 0 30px hsl(var(--neon-purple) / 0.5);
   }
 
-  .text-cyber-pink {
-    color: hsl(var(--cyber-pink));
-    text-shadow: 0 0 15px hsl(var(--cyber-pink) / 0.8);
+  .text-plasma-pink {
+    color: hsl(var(--plasma-pink));
+    text-shadow: 0 0 15px hsl(var(--plasma-pink) / 0.9), 0 0 30px hsl(var(--plasma-pink) / 0.5);
   }
 
   .text-electric-blue {
     color: hsl(var(--electric-blue));
-    text-shadow: 0 0 15px hsl(var(--electric-blue) / 0.7);
+    text-shadow: 0 0 15px hsl(var(--electric-blue) / 0.9), 0 0 30px hsl(var(--electric-blue) / 0.5);
   }
 
-  .text-neon-cyan {
-    color: hsl(var(--neon-cyan));
-    text-shadow: 0 0 15px hsl(var(--neon-cyan) / 0.7);
-  }
-
-  /* Neon cyberpunk card effects */
+  /* Futuristic card effects */
   .card-glow {
     background: var(--gradient-card);
     border: 1px solid hsl(var(--border));
-    box-shadow: 0 8px 25px hsl(var(--neon-blue) / 0.3);
+    box-shadow: 0 8px 25px hsl(var(--neon-cyan) / 0.3), inset 0 1px 0 hsl(var(--neon-cyan) / 0.1);
     transition: var(--transition-smooth);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
+    position: relative;
+  }
+
+  .card-glow::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: var(--gradient-glow);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
   }
 
   .card-glow:hover {
     transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 20px 40px hsl(var(--neon-blue) / 0.5);
-    border-color: hsl(var(--neon-blue) / 0.6);
+    box-shadow: var(--glow-cyan), 0 20px 40px hsl(var(--neon-cyan) / 0.4);
+    border-color: hsl(var(--neon-cyan) / 0.8);
   }
 
-  /* Neon pulse animation */
-  .pulse-neon {
-    animation: pulse-neon var(--pulse-duration) ease-in-out infinite alternate;
+  .card-glow:hover::before {
+    opacity: 1;
   }
 
-  @keyframes pulse-neon {
+  /* Futuristic pulse animations */
+  .pulse-cyber {
+    animation: pulse-cyber var(--pulse-duration) ease-in-out infinite alternate;
+  }
+
+  .pulse-plasma {
+    animation: pulse-plasma 4s ease-in-out infinite alternate;
+  }
+
+  @keyframes pulse-cyber {
     from {
-      text-shadow: 0 0 15px hsl(var(--neon-blue) / 0.7);
+      text-shadow: 0 0 15px hsl(var(--neon-cyan) / 0.8);
     }
     to {
-      text-shadow: 0 0 25px hsl(var(--neon-blue) / 1), 0 0 35px hsl(var(--neon-green) / 0.6);
+      text-shadow: 0 0 25px hsl(var(--neon-cyan) / 1), 0 0 35px hsl(var(--neon-blue) / 0.8), 0 0 45px hsl(var(--neon-cyan) / 0.4);
     }
   }
 
-  /* Neon gradient text */
-  .text-gradient-neon {
-    background: var(--gradient-neon);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+  @keyframes pulse-plasma {
+    from {
+      text-shadow: 0 0 15px hsl(var(--neon-purple) / 0.8);
+    }
+    to {
+      text-shadow: 0 0 25px hsl(var(--neon-purple) / 1), 0 0 35px hsl(var(--plasma-pink) / 0.8), 0 0 45px hsl(var(--neon-purple) / 0.4);
+    }
   }
 
+  /* Futuristic gradient text */
   .text-gradient-cyber {
     background: var(--gradient-cyber);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  .text-gradient-plasma {
+    background: var(--gradient-plasma);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s ease-in-out infinite reverse;
   }
 
   .text-gradient-electric {
@@ -242,22 +287,76 @@
     -webkit-text-fill-color: transparent;
   }
 
-  /* Neon hero background */
-  .hero-bg {
-    background: radial-gradient(ellipse at center, hsl(var(--neon-blue) / 0.2) 0%, hsl(var(--background)) 70%);
+  @keyframes shimmer {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
   }
 
-  /* Floating animation for food elements */
+  /* Futuristic hero background */
+  .hero-bg {
+    background: radial-gradient(ellipse at center, hsl(var(--neon-cyan) / 0.15) 0%, hsl(var(--neon-blue) / 0.08) 40%, hsl(var(--background)) 80%);
+    position: relative;
+  }
+
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, hsl(var(--neon-cyan) / 0.05), transparent 50%, hsl(var(--neon-purple) / 0.05));
+    animation: gradient-shift 8s ease-in-out infinite alternate;
+  }
+
+  @keyframes gradient-shift {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  /* Enhanced floating animations */
   .float-animation {
     animation: float 6s ease-in-out infinite;
   }
 
+  .hover-glow {
+    transition: all 0.3s ease;
+  }
+
+  .hover-glow:hover {
+    box-shadow: var(--glow-cyan);
+    transform: translateY(-5px);
+  }
+
+  .cyber-border {
+    position: relative;
+    border: 1px solid hsl(var(--neon-cyan) / 0.3);
+  }
+
+  .cyber-border::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, hsl(var(--neon-cyan)), hsl(var(--neon-blue)), hsl(var(--neon-purple)), hsl(var(--plasma-pink)));
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+
+  .cyber-border:hover::before {
+    opacity: 0.3;
+    animation: border-glow 2s linear infinite;
+  }
+
   @keyframes float {
     0%, 100% {
-      transform: translateY(0px);
+      transform: translateY(0px) rotate(0deg);
     }
     50% {
-      transform: translateY(-10px);
+      transform: translateY(-10px) rotate(2deg);
     }
+  }
+
+  @keyframes border-glow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
   }
 }

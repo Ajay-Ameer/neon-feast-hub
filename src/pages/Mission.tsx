@@ -173,7 +173,7 @@ const Mission = () => {
           </div>
 
           <div className="text-center mt-16">
-            <Button variant="appetizing" size="lg" className="text-lg px-8 py-4">
+            <Button variant="cyber" size="lg" className="text-lg px-8 py-4">
               <ArrowRight className="mr-2" />
               Start Your Health Journey
             </Button>

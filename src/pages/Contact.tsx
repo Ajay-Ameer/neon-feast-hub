@@ -140,7 +140,7 @@ const Contact = () => {
                       rows={5}
                     />
                   </div>
-                  <Button variant="appetizing" className="w-full">
+                  <Button variant="cyber" className="w-full">
                     <Send className="mr-2 h-4 w-4" />
                     Send Message
                   </Button>
@@ -204,7 +204,7 @@ const Contact = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="p-0 space-y-3">
-                  <Button variant="harvest" className="w-full justify-start">
+                  <Button variant="plasma" className="w-full justify-start">
                     <MessageCircle className="mr-2 h-4 w-4" />
                     Chat on WhatsApp
                   </Button>

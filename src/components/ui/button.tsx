@@ -15,9 +15,9 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        appetizing: "btn-appetizing font-semibold shadow-lg hover:shadow-xl",
-        harvest: "btn-harvest font-semibold shadow-lg hover:shadow-xl",
-        hero: "relative overflow-hidden bg-gradient-to-r from-warm-amber to-rich-orange text-white font-semibold shadow-[0_0_25px_theme(colors.warm.amber)] hover:shadow-[0_0_35px_theme(colors.warm.amber)] transform hover:-translate-y-3 hover:scale-105 transition-all duration-500",
+        cyber: "btn-cyber font-orbitron",
+        plasma: "btn-plasma font-orbitron",
+        hero: "btn-cyber font-orbitron font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300",
       },
       size: {
         default: "h-10 px-4 py-2",

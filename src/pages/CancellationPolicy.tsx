@@ -222,7 +222,7 @@ const CancellationPolicy = () => {
               Our friendly customer success team is ready to assist you with cancellations, 
               refunds, or any questions about your ZestyMonk experience.
             </p>
-            <Button variant="appetizing" size="lg" className="text-lg px-8 py-4">
+            <Button variant="cyber" size="lg" className="text-lg px-8 py-4">
               <MessageCircle className="mr-2" />
               Chat with Support Now
             </Button>

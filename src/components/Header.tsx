@@ -21,10 +21,10 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
-            <div className="p-2 rounded-lg bg-gradient-to-r from-neon-green to-neon-yellow">
+            <div className="p-2 rounded-lg bg-gradient-to-r from-neon-cyan to-neon-blue hover-glow">
               <Zap className="h-6 w-6 text-black" />
             </div>
-            <span className="text-xl font-orbitron font-bold text-gradient-neon">
+            <span className="text-xl font-orbitron font-bold text-gradient-cyber pulse-cyber">
               ZestyMonk
             </span>
           </Link>
@@ -35,7 +35,7 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className="text-foreground hover:text-neon-green transition-colors duration-200 font-medium"
+                className="text-foreground hover:text-neon-cyan transition-colors duration-200 font-exo font-medium hover-glow"
               >
                 {item.name}
               </Link>
@@ -44,7 +44,7 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:flex">
-            <Button variant="hero" size="lg">
+            <Button variant="cyber" size="lg" className="cyber-border">
               Start My Plan
             </Button>
           </div>
@@ -53,7 +53,7 @@ const Header = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-foreground hover:text-neon-green transition-colors"
+              className="text-foreground hover:text-neon-cyan transition-colors hover-glow"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -68,13 +68,13 @@ const Header = () => {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className="block text-foreground hover:text-neon-green transition-colors duration-200 font-medium py-2"
+                  className="block text-foreground hover:text-neon-cyan transition-colors duration-200 font-exo font-medium py-2 hover-glow"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
                 </Link>
               ))}
-              <Button variant="hero" size="lg" className="w-full mt-4">
+              <Button variant="cyber" size="lg" className="w-full mt-4 cyber-border">
                 Start My Plan
               </Button>
             </div>
