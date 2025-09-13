@@ -15,9 +15,9 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        cyber: "btn-cyber font-orbitron",
-        plasma: "btn-plasma font-orbitron",
-        hero: "btn-cyber font-orbitron font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300",
+        fresh: "btn-fresh font-orbitron",
+        vitality: "btn-vitality font-orbitron",
+        hero: "btn-fresh font-orbitron font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300",
       },
       size: {
         default: "h-10 px-4 py-2",

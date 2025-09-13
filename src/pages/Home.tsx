@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import FoodCarousel from "@/components/FoodCarousel";
 import HeroSection from "@/components/ui/hero-section";
+import HowItWorks from "@/components/ui/how-it-works";
 import SectionHeader from "@/components/ui/section-header";
 import FeatureCard from "@/components/ui/feature-card";
 import PlanCard from "@/components/ui/plan-card";
@@ -24,66 +25,16 @@ const Home = () => {
       {/* Hero Section */}
       <HeroSection />
 
-      {/* How It Works */}
-      <section className="py-20 bg-card">
-        <div className="container mx-auto px-4 lg:px-8">
-          <SectionHeader 
-            title="How ZestyMonk Works"
-            subtitle="Four simple steps to transform your health and taste buds forever"
-            gradient="cyber"
-          />
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                icon: <Users className="h-8 w-8" />,
-                title: "Personalized Nutrition",
-                description: "AI analyzes your health goals, dietary preferences, and nutritional needs",
-                gradient: "bg-gradient-to-r from-neon-cyan to-neon-blue",
-                step: "01"
-              },
-              {
-                icon: <ChefHat className="h-8 w-8" />,
-                title: "We Cook Fresh",
-                description: "Expert chefs prepare your meals with the finest ingredients daily",
-                gradient: "bg-gradient-to-r from-neon-blue to-neon-purple",
-                step: "02"
-              },
-              {
-                icon: <Package className="h-8 w-8" />,
-                title: "Patented Packaging",
-                description: "Revolutionary retort technology preserves nutrients and enhances flavor",
-                gradient: "bg-gradient-to-r from-neon-purple to-plasma-pink",
-                step: "03"
-              },
-              {
-                icon: <Truck className="h-8 w-8" />,
-                title: "Daily Delivery",
-                description: "Fresh meals delivered to your doorstep every morning, ready to heat and eat",
-                gradient: "bg-gradient-to-r from-plasma-pink to-neon-cyan",
-                step: "04"
-              }
-            ].map((step, index) => (
-              <FeatureCard 
-                key={index}
-                icon={step.icon}
-                title={step.title}
-                description={step.description}
-                gradient={step.gradient}
-                step={step.step}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* How It Works Animation */}
+      <HowItWorks />
 
       {/* Why Choose ZestyMonk */}
-      <section className="py-20">
+      <section className="py-20 bg-gradient-to-b from-light-green/10 to-background">
         <div className="container mx-auto px-4 lg:px-8">
           <SectionHeader 
             title="Why Choose ZestyMonk?"
             subtitle="We're not just another meal delivery service - we're your health transformation partner"
-            gradient="plasma"
+            gradient="fresh"
           />
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -92,37 +43,37 @@ const Home = () => {
                 icon: <Shield className="h-8 w-8" />,
                 title: "Patented Technology",
                 description: "Our exclusive retort packaging keeps nutrients 98% intact while enhancing flavors",
-                gradient: "bg-gradient-to-r from-neon-cyan to-neon-blue"
+                gradient: "bg-gradient-to-r from-fresh-green to-tech-blue"
               },
               {
                 icon: <Heart className="h-8 w-8" />,
                 title: "Personalized Nutrition",
                 description: "AI-powered meal planning based on your unique health profile and goals",
-                gradient: "bg-gradient-to-r from-neon-blue to-neon-purple"
+                gradient: "bg-gradient-to-r from-tech-blue to-warm-orange"
               },
               {
                 icon: <Clock className="h-8 w-8" />,
                 title: "Fresh Daily Delivery",
                 description: "No meal prep, no cooking stress - just heat and enjoy restaurant-quality meals",
-                gradient: "bg-gradient-to-r from-neon-purple to-plasma-pink"
+                gradient: "bg-gradient-to-r from-warm-orange to-accent-orange"
               },
               {
                 icon: <CheckCircle className="h-8 w-8" />,
                 title: "100% Natural",
                 description: "No preservatives, no artificial additives - just pure, wholesome ingredients",
-                gradient: "bg-gradient-to-r from-plasma-pink to-neon-cyan"
+                gradient: "bg-gradient-to-r from-accent-orange to-fresh-green"
               },
               {
                 icon: <Star className="h-8 w-8" />,
                 title: "Chef-Crafted",
                 description: "Every meal designed by nutrition experts and prepared by professional chefs",
-                gradient: "bg-gradient-to-r from-electric-blue to-cyber-purple"
+                gradient: "bg-gradient-to-r from-vibrant-green to-tech-blue"
               },
               {
                 icon: <Zap className="h-8 w-8" />,
                 title: "Instant Results",
                 description: "Feel the energy boost and health improvements from day one",
-                gradient: "bg-gradient-to-r from-cyber-purple to-neon-cyan"
+                gradient: "bg-gradient-to-r from-tech-blue to-fresh-green"
               }
             ].map((feature, index) => (
               <FeatureCard 
@@ -138,12 +89,12 @@ const Home = () => {
       </section>
 
       {/* Subscription Plans Preview */}
-      <section className="py-20 bg-card">
+      <section className="py-20 bg-gradient-to-b from-background to-light-orange/10">
         <div className="container mx-auto px-4 lg:px-8">
           <SectionHeader 
             title="Choose Your Health Journey"
             subtitle="Tailored nutrition plans for every lifestyle and health goal"
-            gradient="electric"
+            gradient="vitality"
           />
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -152,28 +103,28 @@ const Home = () => {
                 name: "Weight Loss (Veg/Non-Veg)",
                 description: "Burn fat, boost metabolism",
                 price: "₹22,999",
-                color: "neon-cyan",
+                color: "fresh-green",
                 features: ["Calorie-controlled", "Fat-burning foods", "Portion optimized"]
               },
               {
                 name: "Muscle Gain (Veg/Non-Veg)",
                 description: "Build strength, gain muscle",
                 price: "₹24,999",
-                color: "neon-blue",
+                color: "tech-blue",
                 features: ["High protein", "Recovery foods", "Performance focused"]
               },
               {
                 name: "Diabetic-Friendly (Veg/Non-Veg)",
                 description: "Blood sugar management",
                 price: "₹23,999",
-                color: "neon-purple",
+                color: "warm-orange",
                 features: ["Low glycemic", "Sugar-free", "Doctor approved"]
               },
               {
                 name: "General Wellness (Veg/Non-Veg)",
                 description: "Balanced nutrition",
                 price: "₹21,999",
-                color: "plasma-pink",
+                color: "vibrant-green",
                 features: ["All nutrients", "Immunity boost", "Energy focused"]
               }
             ].map((plan, index) => (
@@ -189,7 +140,7 @@ const Home = () => {
           </div>
 
           <div className="text-center mt-12">
-            <Button variant="cyber" size="lg" className="text-lg px-8">
+            <Button variant="fresh" size="lg" className="text-lg px-8">
               View All Plans & Pricing
             </Button>
           </div>
@@ -205,7 +156,7 @@ const Home = () => {
           <SectionHeader 
             title="What Our Members Say"
             subtitle="Real transformations, real results, real taste explosions!"
-            gradient="cyber"
+            gradient="fresh"
           />
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -246,27 +197,27 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-neon-cyan/10 to-neon-purple/10 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-neon-cyan/5 to-neon-purple/5 animate-pulse"></div>
+      <section className="py-20 bg-gradient-to-r from-light-green/20 to-light-orange/20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-fresh-green/5 to-warm-orange/5 animate-pulse"></div>
         <div className="container mx-auto px-4 lg:px-8 text-center relative z-10">
           <div className="space-y-8 max-w-4xl mx-auto">
-            <h2 className="text-3xl lg:text-5xl font-orbitron font-bold text-gradient-plasma pulse-plasma">
+            <h2 className="text-3xl lg:text-5xl font-orbitron font-bold text-gradient-fresh pulse-fresh">
               Ready to Transform Your Health?
             </h2>
             <p className="text-xl text-muted-foreground font-exo">
               Join thousands of healthy, happy ZestyMonk members. Your taste buds and body will thank you!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="cyber" size="lg" className="text-lg px-8 py-4">
+              <Button variant="fresh" size="lg" className="text-lg px-8 py-4">
                 <Zap className="mr-2" />
                 Start My Free Trial
               </Button>
-              <Button variant="plasma" size="lg" className="text-lg">
+              <Button variant="vitality" size="lg" className="text-lg">
                 Learn More
               </Button>
             </div>
             <p className="text-sm text-muted-foreground font-exo">
-              🔥 Limited time: First week FREE for new members!
+              🌱 Limited time: First week FREE for new members!
             </p>
           </div>
         </div>

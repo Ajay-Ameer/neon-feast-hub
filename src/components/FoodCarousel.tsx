@@ -55,7 +55,7 @@ const FoodCarousel = () => {
     <div className="py-12 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8">
-          <h3 className="text-2xl font-orbitron font-bold text-gradient-cyber pulse-cyber mb-2">
+          <h3 className="text-2xl font-orbitron font-bold text-gradient-fresh pulse-fresh mb-2">
             Delicious Meals Waiting for You
           </h3>
           <p className="text-muted-foreground font-exo">
@@ -79,24 +79,24 @@ const FoodCarousel = () => {
         >
           <CarouselContent className="-ml-2 md:-ml-4">
             {foodItems.map((item, index) => (
-              <CarouselItem key={index} className="pl-2 md:pl-4 basis-1/2 md:basis-1/3 lg:basis-1/4">
+                <CarouselItem key={index} className="pl-2 md:pl-4 basis-1/2 md:basis-1/3 lg:basis-1/4">
                   <div className="group cursor-pointer">
-                    <div className="relative p-6 rounded-2xl bg-dark-darker/80 backdrop-blur-sm border-2 border-neon-cyan/30 hover:border-neon-cyan/80 transition-all duration-300 shadow-lg hover:shadow-[0_0_40px_hsl(var(--neon-cyan)/0.3)] card-glow hover:scale-105">
+                    <div className="relative p-6 rounded-2xl bg-card/80 backdrop-blur-sm border-2 border-fresh-green/30 hover:border-fresh-green/80 transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_hsl(var(--fresh-green)/0.2)] card-glow hover:scale-105">
                       <div className="text-center space-y-3">
-                        <div className="text-4xl md:text-5xl transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12 float-animation filter drop-shadow-[0_0_10px_hsl(var(--neon-cyan)/0.8)]">
+                        <div className="text-4xl md:text-5xl transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 float-animation">
                           {item.emoji}
                         </div>
-                        <h4 className="font-orbitron font-semibold text-neon-cyan text-sm md:text-base">
+                        <h4 className="font-orbitron font-semibold text-fresh-green text-sm md:text-base">
                           {item.name}
                         </h4>
                         <p className="text-xs text-muted-foreground font-exo">
                           {item.description}
                         </p>
                       </div>
-                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-neon-cyan/10 to-neon-purple/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-fresh-green/5 to-warm-orange/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
                   </div>
-              </CarouselItem>
+                </CarouselItem>
             ))}
           </CarouselContent>
         </Carousel>

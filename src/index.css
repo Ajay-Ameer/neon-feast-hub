@@ -7,65 +7,63 @@
 
 @layer base {
   :root {
-    /* Futuristic dark cyberpunk theme */
-    --background: 222 84% 2%;
-    --foreground: 190 100% 95%;
+    /* Fresh, Health-Focused Light Theme */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 15%;
 
-    --card: 222 84% 4%;
-    --card-foreground: 190 100% 95%;
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 15%;
 
-    --popover: 222 84% 4%;
-    --popover-foreground: 190 100% 95%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 15%;
 
-    /* Futuristic Neon Colors */
-    --neon-cyan: 180 100% 60%;
-    --neon-blue: 200 100% 65%;
-    --neon-purple: 280 100% 70%;
-    --electric-blue: 210 100% 55%;
-    --cyber-purple: 270 85% 75%;
-    --plasma-pink: 320 100% 75%;
-    --dark-bg: 222 84% 2%;
-    --darker-bg: 222 84% 1%;
-    --neon-glow: 180 100% 60%;
+    /* Fresh Natural Colors */
+    --fresh-green: 140 60% 45%;
+    --vibrant-green: 120 70% 35%;
+    --warm-orange: 25 95% 55%;
+    --accent-orange: 35 100% 50%;
+    --tech-blue: 200 80% 50%;
+    --soft-cream: 40 15% 97%;
+    --light-green: 140 30% 92%;
+    --light-orange: 25 50% 95%;
 
-    /* Primary brand color - Neon Cyan */
-    --primary: 180 100% 60%;
-    --primary-foreground: 222 84% 2%;
+    /* Primary brand color - Fresh Green */
+    --primary: 140 60% 45%;
+    --primary-foreground: 0 0% 100%;
 
-    /* Secondary - Electric Purple */
-    --secondary: 280 100% 70%;
-    --secondary-foreground: 222 84% 2%;
+    /* Secondary - Warm Orange */
+    --secondary: 25 95% 55%;
+    --secondary-foreground: 0 0% 100%;
 
-    /* Muted dark tones */
-    --muted: 210 100% 8%;
-    --muted-foreground: 210 30% 65%;
+    /* Muted light tones */
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
-    /* Accent - Neon Blue */
-    --accent: 200 100% 65%;
-    --accent-foreground: 222 84% 2%;
+    /* Accent - Tech Blue */
+    --accent: 200 80% 50%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 50%;
-    --destructive-foreground: 210 100% 95%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 210 100% 15%;
-    --input: 210 100% 12%;
-    --ring: 180 100% 50%;
+    --border: 0 0% 90%;
+    --input: 0 0% 100%;
+    --ring: 140 60% 45%;
 
     --radius: 0.75rem;
 
-    /* Futuristic Gradients */
-    --gradient-cyber: linear-gradient(135deg, hsl(var(--neon-cyan)), hsl(var(--neon-blue)));
-    --gradient-plasma: linear-gradient(135deg, hsl(var(--neon-purple)), hsl(var(--plasma-pink)));
-    --gradient-electric: linear-gradient(135deg, hsl(var(--electric-blue)), hsl(var(--cyber-purple)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--neon-cyan) / 0.9), hsl(var(--neon-blue) / 0.8));
-    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(210 100% 6%));
-    --gradient-glow: radial-gradient(circle at 50% 50%, hsl(var(--neon-cyan) / 0.3), transparent 70%);
+    /* Fresh Health Gradients */
+    --gradient-fresh: linear-gradient(135deg, hsl(var(--fresh-green)), hsl(var(--vibrant-green)));
+    --gradient-vitality: linear-gradient(135deg, hsl(var(--warm-orange)), hsl(var(--accent-orange)));
+    --gradient-tech: linear-gradient(135deg, hsl(var(--tech-blue)), hsl(var(--fresh-green)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--soft-cream)), hsl(var(--light-green)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--light-green)));
+    --gradient-glow: radial-gradient(circle at 50% 50%, hsl(var(--fresh-green) / 0.1), transparent 70%);
 
-    /* Futuristic Glows */
-    --glow-cyan: 0 0 30px hsl(var(--neon-cyan) / 0.8), 0 0 60px hsl(var(--neon-cyan) / 0.4);
-    --glow-blue: 0 0 30px hsl(var(--neon-blue) / 0.8), 0 0 60px hsl(var(--neon-blue) / 0.4);
-    --glow-purple: 0 0 30px hsl(var(--neon-purple) / 0.8), 0 0 60px hsl(var(--neon-purple) / 0.4);
-    --glow-plasma: 0 0 30px hsl(var(--plasma-pink) / 0.8), 0 0 60px hsl(var(--plasma-pink) / 0.4);
+    /* Fresh Glows */
+    --glow-green: 0 0 20px hsl(var(--fresh-green) / 0.4), 0 0 40px hsl(var(--fresh-green) / 0.2);
+    --glow-orange: 0 0 20px hsl(var(--warm-orange) / 0.4), 0 0 40px hsl(var(--warm-orange) / 0.2);
+    --glow-blue: 0 0 20px hsl(var(--tech-blue) / 0.4), 0 0 40px hsl(var(--tech-blue) / 0.2);
 
     /* Smooth Animations */
     --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -89,33 +87,33 @@
   }
 
   .dark {
-    --background: 222 84% 4%;
-    --foreground: 210 100% 95%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 15%;
 
-    --card: 222 84% 6%;
-    --card-foreground: 210 100% 95%;
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 15%;
 
-    --popover: 222 84% 6%;
-    --popover-foreground: 210 100% 95%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 15%;
 
-    --primary: 180 100% 50%;
-    --primary-foreground: 222 84% 4%;
+    --primary: 140 60% 45%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 200 100% 60%;
-    --secondary-foreground: 222 84% 4%;
+    --secondary: 25 95% 55%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 100% 12%;
-    --muted-foreground: 210 30% 70%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 120 100% 50%;
-    --accent-foreground: 222 84% 4%;
+    --accent: 200 80% 50%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 50%;
-    --destructive-foreground: 210 100% 95%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 210 100% 15%;
-    --input: 210 100% 12%;
-    --ring: 180 100% 50%;
+    --border: 0 0% 90%;
+    --input: 0 0% 100%;
+    --ring: 140 60% 45%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -152,67 +150,67 @@
 }
 
 @layer components {
-  /* Futuristic button variants */
-  .btn-cyber {
-    @apply relative overflow-hidden rounded-xl px-6 py-3 font-semibold text-black transition-all duration-500 font-futuristic;
-    background: var(--gradient-cyber);
-    box-shadow: var(--glow-cyan);
-    border: 1px solid hsl(var(--neon-cyan) / 0.3);
-  }
-  
-  .btn-cyber:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: var(--glow-cyan), 0 15px 35px hsl(var(--neon-cyan) / 0.6);
-    border-color: hsl(var(--neon-cyan) / 0.8);
-  }
-
-  .btn-plasma {
+  /* Fresh Health button variants */
+  .btn-fresh {
     @apply relative overflow-hidden rounded-xl px-6 py-3 font-semibold text-white transition-all duration-500 font-futuristic;
-    background: var(--gradient-plasma);
-    box-shadow: var(--glow-purple);
-    border: 1px solid hsl(var(--neon-purple) / 0.3);
+    background: var(--gradient-fresh);
+    box-shadow: var(--glow-green);
+    border: 1px solid hsl(var(--fresh-green) / 0.3);
   }
   
-  .btn-plasma:hover {
+  .btn-fresh:hover {
     transform: translateY(-3px) scale(1.02);
-    box-shadow: var(--glow-purple), 0 15px 35px hsl(var(--neon-purple) / 0.6);
-    border-color: hsl(var(--neon-purple) / 0.8);
+    box-shadow: var(--glow-green), 0 15px 35px hsl(var(--fresh-green) / 0.6);
+    border-color: hsl(var(--fresh-green) / 0.8);
   }
 
-  /* Futuristic text effects */
-  .text-neon-cyan {
-    color: hsl(var(--neon-cyan));
-    text-shadow: 0 0 15px hsl(var(--neon-cyan) / 0.9), 0 0 30px hsl(var(--neon-cyan) / 0.5);
+  .btn-vitality {
+    @apply relative overflow-hidden rounded-xl px-6 py-3 font-semibold text-white transition-all duration-500 font-futuristic;
+    background: var(--gradient-vitality);
+    box-shadow: var(--glow-orange);
+    border: 1px solid hsl(var(--warm-orange) / 0.3);
+  }
+  
+  .btn-vitality:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: var(--glow-orange), 0 15px 35px hsl(var(--warm-orange) / 0.6);
+    border-color: hsl(var(--warm-orange) / 0.8);
   }
 
-  .text-neon-blue {
-    color: hsl(var(--neon-blue));
-    text-shadow: 0 0 15px hsl(var(--neon-blue) / 0.9), 0 0 30px hsl(var(--neon-blue) / 0.5);
+  /* Fresh Health text effects */
+  .text-fresh-green {
+    color: hsl(var(--fresh-green));
+    text-shadow: 0 0 10px hsl(var(--fresh-green) / 0.3);
   }
 
-  .text-neon-purple {
-    color: hsl(var(--neon-purple));
-    text-shadow: 0 0 15px hsl(var(--neon-purple) / 0.9), 0 0 30px hsl(var(--neon-purple) / 0.5);
+  .text-vibrant-green {
+    color: hsl(var(--vibrant-green));
+    text-shadow: 0 0 10px hsl(var(--vibrant-green) / 0.3);
   }
 
-  .text-plasma-pink {
-    color: hsl(var(--plasma-pink));
-    text-shadow: 0 0 15px hsl(var(--plasma-pink) / 0.9), 0 0 30px hsl(var(--plasma-pink) / 0.5);
+  .text-warm-orange {
+    color: hsl(var(--warm-orange));
+    text-shadow: 0 0 10px hsl(var(--warm-orange) / 0.3);
   }
 
-  .text-electric-blue {
-    color: hsl(var(--electric-blue));
-    text-shadow: 0 0 15px hsl(var(--electric-blue) / 0.9), 0 0 30px hsl(var(--electric-blue) / 0.5);
+  .text-accent-orange {
+    color: hsl(var(--accent-orange));
+    text-shadow: 0 0 10px hsl(var(--accent-orange) / 0.3);
   }
 
-  /* Futuristic card effects */
+  .text-tech-blue {
+    color: hsl(var(--tech-blue));
+    text-shadow: 0 0 10px hsl(var(--tech-blue) / 0.3);
+  }
+
+  /* Fresh Health card effects */
   .card-glow {
-    background: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--card)) 100%);
-    border: 2px solid hsl(var(--neon-cyan) / 0.3);
+    background: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--light-green)) 100%);
+    border: 2px solid hsl(var(--fresh-green) / 0.3);
     box-shadow: 
-      0 4px 20px rgba(0, 0, 0, 0.2),
-      0 0 20px hsl(var(--neon-cyan) / 0.2),
-      inset 0 1px 0 hsl(var(--neon-cyan) / 0.1);
+      0 4px 20px rgba(0, 0, 0, 0.1),
+      0 0 20px hsl(var(--fresh-green) / 0.1),
+      inset 0 1px 0 hsl(var(--fresh-green) / 0.1);
     transition: var(--transition-smooth);
     position: relative;
     overflow: hidden;
@@ -226,9 +224,9 @@
     right: 0;
     bottom: 0;
     background: linear-gradient(135deg, 
-      hsl(var(--neon-cyan) / 0.1) 0%, 
+      hsl(var(--fresh-green) / 0.05) 0%, 
       transparent 50%, 
-      hsl(var(--neon-purple) / 0.1) 100%);
+      hsl(var(--warm-orange) / 0.05) 100%);
     opacity: 0;
     transition: var(--transition-smooth);
     pointer-events: none;
@@ -239,61 +237,61 @@
   }
 
   .card-glow:hover {
-    border-color: hsl(var(--neon-cyan) / 0.8);
+    border-color: hsl(var(--fresh-green) / 0.6);
     box-shadow: 
-      0 12px 50px rgba(0, 0, 0, 0.3),
-      0 0 60px hsl(var(--neon-cyan) / 0.5),
-      0 0 100px hsl(var(--neon-purple) / 0.3),
-      inset 0 2px 0 hsl(var(--neon-cyan) / 0.3);
+      0 12px 50px rgba(0, 0, 0, 0.1),
+      0 0 40px hsl(var(--fresh-green) / 0.3),
+      0 0 60px hsl(var(--warm-orange) / 0.2),
+      inset 0 2px 0 hsl(var(--fresh-green) / 0.2);
     transform: translateY(-8px) scale(1.02);
   }
 
-  /* Futuristic pulse animations */
-  .pulse-cyber {
-    animation: pulse-cyber var(--pulse-duration) ease-in-out infinite alternate;
+  /* Fresh Health pulse animations */
+  .pulse-fresh {
+    animation: pulse-fresh var(--pulse-duration) ease-in-out infinite alternate;
   }
 
-  .pulse-plasma {
-    animation: pulse-plasma 4s ease-in-out infinite alternate;
+  .pulse-vitality {
+    animation: pulse-vitality 4s ease-in-out infinite alternate;
   }
 
-  @keyframes pulse-cyber {
+  @keyframes pulse-fresh {
     from {
-      text-shadow: 0 0 15px hsl(var(--neon-cyan) / 0.8);
+      text-shadow: 0 0 10px hsl(var(--fresh-green) / 0.3);
     }
     to {
-      text-shadow: 0 0 25px hsl(var(--neon-cyan) / 1), 0 0 35px hsl(var(--neon-blue) / 0.8), 0 0 45px hsl(var(--neon-cyan) / 0.4);
+      text-shadow: 0 0 15px hsl(var(--fresh-green) / 0.5), 0 0 25px hsl(var(--vibrant-green) / 0.3);
     }
   }
 
-  @keyframes pulse-plasma {
+  @keyframes pulse-vitality {
     from {
-      text-shadow: 0 0 15px hsl(var(--neon-purple) / 0.8);
+      text-shadow: 0 0 10px hsl(var(--warm-orange) / 0.3);
     }
     to {
-      text-shadow: 0 0 25px hsl(var(--neon-purple) / 1), 0 0 35px hsl(var(--plasma-pink) / 0.8), 0 0 45px hsl(var(--neon-purple) / 0.4);
+      text-shadow: 0 0 15px hsl(var(--warm-orange) / 0.5), 0 0 25px hsl(var(--accent-orange) / 0.3);
     }
   }
 
-  /* Futuristic gradient text */
-  .text-gradient-cyber {
-    background: var(--gradient-cyber);
+  /* Fresh Health gradient text */
+  .text-gradient-fresh {
+    background: var(--gradient-fresh);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: shimmer 3s ease-in-out infinite;
   }
 
-  .text-gradient-plasma {
-    background: var(--gradient-plasma);
+  .text-gradient-vitality {
+    background: var(--gradient-vitality);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: shimmer 3s ease-in-out infinite reverse;
   }
 
-  .text-gradient-electric {
-    background: var(--gradient-electric);
+  .text-gradient-tech {
+    background: var(--gradient-tech);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -304,9 +302,9 @@
     50% { opacity: 0.8; }
   }
 
-  /* Futuristic hero background */
+  /* Fresh Health hero background */
   .hero-bg {
-    background: radial-gradient(ellipse at center, hsl(var(--neon-cyan) / 0.15) 0%, hsl(var(--neon-blue) / 0.08) 40%, hsl(var(--background)) 80%);
+    background: linear-gradient(135deg, hsl(var(--soft-cream)) 0%, hsl(var(--light-green)) 100%);
     position: relative;
   }
 
@@ -314,7 +312,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(45deg, hsl(var(--neon-cyan) / 0.05), transparent 50%, hsl(var(--neon-purple) / 0.05));
+    background: linear-gradient(45deg, hsl(var(--fresh-green) / 0.03), transparent 50%, hsl(var(--warm-orange) / 0.03));
     animation: gradient-shift 8s ease-in-out infinite alternate;
   }
 
@@ -337,36 +335,36 @@
     transform: translateY(-5px);
   }
 
-  .cyber-border {
-    border: 2px solid hsl(var(--neon-cyan) / 0.4);
+  .fresh-border {
+    border: 2px solid hsl(var(--fresh-green) / 0.4);
     position: relative;
     overflow: hidden;
     box-shadow: 
-      0 0 20px hsl(var(--neon-cyan) / 0.2),
-      inset 0 1px 0 hsl(var(--neon-cyan) / 0.2);
+      0 0 20px hsl(var(--fresh-green) / 0.1),
+      inset 0 1px 0 hsl(var(--fresh-green) / 0.1);
   }
 
-  .cyber-border::before {
+  .fresh-border::before {
     content: '';
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 3px;
-    background: linear-gradient(90deg, transparent, hsl(var(--neon-cyan)), hsl(var(--electric-blue)), transparent);
+    background: linear-gradient(90deg, transparent, hsl(var(--fresh-green)), hsl(var(--tech-blue)), transparent);
     transition: var(--transition-smooth);
     z-index: 1;
   }
 
-  .cyber-border:hover {
-    border-color: hsl(var(--neon-cyan) / 0.8);
+  .fresh-border:hover {
+    border-color: hsl(var(--fresh-green) / 0.8);
     box-shadow: 
-      0 0 40px hsl(var(--neon-cyan) / 0.4),
-      0 0 60px hsl(var(--electric-blue) / 0.3),
-      inset 0 2px 0 hsl(var(--neon-cyan) / 0.3);
+      0 0 30px hsl(var(--fresh-green) / 0.2),
+      0 0 40px hsl(var(--tech-blue) / 0.1),
+      inset 0 2px 0 hsl(var(--fresh-green) / 0.2);
   }
 
-  .cyber-border:hover::before {
+  .fresh-border:hover::before {
     left: 100%;
     transition: left 0.8s ease-in-out;
   }

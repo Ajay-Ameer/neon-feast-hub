@@ -11,22 +11,22 @@ interface TestimonialCardProps {
 
 const TestimonialCard = ({ name, role, content, rating, image }: TestimonialCardProps) => {
   return (
-    <Card className="card-glow cyber-border p-6 hover-glow">
+    <Card className="card-glow fresh-border p-6 hover-glow">
       <CardContent className="space-y-4 p-0">
         <div className="flex justify-center space-x-1">
           {[...Array(rating)].map((_, i) => (
-            <Star key={i} className="h-5 w-5 fill-neon-cyan text-neon-cyan animate-pulse" />
+            <Star key={i} className="h-5 w-5 fill-warm-orange text-warm-orange" />
           ))}
         </div>
         <p className="text-muted-foreground italic leading-relaxed font-exo">
           "{content}"
         </p>
         <div className="flex items-center space-x-3">
-          <div className="w-12 h-12 rounded-full bg-dark-darker border-2 border-electric-blue/50 flex items-center justify-center text-2xl hover-glow transition-all duration-300 hover:border-electric-blue hover:shadow-[0_0_30px_hsl(var(--electric-blue)/0.5)] text-electric-blue">
+          <div className="w-12 h-12 rounded-full bg-gradient-fresh border-2 border-fresh-green/50 flex items-center justify-center text-2xl hover-glow transition-all duration-300 hover:border-fresh-green hover:shadow-[0_0_20px_hsl(var(--fresh-green)/0.3)] text-white">
             {image}
           </div>
           <div>
-            <div className="font-bold text-foreground font-orbitron">{name}</div>
+            <div className="font-bold text-fresh-green font-orbitron">{name}</div>
             <div className="text-sm text-muted-foreground font-exo">{role}</div>
           </div>
         </div>
