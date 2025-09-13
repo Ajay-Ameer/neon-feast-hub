@@ -15,72 +15,93 @@ import {
 const Blog = () => {
   const blogPosts = [
     {
-      title: "The Science Behind Our Retort Packaging Technology",
-      excerpt: "Discover how our patented packaging keeps nutrients intact while maintaining freshness for days without preservatives.",
+      title: "Keto Diet Guide: Complete Nutrition for Beginners",
+      excerpt: "Master the ketogenic lifestyle with our comprehensive guide covering macros, meal timing, and delicious keto-friendly recipes that support weight loss and mental clarity.",
       author: "Dr. Priya Sharma",
       date: "2024-01-15",
-      readTime: "5 min read",
-      category: "Technology",
-      image: "🔬",
+      readTime: "8 min read",
+      category: "Keto",
+      image: "🥥",
       featured: true
     },
     {
-      title: "5 Superfoods That Boost Your Metabolism Naturally",
-      excerpt: "Learn about powerful ingredients we incorporate into our weight loss meals to help you burn calories more efficiently.",
+      title: "Paleo Diet Essentials: Eating Like Our Ancestors",
+      excerpt: "Discover how the Paleo diet can transform your health by focusing on whole, unprocessed foods. Learn about allowed foods, meal prep tips, and long-term benefits.",
       author: "Nutritionist Ravi Kumar",
       date: "2024-01-12",
-      readTime: "4 min read",
-      category: "Nutrition",
-      image: "🥑",
+      readTime: "6 min read",
+      category: "Paleo",
+      image: "🥩",
       featured: false
     },
     {
-      title: "Plant-Based Protein: Complete Guide for Vegetarians",
-      excerpt: "Everything you need to know about getting complete protein from plant sources in your daily meals.",
+      title: "Plant-Based Protein: Complete Amino Acid Guide",
+      excerpt: "Everything you need about combining plant proteins for complete amino acid profiles. Includes meal plans and protein-rich vegetarian recipes.",
       author: "Chef Meera Patel",
       date: "2024-01-10",
-      readTime: "6 min read",
+      readTime: "7 min read",
       category: "Vegetarian",
       image: "🌱",
       featured: false
     },
     {
-      title: "Managing Diabetes Through Strategic Meal Planning",
-      excerpt: "How our diabetic-friendly plans help maintain stable blood sugar levels while enjoying delicious, satisfying meals.",
+      title: "Intermittent Fasting: Science-Backed Meal Timing",
+      excerpt: "Learn the proven benefits of intermittent fasting, different methods (16:8, 5:2, OMAD), and how to combine it with our meal plans for optimal results.",
       author: "Dr. Arjun Mehta",
       date: "2024-01-08",
-      readTime: "7 min read",
-      category: "Health",
-      image: "🩺",
+      readTime: "9 min read",
+      category: "Fasting",
+      image: "⏰",
       featured: true
     },
     {
-      title: "Post-Workout Nutrition: Timing is Everything",
-      excerpt: "Maximize your muscle gain with the right nutrients at the right time. Our muscle gain plan explained.",
-      author: "Fitness Expert Karan Singh",
+      title: "Micronutrients: The Hidden Key to Optimal Health",
+      excerpt: "Deep dive into essential vitamins and minerals often missing from modern diets. Discover food sources and how our meals ensure complete nutrition.",
+      author: "Nutrition Scientist Dr. Sarah Kim",
       date: "2024-01-05",
-      readTime: "5 min read",
-      category: "Fitness",
-      image: "💪",
+      readTime: "6 min read",
+      category: "Nutrition",
+      image: "🧪",
       featured: false
     },
     {
-      title: "The Psychology of Food Colors and Appetite",
-      excerpt: "How we use color psychology in our meal presentation to enhance your eating experience and satisfaction.",
-      author: "Food Psychologist Dr. Anita Roy",
+      title: "Meal Prep Mastery: Weekly Planning for Busy Lives",
+      excerpt: "Transform your nutrition with strategic meal planning. Learn batch cooking techniques, storage methods, and how to maintain variety in your healthy diet.",
+      author: "Chef Nutrition Expert Maya Singh",
       date: "2024-01-03",
-      readTime: "4 min read",
-      category: "Psychology",
-      image: "🎨",
+      readTime: "5 min read",
+      category: "Meal Prep",
+      image: "📋",
+      featured: false
+    },
+    {
+      title: "Gut Health Revolution: Probiotics and Digestive Wellness",
+      excerpt: "Understand the gut-brain connection and how fermented foods, prebiotics, and proper nutrition support your microbiome for better health and immunity.",
+      author: "Dr. Digestive Health Specialist Raj Patel",
+      date: "2024-01-01",
+      readTime: "7 min read",
+      category: "Gut Health",
+      image: "🦠",
+      featured: false
+    },
+    {
+      title: "Anti-Inflammatory Foods: Nature's Medicine Cabinet",
+      excerpt: "Combat chronic inflammation with powerful anti-inflammatory foods. Learn which ingredients to include and avoid for reducing disease risk naturally.",
+      author: "Functional Medicine Dr. Lisa Chen",
+      date: "2023-12-28",
+      readTime: "6 min read",
+      category: "Inflammation",
+      image: "🍓",
       featured: false
     }
   ];
 
   const categories = [
     { name: "All", icon: <Heart className="h-4 w-4" />, active: true },
-    { name: "Nutrition", icon: <Leaf className="h-4 w-4" />, active: false },
-    { name: "Technology", icon: <Zap className="h-4 w-4" />, active: false },
-    { name: "Health", icon: <Shield className="h-4 w-4" />, active: false }
+    { name: "Keto", icon: <Leaf className="h-4 w-4" />, active: false },
+    { name: "Paleo", icon: <Zap className="h-4 w-4" />, active: false },
+    { name: "Nutrition", icon: <Shield className="h-4 w-4" />, active: false },
+    { name: "Meal Prep", icon: <Heart className="h-4 w-4" />, active: false }
   ];
 
   return (

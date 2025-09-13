@@ -3,7 +3,7 @@ import { Zap, Mail, Phone, MessageCircle, Instagram, Facebook, Twitter } from "l
 
 const Footer = () => {
   return (
-    <footer className="bg-card border-t border-border">
+    <footer className="footer-bg">
       <div className="container mx-auto px-4 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           {/* Company Info */}

@@ -412,4 +412,13 @@
   .animate-float-fast {
     animation: float 3s ease-in-out infinite;
   }
+
+  /* Footer styles */
+  .footer-bg {
+    background: linear-gradient(135deg, 
+      hsl(39 100% 85%) 0%, 
+      hsl(34 100% 80%) 50%, 
+      hsl(29 100% 75%) 100%);
+    border-top: 2px solid hsl(34 100% 70%);
+  }
 }

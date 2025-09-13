@@ -12,6 +12,7 @@ import {
   Phone,
   ChefHat
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Plans = () => {
   const plans = [
@@ -182,11 +183,12 @@ const Plans = () => {
                     <Button 
                       variant={plan.popular ? "fresh" : "vitality"} 
                       className="w-full"
+                      asChild
                     >
-                      Subscribe Now
+                      <Link to="/contact">Subscribe Now</Link>
                     </Button>
-                    <Button variant="outline" className="w-full text-sm">
-                      Try for 3 Days - ₹299
+                    <Button variant="outline" className="w-full text-sm" asChild>
+                      <Link to="/contact">Try for 3 Days - ₹299</Link>
                     </Button>
                   </div>
                 </CardContent>
@@ -233,12 +235,14 @@ const Plans = () => {
               based on your goals, lifestyle, and preferences.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="fresh" size="lg" className="text-lg px-8 py-4">
-                <Phone className="mr-2" />
-                Free Nutrition Consultation
+              <Button variant="fresh" size="lg" className="text-lg px-8 py-4" asChild>
+                <Link to="/contact">
+                  <Phone className="mr-2" />
+                  Free Nutrition Consultation
+                </Link>
               </Button>
-              <Button variant="outline" size="lg" className="text-lg border-warm-amber text-warm-amber hover:bg-warm-amber hover:text-white">
-                WhatsApp Us Now
+              <Button variant="outline" size="lg" className="text-lg border-warm-amber text-warm-amber hover:bg-warm-amber hover:text-white" asChild>
+                <Link to="/contact">WhatsApp Us Now</Link>
               </Button>
             </div>
           </div>

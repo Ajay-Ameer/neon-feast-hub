@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import NavigationBreadcrumb from "./components/ui/navigation-breadcrumb";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Mission from "./pages/Mission";
@@ -41,6 +42,7 @@ const App = () => (
         <ScrollToTop />
         <div className="min-h-screen bg-background text-foreground">
           <Header />
+          <NavigationBreadcrumb />
           <main>
             <Routes>
               <Route path="/" element={<Home />} />
