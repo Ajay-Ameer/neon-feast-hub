@@ -180,7 +180,7 @@ const Plans = () => {
 
                   <div className="space-y-3">
                     <Button 
-                      variant={plan.popular ? "appetizing" : "harvest"} 
+                      variant={plan.popular ? "cyber" : "plasma"} 
                       className="w-full"
                     >
                       Subscribe Now

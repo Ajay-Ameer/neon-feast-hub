@@ -111,7 +111,7 @@ const Blog = () => {
             {categories.map((category, index) => (
               <Button
                 key={index}
-                variant={category.active ? "appetizing" : "outline"}
+                variant={category.active ? "cyber" : "outline"}
                 className="flex items-center gap-2"
               >
                 {category.icon}
