@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="bg-card border-t border-border">
       <div className="container mx-auto px-4 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
@@ -56,13 +56,35 @@ const Footer = () => {
               {[
                 { name: "FAQ", href: "/faq" },
                 { name: "Contact Us", href: "/contact" },
-                { name: "Terms & Conditions", href: "/terms" },
-                { name: "Privacy Policy", href: "/privacy" },
+                { name: "Blog", href: "/blog" },
+                { name: "Mission", href: "/mission" },
               ].map((link) => (
                 <li key={link.name}>
                   <Link 
                     to={link.href} 
                     className="text-muted-foreground hover:text-neon-pink transition-colors text-sm"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Legal */}
+          <div className="space-y-4">
+            <h3 className="font-orbitron font-bold text-neon-pink">Legal</h3>
+            <ul className="space-y-2">
+              {[
+                { name: "Terms & Conditions", href: "/terms" },
+                { name: "Privacy Policy", href: "/privacy-policy" },
+                { name: "Cancellation Policy", href: "/cancellation-policy" },
+                { name: "Shipping Policy", href: "/shipping-policy" },
+              ].map((link) => (
+                <li key={link.name}>
+                  <Link 
+                    to={link.href} 
+                    className="text-muted-foreground hover:text-neon-yellow transition-colors text-sm"
                   >
                     {link.name}
                   </Link>
