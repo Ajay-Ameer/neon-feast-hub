@@ -44,7 +44,7 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:flex">
-            <Button variant="cyber" size="lg" className="cyber-border">
+            <Button variant="fresh" size="lg" className="fresh-border">
               Start My Plan
             </Button>
           </div>
@@ -74,7 +74,7 @@ const Header = () => {
                   {item.name}
                 </Link>
               ))}
-              <Button variant="cyber" size="lg" className="w-full mt-4 cyber-border">
+              <Button variant="fresh" size="lg" className="w-full mt-4 fresh-border">
                 Start My Plan
               </Button>
             </div>

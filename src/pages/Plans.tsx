@@ -180,7 +180,7 @@ const Plans = () => {
 
                   <div className="space-y-3">
                     <Button 
-                      variant={plan.popular ? "cyber" : "plasma"} 
+                      variant={plan.popular ? "fresh" : "vitality"} 
                       className="w-full"
                     >
                       Subscribe Now
@@ -233,7 +233,7 @@ const Plans = () => {
               based on your goals, lifestyle, and preferences.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="cyber" size="lg" className="text-lg px-8 py-4">
+              <Button variant="fresh" size="lg" className="text-lg px-8 py-4">
                 <Phone className="mr-2" />
                 Free Nutrition Consultation
               </Button>

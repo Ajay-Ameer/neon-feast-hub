@@ -1,20 +1,20 @@
 interface SectionHeaderProps {
   title: string;
   subtitle?: string;
-  gradient?: "cyber" | "plasma" | "electric";
+  gradient?: "fresh" | "vitality" | "warm";
   className?: string;
 }
 
-const SectionHeader = ({ title, subtitle, gradient = "cyber", className = "" }: SectionHeaderProps) => {
+const SectionHeader = ({ title, subtitle, gradient = "fresh", className = "" }: SectionHeaderProps) => {
   const gradientClass = {
-    cyber: "text-gradient-cyber",
-    plasma: "text-gradient-plasma", 
-    electric: "text-gradient-electric"
+    fresh: "text-gradient-fresh",
+    vitality: "text-gradient-warm", 
+    warm: "text-gradient-sunrise"
   }[gradient];
 
   return (
     <div className={`text-center space-y-4 mb-16 ${className}`}>
-      <h2 className={`text-3xl lg:text-5xl font-orbitron font-bold ${gradientClass} pulse-cyber`}>
+      <h2 className={`text-3xl lg:text-5xl font-playfair font-bold ${gradientClass} pulse-fresh`}>
         {title}
       </h2>
       {subtitle && (

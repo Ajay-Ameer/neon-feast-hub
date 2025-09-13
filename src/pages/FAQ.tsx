@@ -114,7 +114,7 @@ const FAQ = () => {
               with any questions about your meal plans or account.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="cyber" size="lg" className="text-lg px-8 py-4">
+              <Button variant="fresh" size="lg" className="text-lg px-8 py-4">
                 <MessageCircle className="mr-2" />
                 Chat on WhatsApp
               </Button>
@@ -162,7 +162,7 @@ const FAQ = () => {
                   <p className="text-muted-foreground">
                     {card.description}
                   </p>
-                  <Button variant="plasma" className="w-full">
+                  <Button variant="vitality" className="w-full">
                     {card.action}
                   </Button>
                 </CardContent>
