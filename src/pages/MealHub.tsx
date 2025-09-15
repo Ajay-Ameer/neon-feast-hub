@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import SectionHeader from "@/components/ui/section-header";
+import { useCart } from "@/contexts/CartContext";
 import { Clock, Users, Star, Flame, Zap, Heart, Plus, Minus, ShoppingCart } from "lucide-react";
 import breakfastBowl from "@/assets/meal-breakfast-bowl.jpg";
 import buddhaBowl from "@/assets/meal-buddha-bowl.jpg";
@@ -676,6 +677,7 @@ const MealHub = () => {
   const [selectedMeal, setSelectedMeal] = useState<Meal | null>(null);
   const [activeFilters, setActiveFilters] = useState<Record<string, string[]>>({});
   const [quantities, setQuantities] = useState<Record<string, number>>({});
+  const { addToCart } = useCart();
 
   const toggleFilter = (category: string, option: string) => {
     setActiveFilters(prev => {
@@ -1035,17 +1037,34 @@ const MealHub = () => {
                       <Plus className="h-3 w-3" />
                     </Button>
                   </div>
-                  <Button 
-                    variant="fresh" 
-                    size="sm"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setSelectedMeal(meal);
-                    }}
-                    className="text-xs"
-                  >
-                    View Details
-                  </Button>
+                  <div className="flex gap-2">
+                    <Button 
+                      variant="fresh" 
+                      size="sm"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedMeal(meal);
+                      }}
+                      className="text-xs"
+                    >
+                      View Details
+                    </Button>
+                    {(quantities[meal.id] || 0) > 0 && (
+                      <Button 
+                        variant="outline" 
+                        size="sm"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          addToCart(meal, quantities[meal.id] || 0);
+                          setQuantities(prev => ({ ...prev, [meal.id]: 0 }));
+                        }}
+                        className="text-xs"
+                      >
+                        <ShoppingCart className="h-3 w-3 mr-1" />
+                        Add to Cart
+                      </Button>
+                    )}
+                  </div>
                 </div>
               </CardContent>
             </Card>

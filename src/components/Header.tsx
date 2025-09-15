@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, Zap } from "lucide-react";
+import { Menu, X, Zap, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { useCart } from "@/contexts/CartContext";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { getTotalItems } = useCart();
 
   const navigation = [
     { name: "Home", href: "/" },
@@ -43,8 +46,18 @@ const Header = () => {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:flex">
+          {/* Cart and CTA Button */}
+          <div className="hidden md:flex items-center gap-4">
+            <Button variant="ghost" size="sm" asChild className="relative">
+              <Link to="/cart">
+                <ShoppingCart className="h-5 w-5" />
+                {getTotalItems() > 0 && (
+                  <Badge variant="default" className="absolute -top-2 -right-2 h-5 w-5 p-0 flex items-center justify-center text-xs">
+                    {getTotalItems()}
+                  </Badge>
+                )}
+              </Link>
+            </Button>
             <Button variant="fresh" size="lg" className="fresh-border" asChild>
               <Link to="/plans">Start My Plan</Link>
             </Button>
@@ -75,6 +88,17 @@ const Header = () => {
                   {item.name}
                 </Link>
               ))}
+              <Button variant="ghost" asChild className="relative justify-start w-full">
+                <Link to="/cart" onClick={() => setIsMenuOpen(false)}>
+                  <ShoppingCart className="h-5 w-5 mr-2" />
+                  Cart
+                  {getTotalItems() > 0 && (
+                    <Badge variant="default" className="ml-2 h-5 w-5 p-0 flex items-center justify-center text-xs">
+                      {getTotalItems()}
+                    </Badge>
+                  )}
+                </Link>
+              </Button>
               <Button variant="fresh" size="lg" className="w-full mt-4 fresh-border" asChild>
                 <Link to="/plans">Start My Plan</Link>
               </Button>
