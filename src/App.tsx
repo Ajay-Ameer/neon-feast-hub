@@ -14,6 +14,7 @@ import Plans from "./pages/Plans";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
 import Blog from "./pages/Blog";
+import MealHub from "./pages/MealHub";
 import Terms from "./pages/Terms";
 import CancellationPolicy from "./pages/CancellationPolicy";
 import ShippingPolicy from "./pages/ShippingPolicy";
@@ -49,9 +50,10 @@ const App = () => (
               <Route path="/about" element={<About />} />
               <Route path="/mission" element={<Mission />} />
             <Route path="/plans" element={<Plans />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="/blog" element={<Blog />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/meal-hub" element={<MealHub />} />
             <Route path="/terms" element={<Terms />} />
               <Route path="/cancellation-policy" element={<CancellationPolicy />} />
               <Route path="/shipping-policy" element={<ShippingPolicy />} />
