@@ -58,14 +58,18 @@
 
     --radius: 1rem;
 
-    /* Health-focused gradients */
+    /* Health-focused gradients inspired by reference design */
     --gradient-fresh: linear-gradient(135deg, hsl(var(--fresh-green)), hsl(var(--fresh-green-light)));
     --gradient-vitality: linear-gradient(135deg, hsl(var(--vitality-orange)), hsl(var(--energy-yellow)));
     --gradient-earth: linear-gradient(135deg, hsl(var(--earth-green)), hsl(var(--fresh-green)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--pastel-green)) 50%, hsl(var(--pastel-orange)) 100%);
     --gradient-warm: linear-gradient(135deg, hsl(var(--warm-orange)), hsl(var(--energy-yellow)));
     --gradient-sunrise: linear-gradient(135deg, hsl(var(--energy-yellow)), hsl(var(--vitality-orange)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--soft-cream)), hsl(var(--pure-white)));
+    
+    /* Solid pastel green hero with wavy design elements */
+    --hero-solid: 95 45% 88%;
+    --hero-wave-1: 95 50% 85%;
+    --hero-wave-2: 95 40% 91%;
+    --background-cream: 45 30% 96%;
 
     /* Natural shadows */
     --shadow-fresh: 0 8px 32px hsl(var(--fresh-green) / 0.12);
@@ -411,6 +415,33 @@
 
   .animate-float-fast {
     animation: float 3s ease-in-out infinite;
+  }
+
+  /* Hero section with solid pastel green and wavy elements */
+  .hero-bg {
+    background: hsl(var(--hero-solid));
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'%3E%3Cpath d='M0,400 Q300,300 600,400 T1200,400 V800 H0 Z' fill='%23a7c957' fill-opacity='0.2'/%3E%3Cpath d='M0,450 Q300,350 600,450 T1200,450 V800 H0 Z' fill='%23b8d98a' fill-opacity='0.15'/%3E%3C/svg%3E") no-repeat bottom center;
+    background-size: cover;
+    pointer-events: none;
+  }
+
+  /* Page background */
+  .page-bg {
+    background: linear-gradient(135deg, 
+      hsl(var(--background-cream)) 0%, 
+      hsl(var(--hero-wave-2)) 50%, 
+      hsl(var(--background-cream)) 100%);
   }
 
   /* Footer styles */

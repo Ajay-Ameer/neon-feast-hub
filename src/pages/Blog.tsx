@@ -105,7 +105,7 @@ const Blog = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen page-bg">
       {/* Hero Section */}
       <section className="py-20 lg:py-32 hero-bg">
         <div className="container mx-auto px-4 lg:px-8">
@@ -126,14 +126,18 @@ const Blog = () => {
       </section>
 
       {/* Categories Filter */}
-      <section className="py-8 border-b border-border">
+      <section className="py-8 border-b border-border bg-white/70 backdrop-blur-sm">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex flex-wrap gap-4 justify-center">
             {categories.map((category, index) => (
               <Button
                 key={index}
-                variant={category.active ? "fresh" : "outline"}
-                className="flex items-center gap-2"
+                variant={category.active ? "default" : "outline"}
+                className={`flex items-center gap-2 transition-all duration-300 ${
+                  category.active 
+                    ? 'bg-gradient-to-r from-green-500 to-orange-500 text-white shadow-lg transform scale-105' 
+                    : 'bg-white/90 text-gray-600 hover:bg-gradient-to-r hover:from-green-50 hover:to-orange-50 hover:text-green-600 border border-green-100'
+                }`}
               >
                 {category.icon}
                 {category.name}
@@ -144,14 +148,14 @@ const Blog = () => {
       </section>
 
       {/* Featured Posts */}
-      <section className="py-12">
+      <section className="py-12 bg-white/50 backdrop-blur-sm">
         <div className="container mx-auto px-4 lg:px-8">
           <h2 className="text-2xl font-playfair font-bold text-gradient-sunrise mb-8 text-center">
             Featured Articles
           </h2>
           <div className="grid md:grid-cols-2 gap-8 mb-16">
             {blogPosts.filter(post => post.featured).map((post, index) => (
-              <Card key={index} className="card-elegant group hover:shadow-glow transition-all duration-300">
+              <Card key={index} className="bg-white/90 backdrop-blur-sm border border-green-100 hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer group">
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-4 mb-4">
                     <div className="text-4xl">{post.image}</div>
@@ -197,14 +201,14 @@ const Blog = () => {
       </section>
 
       {/* All Articles */}
-      <section className="py-12 bg-card">
+      <section className="py-12 bg-white/30 backdrop-blur-sm">
         <div className="container mx-auto px-4 lg:px-8">
           <h2 className="text-2xl font-playfair font-bold text-gradient-sunrise mb-8 text-center">
             Latest Articles
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {blogPosts.filter(post => !post.featured).map((post, index) => (
-              <Card key={index} className="card-elegant group hover:shadow-glow transition-all duration-300">
+              <Card key={index} className="bg-white/90 backdrop-blur-sm border border-green-100 hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer group">
                 <CardHeader className="pb-4">
                   <div className="text-3xl text-center mb-3">{post.image}</div>
                   <Badge variant="outline" className="text-xs w-fit">
