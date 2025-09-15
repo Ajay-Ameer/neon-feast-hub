@@ -7,38 +7,43 @@
 
 @layer base {
   :root {
-    /* Health-Focused Natural Light Theme */
-    --background: 120 60% 97%;
-    --foreground: 25 25% 25%;
+    /* Vibrant Food-Friendly Light Theme */
+    --background: 110 50% 96%;
+    --foreground: 25 30% 20%;
     
-    /* Pastel Food Colors */
-    --pastel-green: 120 40% 92%;
-    --pastel-orange: 25 80% 92%;
+    /* Vibrant Food Colors */
+    --pastel-green: 130 45% 88%;
+    --pastel-orange: 35 90% 85%;
+    --light-green: 130 40% 90%;
+    --light-orange: 35 85% 88%;
 
     --card: 0 0% 100%;
-    --card-foreground: 25 25% 25%;
+    --card-foreground: 25 30% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 25 25% 25%;
+    --popover-foreground: 25 30% 20%;
 
-    /* Health-Focused Natural Color Palette */
-    --fresh-green: 142 69% 58%;        /* Primary green - vitality */
-    --fresh-green-light: 142 55% 75%;  /* Light green - freshness */
-    --vitality-orange: 32 95% 65%;     /* Energy orange - motivation */
-    --warm-orange: 25 85% 60%;         /* Warm orange - comfort */
+    /* Vibrant Food-Focused Color Palette */
+    --fresh-green: 130 65% 45%;        /* Pastel dark green for buttons */
+    --fresh-green-light: 130 60% 65%;  /* Light green - freshness */
+    --vibrant-green: 125 70% 50%;      /* More vibrant green */
+    --tech-blue: 200 85% 60%;          /* Modern blue accent */
+    --vitality-orange: 35 95% 60%;     /* Energy orange - motivation */
+    --warm-orange: 30 90% 65%;         /* Warm orange - comfort */
+    --accent-orange: 25 95% 70%;       /* Bright orange accent */
     --energy-yellow: 48 95% 70%;       /* Energy yellow - optimism */
     --pure-white: 0 0% 100%;           /* Clean white - purity */
-    --soft-cream: 45 25% 98%;          /* Soft cream - warmth */
-    --natural-brown: 25 25% 45%;       /* Natural brown - earthiness */
-    --earth-green: 120 40% 35%;        /* Deep green - nature */
-    --success-green: 120 60% 50%;      /* Success indicators */
+    --soft-cream: 45 35% 96%;          /* Soft cream - warmth */
+    --natural-brown: 25 35% 40%;       /* Natural brown - earthiness */
+    --earth-green: 120 50% 30%;        /* Deep green - nature */
+    --success-green: 120 65% 45%;      /* Success indicators */
 
-    /* Primary brand color - Fresh Green */
-    --primary: 142 69% 58%;
+    /* Primary brand color - Pastel Dark Green */
+    --primary: 130 65% 45%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary - Vitality Orange */
-    --secondary: 32 95% 65%;
+    /* Secondary - Vibrant Orange */
+    --secondary: 35 95% 60%;
     --secondary-foreground: 0 0% 100%;
 
     /* Muted natural tones */
@@ -58,12 +63,13 @@
 
     --radius: 1rem;
 
-    /* Health-focused gradients inspired by reference design */
-    --gradient-fresh: linear-gradient(135deg, hsl(var(--fresh-green)), hsl(var(--fresh-green-light)));
-    --gradient-vitality: linear-gradient(135deg, hsl(var(--vitality-orange)), hsl(var(--energy-yellow)));
+    /* Vibrant food-focused gradients */
+    --gradient-fresh: linear-gradient(135deg, hsl(var(--fresh-green)), hsl(var(--vibrant-green)));
+    --gradient-vitality: linear-gradient(135deg, hsl(var(--vitality-orange)), hsl(var(--accent-orange)));
     --gradient-earth: linear-gradient(135deg, hsl(var(--earth-green)), hsl(var(--fresh-green)));
     --gradient-warm: linear-gradient(135deg, hsl(var(--warm-orange)), hsl(var(--energy-yellow)));
     --gradient-sunrise: linear-gradient(135deg, hsl(var(--energy-yellow)), hsl(var(--vitality-orange)));
+    --gradient-tech: linear-gradient(135deg, hsl(var(--tech-blue)), hsl(var(--vibrant-green)));
     
     /* Solid pastel green hero with wavy design elements */
     --hero-solid: 95 45% 88%;
@@ -326,7 +332,7 @@
     100% { left: 100%; }
   }
 
-  /* Health-focused button styles */
+  /* Vibrant food-focused button styles */
   .btn-fresh {
     background: var(--gradient-fresh);
     color: white;
@@ -335,15 +341,18 @@
     box-shadow: var(--shadow-fresh);
     position: relative;
     overflow: hidden;
+    font-weight: 600;
+    letter-spacing: 0.025em;
   }
 
   .btn-fresh:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px hsl(var(--fresh-green) / 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px hsl(var(--fresh-green) / 0.4);
+    background: linear-gradient(135deg, hsl(var(--fresh-green) / 0.9), hsl(var(--vibrant-green) / 0.9));
   }
 
   .btn-fresh:active {
-    transform: translateY(0);
+    transform: translateY(-1px);
   }
 
   .btn-vitality {
@@ -354,15 +363,18 @@
     box-shadow: var(--shadow-vitality);
     position: relative;
     overflow: hidden;
+    font-weight: 600;
+    letter-spacing: 0.025em;
   }
 
   .btn-vitality:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px hsl(var(--vitality-orange) / 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px hsl(var(--vitality-orange) / 0.4);
+    background: linear-gradient(135deg, hsl(var(--vitality-orange) / 0.9), hsl(var(--accent-orange) / 0.9));
   }
 
   .btn-vitality:active {
-    transform: translateY(0);
+    transform: translateY(-1px);
   }
 
   /* Icon enhancement for health theme */

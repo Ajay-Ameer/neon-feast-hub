@@ -53,25 +53,21 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Futuristic neon color palette
-        neon: {
-          cyan: "hsl(var(--neon-cyan))",
-          blue: "hsl(var(--neon-blue))",
-          purple: "hsl(var(--neon-purple))",
-        },
-        electric: {
-          blue: "hsl(var(--electric-blue))",
-        },
-        cyber: {
-          purple: "hsl(var(--cyber-purple))",
-        },
-        plasma: {
-          pink: "hsl(var(--plasma-pink))",
-        },
-        dark: {
-          bg: "hsl(var(--dark-bg))",
-          darker: "hsl(var(--darker-bg))",
-        },
+        // Vibrant food-friendly color palette
+        'fresh-green': "hsl(var(--fresh-green))",
+        'fresh-green-light': "hsl(var(--fresh-green-light))",
+        'vibrant-green': "hsl(var(--vibrant-green))",
+        'tech-blue': "hsl(var(--tech-blue))",
+        'vitality-orange': "hsl(var(--vitality-orange))",
+        'warm-orange': "hsl(var(--warm-orange))",
+        'accent-orange': "hsl(var(--accent-orange))",
+        'energy-yellow': "hsl(var(--energy-yellow))",
+        'success-green': "hsl(var(--success-green))",
+        'earth-green': "hsl(var(--earth-green))",
+        'pastel-green': "hsl(var(--pastel-green))",
+        'pastel-orange': "hsl(var(--pastel-orange))",
+        'light-green': "hsl(var(--light-green))",
+        'light-orange': "hsl(var(--light-orange))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
