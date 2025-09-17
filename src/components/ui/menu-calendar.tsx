@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Calendar } from "@/components/ui/calendar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -7,6 +7,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 import { ArrowLeft, Replace, Check, Calendar as CalendarIcon } from "lucide-react";
 import { format, addDays } from "date-fns";
 import { useNavigate } from "react-router-dom";
+import { toast } from "@/hooks/use-toast";
 
 interface MenuCalendarProps {
   selectedMeals: string[];
@@ -83,10 +84,28 @@ const MenuCalendar = ({ selectedMeals, duration, onBack }: MenuCalendarProps) =>
     setDayMenus(menus);
   };
 
-  // Initialize menus on component mount
-  useState(() => {
+  // Initialize menus on component mount and check for swapped items
+  useEffect(() => {
     generateInitialMenus();
-  });
+    
+    // Check for swapped items from meal hub
+    const swappedItem = sessionStorage.getItem('swappedItem');
+    if (swappedItem) {
+      const { date, mealType, newMeal } = JSON.parse(swappedItem);
+      setDayMenus(prev => ({
+        ...prev,
+        [date]: {
+          ...prev[date],
+          [mealType]: newMeal
+        }
+      }));
+      sessionStorage.removeItem('swappedItem');
+      toast({
+        title: "Menu updated",
+        description: `${newMeal.name} has been added to your ${format(new Date(date), 'MMMM d')} ${mealType} menu.`,
+      });
+    }
+  }, []);
 
   const handleDateSelect = (date: Date | undefined) => {
     if (date) {
@@ -96,6 +115,20 @@ const MenuCalendar = ({ selectedMeals, duration, onBack }: MenuCalendarProps) =>
   };
 
   const handleSwapItem = (date: string, mealType: string, itemId: string) => {
+    const selectedDate = new Date(date);
+    const today = new Date();
+    const diffTime = selectedDate.getTime() - today.getTime();
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    
+    if (diffDays < 3) {
+      toast({
+        title: "Cannot customize menu",
+        description: "Menu customization is only allowed for deliveries 3 or more days away (minimum 36 hours notice required).",
+        variant: "destructive",
+      });
+      return;
+    }
+    
     setSwapMode({ active: true, date, mealType, itemId });
     sessionStorage.setItem('swapMode', JSON.stringify({ date, mealType, itemId }));
     navigate('/meal-hub');

@@ -8,6 +8,7 @@ import { useCart } from "@/contexts/CartContext";
 import { Clock, Users, Star, Plus, Minus, ShoppingCart, ArrowLeft, Check } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import { useNavigate } from "react-router-dom";
+import { format } from "date-fns";
 import breakfastBowl from "@/assets/meal-breakfast-bowl.jpg";
 import buddhaBowl from "@/assets/meal-buddha-bowl.jpg";
 import salmonSalad from "@/assets/meal-salmon-salad.jpg";
@@ -570,11 +571,28 @@ const MealHub = () => {
 
   const handleSwapItem = (meal: Meal) => {
     if (swapMode) {
-      // Here you would update the menu calendar with the new item
+      // Convert meal to the format expected by menu calendar
+      const newMeal = {
+        id: meal.id,
+        name: meal.name,
+        type: swapMode.mealType,
+        calories: meal.nutrition.calories,
+        protein: meal.nutrition.protein,
+        carbs: meal.nutrition.carbs,
+        fat: meal.nutrition.fat
+      };
+      
+      // Store the swapped item for menu calendar to pick up
+      sessionStorage.setItem('swappedItem', JSON.stringify({
+        date: swapMode.date,
+        mealType: swapMode.mealType,
+        newMeal: newMeal
+      }));
+      
       sessionStorage.removeItem('swapMode');
       toast({
-        title: "Item swapped",
-        description: `${meal.name} has been swapped in your menu.`,
+        title: "Item swapped successfully",
+        description: `${meal.name} will replace your ${swapMode.mealType} for ${format(new Date(swapMode.date), 'MMMM d')}.`,
       });
       navigate('/plans');
     }
