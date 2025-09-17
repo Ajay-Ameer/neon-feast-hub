@@ -11,6 +11,7 @@ import {
   Package,
   Users
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import FoodCarousel from "@/components/FoodCarousel";
 import HeroSection from "@/components/ui/hero-section";
 import HowItWorks from "@/components/ui/how-it-works";
@@ -155,8 +156,8 @@ const Home = () => {
           </div>
 
           <div className="text-center mt-12">
-            <Button variant="fresh" size="lg" className="text-lg px-8">
-              View All Plans & Pricing
+            <Button variant="fresh" size="lg" className="text-lg px-8" asChild>
+              <Link to="/plans">View All Plans & Pricing</Link>
             </Button>
           </div>
         </div>
@@ -223,12 +224,14 @@ const Home = () => {
               Join thousands of healthy, happy ZestyMonk members. Your taste buds and body will thank you!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="fresh" size="lg" className="text-lg px-8 py-4">
-                <Zap className="mr-2" />
-                Start My Free Trial
+              <Button variant="fresh" size="lg" className="text-lg px-8 py-4" asChild>
+                <Link to="/plans">
+                  <Zap className="mr-2" />
+                  View Meal Plans
+                </Link>
               </Button>
-              <Button variant="vitality" size="lg" className="text-lg">
-                Learn More
+              <Button variant="vitality" size="lg" className="text-lg" asChild>
+                <Link to="/plans">Learn More</Link>
               </Button>
             </div>
             <p className="text-sm text-muted-foreground font-exo">

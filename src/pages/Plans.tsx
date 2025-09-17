@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { 
   Check, 
   Star, 
@@ -13,8 +15,10 @@ import {
   ChefHat
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import PlanSelection from "@/components/ui/plan-selection";
 
 const Plans = () => {
+  const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
   const plans = [
     {
       name: "Weight Loss Plan",
@@ -180,13 +184,32 @@ const Plans = () => {
                   </ul>
 
                   <div className="space-y-3">
-                    <Button 
-                      variant={plan.popular ? "fresh" : "vitality"} 
-                      className="w-full"
-                      asChild
-                    >
-                      <Link to="/contact">Subscribe Now</Link>
-                    </Button>
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <Button 
+                          variant={plan.popular ? "fresh" : "vitality"} 
+                          className="w-full"
+                          onClick={() => setSelectedPlan(plan.name)}
+                        >
+                          Customize Plan
+                        </Button>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+                        <DialogHeader>
+                          <DialogTitle>Customize Your {plan.name}</DialogTitle>
+                          <DialogDescription>
+                            Personalize your meal plan based on your preferences and goals
+                          </DialogDescription>
+                        </DialogHeader>
+                        <PlanSelection 
+                          planName={plan.name}
+                          basePrice={parseInt(plan.monthlyPrice.replace(/[₹,]/g, ''))}
+                          onPlanSelect={(meals, duration, profile) => {
+                            console.log('Plan selected:', { plan: plan.name, meals, duration, profile });
+                          }}
+                        />
+                      </DialogContent>
+                    </Dialog>
                     <Button variant="outline" className="w-full text-sm" asChild>
                       <Link to="/contact">Try for 3 Days - ₹299</Link>
                     </Button>

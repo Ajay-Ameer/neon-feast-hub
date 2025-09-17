@@ -38,7 +38,7 @@ interface Meal {
   cookTime: string;
   servings: number;
   rating: number;
-  difficulty: string;
+  cost: number;
   ingredients: Ingredient[];
   nutrition: NutritionInfo;
   tags: string[];
@@ -56,7 +56,7 @@ const meals: Meal[] = [
     cookTime: "15 min",
     servings: 1,
     rating: 4.8,
-    difficulty: "Easy",
+    cost: 285,
     ingredients: [
       {
         name: "Eggs",
@@ -107,7 +107,7 @@ const meals: Meal[] = [
     cookTime: "25 min",
     servings: 2,
     rating: 4.6,
-    difficulty: "Medium",
+    cost: 320,
     ingredients: [
       {
         name: "Quinoa",
@@ -158,7 +158,7 @@ const meals: Meal[] = [
     cookTime: "20 min",
     servings: 1,
     rating: 4.7,
-    difficulty: "Easy",
+    cost: 425,
     ingredients: [
       {
         name: "Salmon Fillet",
@@ -209,7 +209,7 @@ const meals: Meal[] = [
     cookTime: "18 min",
     servings: 2,
     rating: 4.5,
-    difficulty: "Easy",
+    cost: 295,
     ingredients: [
       {
         name: "Chicken Breast",
@@ -260,7 +260,7 @@ const meals: Meal[] = [
     cookTime: "20 min",
     servings: 2,
     rating: 4.4,
-    difficulty: "Easy",
+    cost: 275,
     ingredients: [
       {
         name: "Quinoa",
@@ -305,7 +305,7 @@ const meals: Meal[] = [
     cookTime: "12 min",
     servings: 1,
     rating: 4.3,
-    difficulty: "Easy",
+    cost: 265,
     ingredients: [
       {
         name: "Turkey Breast",
@@ -344,7 +344,7 @@ const meals: Meal[] = [
     cookTime: "10 min prep",
     servings: 1,
     rating: 4.6,
-    difficulty: "Easy",
+    cost: 245,
     ingredients: [
       {
         name: "Chia Seeds",
@@ -383,7 +383,7 @@ const meals: Meal[] = [
     cookTime: "30 min",
     servings: 3,
     rating: 4.5,
-    difficulty: "Medium",
+    cost: 270,
     ingredients: [
       {
         name: "Red Lentils",
@@ -422,7 +422,7 @@ const meals: Meal[] = [
     cookTime: "5 min",
     servings: 1,
     rating: 4.7,
-    difficulty: "Easy",
+    cost: 255,
     ingredients: [
       {
         name: "Greek Yogurt",
@@ -461,7 +461,7 @@ const meals: Meal[] = [
     cookTime: "25 min",
     servings: 2,
     rating: 4.4,
-    difficulty: "Medium",
+    cost: 305,
     ingredients: [
       {
         name: "Zucchini",
@@ -500,590 +500,461 @@ const meals: Meal[] = [
     cookTime: "8 min",
     servings: 1,
     rating: 4.5,
-    difficulty: "Easy",
+    cost: 195,
     ingredients: [
       {
         name: "Multigrain Bread",
         amount: "2 slices",
-        benefits: "Complex carbs and fiber, sustained energy release",
+        benefits: "Complex carbohydrates and fiber for sustained energy",
         icon: "🍞"
       },
       {
         name: "Avocado",
         amount: "1 medium",
-        benefits: "Monounsaturated fats, supports heart health",
+        benefits: "Rich in healthy fats and potassium, supports heart health",
         icon: "🥑"
       }
     ],
     nutrition: {
       calories: 340,
       protein: 12,
-      carbs: 32,
-      fat: 20,
+      carbs: 28,
+      fat: 22,
       fiber: 14,
-      sugar: 4,
-      sodium: 320,
+      sugar: 6,
+      sodium: 380,
       vitamins: ["Vitamin K", "Folate"],
       minerals: ["Potassium", "Magnesium"]
     },
-    tags: ["Heart Healthy", "Fiber Rich"],
+    tags: ["Trendy", "Heart Healthy"],
     dietaryTags: ["Vegetarian", "Dairy Free"],
-    cuisineType: "American",
+    cuisineType: "Modern",
     mealType: "Breakfast"
   },
   {
     id: "12",
-    name: "Asian Sesame Salad",
-    description: "Crunchy Asian-inspired salad with sesame ginger dressing.",
-    image: salmonSalad,
-    cookTime: "15 min",
-    servings: 2,
-    rating: 4.3,
-    difficulty: "Easy",
-    ingredients: [
-      {
-        name: "Mixed Asian Greens",
-        amount: "3 cups",
-        benefits: "Rich in vitamins A and K, supports bone health",
-        icon: "🥬"
-      },
-      {
-        name: "Sesame Seeds",
-        amount: "2 tbsp",
-        benefits: "Healthy fats and lignans, supports hormone balance",
-        icon: "🌰"
-      }
-    ],
-    nutrition: {
-      calories: 195,
-      protein: 8,
-      carbs: 15,
-      fat: 12,
-      fiber: 6,
-      sugar: 8,
-      sodium: 280,
-      vitamins: ["Vitamin A", "Vitamin K"],
-      minerals: ["Calcium", "Magnesium"]
-    },
-    tags: ["Fresh", "Crunchy"],
-    dietaryTags: ["Vegetarian", "Dairy Free"],
-    cuisineType: "Asian",
-    mealType: "Lunch"
-  },
-  {
-    id: "13",
-    name: "Sweet Potato Black Bean Bowl",
-    description: "Nutritious bowl with roasted sweet potato and protein-rich black beans.",
+    name: "Thai Green Curry",
+    description: "Aromatic green curry with tender vegetables and coconut milk.",
     image: buddhaBowl,
-    cookTime: "35 min",
+    cookTime: "22 min",
     servings: 2,
     rating: 4.6,
-    difficulty: "Medium",
+    cost: 290,
     ingredients: [
       {
-        name: "Sweet Potato",
-        amount: "2 medium",
-        benefits: "Beta-carotene and vitamin A, supports eye health",
-        icon: "🍠"
+        name: "Green Curry Paste",
+        amount: "3 tbsp",
+        benefits: "Contains anti-inflammatory herbs and spices",
+        icon: "🌶️"
       },
       {
-        name: "Black Beans",
-        amount: "1 cup",
-        benefits: "High fiber and protein, supports digestive health",
-        icon: "🫘"
+        name: "Coconut Milk",
+        amount: "400ml",
+        benefits: "Healthy fats and natural sweetness",
+        icon: "🥥"
       }
     ],
     nutrition: {
-      calories: 320,
-      protein: 14,
-      carbs: 58,
-      fat: 4,
-      fiber: 18,
+      calories: 280,
+      protein: 8,
+      carbs: 22,
+      fat: 18,
+      fiber: 6,
       sugar: 12,
-      sodium: 240,
-      vitamins: ["Vitamin A", "Vitamin C"],
+      sodium: 420,
+      vitamins: ["Vitamin C", "Vitamin A"],
       minerals: ["Iron", "Potassium"]
     },
-    tags: ["Plant Based", "High Fiber"],
+    tags: ["Spicy", "Aromatic"],
     dietaryTags: ["Vegan", "Gluten Free"],
-    cuisineType: "Mexican",
+    cuisineType: "Thai",
     mealType: "Dinner"
   },
   {
-    id: "14",
-    name: "Herb Crusted Cod",
-    description: "Flaky white fish with Mediterranean herb crust and lemon.",
+    id: "13",
+    name: "Smoked Chicken Salad",
+    description: "Tender smoked chicken with crisp vegetables and herb dressing.",
     image: salmonSalad,
-    cookTime: "22 min",
-    servings: 2,
-    rating: 4.5,
-    difficulty: "Medium",
+    cookTime: "15 min",
+    servings: 1,
+    rating: 4.4,
+    cost: 315,
     ingredients: [
       {
-        name: "Cod Fillet",
-        amount: "400g",
-        benefits: "Lean protein, rich in vitamin B12 and selenium",
-        icon: "🐟"
+        name: "Smoked Chicken",
+        amount: "150g",
+        benefits: "High protein with smoky flavor, supports muscle building",
+        icon: "🍗"
       },
       {
-        name: "Fresh Herbs",
-        amount: "1/4 cup",
-        benefits: "Antioxidants and anti-inflammatory compounds",
-        icon: "🌿"
+        name: "Mixed Greens",
+        amount: "2 cups",
+        benefits: "Rich in vitamins and antioxidants",
+        icon: "🥬"
+      }
+    ],
+    nutrition: {
+      calories: 280,
+      protein: 30,
+      carbs: 8,
+      fat: 14,
+      fiber: 4,
+      sugar: 6,
+      sodium: 480,
+      vitamins: ["Vitamin A", "Vitamin C"],
+      minerals: ["Iron", "Phosphorus"]
+    },
+    tags: ["High Protein", "Smoky"],
+    dietaryTags: ["Gluten Free", "Dairy Free"],
+    cuisineType: "American",
+    mealType: "Lunch"
+  },
+  {
+    id: "14",
+    name: "Stuffed Bell Peppers",
+    description: "Colorful bell peppers stuffed with quinoa, herbs and vegetables.",
+    image: ketoChicken,
+    cookTime: "35 min",
+    servings: 2,
+    rating: 4.3,
+    cost: 280,
+    ingredients: [
+      {
+        name: "Bell Peppers",
+        amount: "4 large",
+        benefits: "High in vitamin C and antioxidants",
+        icon: "🫑"
+      },
+      {
+        name: "Quinoa",
+        amount: "1 cup",
+        benefits: "Complete protein and fiber for satiety",
+        icon: "🌾"
       }
     ],
     nutrition: {
       calories: 240,
-      protein: 32,
-      carbs: 4,
-      fat: 8,
-      fiber: 1,
-      sugar: 2,
-      sodium: 380,
-      vitamins: ["Vitamin B12", "Vitamin D"],
-      minerals: ["Selenium", "Phosphorus"]
+      protein: 12,
+      carbs: 38,
+      fat: 6,
+      fiber: 8,
+      sugar: 14,
+      sodium: 320,
+      vitamins: ["Vitamin C", "Vitamin A"],
+      minerals: ["Potassium", "Magnesium"]
     },
-    tags: ["Lean Protein", "Low Carb"],
-    dietaryTags: ["Pescatarian", "Gluten Free"],
+    tags: ["Colorful", "Filling"],
+    dietaryTags: ["Vegetarian", "Gluten Free"],
     cuisineType: "Mediterranean",
     mealType: "Dinner"
   }
 ];
 
-const filterCategories = [
-  {
-    name: "Meal Type",
-    icon: "🍽️",
-    options: ["Breakfast", "Lunch", "Dinner", "Snack"]
-  },
-  {
-    name: "Dietary Tags",
-    icon: "🌱",
-    options: ["Vegetarian", "Vegan", "Keto Friendly", "Gluten Free", "Dairy Free", "Pescatarian"]
-  },
-  {
-    name: "Cuisine Type",
-    icon: "🌍",
-    options: ["Continental", "Mediterranean", "Asian", "Mexican", "Indian", "American", "Italian"]
-  },
-  {
-    name: "Difficulty",
-    icon: "⚡",
-    options: ["Easy", "Medium", "Hard"]
-  }
-];
-
 const MealHub = () => {
-  const [selectedMeal, setSelectedMeal] = useState<Meal | null>(null);
-  const [activeFilters, setActiveFilters] = useState<Record<string, string[]>>({});
-  const [quantities, setQuantities] = useState<Record<string, number>>({});
   const { addToCart } = useCart();
+  const [filteredMeals, setFilteredMeals] = useState<Meal[]>(meals);
+  const [selectedMealType, setSelectedMealType] = useState<string>("All");
+  const [selectedDietaryTag, setSelectedDietaryTag] = useState<string>("All");
+  const [selectedCuisine, setSelectedCuisine] = useState<string>("All");
+  const [quantities, setQuantities] = useState<{ [key: string]: number }>({});
 
-  const toggleFilter = (category: string, option: string) => {
-    setActiveFilters(prev => {
-      const categoryFilters = prev[category] || [];
-      const isActive = categoryFilters.includes(option);
-      
-      if (isActive) {
-        return {
-          ...prev,
-          [category]: categoryFilters.filter(f => f !== option)
-        };
-      } else {
-        return {
-          ...prev,
-          [category]: [...categoryFilters, option]
-        };
-      }
-    });
+  const uniqueMealTypes = ["All", ...Array.from(new Set(meals.map(meal => meal.mealType)))];
+  const uniqueDietaryTags = ["All", ...Array.from(new Set(meals.flatMap(meal => meal.dietaryTags)))];
+  const uniqueCuisines = ["All", ...Array.from(new Set(meals.map(meal => meal.cuisineType)))];
+
+  const filterMeals = (mealType: string, dietaryTag: string, cuisine: string) => {
+    let filtered = meals;
+
+    if (mealType !== "All") {
+      filtered = filtered.filter(meal => meal.mealType === mealType);
+    }
+
+    if (dietaryTag !== "All") {
+      filtered = filtered.filter(meal => meal.dietaryTags.includes(dietaryTag));
+    }
+
+    if (cuisine !== "All") {
+      filtered = filtered.filter(meal => meal.cuisineType === cuisine);
+    }
+
+    setFilteredMeals(filtered);
   };
 
-  const updateQuantity = (mealId: string, change: number) => {
-    setQuantities(prev => {
-      const current = prev[mealId] || 0;
-      const newQuantity = Math.max(0, current + change);
-      return { ...prev, [mealId]: newQuantity };
-    });
+  const handleMealTypeChange = (mealType: string) => {
+    setSelectedMealType(mealType);
+    filterMeals(mealType, selectedDietaryTag, selectedCuisine);
   };
 
-  const filteredMeals = meals.filter(meal => {
-    return Object.entries(activeFilters).every(([category, filters]) => {
-      if (filters.length === 0) return true;
-      
-      switch (category) {
-        case "Meal Type":
-          return filters.includes(meal.mealType);
-        case "Dietary Tags":
-          return filters.some(filter => meal.dietaryTags.includes(filter));
-        case "Cuisine Type":
-          return filters.includes(meal.cuisineType);
-        case "Difficulty":
-          return filters.includes(meal.difficulty);
-        default:
-          return true;
-      }
-    });
-  });
+  const handleDietaryTagChange = (dietaryTag: string) => {
+    setSelectedDietaryTag(dietaryTag);
+    filterMeals(selectedMealType, dietaryTag, selectedCuisine);
+  };
 
-  if (selectedMeal) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-sage-50 to-fresh-50 py-8">
-        <div className="container mx-auto px-4">
-          <Button 
-            variant="outline" 
-            onClick={() => setSelectedMeal(null)}
-            className="mb-6 hover:bg-fresh-100"
-          >
-            ← Back to Meal Hub
-          </Button>
-          
-          <div className="grid lg:grid-cols-2 gap-8">
-            <div>
-              <img 
-                src={selectedMeal.image} 
-                alt={selectedMeal.name}
-                className="w-full h-96 object-cover rounded-2xl shadow-xl"
-              />
-              
-              {/* Macro Nutrients */}
-              <div className="mt-6 grid grid-cols-4 gap-4 text-center">
-                <div className="bg-white rounded-xl p-4 shadow-sm">
-                  <Flame className="h-6 w-6 mx-auto text-orange-500 mb-2" />
-                  <div className="text-2xl font-bold text-sage-800">{selectedMeal.nutrition.calories}</div>
-                  <div className="text-sm text-sage-600">Calories</div>
-                </div>
-                <div className="bg-white rounded-xl p-4 shadow-sm">
-                  <Zap className="h-6 w-6 mx-auto text-blue-500 mb-2" />
-                  <div className="text-2xl font-bold text-sage-800">{selectedMeal.nutrition.protein}g</div>
-                  <div className="text-sm text-sage-600">Protein</div>
-                </div>
-                <div className="bg-white rounded-xl p-4 shadow-sm">
-                  <Heart className="h-6 w-6 mx-auto text-green-500 mb-2" />
-                  <div className="text-2xl font-bold text-sage-800">{selectedMeal.nutrition.carbs}g</div>
-                  <div className="text-sm text-sage-600">Carbs</div>
-                </div>
-                <div className="bg-white rounded-xl p-4 shadow-sm">
-                  <Star className="h-6 w-6 mx-auto text-yellow-500 mb-2" />
-                  <div className="text-2xl font-bold text-sage-800">{selectedMeal.nutrition.fat}g</div>
-                  <div className="text-sm text-sage-600">Fat</div>
-                </div>
+  const handleCuisineChange = (cuisine: string) => {
+    setSelectedCuisine(cuisine);
+    filterMeals(selectedMealType, selectedDietaryTag, cuisine);
+  };
+
+  const updateQuantity = (mealId: string, newQuantity: number) => {
+    setQuantities(prev => ({
+      ...prev,
+      [mealId]: Math.max(0, newQuantity)
+    }));
+  };
+
+  const handleAddToCart = (meal: Meal) => {
+    const quantity = quantities[meal.id] || 1;
+    addToCart(meal, quantity);
+    setQuantities(prev => ({ ...prev, [meal.id]: 0 }));
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-background via-light-green/5 to-light-orange/5">
+      {/* Hero Section */}
+      <section className="py-12 lg:py-20">
+        <div className="container mx-auto px-4 lg:px-8">
+          <SectionHeader 
+            title="Fresh Meal Hub"
+            subtitle="Discover delicious, nutritious meals crafted by our expert chefs. Each meal is designed to fuel your body and delight your taste buds."
+            gradient="fresh"
+          />
+        </div>
+      </section>
+
+      {/* Filters */}
+      <section className="py-8">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-6 border border-border/50">
+            <div className="flex flex-wrap gap-4 items-center justify-between">
+              {/* Meal Type Filter */}
+              <div className="flex flex-wrap gap-2">
+                <span className="text-sm font-medium text-muted-foreground">Meal Type:</span>
+                {uniqueMealTypes.map((type) => (
+                  <Button
+                    key={type}
+                    variant={selectedMealType === type ? "fresh" : "outline"}
+                    size="sm"
+                    onClick={() => handleMealTypeChange(type)}
+                    className="h-8 text-xs"
+                  >
+                    {type}
+                  </Button>
+                ))}
               </div>
 
-              {/* Micro Nutrients */}
-              <Card className="mt-6 bg-white shadow-sm">
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-orbitron font-bold text-sage-800 mb-4">Complete Nutrition Profile</h3>
-                  <div className="grid grid-cols-2 gap-4 text-sm">
-                    <div>
-                      <div className="flex justify-between">
-                        <span className="text-sage-600">Fiber:</span>
-                        <span className="font-semibold">{selectedMeal.nutrition.fiber}g</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-sage-600">Sugar:</span>
-                        <span className="font-semibold">{selectedMeal.nutrition.sugar}g</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-sage-600">Sodium:</span>
-                        <span className="font-semibold">{selectedMeal.nutrition.sodium}mg</span>
-                      </div>
-                    </div>
-                    <div>
-                      <div className="mb-2">
-                        <span className="text-sage-600 text-xs">Vitamins:</span>
-                        <div className="text-xs">{selectedMeal.nutrition.vitamins.join(", ")}</div>
-                      </div>
-                      <div>
-                        <span className="text-sage-600 text-xs">Minerals:</span>
-                        <div className="text-xs">{selectedMeal.nutrition.minerals.join(", ")}</div>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-            
-            <div className="space-y-6">
-              <div>
-                <h1 className="text-4xl font-playfair font-bold text-sage-800 mb-4">
-                  {selectedMeal.name}
-                </h1>
-                <p className="text-lg text-sage-600 font-exo leading-relaxed">
-                  {selectedMeal.description}
-                </p>
-                
-                <div className="flex items-center gap-4 mt-4 text-sage-600">
-                  <div className="flex items-center gap-1">
-                    <Clock className="h-4 w-4" />
-                    <span className="text-sm">{selectedMeal.cookTime}</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Users className="h-4 w-4" />
-                    <span className="text-sm">{selectedMeal.servings} serving{selectedMeal.servings > 1 ? 's' : ''}</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                    <span className="text-sm">{selectedMeal.rating}</span>
-                  </div>
-                </div>
-                
-                <div className="flex flex-wrap gap-2 mt-4">
-                  {selectedMeal.tags.map(tag => (
-                    <Badge key={tag} variant="secondary" className="bg-fresh-100 text-fresh-700 hover:bg-fresh-200">
-                      {tag}
-                    </Badge>
-                  ))}
-                  {selectedMeal.dietaryTags.map(tag => (
-                    <Badge key={tag} variant="outline" className="border-sage-300 text-sage-700">
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
+              {/* Dietary Filter */}
+              <div className="flex flex-wrap gap-2">
+                <span className="text-sm font-medium text-muted-foreground">Diet:</span>
+                {uniqueDietaryTags.slice(0, 4).map((tag) => (
+                  <Button
+                    key={tag}
+                    variant={selectedDietaryTag === tag ? "vitality" : "outline"}
+                    size="sm"
+                    onClick={() => handleDietaryTagChange(tag)}
+                    className="h-8 text-xs"
+                  >
+                    {tag}
+                  </Button>
+                ))}
               </div>
-              
-              {/* Ingredients with Benefits */}
-              <Card className="bg-white shadow-sm">
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-orbitron font-bold text-sage-800 mb-4">Highlight Ingredients</h3>
-                  <div className="space-y-4">
-                    {selectedMeal.ingredients.map((ingredient, index) => (
-                      <div key={index} className="flex items-start gap-3 p-3 bg-sage-50 rounded-lg">
-                        <span className="text-2xl">{ingredient.icon}</span>
-                        <div className="flex-1">
-                          <div className="flex items-center justify-between mb-1">
-                            <h4 className="font-semibold text-sage-800">{ingredient.name}</h4>
-                            <span className="text-sm text-sage-600">{ingredient.amount}</span>
-                          </div>
-                          <p className="text-sm text-sage-600">{ingredient.benefits}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
 
-              {/* Order Controls */}
-              <Card className="bg-white shadow-sm">
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-orbitron font-bold text-sage-800 mb-4">Order This Meal</h3>
-                  <div className="flex items-center gap-4">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => updateQuantity(selectedMeal.id, -1)}
-                      disabled={(quantities[selectedMeal.id] || 0) === 0}
-                    >
-                      <Minus className="h-4 w-4" />
-                    </Button>
-                    <span className="text-xl font-bold text-sage-800 min-w-[3ch] text-center">
-                      {quantities[selectedMeal.id] || 0}
-                    </span>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => updateQuantity(selectedMeal.id, 1)}
-                    >
-                      <Plus className="h-4 w-4" />
-                    </Button>
-                    <Button className="ml-4 bg-fresh-600 hover:bg-fresh-700">
-                      <ShoppingCart className="h-4 w-4 mr-2" />
-                      Add to Cart
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
+              {/* Cuisine Filter */}
+              <div className="flex flex-wrap gap-2">
+                <span className="text-sm font-medium text-muted-foreground">Cuisine:</span>
+                {uniqueCuisines.slice(0, 4).map((cuisine) => (
+                  <Button
+                    key={cuisine}
+                    variant={selectedCuisine === cuisine ? "hero" : "outline"}
+                    size="sm"
+                    onClick={() => handleCuisineChange(cuisine)}
+                    className="h-8 text-xs"
+                  >
+                    {cuisine}
+                  </Button>
+                ))}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    );
-  }
+      </section>
 
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-sage-50 to-fresh-50">
-      <div className="container mx-auto px-4 py-8">
-        <SectionHeader 
-          title="Meal Hub"
-          subtitle="Discover delicious, nutritious meals crafted for your health journey"
-          gradient="fresh"
-        />
-        
-        {/* Redesigned Filters */}
-        <div className="mb-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {filterCategories.map(category => (
-              <Card key={category.name} className="bg-white shadow-sm">
-                <CardContent className="p-4">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-xl">{category.icon}</span>
-                    <h3 className="font-orbitron font-semibold text-sage-800">
-                      {category.name}
-                    </h3>
+      {/* Meals Grid */}
+      <section className="py-8 pb-20">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredMeals.map((meal) => (
+              <Card key={meal.id} className="card-elegant overflow-hidden group hover:shadow-xl transition-all duration-300">
+                <div className="relative">
+                  <img 
+                    src={meal.image} 
+                    alt={meal.name}
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute top-4 left-4 flex gap-2">
+                    <Badge variant="secondary" className="bg-white/90 text-foreground">
+                      <Star className="w-3 h-3 mr-1 fill-yellow-400 text-yellow-400" />
+                      {meal.rating}
+                    </Badge>
+                    <Badge variant="secondary" className="bg-white/90 text-foreground">
+                      <Clock className="w-3 h-3 mr-1" />
+                      {meal.cookTime}
+                    </Badge>
                   </div>
+                  <div className="absolute top-4 right-4">
+                    <Badge className="bg-gradient-to-r from-fresh-green to-warm-amber text-white font-bold">
+                      ₹{meal.cost}
+                    </Badge>
+                  </div>
+                </div>
+
+                <CardContent className="p-6 space-y-4">
+                  {/* Header */}
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-xl font-bold text-gradient-food group-hover:text-gradient-warm transition-colors">
+                        {meal.name}
+                      </h3>
+                      <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                        <Users className="w-4 h-4" />
+                        {meal.servings}
+                      </div>
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {meal.description}
+                    </p>
+                  </div>
+
+                  {/* Tags */}
                   <div className="flex flex-wrap gap-1">
-                    {category.options.map(option => {
-                      const isActive = activeFilters[category.name]?.includes(option);
-                      return (
+                    {meal.dietaryTags.slice(0, 2).map((tag, index) => (
+                      <Badge key={index} variant="outline" className="text-xs border-fresh-green text-fresh-green">
+                        {tag}
+                      </Badge>
+                    ))}
+                    {meal.tags.slice(0, 1).map((tag, index) => (
+                      <Badge key={index} variant="outline" className="text-xs border-warm-amber text-warm-amber">
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
+
+                  <Separator />
+
+                  {/* Nutrition Breakdown */}
+                  <div className="space-y-3">
+                    <h4 className="font-semibold text-sm text-gradient-food">Nutrition Per Serving</h4>
+                    <div className="grid grid-cols-4 gap-2 text-center">
+                      <div className="space-y-1">
+                        <div className="text-lg font-bold text-gradient-warm">{meal.nutrition.calories}</div>
+                        <div className="text-xs text-muted-foreground">Calories</div>
+                      </div>
+                      <div className="space-y-1">
+                        <div className="text-lg font-bold text-gradient-fresh">{meal.nutrition.protein}g</div>
+                        <div className="text-xs text-muted-foreground">Protein</div>
+                      </div>
+                      <div className="space-y-1">
+                        <div className="text-lg font-bold text-gradient-vitality">{meal.nutrition.carbs}g</div>
+                        <div className="text-xs text-muted-foreground">Carbs</div>
+                      </div>
+                      <div className="space-y-1">
+                        <div className="text-lg font-bold text-gradient-warm">{meal.nutrition.fat}g</div>
+                        <div className="text-xs text-muted-foreground">Fat</div>
+                      </div>
+                    </div>
+
+                    {/* Micro/Macro Details */}
+                    <div className="space-y-2">
+                      <div className="grid grid-cols-2 gap-4 text-xs">
+                        <div>
+                          <span className="text-muted-foreground">Fiber:</span> <span className="font-medium">{meal.nutrition.fiber}g</span>
+                        </div>
+                        <div>
+                          <span className="text-muted-foreground">Sugar:</span> <span className="font-medium">{meal.nutrition.sugar}g</span>
+                        </div>
+                        <div>
+                          <span className="text-muted-foreground">Sodium:</span> <span className="font-medium">{meal.nutrition.sodium}mg</span>
+                        </div>
+                      </div>
+                      
+                      <div className="space-y-1">
+                        <div className="text-xs">
+                          <span className="text-muted-foreground">Vitamins:</span> <span className="font-medium">{meal.nutrition.vitamins.join(", ")}</span>
+                        </div>
+                        <div className="text-xs">
+                          <span className="text-muted-foreground">Minerals:</span> <span className="font-medium">{meal.nutrition.minerals.join(", ")}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <Separator />
+
+                  {/* Ingredients & Benefits */}
+                  <div className="space-y-3">
+                    <h4 className="font-semibold text-sm text-gradient-food">Key Ingredients & Benefits</h4>
+                    <div className="space-y-2">
+                      {meal.ingredients.slice(0, 2).map((ingredient, index) => (
+                        <div key={index} className="flex items-start gap-3 p-2 rounded-lg bg-background/50">
+                          <span className="text-lg">{ingredient.icon}</span>
+                          <div className="flex-1 min-w-0">
+                            <div className="font-medium text-sm">{ingredient.name} - {ingredient.amount}</div>
+                            <div className="text-xs text-muted-foreground leading-relaxed">{ingredient.benefits}</div>
+                          </div>
+                        </div>
+                      ))}
+                      {meal.ingredients.length > 2 && (
+                        <div className="text-xs text-muted-foreground text-center">
+                          +{meal.ingredients.length - 2} more ingredients
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  <Separator />
+
+                  {/* Quantity & Add to Cart */}
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <span className="font-medium text-sm">Quantity:</span>
+                      <div className="flex items-center gap-2">
                         <Button
-                          key={option}
-                          variant={isActive ? "default" : "outline"}
+                          variant="outline"
                           size="sm"
-                          onClick={() => toggleFilter(category.name, option)}
-                          className={`text-xs h-7 ${isActive 
-                            ? "bg-fresh-500 text-white hover:bg-fresh-600" 
-                            : "border-sage-300 text-sage-700 hover:bg-sage-50"
-                          }`}
+                          onClick={() => updateQuantity(meal.id, (quantities[meal.id] || 1) - 1)}
+                          disabled={(quantities[meal.id] || 1) <= 1}
+                          className="h-8 w-8 p-0"
                         >
-                          {option}
+                          <Minus className="h-4 w-4" />
                         </Button>
-                      );
-                    })}
+                        <span className="w-8 text-center font-medium">
+                          {quantities[meal.id] || 1}
+                        </span>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => updateQuantity(meal.id, (quantities[meal.id] || 1) + 1)}
+                          className="h-8 w-8 p-0"
+                        >
+                          <Plus className="h-4 w-4" />
+                        </Button>
+                      </div>
+                    </div>
+
+                    <Button 
+                      variant="fresh" 
+                      className="w-full"
+                      onClick={() => handleAddToCart(meal)}
+                    >
+                      <ShoppingCart className="w-4 h-4 mr-2" />
+                      Add to Cart - ₹{meal.cost * (quantities[meal.id] || 1)}
+                    </Button>
                   </div>
                 </CardContent>
               </Card>
             ))}
           </div>
         </div>
-        
-        <Separator className="my-8 bg-sage-200" />
-        
-        {/* Meal Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredMeals.map(meal => (
-            <Card 
-              key={meal.id} 
-              className="bg-white shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer group"
-              onClick={() => setSelectedMeal(meal)}
-            >
-              <div className="relative overflow-hidden rounded-t-lg">
-                <img 
-                  src={meal.image} 
-                  alt={meal.name}
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm rounded-full px-2 py-1 flex items-center gap-1">
-                  <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
-                  <span className="text-xs font-semibold text-sage-800">{meal.rating}</span>
-                </div>
-                <Badge className="absolute top-3 left-3 bg-fresh-500 text-white">
-                  {meal.mealType}
-                </Badge>
-              </div>
-              
-              <CardContent className="p-4 space-y-3">
-                <h3 className="text-xl font-orbitron font-bold text-sage-800 group-hover:text-fresh-600 transition-colors">
-                  {meal.name}
-                </h3>
-                
-                <p className="text-sage-600 text-sm line-clamp-2 font-exo">
-                  {meal.description}
-                </p>
-                
-                <div className="flex items-center justify-between text-sm text-sage-500">
-                  <div className="flex items-center gap-1">
-                    <Clock className="h-4 w-4" />
-                    <span>{meal.cookTime}</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Users className="h-4 w-4" />
-                    <span>{meal.servings} serving{meal.servings > 1 ? 's' : ''}</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Flame className="h-4 w-4" />
-                    <span>{meal.nutrition.calories} cal</span>
-                  </div>
-                </div>
-                
-                <div className="flex flex-wrap gap-1">
-                  {meal.tags.slice(0, 2).map(tag => (
-                    <Badge key={tag} variant="secondary" className="text-xs bg-fresh-100 text-fresh-700">
-                      {tag}
-                    </Badge>
-                  ))}
-                  {meal.tags.length > 2 && (
-                    <Badge variant="secondary" className="text-xs bg-sage-100 text-sage-600">
-                      +{meal.tags.length - 2} more
-                    </Badge>
-                  )}
-                </div>
-
-                {/* Quantity and Add Controls */}
-                <div className="flex items-center justify-between pt-2">
-                  <div className="flex items-center gap-2">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        updateQuantity(meal.id, -1);
-                      }}
-                      disabled={(quantities[meal.id] || 0) === 0}
-                      className="h-8 w-8 p-0"
-                    >
-                      <Minus className="h-3 w-3" />
-                    </Button>
-                    <span className="text-sm font-bold text-sage-800 min-w-[2ch] text-center">
-                      {quantities[meal.id] || 0}
-                    </span>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        updateQuantity(meal.id, 1);
-                      }}
-                      className="h-8 w-8 p-0"
-                    >
-                      <Plus className="h-3 w-3" />
-                    </Button>
-                  </div>
-                  <div className="flex gap-2">
-                    <Button 
-                      variant="fresh" 
-                      size="sm"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setSelectedMeal(meal);
-                      }}
-                      className="text-xs"
-                    >
-                      View Details
-                    </Button>
-                    {(quantities[meal.id] || 0) > 0 && (
-                      <Button 
-                        variant="outline" 
-                        size="sm"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          addToCart(meal, quantities[meal.id] || 0);
-                          setQuantities(prev => ({ ...prev, [meal.id]: 0 }));
-                        }}
-                        className="text-xs"
-                      >
-                        <ShoppingCart className="h-3 w-3 mr-1" />
-                        Add to Cart
-                      </Button>
-                    )}
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-        
-        {filteredMeals.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-sage-600 text-lg font-exo">No meals found matching your filters.</p>
-            <Button 
-              variant="outline" 
-              onClick={() => setActiveFilters({})}
-              className="mt-4"
-            >
-              Clear All Filters
-            </Button>
-          </div>
-        )}
-      </div>
+      </section>
     </div>
   );
 };
