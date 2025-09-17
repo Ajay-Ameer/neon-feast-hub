@@ -143,19 +143,22 @@ const CustomerPortal = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div>
-                  <label className="text-sm font-medium text-muted-foreground">Selected Meals</label>
-                  <div className="flex flex-wrap gap-2 mt-2">
-                    {userProfile.selectedMeals.map((meal) => (
-                      <span
-                        key={meal}
-                        className="px-3 py-1 bg-fresh-green/10 text-fresh-green rounded-full text-sm font-medium capitalize"
-                      >
-                        {meal}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+                 <div>
+                   <label className="text-sm font-medium text-muted-foreground">Selected Meals</label>
+                   <div className="flex flex-wrap gap-2 mt-2">
+                     {userProfile.selectedMeals.map((meal) => (
+                       <span
+                         key={meal}
+                         className="px-3 py-1 bg-fresh-green/10 text-fresh-green rounded-full text-sm font-medium capitalize"
+                       >
+                         {meal}
+                       </span>
+                     ))}
+                   </div>
+                   <p className="text-xs text-muted-foreground mt-2">
+                     Your personalized menu includes these selected meal types
+                   </p>
+                 </div>
                 <div>
                   <label className="text-sm font-medium text-muted-foreground">Plan Duration</label>
                   <p className="font-semibold">{userProfile.duration} days</p>

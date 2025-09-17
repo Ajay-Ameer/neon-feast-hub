@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import SectionHeader from "@/components/ui/section-header";
 import { useCart } from "@/contexts/CartContext";
-import { Clock, Users, Star, Plus, Minus, ShoppingCart, ArrowLeft, Check } from "lucide-react";
+import { Clock, Users, Star, Plus, Minus, ShoppingCart, ArrowLeft, Check, ChevronDown, ChevronUp, Info } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import { useNavigate } from "react-router-dom";
 import { format } from "date-fns";
@@ -506,6 +507,7 @@ const MealHub = () => {
   const [selectedCuisine, setSelectedCuisine] = useState<string>("All");
   const [quantities, setQuantities] = useState<{ [key: string]: number }>({});
   const [swapMode, setSwapMode] = useState<{ active: boolean; date: string; mealType: string; itemId: string } | null>(null);
+  const [expandedMeals, setExpandedMeals] = useState<{ [key: string]: boolean }>({});
 
   const uniqueMealTypes = ["All", ...Array.from(new Set(meals.map(meal => meal.mealType)))];
   const uniqueDietaryTags = ["All", ...Array.from(new Set(meals.flatMap(meal => meal.dietaryTags)))];
@@ -604,6 +606,13 @@ const MealHub = () => {
     navigate('/plans');
   };
 
+  const toggleMealDetails = (mealId: string) => {
+    setExpandedMeals(prev => ({
+      ...prev,
+      [mealId]: !prev[mealId]
+    }));
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-background via-light-green/5 to-light-orange/5">
       {swapMode && (
@@ -699,6 +708,7 @@ const MealHub = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredMeals.map((meal) => (
               <Card key={meal.id} className="card-elegant overflow-hidden group hover:shadow-xl transition-all duration-300">
+                {/* Card Image Header */}
                 <div className="relative">
                   <img 
                     src={meal.image} 
@@ -722,25 +732,22 @@ const MealHub = () => {
                   </div>
                 </div>
 
-                <CardContent className="p-6 space-y-4">
-                  {/* Header */}
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between">
-                      <h3 className="text-xl font-bold text-gradient-food group-hover:text-gradient-warm transition-colors">
-                        {meal.name}
-                      </h3>
-                      <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                        <Users className="w-4 h-4" />
-                        {meal.servings}
-                      </div>
+                <CardHeader className="pb-4">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-xl font-bold text-gradient-food group-hover:text-gradient-warm transition-colors">
+                      {meal.name}
+                    </h3>
+                    <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                      <Users className="w-4 h-4" />
+                      {meal.servings}
                     </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {meal.description}
-                    </p>
                   </div>
-
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {meal.description}
+                  </p>
+                  
                   {/* Tags */}
-                  <div className="flex flex-wrap gap-1">
+                  <div className="flex flex-wrap gap-1 pt-2">
                     {meal.dietaryTags.slice(0, 2).map((tag, index) => (
                       <Badge key={index} variant="outline" className="text-xs border-fresh-green text-fresh-green">
                         {tag}
@@ -752,82 +759,95 @@ const MealHub = () => {
                       </Badge>
                     ))}
                   </div>
+                </CardHeader>
 
-                  <Separator />
-
-                  {/* Nutrition Breakdown */}
-                  <div className="space-y-3">
-                    <h4 className="font-semibold text-sm text-gradient-food">Nutrition Per Serving</h4>
-                    <div className="grid grid-cols-4 gap-2 text-center">
-                      <div className="space-y-1">
-                        <div className="text-lg font-bold text-gradient-warm">{meal.nutrition.calories}</div>
-                        <div className="text-xs text-muted-foreground">Calories</div>
-                      </div>
-                      <div className="space-y-1">
-                        <div className="text-lg font-bold text-gradient-fresh">{meal.nutrition.protein}g</div>
-                        <div className="text-xs text-muted-foreground">Protein</div>
-                      </div>
-                      <div className="space-y-1">
-                        <div className="text-lg font-bold text-gradient-vitality">{meal.nutrition.carbs}g</div>
-                        <div className="text-xs text-muted-foreground">Carbs</div>
-                      </div>
-                      <div className="space-y-1">
-                        <div className="text-lg font-bold text-gradient-warm">{meal.nutrition.fat}g</div>
-                        <div className="text-xs text-muted-foreground">Fat</div>
-                      </div>
+                <CardContent className="pt-0 space-y-4">
+                  {/* Quick Nutrition Preview */}
+                  <div className="grid grid-cols-4 gap-2 text-center p-3 bg-background/50 rounded-lg">
+                    <div className="space-y-1">
+                      <div className="text-sm font-bold text-gradient-warm">{meal.nutrition.calories}</div>
+                      <div className="text-xs text-muted-foreground">Cal</div>
                     </div>
-
-                    {/* Micro/Macro Details */}
-                    <div className="space-y-2">
-                      <div className="grid grid-cols-2 gap-4 text-xs">
-                        <div>
-                          <span className="text-muted-foreground">Fiber:</span> <span className="font-medium">{meal.nutrition.fiber}g</span>
-                        </div>
-                        <div>
-                          <span className="text-muted-foreground">Sugar:</span> <span className="font-medium">{meal.nutrition.sugar}g</span>
-                        </div>
-                        <div>
-                          <span className="text-muted-foreground">Sodium:</span> <span className="font-medium">{meal.nutrition.sodium}mg</span>
-                        </div>
-                      </div>
-                      
-                      <div className="space-y-1">
-                        <div className="text-xs">
-                          <span className="text-muted-foreground">Vitamins:</span> <span className="font-medium">{meal.nutrition.vitamins.join(", ")}</span>
-                        </div>
-                        <div className="text-xs">
-                          <span className="text-muted-foreground">Minerals:</span> <span className="font-medium">{meal.nutrition.minerals.join(", ")}</span>
-                        </div>
-                      </div>
+                    <div className="space-y-1">
+                      <div className="text-sm font-bold text-gradient-fresh">{meal.nutrition.protein}g</div>
+                      <div className="text-xs text-muted-foreground">Protein</div>
+                    </div>
+                    <div className="space-y-1">
+                      <div className="text-sm font-bold text-gradient-vitality">{meal.nutrition.carbs}g</div>
+                      <div className="text-xs text-muted-foreground">Carbs</div>
+                    </div>
+                    <div className="space-y-1">
+                      <div className="text-sm font-bold text-gradient-warm">{meal.nutrition.fat}g</div>
+                      <div className="text-xs text-muted-foreground">Fat</div>
                     </div>
                   </div>
 
-                  <Separator />
+                  {/* Expandable Details */}
+                  <Collapsible open={expandedMeals[meal.id]} onOpenChange={() => toggleMealDetails(meal.id)}>
+                    <CollapsibleTrigger asChild>
+                      <Button variant="outline" className="w-full justify-between">
+                        <span className="flex items-center gap-2">
+                          <Info className="h-4 w-4" />
+                          View Detailed Info
+                        </span>
+                        {expandedMeals[meal.id] ? 
+                          <ChevronUp className="h-4 w-4" /> : 
+                          <ChevronDown className="h-4 w-4" />
+                        }
+                      </Button>
+                    </CollapsibleTrigger>
+                    
+                    <CollapsibleContent className="space-y-4 pt-4 animate-fade-in">
+                      <Separator />
 
-                  {/* Ingredients & Benefits */}
-                  <div className="space-y-3">
-                    <h4 className="font-semibold text-sm text-gradient-food">Key Ingredients & Benefits</h4>
-                    <div className="space-y-2">
-                      {meal.ingredients.slice(0, 2).map((ingredient, index) => (
-                        <div key={index} className="flex items-start gap-3 p-2 rounded-lg bg-background/50">
-                          <span className="text-lg">{ingredient.icon}</span>
-                          <div className="flex-1 min-w-0">
-                            <div className="font-medium text-sm">{ingredient.name} - {ingredient.amount}</div>
-                            <div className="text-xs text-muted-foreground leading-relaxed">{ingredient.benefits}</div>
+                      {/* Detailed Nutrition */}
+                      <div className="space-y-3">
+                        <h4 className="font-semibold text-sm text-gradient-food">Complete Nutrition Profile</h4>
+                        <div className="grid grid-cols-2 gap-4 text-xs">
+                          <div>
+                            <span className="text-muted-foreground">Fiber:</span> <span className="font-medium">{meal.nutrition.fiber}g</span>
+                          </div>
+                          <div>
+                            <span className="text-muted-foreground">Sugar:</span> <span className="font-medium">{meal.nutrition.sugar}g</span>
+                          </div>
+                          <div>
+                            <span className="text-muted-foreground">Sodium:</span> <span className="font-medium">{meal.nutrition.sodium}mg</span>
                           </div>
                         </div>
-                      ))}
-                      {meal.ingredients.length > 2 && (
-                        <div className="text-xs text-muted-foreground text-center">
-                          +{meal.ingredients.length - 2} more ingredients
+                        
+                        <div className="space-y-1">
+                          <div className="text-xs">
+                            <span className="text-muted-foreground">Vitamins:</span> <span className="font-medium">{meal.nutrition.vitamins.join(", ")}</span>
+                          </div>
+                          <div className="text-xs">
+                            <span className="text-muted-foreground">Minerals:</span> <span className="font-medium">{meal.nutrition.minerals.join(", ")}</span>
+                          </div>
                         </div>
-                      )}
-                    </div>
-                  </div>
+                      </div>
+
+                      <Separator />
+
+                      {/* Ingredients & Benefits */}
+                      <div className="space-y-3">
+                        <h4 className="font-semibold text-sm text-gradient-food">Ingredients & Health Benefits</h4>
+                        <div className="space-y-2">
+                          {meal.ingredients.map((ingredient, index) => (
+                            <div key={index} className="flex items-start gap-3 p-2 rounded-lg bg-background/50">
+                              <span className="text-lg">{ingredient.icon}</span>
+                              <div className="flex-1 min-w-0">
+                                <div className="font-medium text-sm">{ingredient.name} - {ingredient.amount}</div>
+                                <div className="text-xs text-muted-foreground leading-relaxed">{ingredient.benefits}</div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </CollapsibleContent>
+                  </Collapsible>
 
                   <Separator />
 
-                  {/* Quantity & Add to Cart */}
+                  {/* Action Section */}
                   <div className="space-y-3">
                     {!swapMode && (
                       <div className="flex items-center justify-between">
