@@ -16,6 +16,7 @@ const Header = () => {
     { name: "FAQ", href: "/faq" },
     { name: "Blog", href: "/blog" },
     { name: "Meal Hub", href: "/meal-hub" },
+    { name: "My Portal", href: "/customer-portal" },
     { name: "Contact", href: "/contact" },
   ];
 

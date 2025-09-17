@@ -21,6 +21,7 @@ import Terms from "./pages/Terms";
 import CancellationPolicy from "./pages/CancellationPolicy";
 import ShippingPolicy from "./pages/ShippingPolicy";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import CustomerPortal from "./pages/CustomerPortal";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -58,6 +59,7 @@ const App = () => (
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/meal-hub" element={<MealHub />} />
                 <Route path="/cart" element={<Cart />} />
+                <Route path="/customer-portal" element={<CustomerPortal />} />
               <Route path="/terms" element={<Terms />} />
                 <Route path="/cancellation-policy" element={<CancellationPolicy />} />
                 <Route path="/shipping-policy" element={<ShippingPolicy />} />

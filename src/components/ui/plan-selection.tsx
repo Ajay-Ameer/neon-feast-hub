@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -43,6 +43,23 @@ const PlanSelection = ({ planName, basePrice, onPlanSelect }: PlanSelectionProps
   const [selectedMeals, setSelectedMeals] = useState<string[]>([]);
   const [selectedDuration, setSelectedDuration] = useState<number>(14);
   const [showSampleMenu, setShowSampleMenu] = useState(false);
+
+  // Load saved data on component mount
+  useEffect(() => {
+    const savedProfile = localStorage.getItem('userProfile');
+    if (savedProfile) {
+      const profile = JSON.parse(savedProfile);
+      setUserProfile({
+        gender: profile.gender || "",
+        age: profile.age || 0,
+        height: profile.height || 0,
+        weight: profile.weight || 0,
+        foodPreference: profile.foodPreference || ""
+      });
+      setSelectedMeals(profile.selectedMeals || []);
+      setSelectedDuration(profile.duration || 14);
+    }
+  }, []);
 
   const mealOptions: MealOption[] = [
     {
@@ -123,6 +140,10 @@ const PlanSelection = ({ planName, basePrice, onPlanSelect }: PlanSelectionProps
 
   const handleSubmit = () => {
     if (selectedMeals.length > 0 && calculateTotalPrice().total >= 23000) {
+      // Save user profile to localStorage for persistence
+      const profileData = { ...userProfile, selectedMeals, duration: selectedDuration };
+      localStorage.setItem('userProfile', JSON.stringify(profileData));
+      
       onPlanSelect(selectedMeals, selectedDuration, userProfile);
     }
   };
@@ -144,7 +165,7 @@ const PlanSelection = ({ planName, basePrice, onPlanSelect }: PlanSelectionProps
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="gender">Gender</Label>
-              <Select onValueChange={(value) => setUserProfile(prev => ({ ...prev, gender: value }))}>
+              <Select value={userProfile.gender} onValueChange={(value) => setUserProfile(prev => ({ ...prev, gender: value }))}>
                 <SelectTrigger>
                   <SelectValue placeholder="Select gender" />
                 </SelectTrigger>
@@ -160,6 +181,7 @@ const PlanSelection = ({ planName, basePrice, onPlanSelect }: PlanSelectionProps
               <Input
                 type="number"
                 placeholder="Enter age"
+                value={userProfile.age || ""}
                 onChange={(e) => setUserProfile(prev => ({ ...prev, age: parseInt(e.target.value) || 0 }))}
               />
             </div>
@@ -171,6 +193,7 @@ const PlanSelection = ({ planName, basePrice, onPlanSelect }: PlanSelectionProps
               <Input
                 type="number"
                 placeholder="Enter height"
+                value={userProfile.height || ""}
                 onChange={(e) => setUserProfile(prev => ({ ...prev, height: parseInt(e.target.value) || 0 }))}
               />
             </div>
@@ -179,6 +202,7 @@ const PlanSelection = ({ planName, basePrice, onPlanSelect }: PlanSelectionProps
               <Input
                 type="number"
                 placeholder="Enter weight"
+                value={userProfile.weight || ""}
                 onChange={(e) => setUserProfile(prev => ({ ...prev, weight: parseInt(e.target.value) || 0 }))}
               />
             </div>
@@ -186,7 +210,7 @@ const PlanSelection = ({ planName, basePrice, onPlanSelect }: PlanSelectionProps
 
           <div className="space-y-2">
             <Label htmlFor="foodPreference">Food Preference</Label>
-            <Select onValueChange={(value) => setUserProfile(prev => ({ ...prev, foodPreference: value }))}>
+            <Select value={userProfile.foodPreference} onValueChange={(value) => setUserProfile(prev => ({ ...prev, foodPreference: value }))}>
               <SelectTrigger>
                 <SelectValue placeholder="Select your food preference" />
               </SelectTrigger>
