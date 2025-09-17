@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import SectionHeader from "@/components/ui/section-header";
 import { useCart } from "@/contexts/CartContext";
-import { Clock, Users, Star, Flame, Zap, Heart, Plus, Minus, ShoppingCart } from "lucide-react";
+import { Clock, Users, Star, Plus, Minus, ShoppingCart, ArrowLeft, Check } from "lucide-react";
+import { toast } from "@/hooks/use-toast";
+import { useNavigate } from "react-router-dom";
 import breakfastBowl from "@/assets/meal-breakfast-bowl.jpg";
 import buddhaBowl from "@/assets/meal-buddha-bowl.jpg";
 import salmonSalad from "@/assets/meal-salmon-salad.jpg";
@@ -491,176 +493,30 @@ const meals: Meal[] = [
     dietaryTags: ["Gluten Free", "Dairy Free"],
     cuisineType: "Italian",
     mealType: "Dinner"
-  },
-  {
-    id: "11",
-    name: "Avocado Toast Supreme",
-    description: "Multigrain toast topped with smashed avocado and superfood toppings.",
-    image: breakfastBowl,
-    cookTime: "8 min",
-    servings: 1,
-    rating: 4.5,
-    cost: 195,
-    ingredients: [
-      {
-        name: "Multigrain Bread",
-        amount: "2 slices",
-        benefits: "Complex carbohydrates and fiber for sustained energy",
-        icon: "🍞"
-      },
-      {
-        name: "Avocado",
-        amount: "1 medium",
-        benefits: "Rich in healthy fats and potassium, supports heart health",
-        icon: "🥑"
-      }
-    ],
-    nutrition: {
-      calories: 340,
-      protein: 12,
-      carbs: 28,
-      fat: 22,
-      fiber: 14,
-      sugar: 6,
-      sodium: 380,
-      vitamins: ["Vitamin K", "Folate"],
-      minerals: ["Potassium", "Magnesium"]
-    },
-    tags: ["Trendy", "Heart Healthy"],
-    dietaryTags: ["Vegetarian", "Dairy Free"],
-    cuisineType: "Modern",
-    mealType: "Breakfast"
-  },
-  {
-    id: "12",
-    name: "Thai Green Curry",
-    description: "Aromatic green curry with tender vegetables and coconut milk.",
-    image: buddhaBowl,
-    cookTime: "22 min",
-    servings: 2,
-    rating: 4.6,
-    cost: 290,
-    ingredients: [
-      {
-        name: "Green Curry Paste",
-        amount: "3 tbsp",
-        benefits: "Contains anti-inflammatory herbs and spices",
-        icon: "🌶️"
-      },
-      {
-        name: "Coconut Milk",
-        amount: "400ml",
-        benefits: "Healthy fats and natural sweetness",
-        icon: "🥥"
-      }
-    ],
-    nutrition: {
-      calories: 280,
-      protein: 8,
-      carbs: 22,
-      fat: 18,
-      fiber: 6,
-      sugar: 12,
-      sodium: 420,
-      vitamins: ["Vitamin C", "Vitamin A"],
-      minerals: ["Iron", "Potassium"]
-    },
-    tags: ["Spicy", "Aromatic"],
-    dietaryTags: ["Vegan", "Gluten Free"],
-    cuisineType: "Thai",
-    mealType: "Dinner"
-  },
-  {
-    id: "13",
-    name: "Smoked Chicken Salad",
-    description: "Tender smoked chicken with crisp vegetables and herb dressing.",
-    image: salmonSalad,
-    cookTime: "15 min",
-    servings: 1,
-    rating: 4.4,
-    cost: 315,
-    ingredients: [
-      {
-        name: "Smoked Chicken",
-        amount: "150g",
-        benefits: "High protein with smoky flavor, supports muscle building",
-        icon: "🍗"
-      },
-      {
-        name: "Mixed Greens",
-        amount: "2 cups",
-        benefits: "Rich in vitamins and antioxidants",
-        icon: "🥬"
-      }
-    ],
-    nutrition: {
-      calories: 280,
-      protein: 30,
-      carbs: 8,
-      fat: 14,
-      fiber: 4,
-      sugar: 6,
-      sodium: 480,
-      vitamins: ["Vitamin A", "Vitamin C"],
-      minerals: ["Iron", "Phosphorus"]
-    },
-    tags: ["High Protein", "Smoky"],
-    dietaryTags: ["Gluten Free", "Dairy Free"],
-    cuisineType: "American",
-    mealType: "Lunch"
-  },
-  {
-    id: "14",
-    name: "Stuffed Bell Peppers",
-    description: "Colorful bell peppers stuffed with quinoa, herbs and vegetables.",
-    image: ketoChicken,
-    cookTime: "35 min",
-    servings: 2,
-    rating: 4.3,
-    cost: 280,
-    ingredients: [
-      {
-        name: "Bell Peppers",
-        amount: "4 large",
-        benefits: "High in vitamin C and antioxidants",
-        icon: "🫑"
-      },
-      {
-        name: "Quinoa",
-        amount: "1 cup",
-        benefits: "Complete protein and fiber for satiety",
-        icon: "🌾"
-      }
-    ],
-    nutrition: {
-      calories: 240,
-      protein: 12,
-      carbs: 38,
-      fat: 6,
-      fiber: 8,
-      sugar: 14,
-      sodium: 320,
-      vitamins: ["Vitamin C", "Vitamin A"],
-      minerals: ["Potassium", "Magnesium"]
-    },
-    tags: ["Colorful", "Filling"],
-    dietaryTags: ["Vegetarian", "Gluten Free"],
-    cuisineType: "Mediterranean",
-    mealType: "Dinner"
   }
 ];
 
 const MealHub = () => {
   const { addToCart } = useCart();
+  const navigate = useNavigate();
   const [filteredMeals, setFilteredMeals] = useState<Meal[]>(meals);
   const [selectedMealType, setSelectedMealType] = useState<string>("All");
   const [selectedDietaryTag, setSelectedDietaryTag] = useState<string>("All");
   const [selectedCuisine, setSelectedCuisine] = useState<string>("All");
   const [quantities, setQuantities] = useState<{ [key: string]: number }>({});
+  const [swapMode, setSwapMode] = useState<{ active: boolean; date: string; mealType: string; itemId: string } | null>(null);
 
   const uniqueMealTypes = ["All", ...Array.from(new Set(meals.map(meal => meal.mealType)))];
   const uniqueDietaryTags = ["All", ...Array.from(new Set(meals.flatMap(meal => meal.dietaryTags)))];
   const uniqueCuisines = ["All", ...Array.from(new Set(meals.map(meal => meal.cuisineType)))];
+
+  useEffect(() => {
+    // Check if we're in swap mode
+    const swapModeData = sessionStorage.getItem('swapMode');
+    if (swapModeData) {
+      setSwapMode(JSON.parse(swapModeData));
+    }
+  }, []);
 
   const filterMeals = (mealType: string, dietaryTag: string, cuisine: string) => {
     let filtered = meals;
@@ -706,10 +562,51 @@ const MealHub = () => {
     const quantity = quantities[meal.id] || 1;
     addToCart(meal, quantity);
     setQuantities(prev => ({ ...prev, [meal.id]: 0 }));
+    toast({
+      title: "Added to cart",
+      description: `${meal.name} (${quantity}) has been added to your cart.`,
+    });
+  };
+
+  const handleSwapItem = (meal: Meal) => {
+    if (swapMode) {
+      // Here you would update the menu calendar with the new item
+      sessionStorage.removeItem('swapMode');
+      toast({
+        title: "Item swapped",
+        description: `${meal.name} has been swapped in your menu.`,
+      });
+      navigate('/plans');
+    }
+  };
+
+  const cancelSwap = () => {
+    sessionStorage.removeItem('swapMode');
+    setSwapMode(null);
+    navigate('/plans');
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background via-light-green/5 to-light-orange/5">
+      {swapMode && (
+        <div className="bg-warm-amber/10 border-b border-warm-amber/20 py-4">
+          <div className="container mx-auto px-4 lg:px-8">
+            <div className="flex items-center justify-between">
+              <div>
+                <h3 className="font-semibold text-warm-amber">Swap Mode Active</h3>
+                <p className="text-sm text-muted-foreground">
+                  Select a new {swapMode.mealType} for {swapMode.date}
+                </p>
+              </div>
+              <Button variant="outline" onClick={cancelSwap}>
+                <ArrowLeft className="h-4 w-4 mr-2" />
+                Cancel & Return
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
+      
       {/* Hero Section */}
       <section className="py-12 lg:py-20">
         <div className="container mx-auto px-4 lg:px-8">
@@ -914,40 +811,53 @@ const MealHub = () => {
 
                   {/* Quantity & Add to Cart */}
                   <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <span className="font-medium text-sm">Quantity:</span>
-                      <div className="flex items-center gap-2">
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => updateQuantity(meal.id, (quantities[meal.id] || 1) - 1)}
-                          disabled={(quantities[meal.id] || 1) <= 1}
-                          className="h-8 w-8 p-0"
-                        >
-                          <Minus className="h-4 w-4" />
-                        </Button>
-                        <span className="w-8 text-center font-medium">
-                          {quantities[meal.id] || 1}
-                        </span>
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => updateQuantity(meal.id, (quantities[meal.id] || 1) + 1)}
-                          className="h-8 w-8 p-0"
-                        >
-                          <Plus className="h-4 w-4" />
-                        </Button>
+                    {!swapMode && (
+                      <div className="flex items-center justify-between">
+                        <span className="font-medium text-sm">Quantity:</span>
+                        <div className="flex items-center gap-2">
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => updateQuantity(meal.id, (quantities[meal.id] || 1) - 1)}
+                            disabled={(quantities[meal.id] || 1) <= 1}
+                            className="h-8 w-8 p-0"
+                          >
+                            <Minus className="h-4 w-4" />
+                          </Button>
+                          <span className="w-8 text-center font-medium">
+                            {quantities[meal.id] || 1}
+                          </span>
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => updateQuantity(meal.id, (quantities[meal.id] || 1) + 1)}
+                            className="h-8 w-8 p-0"
+                          >
+                            <Plus className="h-4 w-4" />
+                          </Button>
+                        </div>
                       </div>
-                    </div>
+                    )}
 
-                    <Button 
-                      variant="fresh" 
-                      className="w-full"
-                      onClick={() => handleAddToCart(meal)}
-                    >
-                      <ShoppingCart className="w-4 h-4 mr-2" />
-                      Add to Cart - ₹{meal.cost * (quantities[meal.id] || 1)}
-                    </Button>
+                    {swapMode ? (
+                      <Button 
+                        variant="fresh" 
+                        className="w-full"
+                        onClick={() => handleSwapItem(meal)}
+                      >
+                        <Check className="h-4 w-4 mr-2" />
+                        Select for Swap
+                      </Button>
+                    ) : (
+                      <Button 
+                        variant="fresh" 
+                        className="w-full"
+                        onClick={() => handleAddToCart(meal)}
+                      >
+                        <ShoppingCart className="w-4 h-4 mr-2" />
+                        Add to Cart - ₹{meal.cost * (quantities[meal.id] || 1)}
+                      </Button>
+                    )}
                   </div>
                 </CardContent>
               </Card>
