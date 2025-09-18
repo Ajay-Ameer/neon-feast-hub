@@ -117,6 +117,7 @@ const Plans = () => {
           <PlanSelection
             planName={plans.find(p => p.id === selectedPlan)?.name || ""}
             basePrice={plans.find(p => p.id === selectedPlan)?.price || 0}
+            planType={selectedPlan}
             onPlanSelect={handlePlanSelect}
           />
         ) : (

@@ -28,10 +28,11 @@ interface MealOption {
 interface PlanSelectionProps {
   planName: string;
   basePrice: number;
+  planType: string;
   onPlanSelect: (selectedMeals: string[], duration: number, userProfile: UserProfile) => void;
 }
 
-const PlanSelection = ({ planName, basePrice, onPlanSelect }: PlanSelectionProps) => {
+const PlanSelection = ({ planName, basePrice, planType, onPlanSelect }: PlanSelectionProps) => {
   const [userProfile, setUserProfile] = useState<UserProfile>({
     gender: "",
     age: 0,
@@ -66,37 +67,48 @@ const PlanSelection = ({ planName, basePrice, onPlanSelect }: PlanSelectionProps
       id: "breakfast",
       name: "Breakfast",
       description: "Energizing morning meals to kickstart your day",
-      price: 270,
+      price: 290,
       icon: <Heart className="h-5 w-5" />
     },
     {
       id: "lunch",
       name: "Lunch",
       description: "Balanced midday meals to sustain your energy",
-      price: 270,
+      price: 320,
       icon: <Zap className="h-5 w-5" />
     },
     {
       id: "snack",
       name: "Snack",
       description: "Healthy snacks to curb cravings",
-      price: 270,
+      price: 260,
       icon: <Shield className="h-5 w-5" />
     },
     {
       id: "dinner",
       name: "Dinner",
       description: "Nourishing evening meals for recovery",
-      price: 270,
+      price: 340,
       icon: <Star className="h-5 w-5" />
     }
   ];
 
   const durationOptions = [
-    { days: 14, label: "14 Days", discount: 0 },
-    { days: 30, label: "30 Days", discount: 10 },
-    { days: 45, label: "45 Days", discount: 15 }
+    { days: 7, label: "7 Days", discount: 0 },
+    { days: 14, label: "14 Days", discount: 5 },
+    { days: 30, label: "30 Days", discount: 12 },
+    { days: 60, label: "60 Days", discount: 18 },
+    { days: 90, label: "90 Days", discount: 25 }
   ];
+
+  const deliveryZones = [
+    { id: "zone1", name: "City Center (0-5km)", charge: 50 },
+    { id: "zone2", name: "Extended Area (5-15km)", charge: 80 },
+    { id: "zone3", name: "Outskirts (15-25km)", charge: 120 }
+  ];
+
+  const [selectedZone, setSelectedZone] = useState<string>("zone1");
+  const [swapCount, setSwapCount] = useState<number>(0);
 
   const sampleMenus = {
     breakfast: ["Power Breakfast Bowl", "Chia Pudding Parfait", "Greek Yogurt Berry Bowl"],
@@ -114,19 +126,65 @@ const PlanSelection = ({ planName, basePrice, onPlanSelect }: PlanSelectionProps
   };
 
   const calculateTotalPrice = () => {
-    const mealsPerDay = selectedMeals.length;
-    const dailyPrice = mealsPerDay * 270;
-    const totalDays = selectedDuration;
-    const subtotal = dailyPrice * totalDays;
+    // Base meal prices with food preference multiplier
+    const foodPrefMultiplier = {
+      vegetarian: 1.0,
+      "ovo-vegetarian": 1.1,
+      "non-vegetarian": 1.25
+    };
     
+    // Plan type multiplier
+    const planMultiplier = {
+      "weight-loss": 1.0,
+      "muscle-gain": 1.15,
+      "wellness": 0.95
+    };
+
+    const selectedMealsPrices = selectedMeals.map(mealId => {
+      const meal = mealOptions.find(m => m.id === mealId);
+      const basePrice = meal ? meal.price : 260;
+      const prefMultiplier = foodPrefMultiplier[userProfile.foodPreference as keyof typeof foodPrefMultiplier] || 1.0;
+      const planMult = planMultiplier[planType as keyof typeof planMultiplier] || 1.0;
+      return Math.max(260, basePrice * prefMultiplier * planMult); // Minimum ₹260 per meal
+    });
+
+    const dailyMealCost = selectedMealsPrices.reduce((sum, price) => sum + price, 0);
+    const totalDays = selectedDuration;
+    const foodSubtotal = dailyMealCost * totalDays;
+
+    // Kitchen charges (2% of food cost)
+    const kitchenCharges = foodSubtotal * 0.02;
+
+    // Delivery charges
+    const selectedZoneData = deliveryZones.find(z => z.id === selectedZone);
+    const totalDeliveryCharges = (selectedZoneData?.charge || 50) * totalDays;
+
+    // Swap charges
+    const swapCharges = swapCount * 10;
+
+    // Duration discount
     const duration = durationOptions.find(d => d.days === selectedDuration);
     const discount = duration ? duration.discount : 0;
-    const discountAmount = (subtotal * discount) / 100;
-    
+    const discountAmount = (foodSubtotal * discount) / 100;
+
+    // Subtotal before tax
+    const subtotalBeforeTax = foodSubtotal + kitchenCharges + totalDeliveryCharges + swapCharges - discountAmount;
+
+    // GST (18%)
+    const gst = subtotalBeforeTax * 0.18;
+
+    const finalTotal = subtotalBeforeTax + gst;
+
     return {
-      subtotal,
+      foodSubtotal,
+      kitchenCharges,
+      deliveryCharges: totalDeliveryCharges,
+      swapCharges,
       discount: discountAmount,
-      total: subtotal - discountAmount
+      gst,
+      total: finalTotal,
+      dailyMealCost,
+      selectedMealsPrices
     };
   };
 
@@ -139,9 +197,9 @@ const PlanSelection = ({ planName, basePrice, onPlanSelect }: PlanSelectionProps
   };
 
   const handleSubmit = () => {
-    if (selectedMeals.length > 0 && calculateTotalPrice().total >= 23000) {
+    if (selectedMeals.length > 0) {
       // Save user profile to localStorage for persistence
-      const profileData = { ...userProfile, selectedMeals, duration: selectedDuration };
+      const profileData = { ...userProfile, selectedMeals, duration: selectedDuration, selectedZone, swapCount };
       localStorage.setItem('userProfile', JSON.stringify(profileData));
       
       onPlanSelect(selectedMeals, selectedDuration, userProfile);
@@ -149,7 +207,7 @@ const PlanSelection = ({ planName, basePrice, onPlanSelect }: PlanSelectionProps
   };
 
   const pricing = calculateTotalPrice();
-  const isValidSelection = selectedMeals.length > 0 && pricing.total >= 23000;
+  const isValidSelection = selectedMeals.length > 0;
 
   return (
     <div className="space-y-8">
@@ -272,7 +330,7 @@ const PlanSelection = ({ planName, basePrice, onPlanSelect }: PlanSelectionProps
       <Card className="card-elegant">
         <CardHeader>
           <CardTitle className="text-gradient-food">Select Your Meals</CardTitle>
-          <p className="text-sm text-muted-foreground">Choose your preferred meals (minimum ₹23,000/month required)</p>
+          <p className="text-sm text-muted-foreground">Choose your preferred meals - pricing varies by plan type and food preference</p>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -299,36 +357,75 @@ const PlanSelection = ({ planName, basePrice, onPlanSelect }: PlanSelectionProps
         </CardContent>
       </Card>
 
-      {/* Duration Selection */}
-      <Card className="card-elegant">
-        <CardHeader>
-          <CardTitle className="text-gradient-food">Choose Duration</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {durationOptions.map((option) => (
-              <div
-                key={option.days}
-                className={`p-4 border rounded-lg cursor-pointer transition-all ${
-                  selectedDuration === option.days 
-                    ? 'border-fresh-green bg-fresh-green/10' 
-                    : 'border-border hover:border-fresh-green/50'
-                }`}
-                onClick={() => setSelectedDuration(option.days)}
-              >
-                <div className="text-center">
-                  <div className="font-bold text-lg">{option.label}</div>
-                  {option.discount > 0 && (
-                    <Badge className="mt-1 bg-warm-amber text-white">
-                      Save {option.discount}%
-                    </Badge>
-                  )}
+      {/* Duration & Delivery Selection */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <Card className="card-elegant">
+          <CardHeader>
+            <CardTitle className="text-gradient-food">Choose Duration</CardTitle>
+            <p className="text-sm text-muted-foreground">Longer plans offer better savings</p>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-1 gap-3">
+              {durationOptions.map((option) => (
+                <div
+                  key={option.days}
+                  className={`p-4 border rounded-lg cursor-pointer transition-all ${
+                    selectedDuration === option.days 
+                      ? 'border-fresh-green bg-fresh-green/10' 
+                      : 'border-border hover:border-fresh-green/50'
+                  }`}
+                  onClick={() => setSelectedDuration(option.days)}
+                >
+                  <div className="flex justify-between items-center">
+                    <div>
+                      <div className="font-bold">{option.label}</div>
+                      {option.discount > 0 && (
+                        <Badge variant="secondary" className="mt-1 text-xs">
+                          Save {option.discount}%
+                        </Badge>
+                      )}
+                    </div>
+                    <div className="text-right text-sm text-muted-foreground">
+                      {option.days > 30 ? "Best Value" : option.days > 14 ? "Popular" : "Starter"}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="card-elegant">
+          <CardHeader>
+            <CardTitle className="text-gradient-food">Delivery Zone</CardTitle>
+            <p className="text-sm text-muted-foreground">Select your location for delivery</p>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-3">
+              {deliveryZones.map((zone) => (
+                <div
+                  key={zone.id}
+                  className={`p-4 border rounded-lg cursor-pointer transition-all ${
+                    selectedZone === zone.id 
+                      ? 'border-fresh-green bg-fresh-green/10' 
+                      : 'border-border hover:border-fresh-green/50'
+                  }`}
+                  onClick={() => setSelectedZone(zone.id)}
+                >
+                  <div className="flex justify-between items-center">
+                    <div>
+                      <div className="font-medium">{zone.name}</div>
+                      <div className="text-sm text-muted-foreground">
+                        ₹{zone.charge}/delivery
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      </div>
 
       {/* Price Summary */}
       {selectedMeals.length > 0 && (
@@ -339,34 +436,43 @@ const PlanSelection = ({ planName, basePrice, onPlanSelect }: PlanSelectionProps
           <CardContent className="space-y-4">
             <div className="space-y-2">
               <div className="flex justify-between">
-                <span>Meals per day: {selectedMeals.length}</span>
-                <span>₹{selectedMeals.length * 270}/day</span>
+                <span>Food Cost ({selectedMeals.length} meals × {selectedDuration} days):</span>
+                <span>₹{pricing.foodSubtotal.toLocaleString()}</span>
               </div>
-              <div className="flex justify-between">
-                <span>Duration: {selectedDuration} days</span>
-                <span>₹{pricing.subtotal.toLocaleString()}</span>
+              <div className="flex justify-between text-sm text-muted-foreground">
+                <span>Kitchen Charges (2%):</span>
+                <span>₹{pricing.kitchenCharges.toLocaleString()}</span>
               </div>
+              <div className="flex justify-between text-sm text-muted-foreground">
+                <span>Delivery Charges ({selectedDuration} days):</span>
+                <span>₹{pricing.deliveryCharges.toLocaleString()}</span>
+              </div>
+              {pricing.swapCharges > 0 && (
+                <div className="flex justify-between text-sm text-muted-foreground">
+                  <span>Swap Charges ({swapCount} swaps):</span>
+                  <span>₹{pricing.swapCharges.toLocaleString()}</span>
+                </div>
+              )}
               {pricing.discount > 0 && (
                 <div className="flex justify-between text-fresh-green">
-                  <span>Discount:</span>
+                  <span>Duration Discount ({durationOptions.find(d => d.days === selectedDuration)?.discount}%):</span>
                   <span>-₹{pricing.discount.toLocaleString()}</span>
                 </div>
               )}
+              <div className="flex justify-between text-sm text-muted-foreground">
+                <span>GST (18%):</span>
+                <span>₹{pricing.gst.toLocaleString()}</span>
+              </div>
               <div className="border-t pt-2">
                 <div className="flex justify-between font-bold text-lg">
-                  <span>Total:</span>
-                  <span className="text-gradient-fresh">₹{pricing.total.toLocaleString()}</span>
+                  <span>Total Amount:</span>
+                  <span className="text-gradient-fresh">₹{Math.round(pricing.total).toLocaleString()}</span>
+                </div>
+                <div className="text-xs text-muted-foreground text-center mt-1">
+                  Daily average: ₹{Math.round(pricing.total / selectedDuration).toLocaleString()}
                 </div>
               </div>
             </div>
-
-            {pricing.total < 23000 && (
-              <div className="p-3 bg-warm-amber/10 rounded-lg">
-                <p className="text-sm text-center text-warm-amber">
-                  Minimum order value is ₹23,000. Add more meals or increase duration.
-                </p>
-              </div>
-            )}
 
             <Button 
               variant="fresh" 
