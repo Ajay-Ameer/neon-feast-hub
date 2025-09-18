@@ -48,7 +48,7 @@ const HowItWorks = () => {
   }, [steps.length]);
 
   return (
-    <section className="py-20 bg-gradient-to-b from-pastel-green/30 to-pastel-orange/20 relative overflow-hidden">
+    <section className="py-12 md:py-20 bg-gradient-to-b from-pastel-green/30 to-pastel-orange/20 relative overflow-hidden">
       {/* Vegetable Illustrations */}
       <div className="absolute inset-0 pointer-events-none opacity-10">
         <div className="absolute top-20 left-10 text-6xl text-fresh-green transform -rotate-12">🥕</div>
@@ -60,41 +60,41 @@ const HowItWorks = () => {
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-5xl font-orbitron font-bold mb-6">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-2xl md:text-3xl lg:text-5xl font-orbitron font-bold mb-4 md:mb-6">
             <span className="text-gradient-fresh">How It Works</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
             From AI-powered personalization to your doorstep – experience the future of nutrition
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
           {steps.map((step, index) => (
             <div 
               key={index}
               className="relative group"
             >
               {/* Numbered Card */}
-              <div className="bg-white/95 backdrop-blur-sm rounded-3xl p-8 shadow-xl border-2 border-fresh-green/20 hover:border-fresh-green/40 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 relative overflow-hidden">
+              <div className="bg-white/95 backdrop-blur-sm rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-xl border-2 border-fresh-green/20 hover:border-fresh-green/40 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 relative overflow-hidden">
                 {/* Number Badge */}
-                <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-r from-vitality-orange to-fresh-green rounded-full flex items-center justify-center text-white font-orbitron font-bold text-2xl shadow-lg">
+                <div className="absolute -top-3 -right-3 md:-top-4 md:-right-4 w-12 h-12 md:w-16 md:h-16 bg-gradient-to-r from-vitality-orange to-fresh-green rounded-full flex items-center justify-center text-white font-orbitron font-bold text-lg md:text-2xl shadow-lg">
                   {step.number}
                 </div>
                 
                 {/* Icon */}
-                <div className="mb-6">
-                  <div className="w-20 h-20 bg-gradient-to-r from-fresh-green/20 to-vitality-orange/20 rounded-2xl flex items-center justify-center text-fresh-green mb-4 mx-auto group-hover:scale-110 transition-all duration-300">
+                <div className="mb-4 md:mb-6">
+                  <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-r from-fresh-green/20 to-vitality-orange/20 rounded-xl md:rounded-2xl flex items-center justify-center text-fresh-green mb-4 mx-auto group-hover:scale-110 transition-all duration-300">
                     {step.icon}
                   </div>
                 </div>
                 
                 {/* Content */}
-                <div className="text-center space-y-4">
-                  <h3 className="text-xl font-orbitron font-bold text-fresh-green group-hover:text-vitality-orange transition-colors duration-300">
+                <div className="text-center space-y-3 md:space-y-4">
+                  <h3 className="text-lg md:text-xl font-orbitron font-bold text-fresh-green group-hover:text-vitality-orange transition-colors duration-300">
                     {step.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed text-sm">
+                  <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
                     {step.description}
                   </p>
                 </div>

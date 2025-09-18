@@ -72,7 +72,7 @@ const CustomerPortal = () => {
         </div>
 
         {/* Navigation Tabs */}
-        <div className="flex gap-4 mb-8">
+        <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mb-6 md:mb-8">
           <Button
             variant={activeSection === "overview" ? "default" : "outline"}
             onClick={() => setActiveSection("overview")}
@@ -92,7 +92,7 @@ const CustomerPortal = () => {
         </div>
 
         {activeSection === "overview" && (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
             {/* Profile Information */}
             <Card className="card-elegant">
               <CardHeader>
@@ -102,7 +102,7 @@ const CustomerPortal = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
                   <div>
                     <label className="text-sm font-medium text-muted-foreground">Gender</label>
                     <p className="font-semibold capitalize">{userProfile.gender}</p>
@@ -145,7 +145,7 @@ const CustomerPortal = () => {
               <CardContent className="space-y-4">
                  <div>
                    <label className="text-sm font-medium text-muted-foreground">Selected Meals</label>
-                   <div className="flex flex-wrap gap-2 mt-2">
+                   <div className="flex flex-wrap gap-1 md:gap-2 mt-2">
                      {userProfile.selectedMeals.map((meal) => (
                        <span
                          key={meal}

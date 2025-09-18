@@ -163,7 +163,7 @@ const MenuCalendar = ({ selectedMeals, duration, onBack }: MenuCalendarProps) =>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
         {/* Calendar */}
         <Card className="card-elegant">
           <CardHeader>
@@ -235,7 +235,7 @@ const MenuCalendar = ({ selectedMeals, duration, onBack }: MenuCalendarProps) =>
           <CardTitle className="text-gradient-food">Plan Summary</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
             <div className="text-center p-4 bg-fresh-green/10 rounded-lg">
               <div className="font-bold text-lg text-fresh-green">{selectedMeals.length}</div>
               <div className="text-sm text-muted-foreground">Meals per day</div>

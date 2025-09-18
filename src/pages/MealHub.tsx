@@ -705,7 +705,7 @@ const MealHub = () => {
       {/* Meals Grid */}
       <section className="py-8 pb-20">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
             {filteredMeals.map((meal) => (
               <Card key={meal.id} className="card-elegant overflow-hidden group hover:shadow-xl transition-all duration-300">
                 {/* Card Image Header */}
@@ -763,7 +763,7 @@ const MealHub = () => {
 
                 <CardContent className="pt-0 space-y-4">
                   {/* Quick Nutrition Preview */}
-                  <div className="grid grid-cols-4 gap-2 text-center p-3 bg-background/50 rounded-lg">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center p-3 bg-background/50 rounded-lg">
                     <div className="space-y-1">
                       <div className="text-sm font-bold text-gradient-warm">{meal.nutrition.calories}</div>
                       <div className="text-xs text-muted-foreground">Cal</div>
@@ -803,7 +803,7 @@ const MealHub = () => {
                       {/* Detailed Nutrition */}
                       <div className="space-y-3">
                         <h4 className="font-semibold text-sm text-gradient-food">Complete Nutrition Profile</h4>
-                        <div className="grid grid-cols-2 gap-4 text-xs">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 text-xs">
                           <div>
                             <span className="text-muted-foreground">Fiber:</span> <span className="font-medium">{meal.nutrition.fiber}g</span>
                           </div>

@@ -46,7 +46,7 @@ const Home = () => {
       <HowItWorks />
 
       {/* Why Choose ZestyMonk */}
-      <section className="py-20 bg-gradient-to-b from-light-green/10 to-background">
+      <section className="py-12 md:py-20 bg-gradient-to-b from-light-green/10 to-background">
         <div className="container mx-auto px-4 lg:px-8">
           <SectionHeader 
             title="Why Choose ZestyMonk?"
@@ -54,7 +54,7 @@ const Home = () => {
             gradient="fresh"
           />
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {[
               {
                 icon: <Shield className="h-8 w-8" />,
@@ -106,7 +106,7 @@ const Home = () => {
       </section>
 
       {/* Subscription Plans Preview */}
-      <section className="py-20 bg-gradient-to-b from-background to-light-orange/10">
+      <section className="py-12 md:py-20 bg-gradient-to-b from-background to-light-orange/10">
         <div className="container mx-auto px-4 lg:px-8">
           <SectionHeader 
             title="Choose Your Health Journey"
@@ -114,7 +114,7 @@ const Home = () => {
             gradient="vitality"
           />
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
             {[
               {
                 name: "Weight Loss (Veg/Non-Veg)",
@@ -167,7 +167,7 @@ const Home = () => {
       <FoodCarousel />
 
       {/* Testimonials */}
-      <section className="py-20">
+      <section className="py-12 md:py-20">
         <div className="container mx-auto px-4 lg:px-8">
           <SectionHeader 
             title="What Our Members Say"
@@ -175,7 +175,7 @@ const Home = () => {
             gradient="fresh"
           />
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
             {[
               {
                 name: "Priya Sharma",
@@ -213,17 +213,17 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-light-green/20 to-light-orange/20 relative overflow-hidden">
+      <section className="py-12 md:py-20 bg-gradient-to-r from-light-green/20 to-light-orange/20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-fresh-green/5 to-warm-orange/5 animate-pulse"></div>
         <div className="container mx-auto px-4 lg:px-8 text-center relative z-10">
-          <div className="space-y-8 max-w-4xl mx-auto">
-            <h2 className="text-3xl lg:text-5xl font-orbitron font-bold text-gradient-fresh pulse-fresh">
+          <div className="space-y-6 md:space-y-8 max-w-4xl mx-auto">
+            <h2 className="text-2xl md:text-3xl lg:text-5xl font-orbitron font-bold text-gradient-fresh pulse-fresh">
               Ready to Transform Your Health?
             </h2>
-            <p className="text-xl text-muted-foreground font-exo">
+            <p className="text-lg md:text-xl text-muted-foreground font-exo">
               Join thousands of healthy, happy ZestyMonk members. Your taste buds and body will thank you!
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
               <Button variant="fresh" size="lg" className="text-lg px-8 py-4" asChild>
                 <Link to="/plans">
                   <Zap className="mr-2" />

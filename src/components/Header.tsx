@@ -77,13 +77,13 @@ const Header = () => {
 
         {/* Mobile menu */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-16 left-0 right-0 bg-card border-b border-border shadow-lg">
-            <div className="px-4 py-6 space-y-4">
+          <div className="md:hidden absolute top-16 left-0 right-0 bg-card border-b border-border shadow-lg z-50">
+            <div className="px-4 py-4 md:py-6 space-y-3 md:space-y-4 max-h-screen overflow-y-auto">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
-                  className="block text-foreground hover:text-neon-cyan transition-colors duration-200 font-exo font-medium py-2 hover-glow"
+                  className="block text-foreground hover:text-neon-cyan transition-colors duration-200 font-exo font-medium py-3 text-lg hover-glow"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}

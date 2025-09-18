@@ -162,7 +162,7 @@ const PlanSelection = ({ planName, basePrice, onPlanSelect }: PlanSelectionProps
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="gender">Gender</Label>
               <Select value={userProfile.gender} onValueChange={(value) => setUserProfile(prev => ({ ...prev, gender: value }))}>
@@ -187,7 +187,7 @@ const PlanSelection = ({ planName, basePrice, onPlanSelect }: PlanSelectionProps
             </div>
           </div>
           
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="height">Height (cm)</Label>
               <Input
@@ -248,7 +248,7 @@ const PlanSelection = ({ planName, basePrice, onPlanSelect }: PlanSelectionProps
               Here's what you can expect from your meal plan
             </DialogDescription>
           </DialogHeader>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {Object.entries(sampleMenus).map(([mealType, items]) => (
               <div key={mealType} className="space-y-2">
                 <h4 className="font-semibold capitalize text-gradient-food">{mealType}</h4>
@@ -275,7 +275,7 @@ const PlanSelection = ({ planName, basePrice, onPlanSelect }: PlanSelectionProps
           <p className="text-sm text-muted-foreground">Choose your preferred meals (minimum ₹23,000/month required)</p>
         </CardHeader>
         <CardContent className="space-y-4">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {mealOptions.map((meal) => (
               <div key={meal.id} className="flex items-center space-x-3 p-4 border rounded-lg hover:bg-accent/50 transition-colors">
                 <Checkbox
@@ -305,7 +305,7 @@ const PlanSelection = ({ planName, basePrice, onPlanSelect }: PlanSelectionProps
           <CardTitle className="text-gradient-food">Choose Duration</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {durationOptions.map((option) => (
               <div
                 key={option.days}

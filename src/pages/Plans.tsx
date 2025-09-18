@@ -120,7 +120,7 @@ const Plans = () => {
             onPlanSelect={handlePlanSelect}
           />
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
             {plans.map((plan) => (
               <Card key={plan.id} className={`card-elegant relative ${plan.popular ? 'ring-2 ring-fresh-green' : ''}`}>
                 {plan.popular && (
@@ -152,7 +152,7 @@ const Plans = () => {
                     ))}
                   </div>
 
-                  <div className="grid grid-cols-3 gap-4 pt-4 border-t">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 pt-4 border-t">
                     <div className="text-center">
                       <div className="flex items-center justify-center mb-1">
                         <Users className="h-4 w-4 text-fresh-green" />

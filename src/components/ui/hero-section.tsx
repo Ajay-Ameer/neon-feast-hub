@@ -33,16 +33,16 @@ const HeroSection = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left Content - Motivational Health Focus */}
-          <div className="space-y-10">
-            <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-success-green/10 border border-success-green/20">
+          <div className="space-y-6 md:space-y-10 text-center lg:text-left">
+            <div className="space-y-4 md:space-y-6">
+              <div className="inline-flex items-center gap-2 px-3 md:px-4 py-2 rounded-full bg-success-green/10 border border-success-green/20">
                 <div className="w-2 h-2 bg-success-green rounded-full animate-pulse"></div>
-                <span className="text-sm font-exo font-medium text-success-green">Your Health Transformation Starts Here</span>
+                <span className="text-xs md:text-sm font-exo font-medium text-success-green">Your Health Transformation Starts Here</span>
               </div>
               
-              <h1 className="text-5xl lg:text-7xl font-playfair font-bold leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-playfair font-bold leading-tight">
                 <span className="text-gradient-fresh">Healthy Food</span>
                 <br />
                 <span className="text-foreground">Delivered Fresh</span>
@@ -50,24 +50,24 @@ const HeroSection = () => {
                 <span className="text-gradient-vitality">Every Morning!</span>
               </h1>
               
-              <p className="text-xl text-muted-foreground max-w-lg font-exo leading-relaxed">
+              <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-lg mx-auto lg:mx-0 font-exo leading-relaxed">
                 Experience the future of nutrition with our <strong className="text-fresh-green">personalized meal plans</strong>, 
                 crafted fresh daily and delivered using patented smart packaging 
                 technology that locks in <strong className="text-vitality-orange">flavor and nutrition</strong>.
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="fresh" size="lg" className="text-lg px-10 py-6 font-orbitron font-semibold bounce-in">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center lg:justify-start">
+              <Button variant="fresh" size="lg" className="text-base md:text-lg px-6 md:px-10 py-4 md:py-6 font-orbitron font-semibold bounce-in">
                 Start My Transformation
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-10 py-6 font-orbitron border-2 border-fresh-green text-fresh-green hover:bg-fresh-green hover:text-white health-border">
+              <Button variant="outline" size="lg" className="text-base md:text-lg px-6 md:px-10 py-4 md:py-6 font-orbitron border-2 border-fresh-green text-fresh-green hover:bg-fresh-green hover:text-white health-border">
                 View Meal Plans
               </Button>
             </div>
 
             {/* Health-focused Features */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 pt-4 md:pt-6">
               <div className="flex items-center gap-3 p-3 rounded-lg health-card">
                 <div className="health-icon w-10 h-10 flex items-center justify-center">
                   <span className="text-lg">🚚</span>
@@ -101,20 +101,20 @@ const HeroSection = () => {
           </div>
 
           {/* Right Content - Enhanced Meal Display */}
-          <div className="relative">
-            <div className="relative mx-auto w-[420px] h-[420px] flex items-center justify-center">
+          <div className="relative order-first lg:order-last">
+            <div className="relative mx-auto w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] md:w-[380px] md:h-[380px] lg:w-[420px] lg:h-[420px] flex items-center justify-center">
               {/* Motivational Background Rings */}
               <div className="absolute inset-0 bg-gradient-fresh rounded-full opacity-10 pulse-health"></div>
               <div className="absolute inset-4 bg-gradient-vitality rounded-full opacity-15 pulse-health delay-500"></div>
               
               {/* Enhanced Meal Card */}
-              <div className="relative bg-white/95 backdrop-blur-lg rounded-3xl p-10 shadow-2xl border-2 border-fresh-green/20 health-card float-gentle">
-                <div className="text-center space-y-6">
-                  <div className="text-9xl bounce-in" key={currentMeal}>
+              <div className="relative bg-white/95 backdrop-blur-lg rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 shadow-2xl border-2 border-fresh-green/20 health-card float-gentle">
+                <div className="text-center space-y-4 md:space-y-6">
+                  <div className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl bounce-in" key={currentMeal}>
                     {meals[currentMeal].emoji}
                   </div>
                   <div className="space-y-2">
-                    <h3 className="text-2xl font-orbitron font-bold text-fresh-green">
+                    <h3 className="text-lg sm:text-xl lg:text-2xl font-orbitron font-bold text-fresh-green">
                       {meals[currentMeal].name}
                     </h3>
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-vitality-orange/10 border border-vitality-orange/20">
