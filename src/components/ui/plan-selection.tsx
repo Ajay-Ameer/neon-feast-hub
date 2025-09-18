@@ -94,11 +94,10 @@ const PlanSelection = ({ planName, basePrice, planType, onPlanSelect }: PlanSele
   ];
 
   const durationOptions = [
-    { days: 7, label: "7 Days", discount: 0 },
-    { days: 14, label: "14 Days", discount: 5 },
-    { days: 30, label: "30 Days", discount: 12 },
-    { days: 60, label: "60 Days", discount: 18 },
-    { days: 90, label: "90 Days", discount: 25 }
+    { days: 14, label: "14 Days", discount: 0 },
+    { days: 30, label: "30 Days", discount: 5 },
+    { days: 45, label: "45 Days", discount: 8 },
+    { days: 90, label: "90 Days", discount: 12 }
   ];
 
   const deliveryZones = [
