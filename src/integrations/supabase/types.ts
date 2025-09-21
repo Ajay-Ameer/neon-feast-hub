@@ -55,6 +55,39 @@ export type Database = {
           },
         ]
       }
+      audit_logs: {
+        Row: {
+          action: string
+          created_at: string
+          id: string
+          new_values: Json | null
+          old_values: Json | null
+          record_id: string
+          table_name: string
+          user_id: string | null
+        }
+        Insert: {
+          action: string
+          created_at?: string
+          id?: string
+          new_values?: Json | null
+          old_values?: Json | null
+          record_id: string
+          table_name: string
+          user_id?: string | null
+        }
+        Update: {
+          action?: string
+          created_at?: string
+          id?: string
+          new_values?: Json | null
+          old_values?: Json | null
+          record_id?: string
+          table_name?: string
+          user_id?: string | null
+        }
+        Relationships: []
+      }
       cart_items: {
         Row: {
           created_at: string
@@ -94,6 +127,124 @@ export type Database = {
             isOneToOne: false
             referencedRelation: "profiles"
             referencedColumns: ["user_id"]
+          },
+        ]
+      }
+      content_pages: {
+        Row: {
+          content: Json
+          created_at: string
+          created_by: string | null
+          id: string
+          meta_description: string | null
+          meta_title: string | null
+          publish_at: string | null
+          slug: string
+          status: string
+          title: string
+          updated_at: string
+          updated_by: string | null
+        }
+        Insert: {
+          content?: Json
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          meta_description?: string | null
+          meta_title?: string | null
+          publish_at?: string | null
+          slug: string
+          status?: string
+          title: string
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Update: {
+          content?: Json
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          meta_description?: string | null
+          meta_title?: string | null
+          publish_at?: string | null
+          slug?: string
+          status?: string
+          title?: string
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Relationships: []
+      }
+      content_revisions: {
+        Row: {
+          content: Json
+          created_at: string
+          created_by: string | null
+          id: string
+          message: string | null
+          page_id: string | null
+        }
+        Insert: {
+          content: Json
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          message?: string | null
+          page_id?: string | null
+        }
+        Update: {
+          content?: Json
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          message?: string | null
+          page_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "content_revisions_page_id_fkey"
+            columns: ["page_id"]
+            isOneToOne: false
+            referencedRelation: "content_pages"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      content_sections: {
+        Row: {
+          created_at: string
+          id: string
+          order_index: number
+          page_id: string | null
+          props: Json
+          type: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          order_index?: number
+          page_id?: string | null
+          props?: Json
+          type: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          order_index?: number
+          page_id?: string | null
+          props?: Json
+          type?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "content_sections_page_id_fkey"
+            columns: ["page_id"]
+            isOneToOne: false
+            referencedRelation: "content_pages"
+            referencedColumns: ["id"]
           },
         ]
       }
@@ -256,8 +407,14 @@ export type Database = {
           nutrition: Json
           preparation_time_minutes: number | null
           price: number
+          seo_description: string | null
+          seo_title: string | null
+          sku: string | null
+          sort_order: number | null
           stock_quantity: number | null
+          tags: string[] | null
           updated_at: string
+          variants: Json | null
         }
         Insert: {
           allergens?: string[] | null
@@ -280,8 +437,14 @@ export type Database = {
           nutrition: Json
           preparation_time_minutes?: number | null
           price: number
+          seo_description?: string | null
+          seo_title?: string | null
+          sku?: string | null
+          sort_order?: number | null
           stock_quantity?: number | null
+          tags?: string[] | null
           updated_at?: string
+          variants?: Json | null
         }
         Update: {
           allergens?: string[] | null
@@ -304,8 +467,14 @@ export type Database = {
           nutrition?: Json
           preparation_time_minutes?: number | null
           price?: number
+          seo_description?: string | null
+          seo_title?: string | null
+          sku?: string | null
+          sort_order?: number | null
           stock_quantity?: number | null
+          tags?: string[] | null
           updated_at?: string
+          variants?: Json | null
         }
         Relationships: [
           {
@@ -323,6 +492,48 @@ export type Database = {
             referencedColumns: ["user_id"]
           },
         ]
+      }
+      media_library: {
+        Row: {
+          alt_text: string | null
+          caption: string | null
+          created_at: string
+          created_by: string | null
+          file_size: number
+          filename: string
+          id: string
+          mime_type: string
+          original_filename: string
+          tags: string[] | null
+          url: string
+        }
+        Insert: {
+          alt_text?: string | null
+          caption?: string | null
+          created_at?: string
+          created_by?: string | null
+          file_size: number
+          filename: string
+          id?: string
+          mime_type: string
+          original_filename: string
+          tags?: string[] | null
+          url: string
+        }
+        Update: {
+          alt_text?: string | null
+          caption?: string | null
+          created_at?: string
+          created_by?: string | null
+          file_size?: number
+          filename?: string
+          id?: string
+          mime_type?: string
+          original_filename?: string
+          tags?: string[] | null
+          url?: string
+        }
+        Relationships: []
       }
       notifications: {
         Row: {
@@ -701,6 +912,30 @@ export type Database = {
           },
         ]
       }
+      user_roles: {
+        Row: {
+          created_at: string
+          created_by: string | null
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
       user_subscriptions: {
         Row: {
           billing_cycle: string
@@ -789,9 +1024,20 @@ export type Database = {
         Args: Record<PropertyKey, never>
         Returns: string
       }
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
+      is_admin: {
+        Args: { _user_id: string }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "editor" | "viewer" | "user"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -918,6 +1164,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "editor", "viewer", "user"],
+    },
   },
 } as const
