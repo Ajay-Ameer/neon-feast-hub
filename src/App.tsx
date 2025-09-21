@@ -43,53 +43,55 @@ const ScrollToTop = () => {
   return null;
 };
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <AuthProvider>
-        <Toaster />
-        <Sonner />
-        <CartProvider>
-          <BrowserRouter>
-            <ScrollToTop />
-            <div className="min-h-screen bg-background text-foreground">
-              <Header />
-              <NavigationBreadcrumb />
-              <main>
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/about" element={<About />} />
-                  <Route path="/mission" element={<Mission />} />
-                  <Route path="/plans" element={<Plans />} />
-                  <Route path="/contact" element={<Contact />} />
-                  <Route path="/faq" element={<FAQ />} />
-                  <Route path="/blog" element={<Blog />} />
-                  <Route path="/meal-hub" element={<MealHub />} />
-                  <Route path="/cart" element={<Cart />} />
-                  <Route path="/customer-portal" element={
-                    <ProtectedRoute>
-                      <CustomerPortal />
-                    </ProtectedRoute>
-                  } />
-                  <Route path="/terms" element={<Terms />} />
-                  <Route path="/cancellation-policy" element={<CancellationPolicy />} />
-                  <Route path="/shipping-policy" element={<ShippingPolicy />} />
-                  <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-                  <Route path="/login" element={<Login />} />
-                  <Route path="/signup" element={<Signup />} />
-                  <Route path="/forgot-password" element={<ForgotPassword />} />
-                  <Route path="/reset-password" element={<ResetPassword />} />
-                  {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </main>
-              <Footer />
-            </div>
-          </BrowserRouter>
-        </CartProvider>
-      </AuthProvider>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+const App = () => {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <AuthProvider>
+          <CartProvider>
+            <BrowserRouter>
+              <ScrollToTop />
+              <div className="min-h-screen bg-background text-foreground">
+                <Header />
+                <NavigationBreadcrumb />
+                <main>
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/mission" element={<Mission />} />
+                    <Route path="/plans" element={<Plans />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path="/faq" element={<FAQ />} />
+                    <Route path="/blog" element={<Blog />} />
+                    <Route path="/meal-hub" element={<MealHub />} />
+                    <Route path="/cart" element={<Cart />} />
+                    <Route path="/customer-portal" element={
+                      <ProtectedRoute>
+                        <CustomerPortal />
+                      </ProtectedRoute>
+                    } />
+                    <Route path="/terms" element={<Terms />} />
+                    <Route path="/cancellation-policy" element={<CancellationPolicy />} />
+                    <Route path="/shipping-policy" element={<ShippingPolicy />} />
+                    <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/signup" element={<Signup />} />
+                    <Route path="/forgot-password" element={<ForgotPassword />} />
+                    <Route path="/reset-password" element={<ResetPassword />} />
+                    {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                    <Route path="*" element={<NotFound />} />
+                  </Routes>
+                </main>
+                <Footer />
+              </div>
+              <Toaster />
+              <Sonner />
+            </BrowserRouter>
+          </CartProvider>
+        </AuthProvider>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;
