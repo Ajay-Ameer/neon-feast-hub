@@ -9,6 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useAuth } from '@/contexts/AuthContext';
+import { toast } from 'sonner';
 
 const signupSchema = z.object({
   firstName: z.string().min(2, 'First name must be at least 2 characters'),
@@ -50,7 +51,8 @@ const Signup = () => {
     );
     
     if (!error) {
-      navigate('/');
+      toast.success('Please check your email and click the confirmation link to complete your registration.');
+      navigate('/login');
     }
     setIsLoading(false);
   };

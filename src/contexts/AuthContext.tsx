@@ -95,6 +95,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         email,
         password,
         options: {
+          emailRedirectTo: `${window.location.origin}/login`,
           data: {
             first_name: firstName,
             last_name: lastName,
@@ -108,7 +109,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         return { error };
       }
 
-      toast.success('Account created successfully!');
+      toast.success('Account created! Please check your email for confirmation.');
       return { error: null };
     } catch (error: any) {
       toast.error('An unexpected error occurred');
