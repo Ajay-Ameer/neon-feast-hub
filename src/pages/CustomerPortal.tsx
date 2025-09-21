@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { User, Calendar, Settings } from "lucide-react";
 import MenuCalendar from "@/components/ui/menu-calendar";
+import { useAuth } from "@/contexts/AuthContext";
 
 interface UserProfile {
   gender: string;
@@ -17,6 +18,7 @@ interface UserProfile {
 const CustomerPortal = () => {
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
   const [activeSection, setActiveSection] = useState<"overview" | "menu">("overview");
+  const { user, profile } = useAuth();
 
   useEffect(() => {
     // Load user profile from localStorage
@@ -46,7 +48,9 @@ const CustomerPortal = () => {
           <Card className="card-elegant">
             <CardContent className="p-8">
               <User className="h-16 w-16 mx-auto mb-4 text-muted-foreground" />
-              <h2 className="text-xl font-semibold mb-4">No Active Plan Found</h2>
+              <h2 className="text-xl font-semibold mb-4">
+                Hello {profile?.first_name || 'there'}! No Active Plan Found
+              </h2>
               <p className="text-muted-foreground mb-6">
                 You don't have an active meal plan yet. Start by creating your personalized plan.
               </p>
@@ -67,7 +71,9 @@ const CustomerPortal = () => {
     <div className="container mx-auto px-4 py-8">
       <div className="max-w-7xl mx-auto">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gradient-food mb-2">Customer Portal</h1>
+          <h1 className="text-3xl font-bold text-gradient-food mb-2">
+            Welcome back, {profile?.first_name || 'User'}!
+          </h1>
           <p className="text-muted-foreground">Manage your meal plan and preferences</p>
         </div>
 

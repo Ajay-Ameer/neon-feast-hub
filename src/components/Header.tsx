@@ -1,13 +1,24 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, Zap, ShoppingCart } from "lucide-react";
+import { Menu, X, Zap, ShoppingCart, User, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useCart } from "@/contexts/CartContext";
+import { useAuth } from "@/contexts/AuthContext";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { getTotalItems } = useCart();
+  const { user, profile, signOut } = useAuth();
 
   const navigation = [
     { name: "Home", href: "/" },
@@ -16,7 +27,7 @@ const Header = () => {
     { name: "FAQ", href: "/faq" },
     { name: "Blog", href: "/blog" },
     { name: "Meal Hub", href: "/meal-hub" },
-    { name: "My Portal", href: "/customer-portal" },
+    ...(user ? [{ name: "My Portal", href: "/customer-portal" }] : []),
     { name: "Contact", href: "/contact" },
   ];
 
@@ -47,7 +58,7 @@ const Header = () => {
             ))}
           </div>
 
-          {/* Cart and CTA Button */}
+          {/* Cart and User Menu */}
           <div className="hidden md:flex items-center gap-4">
             <Button variant="ghost" size="sm" asChild className="relative">
               <Link to="/cart">
@@ -59,9 +70,56 @@ const Header = () => {
                 )}
               </Link>
             </Button>
-            <Button variant="fresh" size="lg" className="fresh-border" asChild>
-              <Link to="/plans">Start My Plan</Link>
-            </Button>
+            
+            {user ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" className="relative h-10 w-10 rounded-full">
+                    <Avatar className="h-9 w-9">
+                      <AvatarFallback className="bg-gradient-to-r from-neon-cyan to-neon-blue text-black">
+                        {profile?.first_name?.[0]?.toUpperCase() || user.email?.[0]?.toUpperCase()}
+                      </AvatarFallback>
+                    </Avatar>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-56" align="end" forceMount>
+                  <DropdownMenuLabel className="font-normal">
+                    <div className="flex flex-col space-y-1">
+                      <p className="text-sm font-medium leading-none">
+                        {profile?.first_name && profile?.last_name 
+                          ? `${profile.first_name} ${profile.last_name}`
+                          : profile?.first_name || 'User'
+                        }
+                      </p>
+                      <p className="text-xs leading-none text-muted-foreground">
+                        {user.email}
+                      </p>
+                    </div>
+                  </DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem asChild>
+                    <Link to="/customer-portal" className="cursor-pointer">
+                      <User className="mr-2 h-4 w-4" />
+                      <span>My Portal</span>
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem onClick={signOut} className="cursor-pointer">
+                    <LogOut className="mr-2 h-4 w-4" />
+                    <span>Log out</span>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <>
+                <Button variant="outline" size="sm" asChild>
+                  <Link to="/login">Sign In</Link>
+                </Button>
+                <Button variant="fresh" size="lg" className="fresh-border" asChild>
+                  <Link to="/plans">Start My Plan</Link>
+                </Button>
+              </>
+            )}
           </div>
 
           {/* Mobile menu button */}
@@ -100,9 +158,46 @@ const Header = () => {
                   )}
                 </Link>
               </Button>
-              <Button variant="fresh" size="lg" className="w-full mt-4 fresh-border" asChild>
-                <Link to="/plans">Start My Plan</Link>
-              </Button>
+              
+              {user ? (
+                <>
+                  <div className="pt-4 pb-2 border-t">
+                    <p className="text-sm font-medium">
+                      {profile?.first_name && profile?.last_name 
+                        ? `${profile.first_name} ${profile.last_name}`
+                        : profile?.first_name || 'User'
+                      }
+                    </p>
+                    <p className="text-xs text-muted-foreground">{user.email}</p>
+                  </div>
+                  <Button variant="ghost" asChild className="justify-start w-full">
+                    <Link to="/customer-portal" onClick={() => setIsMenuOpen(false)}>
+                      <User className="h-5 w-5 mr-2" />
+                      My Portal
+                    </Link>
+                  </Button>
+                  <Button 
+                    variant="ghost" 
+                    onClick={() => {
+                      setIsMenuOpen(false);
+                      signOut();
+                    }}
+                    className="justify-start w-full"
+                  >
+                    <LogOut className="h-5 w-5 mr-2" />
+                    Log out
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Button variant="outline" className="w-full mt-4" asChild>
+                    <Link to="/login" onClick={() => setIsMenuOpen(false)}>Sign In</Link>
+                  </Button>
+                  <Button variant="fresh" size="lg" className="w-full mt-2 fresh-border" asChild>
+                    <Link to="/plans" onClick={() => setIsMenuOpen(false)}>Start My Plan</Link>
+                  </Button>
+                </>
+              )}
             </div>
           </div>
         )}
