@@ -11,11 +11,11 @@
     --background: 110 50% 96%;
     --foreground: 25 30% 20%;
     
-    /* Vibrant Food Colors */
-    --pastel-green: 130 45% 88%;
-    --pastel-orange: 35 90% 85%;
-    --light-green: 130 40% 90%;
-    --light-orange: 35 85% 88%;
+    /* Dark Chili Green Food Colors */
+    --pastel-green: 120 25% 25%;
+    --pastel-orange: 15 65% 35%;
+    --light-green: 120 30% 30%;
+    --light-orange: 15 70% 40%;
 
     --card: 0 0% 100%;
     --card-foreground: 25 30% 20%;
@@ -23,35 +23,35 @@
     --popover: 0 0% 100%;
     --popover-foreground: 25 30% 20%;
 
-    /* Vibrant Food-Focused Color Palette */
-    --fresh-green: 130 65% 45%;        /* Pastel dark green for buttons */
-    --fresh-green-light: 130 60% 65%;  /* Light green - freshness */
-    --vibrant-green: 125 70% 50%;      /* More vibrant green */
-    --tech-blue: 200 85% 60%;          /* Modern blue accent */
-    --vitality-orange: 35 95% 60%;     /* Energy orange - motivation */
-    --warm-orange: 30 90% 65%;         /* Warm orange - comfort */
-    --accent-orange: 25 95% 70%;       /* Bright orange accent */
-    --energy-yellow: 48 95% 70%;       /* Energy yellow - optimism */
+    /* Dark Chili Green Food-Focused Color Palette */
+    --fresh-green: 120 40% 25%;        /* Dark chili green for buttons */
+    --fresh-green-light: 120 35% 35%;  /* Lighter chili green - freshness */
+    --vibrant-green: 115 45% 30%;      /* Vibrant dark green */
+    --tech-blue: 200 70% 40%;          /* Modern dark blue accent */
+    --vitality-orange: 15 80% 45%;     /* Dark orange - motivation */
+    --warm-orange: 20 75% 50%;         /* Warm darker orange - comfort */
+    --accent-orange: 25 85% 55%;       /* Orange accent */
+    --energy-yellow: 48 80% 55%;       /* Energy yellow - optimism */
     --pure-white: 0 0% 100%;           /* Clean white - purity */
-    --soft-cream: 45 35% 96%;          /* Soft cream - warmth */
-    --natural-brown: 25 35% 40%;       /* Natural brown - earthiness */
-    --earth-green: 120 50% 30%;        /* Deep green - nature */
-    --success-green: 120 65% 45%;      /* Success indicators */
+    --soft-cream: 45 25% 92%;          /* Soft cream - warmth */
+    --natural-brown: 25 45% 35%;       /* Natural brown - earthiness */
+    --earth-green: 120 45% 20%;        /* Deep chili green - nature */
+    --success-green: 120 50% 30%;      /* Success indicators */
 
-    /* Primary brand color - Pastel Dark Green */
-    --primary: 130 65% 45%;
+    /* Primary brand color - Dark Chili Green */
+    --primary: 120 40% 25%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary - Vibrant Orange */
-    --secondary: 35 95% 60%;
+    /* Secondary - Dark Orange */
+    --secondary: 15 80% 45%;
     --secondary-foreground: 0 0% 100%;
 
     /* Muted natural tones */
     --muted: 142 20% 96%;
     --muted-foreground: 25 25% 45%;
 
-    /* Accent - Success Green */
-    --accent: 120 60% 50%;
+    /* Accent - Dark Success Green */
+    --accent: 120 45% 30%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;

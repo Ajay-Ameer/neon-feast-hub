@@ -20,21 +20,29 @@ import FeatureCard from "@/components/ui/feature-card";
 import PlanCard from "@/components/ui/plan-card";
 import TestimonialCard from "@/components/ui/testimonial-card";
 
+// Import vegetable images
+import chilliPepper from "@/assets/vegetables/chili-pepper.jpg";
+import broccoli from "@/assets/vegetables/broccoli.jpg";
+import spinach from "@/assets/vegetables/spinach.jpg";
+import bellPepper from "@/assets/vegetables/bell-pepper.jpg";
+import kale from "@/assets/vegetables/kale.jpg";
+import avocado from "@/assets/vegetables/avocado.jpg";
+
 const Home = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-background via-pastel-green/20 to-pastel-orange/10 relative overflow-hidden">
-      {/* Floating Vegetable Decorations - More Visible */}
-      <div className="fixed inset-0 pointer-events-none opacity-15 z-0">
-        <div className="absolute top-10 left-10 text-8xl text-fresh-green animate-float-slow drop-shadow-lg">🥕</div>
-        <div className="absolute top-20 right-20 text-6xl text-success-green animate-float-medium drop-shadow-lg">🥬</div>
-        <div className="absolute bottom-40 left-20 text-7xl text-vitality-orange animate-float-fast drop-shadow-lg">🍅</div>
-        <div className="absolute bottom-20 right-40 text-5xl text-fresh-green animate-float-slow drop-shadow-lg">🥒</div>
-        <div className="absolute top-1/2 left-1/4 text-6xl text-success-green animate-float-medium drop-shadow-lg">🥦</div>
-        <div className="absolute bottom-1/3 right-1/4 text-7xl text-vitality-orange animate-float-fast drop-shadow-lg">🌶️</div>
-        <div className="absolute top-1/3 right-10 text-5xl text-fresh-green animate-float-slow drop-shadow-lg">🫑</div>
-        <div className="absolute bottom-10 left-1/3 text-6xl text-success-green animate-float-medium drop-shadow-lg">🥬</div>
-        <div className="absolute top-1/4 left-1/2 text-4xl text-warm-orange animate-float-fast drop-shadow-lg">🥑</div>
-        <div className="absolute bottom-1/4 right-1/3 text-5xl text-vibrant-green animate-float-slow drop-shadow-lg">🌽</div>
+      {/* Floating Vegetable Decorations - Real Photos */}
+      <div className="fixed inset-0 pointer-events-none opacity-60 z-0">
+        <img src={chilliPepper} alt="" className="absolute top-10 left-10 w-20 h-20 object-cover rounded-full animate-float-slow drop-shadow-lg border-2 border-fresh-green/30" />
+        <img src={spinach} alt="" className="absolute top-20 right-20 w-16 h-16 object-cover rounded-full animate-float-medium drop-shadow-lg border-2 border-success-green/30" />
+        <img src={broccoli} alt="" className="absolute bottom-40 left-20 w-18 h-18 object-cover rounded-full animate-float-fast drop-shadow-lg border-2 border-vitality-orange/30" />
+        <img src={bellPepper} alt="" className="absolute bottom-20 right-40 w-14 h-14 object-cover rounded-full animate-float-slow drop-shadow-lg border-2 border-fresh-green/30" />
+        <img src={kale} alt="" className="absolute top-1/2 left-1/4 w-16 h-16 object-cover rounded-full animate-float-medium drop-shadow-lg border-2 border-success-green/30" />
+        <img src={chilliPepper} alt="" className="absolute bottom-1/3 right-1/4 w-18 h-18 object-cover rounded-full animate-float-fast drop-shadow-lg border-2 border-vitality-orange/30" />
+        <img src={bellPepper} alt="" className="absolute top-1/3 right-10 w-14 h-14 object-cover rounded-full animate-float-slow drop-shadow-lg border-2 border-fresh-green/30" />
+        <img src={spinach} alt="" className="absolute bottom-10 left-1/3 w-16 h-16 object-cover rounded-full animate-float-medium drop-shadow-lg border-2 border-success-green/30" />
+        <img src={avocado} alt="" className="absolute top-1/4 left-1/2 w-12 h-12 object-cover rounded-full animate-float-fast drop-shadow-lg border-2 border-warm-orange/30" />
+        <img src={broccoli} alt="" className="absolute bottom-1/4 right-1/3 w-14 h-14 object-cover rounded-full animate-float-slow drop-shadow-lg border-2 border-vibrant-green/30" />
       </div>
 
       {/* Hero Section */}

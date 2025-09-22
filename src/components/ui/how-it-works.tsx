@@ -1,6 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import { Brain, ChefHat, Package, Truck, User, Calendar, Clock, CheckCircle } from "lucide-react";
 
+// Import vegetable images
+import chilliPepper from "@/assets/vegetables/chili-pepper.jpg";
+import broccoli from "@/assets/vegetables/broccoli.jpg";
+import spinach from "@/assets/vegetables/spinach.jpg";
+import bellPepper from "@/assets/vegetables/bell-pepper.jpg";
+import kale from "@/assets/vegetables/kale.jpg";
+import avocado from "@/assets/vegetables/avocado.jpg";
+
 const HowItWorks = () => {
   const [activeStep, setActiveStep] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
@@ -49,14 +57,14 @@ const HowItWorks = () => {
 
   return (
     <section className="py-12 md:py-20 bg-gradient-to-b from-pastel-green/30 to-pastel-orange/20 relative overflow-hidden">
-      {/* Vegetable Illustrations */}
-      <div className="absolute inset-0 pointer-events-none opacity-10">
-        <div className="absolute top-20 left-10 text-6xl text-fresh-green transform -rotate-12">🥕</div>
-        <div className="absolute top-40 right-20 text-5xl text-success-green transform rotate-12">🥬</div>
-        <div className="absolute bottom-40 left-20 text-4xl text-vitality-orange transform rotate-45">🍅</div>
-        <div className="absolute bottom-20 right-40 text-5xl text-fresh-green transform -rotate-45">🥒</div>
-        <div className="absolute top-60 left-1/2 text-4xl text-success-green transform rotate-12">🥦</div>
-        <div className="absolute bottom-60 right-10 text-6xl text-vitality-orange transform -rotate-12">🌶️</div>
+      {/* Vegetable Photos */}
+      <div className="absolute inset-0 pointer-events-none opacity-40">
+        <img src={chilliPepper} alt="" className="absolute top-20 left-10 w-16 h-16 object-cover rounded-full transform -rotate-12 animate-float-slow border-2 border-fresh-green/30" />
+        <img src={spinach} alt="" className="absolute top-40 right-20 w-14 h-14 object-cover rounded-full transform rotate-12 animate-float-medium border-2 border-success-green/30" />
+        <img src={broccoli} alt="" className="absolute bottom-40 left-20 w-12 h-12 object-cover rounded-full transform rotate-45 animate-float-fast border-2 border-vitality-orange/30" />
+        <img src={bellPepper} alt="" className="absolute bottom-20 right-40 w-14 h-14 object-cover rounded-full transform -rotate-45 animate-float-slow border-2 border-fresh-green/30" />
+        <img src={kale} alt="" className="absolute top-60 left-1/2 w-12 h-12 object-cover rounded-full transform rotate-12 animate-float-medium border-2 border-success-green/30" />
+        <img src={chilliPepper} alt="" className="absolute bottom-60 right-10 w-16 h-16 object-cover rounded-full transform -rotate-12 animate-float-fast border-2 border-vitality-orange/30" />
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
