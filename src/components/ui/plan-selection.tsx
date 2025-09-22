@@ -67,28 +67,28 @@ const PlanSelection = ({ planName, basePrice, planType, onPlanSelect }: PlanSele
       id: "breakfast",
       name: "Breakfast",
       description: "Energizing morning meals to kickstart your day",
-      price: 290,
+      price: 240,
       icon: <Heart className="h-5 w-5" />
     },
     {
       id: "lunch",
       name: "Lunch",
       description: "Balanced midday meals to sustain your energy",
-      price: 320,
+      price: 260,
       icon: <Zap className="h-5 w-5" />
     },
     {
       id: "snack",
       name: "Snack",
       description: "Healthy snacks to curb cravings",
-      price: 260,
+      price: 210,
       icon: <Shield className="h-5 w-5" />
     },
     {
       id: "dinner",
       name: "Dinner",
       description: "Nourishing evening meals for recovery",
-      price: 340,
+      price: 250,
       icon: <Star className="h-5 w-5" />
     }
   ];
