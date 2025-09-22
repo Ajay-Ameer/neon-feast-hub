@@ -6,87 +6,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Exo+2:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700;900&display=swap');
 
 @layer base {
-  :root {
-    /* Vibrant Food-Friendly Light Theme */
-    --background: 110 50% 96%;
-    --foreground: 25 30% 20%;
-    
-    /* Dark Chili Green Food Colors */
-    --pastel-green: 120 25% 25%;
-    --pastel-orange: 15 65% 35%;
-    --light-green: 120 30% 30%;
-    --light-orange: 15 70% 40%;
-
+:root {
+    --background: 27 20% 97%;
+    --foreground: 155 25% 15%;
     --card: 0 0% 100%;
-    --card-foreground: 25 30% 20%;
-
+    --card-foreground: 155 25% 15%;
     --popover: 0 0% 100%;
-    --popover-foreground: 25 30% 20%;
+    --popover-foreground: 155 25% 15%;
+    --primary: 155 70% 25%;
+    --primary-foreground: 27 20% 97%;
+    --secondary: 155 15% 92%;
+    --secondary-foreground: 155 25% 15%;
+    --muted: 155 10% 94%;
+    --muted-foreground: 155 15% 45%;
+    --accent: 25 85% 65%;
+    --accent-foreground: 155 25% 15%;
 
-    /* Dark Chili Green Food-Focused Color Palette */
-    --fresh-green: 120 40% 25%;        /* Dark chili green for buttons */
-    --fresh-green-light: 120 35% 35%;  /* Lighter chili green - freshness */
-    --vibrant-green: 115 45% 30%;      /* Vibrant dark green */
-    --tech-blue: 200 70% 40%;          /* Modern dark blue accent */
-    --vitality-orange: 15 80% 45%;     /* Dark orange - motivation */
-    --warm-orange: 20 75% 50%;         /* Warm darker orange - comfort */
-    --accent-orange: 25 85% 55%;       /* Orange accent */
-    --energy-yellow: 48 80% 55%;       /* Energy yellow - optimism */
-    --pure-white: 0 0% 100%;           /* Clean white - purity */
-    --soft-cream: 45 25% 92%;          /* Soft cream - warmth */
-    --natural-brown: 25 45% 35%;       /* Natural brown - earthiness */
-    --earth-green: 120 45% 20%;        /* Deep chili green - nature */
-    --success-green: 120 50% 30%;      /* Success indicators */
-
-    /* Primary brand color - Dark Chili Green */
-    --primary: 120 40% 25%;
-    --primary-foreground: 0 0% 100%;
-
-    /* Secondary - Dark Orange */
-    --secondary: 15 80% 45%;
-    --secondary-foreground: 0 0% 100%;
-
-    /* Muted natural tones */
-    --muted: 142 20% 96%;
-    --muted-foreground: 25 25% 45%;
-
-    /* Accent - Dark Success Green */
-    --accent: 120 45% 30%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 142 30% 88%;
-    --input: 142 30% 95%;
-    --ring: 142 69% 58%;
-
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 155 20% 88%;
+    --input: 155 20% 88%;
+    --ring: 155 70% 25%;
     --radius: 1rem;
 
-    /* Vibrant food-focused gradients */
-    --gradient-fresh: linear-gradient(135deg, hsl(var(--fresh-green)), hsl(var(--vibrant-green)));
-    --gradient-vitality: linear-gradient(135deg, hsl(var(--vitality-orange)), hsl(var(--accent-orange)));
-    --gradient-earth: linear-gradient(135deg, hsl(var(--earth-green)), hsl(var(--fresh-green)));
-    --gradient-warm: linear-gradient(135deg, hsl(var(--warm-orange)), hsl(var(--energy-yellow)));
-    --gradient-sunrise: linear-gradient(135deg, hsl(var(--energy-yellow)), hsl(var(--vitality-orange)));
-    --gradient-tech: linear-gradient(135deg, hsl(var(--tech-blue)), hsl(var(--vibrant-green)));
+    /* Custom Brand Colors - Sophisticated Food Brand Palette */
+    --emerald-deep: 155 70% 25%;
+    --emerald-rich: 155 60% 35%;
+    --emerald-soft: 155 40% 45%;
+    --emerald-light: 155 30% 85%;
+    --emerald-subtle: 155 20% 95%;
     
-    /* Solid pastel green hero with wavy design elements */
-    --hero-solid: 95 45% 88%;
-    --hero-wave-1: 95 50% 85%;
-    --hero-wave-2: 95 40% 91%;
-    --background-cream: 45 30% 96%;
-
-    /* Natural shadows */
-    --shadow-fresh: 0 8px 32px hsl(var(--fresh-green) / 0.12);
-    --shadow-vitality: 0 8px 32px hsl(var(--vitality-orange) / 0.12);
-    --shadow-soft: 0 4px 16px hsl(var(--earth-green) / 0.08);
-    --shadow-card: 0 2px 8px hsl(var(--natural-brown) / 0.06);
-
-    /* Smooth health-focused transitions */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    --transition-gentle: all 0.25s ease-out;
+    --coral-warm: 25 85% 65%;
+    --coral-bright: 20 90% 70%;
+    --coral-soft: 25 70% 75%;
+    --coral-light: 25 50% 85%;
+    --coral-subtle: 25 30% 92%;
+    
+    --cream-pure: 27 20% 97%;
+    --cream-soft: 27 15% 94%;
+    --sage-muted: 155 15% 75%;
+    --gold-accent: 45 100% 75%;
 
     --sidebar-background: 0 0% 98%;
 
@@ -105,37 +64,44 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
-  .dark {
-    --background: 25 25% 8%;
-    --foreground: 45 25% 95%;
+.dark {
+    --background: 155 25% 8%;
+    --foreground: 27 20% 95%;
+    --card: 155 20% 12%;
+    --card-foreground: 27 20% 95%;
+    --popover: 155 20% 12%;
+    --popover-foreground: 27 20% 95%;
+    --primary: 155 60% 45%;
+    --primary-foreground: 155 25% 8%;
+    --secondary: 155 15% 20%;
+    --secondary-foreground: 27 20% 95%;
+    --muted: 155 10% 18%;
+    --muted-foreground: 155 15% 65%;
+    --accent: 25 75% 55%;
+    --accent-foreground: 155 25% 8%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 155 20% 22%;
+    --input: 155 20% 22%;
+    --ring: 155 60% 45%;
 
-    --card: 25 25% 10%;
-    --card-foreground: 45 25% 95%;
-
-    --popover: 25 25% 10%;
-    --popover-foreground: 45 25% 95%;
-
-    --primary: 142 69% 58%;
-    --primary-foreground: 25 25% 8%;
-
-    --secondary: 32 95% 65%;
-    --secondary-foreground: 25 25% 8%;
-
-    --muted: 25 25% 15%;
-    --muted-foreground: 45 25% 65%;
-
-    --accent: 120 60% 50%;
-    --accent-foreground: 45 25% 95%;
-
-    --destructive: 0 62% 30%;
-    --destructive-foreground: 45 25% 95%;
-
-    --border: 25 25% 15%;
-    --input: 25 25% 15%;
-    --ring: 142 69% 58%;
+    /* Custom Brand Colors - Dark Mode */
+    --emerald-deep: 155 60% 45%;
+    --emerald-rich: 155 50% 40%;
+    --emerald-soft: 155 40% 35%;
+    --emerald-light: 155 30% 25%;
+    --emerald-subtle: 155 20% 15%;
     
-    /* Dark mode health colors */
-    --gradient-hero: linear-gradient(135deg, hsl(var(--background)), hsl(25 25% 12%));
+    --coral-warm: 25 75% 55%;
+    --coral-bright: 20 80% 60%;
+    --coral-soft: 25 60% 50%;
+    --coral-light: 25 40% 30%;
+    --coral-subtle: 25 20% 18%;
+    
+    --cream-pure: 155 25% 8%;
+    --cream-soft: 155 20% 12%;
+    --sage-muted: 155 15% 35%;
+    --gold-accent: 45 90% 65%;
     
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -404,29 +370,58 @@
     box-shadow: var(--shadow-vitality);
   }
 
-  /* Floating Animation for Vegetables */
-  @keyframes float {
+  /* Floating animations for vegetables */
+  @keyframes float-gentle {
     0%, 100% { 
-      transform: translateY(0px) rotate(0deg); 
+      transform: translateY(0px) translateX(0px) rotate(0deg);
+      opacity: 0.6;
     }
     33% { 
-      transform: translateY(-10px) rotate(5deg); 
+      transform: translateY(-20px) translateX(10px) rotate(2deg);
+      opacity: 0.8;
     }
     66% { 
-      transform: translateY(5px) rotate(-3deg); 
+      transform: translateY(-10px) translateX(-5px) rotate(-1deg);
+      opacity: 0.7;
     }
   }
-
-  .animate-float-slow {
-    animation: float 6s ease-in-out infinite;
+  
+  @keyframes float-elegant {
+    0%, 100% { 
+      transform: translateY(0px) translateX(0px) rotate(0deg);
+      opacity: 0.5;
+    }
+    50% { 
+      transform: translateY(-30px) translateX(15px) rotate(3deg);
+      opacity: 0.8;
+    }
   }
-
-  .animate-float-medium {
-    animation: float 4s ease-in-out infinite;
+  
+  @keyframes float-smooth {
+    0%, 100% { 
+      transform: translateY(0px) translateX(0px) rotate(0deg);
+      opacity: 0.4;
+    }
+    25% { 
+      transform: translateY(-15px) translateX(-10px) rotate(-2deg);
+      opacity: 0.7;
+    }
+    75% { 
+      transform: translateY(-25px) translateX(8px) rotate(1deg);
+      opacity: 0.6;
+    }
   }
-
-  .animate-float-fast {
-    animation: float 3s ease-in-out infinite;
+  
+  .animate-float-gentle {
+    animation: float-gentle 8s ease-in-out infinite;
+  }
+  
+  .animate-float-elegant {
+    animation: float-elegant 12s ease-in-out infinite;
+  }
+  
+  .animate-float-smooth {
+    animation: float-smooth 10s ease-in-out infinite;
   }
 
   /* Hero section with solid pastel green and wavy elements */
