@@ -15,6 +15,7 @@ import { Link } from "react-router-dom";
 import FoodCarousel from "@/components/FoodCarousel";
 import HeroSection from "@/components/ui/hero-section";
 import HowItWorks from "@/components/ui/how-it-works";
+import WhyChooseUs from "@/components/ui/why-choose-us";
 import SectionHeader from "@/components/ui/section-header";
 import FeatureCard from "@/components/ui/feature-card";
 import PlanCard from "@/components/ui/plan-card";
@@ -55,69 +56,11 @@ const Home = () => {
         <HeroSection />
       </div>
 
-      {/* How It Works Animation */}
+      {/* How It Works */}
       <HowItWorks />
 
-      {/* Why Choose ZestyMonk */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-emerald-subtle/30 to-cream-pure relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-emerald-light/5 via-transparent to-coral-light/5"></div>
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
-          <SectionHeader 
-            title="Why Choose ZestyMonk?"
-            subtitle="We're not just another meal delivery service - we're your health transformation partner"
-            gradient="fresh"
-          />
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {[
-              {
-                icon: <Shield className="h-8 w-8" />,
-                title: "Patented Technology",
-                description: "Our exclusive retort packaging keeps nutrients 98% intact while enhancing flavors",
-                gradient: "bg-gradient-to-r from-emerald-deep to-emerald-rich"
-              },
-              {
-                icon: <Heart className="h-8 w-8" />,
-                title: "Personalized Nutrition",
-                description: "AI-powered meal planning based on your unique health profile and goals",
-                gradient: "bg-gradient-to-r from-emerald-rich to-coral-warm"
-              },
-              {
-                icon: <Clock className="h-8 w-8" />,
-                title: "Fresh Daily Delivery",
-                description: "No meal prep, no cooking stress - just heat and enjoy restaurant-quality meals",
-                gradient: "bg-gradient-to-r from-coral-warm to-coral-bright"
-              },
-              {
-                icon: <CheckCircle className="h-8 w-8" />,
-                title: "100% Natural",
-                description: "No preservatives, no artificial additives - just pure, wholesome ingredients",
-                gradient: "bg-gradient-to-r from-coral-bright to-emerald-deep"
-              },
-              {
-                icon: <Star className="h-8 w-8" />,
-                title: "Chef-Crafted",
-                description: "Every meal designed by nutrition experts and prepared by professional chefs",
-                gradient: "bg-gradient-to-r from-emerald-soft to-emerald-deep"
-              },
-              {
-                icon: <Zap className="h-8 w-8" />,
-                title: "Instant Results",
-                description: "Feel the energy boost and health improvements from day one",
-                gradient: "bg-gradient-to-r from-coral-soft to-emerald-rich"
-              }
-            ].map((feature, index) => (
-              <FeatureCard 
-                key={index}
-                icon={feature.icon}
-                title={feature.title}
-                description={feature.description}
-                gradient={feature.gradient}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Why Choose Us */}
+      <WhyChooseUs />
 
       {/* Subscription Plans Preview */}
       <section className="py-16 md:py-24 bg-gradient-to-b from-cream-pure to-coral-subtle/20 relative">
