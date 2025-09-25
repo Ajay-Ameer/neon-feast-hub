@@ -94,7 +94,7 @@ const HeroSection = () => {
               {/* Floating Meal Card */}
               <div className="bg-white rounded-3xl p-8 shadow-2xl border border-gray-100 transform hover:scale-105 transition-all duration-500 animate-float">
                 <div className="text-center space-y-6">
-                  <div className="w-32 h-32 mx-auto overflow-hidden rounded-2xl" key={currentMeal}>
+                  <div className="w-48 h-48 mx-auto overflow-hidden rounded-3xl" key={currentMeal}>
                     <img 
                       src={meals[currentMeal].image} 
                       alt={meals[currentMeal].name}

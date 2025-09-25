@@ -1,9 +1,9 @@
-import { CheckCircle, ChefHat, UtensilsCrossed, Truck } from "lucide-react";
+import { ClipboardCheck, ChefHat, UtensilsCrossed, Truck } from "lucide-react";
 
 const HowItWorks = () => {
   const steps = [
     {
-      icon: <CheckCircle className="w-10 h-10" />,
+      icon: <ClipboardCheck className="w-10 h-10" />,
       title: "Pick Your Plan",
       description: "Choose from personalized meal plans designed for your health goals and dietary preferences.",
       number: "1"
@@ -46,7 +46,7 @@ const HowItWorks = () => {
               key={index}
               className="relative group"
             >
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center">
+              <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center h-full">
                 {/* Number Badge */}
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">
                   {step.number}

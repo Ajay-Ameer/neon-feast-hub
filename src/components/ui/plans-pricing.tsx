@@ -58,7 +58,7 @@ const PlansPricing = () => {
           {plans.map((plan, index) => (
             <div 
               key={index}
-              className="relative bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+              className="relative bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 h-full"
             >
               {/* Popular Badge */}
               {plan.popular && (
