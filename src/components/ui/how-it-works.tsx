@@ -1,4 +1,4 @@
-import { CheckCircle, ChefHat, UtensilsCrossed } from "lucide-react";
+import { CheckCircle, ChefHat, UtensilsCrossed, Truck } from "lucide-react";
 
 const HowItWorks = () => {
   const steps = [
@@ -15,10 +15,16 @@ const HowItWorks = () => {
       number: "2"
     },
     {
+      icon: <Truck className="w-10 h-10" />,
+      title: "We deliver straight to your door",
+      description: "Fresh meals delivered directly to your doorstep with our temperature-controlled delivery system.",
+      number: "3"
+    },
+    {
       icon: <UtensilsCrossed className="w-10 h-10" />,
       title: "Enjoy at Home",
       description: "Heat and enjoy restaurant-quality meals at home. Zero prep, zero stress, just pure nutrition and flavor.",
-      number: "3"
+      number: "4"
     }
   ];
 
@@ -34,7 +40,7 @@ const HowItWorks = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
           {steps.map((step, index) => (
             <div 
               key={index}
@@ -42,13 +48,13 @@ const HowItWorks = () => {
             >
               <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center">
                 {/* Number Badge */}
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">
                   {step.number}
                 </div>
                 
                 {/* Icon */}
                 <div className="mb-6 pt-4">
-                  <div className="w-20 h-20 bg-emerald-50 rounded-2xl flex items-center justify-center text-emerald-600 mx-auto group-hover:bg-emerald-100 transition-all duration-300">
+                  <div className="w-20 h-20 bg-green-50 rounded-2xl flex items-center justify-center text-green-600 mx-auto group-hover:bg-green-100 transition-all duration-300">
                     {step.icon}
                   </div>
                 </div>
@@ -66,8 +72,8 @@ const HowItWorks = () => {
               
               {/* Connection Arrow for larger screens */}
               {index < steps.length - 1 && (
-                <div className="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-emerald-300 transform -translate-y-1/2 z-10">
-                  <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-0 h-0 border-l-4 border-l-emerald-300 border-t-2 border-t-transparent border-b-2 border-b-transparent"></div>
+                <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-green-300 transform -translate-y-1/2 z-10">
+                  <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-0 h-0 border-l-4 border-l-green-300 border-t-2 border-t-transparent border-b-2 border-b-transparent"></div>
                 </div>
               )}
             </div>

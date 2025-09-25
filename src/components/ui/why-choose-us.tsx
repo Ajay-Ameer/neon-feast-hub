@@ -1,4 +1,4 @@
-import { Shield, Brain, Truck } from "lucide-react";
+import { Shield, Brain, Truck, Clock, Award, Heart } from "lucide-react";
 
 const WhyChooseUs = () => {
   const features = [
@@ -6,19 +6,37 @@ const WhyChooseUs = () => {
       icon: <Shield className="w-10 h-10" />,
       title: "Patented Packaging",
       description: "Locks in nutrients & flavor with our revolutionary smart-packaging technology that preserves freshness.",
-      gradient: "from-emerald-500 to-green-600"
+      gradient: "from-green-500 to-emerald-600"
     },
     {
       icon: <Brain className="w-10 h-10" />,
       title: "Personalized Nutrition",
       description: "AI-designed plans for your unique health goals, dietary preferences, and lifestyle needs.",
-      gradient: "from-blue-500 to-emerald-600"
+      gradient: "from-blue-500 to-green-600"
     },
     {
       icon: <Truck className="w-10 h-10" />,
       title: "Fresh Daily Delivery",
       description: "Zero prep, zero stress, just fresh meals delivered to your door every single day.",
-      gradient: "from-orange-500 to-emerald-600"
+      gradient: "from-orange-500 to-green-600"
+    },
+    {
+      icon: <Clock className="w-10 h-10" />,
+      title: "Time-Saving Convenience",
+      description: "Save hours weekly with ready-to-eat gourmet meals that fit your busy lifestyle perfectly.",
+      gradient: "from-purple-500 to-green-600"
+    },
+    {
+      icon: <Award className="w-10 h-10" />,
+      title: "Chef-Crafted Quality",
+      description: "Restaurant-quality meals designed by professional chefs using premium, locally-sourced ingredients.",
+      gradient: "from-amber-500 to-green-600"
+    },
+    {
+      icon: <Heart className="w-10 h-10" />,
+      title: "Health-First Approach",
+      description: "Every meal is nutritionally balanced by certified dietitians to support your wellness journey.",
+      gradient: "from-red-500 to-green-600"
     }
   ];
 
@@ -34,7 +52,7 @@ const WhyChooseUs = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {features.map((feature, index) => (
             <div 
               key={index}

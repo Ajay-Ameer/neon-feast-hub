@@ -1,25 +1,28 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import mediterraneanBowl from "@/assets/meals/mediterranean-bowl.jpg";
+import chickenWrap from "@/assets/meals/chicken-wrap.jpg";
+import powerBowl from "@/assets/meals/power-bowl.jpg";
 
 const HeroSection = () => {
   const [currentMeal, setCurrentMeal] = useState(0);
   
   const meals = [
     { 
-      emoji: "🥗", 
+      image: mediterraneanBowl,
       name: "Mediterranean Bowl", 
       calories: "420 cal",
       nutrition: "High Protein • Low Carb"
     },
     { 
-      emoji: "🍲", 
+      image: powerBowl,
       name: "Quinoa Power Bowl", 
       calories: "485 cal",
       nutrition: "Plant-Based • High Fiber"
     },
     { 
-      emoji: "🥙", 
+      image: chickenWrap,
       name: "Lean Chicken Wrap", 
       calories: "375 cal",
       nutrition: "Balanced • Heart-Healthy"
@@ -35,10 +38,10 @@ const HeroSection = () => {
   }, [meals.length]);
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-orange-50 flex items-center overflow-hidden">
+    <section className="relative min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-orange-50 flex items-center overflow-hidden">
       {/* Clean Background Elements */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-green-500/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-orange-400/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
       </div>
 
@@ -48,7 +51,7 @@ const HeroSection = () => {
           <div className="space-y-8 text-center lg:text-left">
             <div className="space-y-6">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-gray-900">
-                <span className="bg-gradient-to-r from-emerald-600 to-green-700 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-green-600 to-emerald-700 bg-clip-text text-transparent">
                   Delivered Fresh,
                 </span>
                 <br />
@@ -61,7 +64,7 @@ const HeroSection = () => {
               
               <p className="text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
                 Personalized meal plans, freshly crafted daily, delivered with patented smart-packaging 
-                technology that locks in <strong className="text-emerald-600">flavor and health</strong>.
+                technology that locks in <strong className="text-green-600">flavor and health</strong>.
               </p>
             </div>
 
@@ -69,15 +72,15 @@ const HeroSection = () => {
               <Button 
                 variant="default" 
                 size="lg" 
-                className="text-lg px-8 py-6 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                className="text-lg px-8 py-6 bg-green-600 hover:bg-green-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
                 asChild
               >
-                <Link to="/plans">Start My Transformation</Link>
+                <Link to="/plans">Start My Transition</Link>
               </Button>
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="text-lg px-8 py-6 border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white font-semibold transition-all duration-300"
+                className="text-lg px-8 py-6 border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white font-semibold transition-all duration-300"
                 asChild
               >
                 <Link to="/plans">View Meal Plans</Link>
@@ -91,8 +94,12 @@ const HeroSection = () => {
               {/* Floating Meal Card */}
               <div className="bg-white rounded-3xl p-8 shadow-2xl border border-gray-100 transform hover:scale-105 transition-all duration-500 animate-float">
                 <div className="text-center space-y-6">
-                  <div className="text-8xl animate-bounce" key={currentMeal} style={{ animationDuration: '2s' }}>
-                    {meals[currentMeal].emoji}
+                  <div className="w-32 h-32 mx-auto overflow-hidden rounded-2xl" key={currentMeal}>
+                    <img 
+                      src={meals[currentMeal].image} 
+                      alt={meals[currentMeal].name}
+                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    />
                   </div>
                   
                   <div className="space-y-3">
@@ -101,7 +108,7 @@ const HeroSection = () => {
                     </h3>
                     
                     <div className="space-y-2">
-                      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-100 text-emerald-700 font-semibold">
+                      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-100 text-green-700 font-semibold">
                         <span>{meals[currentMeal].calories}</span>
                       </div>
                       
@@ -118,7 +125,7 @@ const HeroSection = () => {
                         key={index}
                         className={`w-2 h-2 rounded-full transition-all duration-500 ${
                           index === currentMeal 
-                            ? 'bg-emerald-500 w-8' 
+                            ? 'bg-green-500 w-8' 
                             : 'bg-gray-300'
                         }`}
                       />

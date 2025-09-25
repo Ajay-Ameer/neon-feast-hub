@@ -16,10 +16,10 @@ import FoodCarousel from "@/components/FoodCarousel";
 import HeroSection from "@/components/ui/hero-section";
 import HowItWorks from "@/components/ui/how-it-works";
 import WhyChooseUs from "@/components/ui/why-choose-us";
-import SectionHeader from "@/components/ui/section-header";
-import FeatureCard from "@/components/ui/feature-card";
-import PlanCard from "@/components/ui/plan-card";
-import TestimonialCard from "@/components/ui/testimonial-card";
+import MenuPreview from "@/components/ui/menu-preview";
+import TestimonialsSection from "@/components/ui/testimonials-section";
+import PlansPricing from "@/components/ui/plans-pricing";
+import ClosingCTA from "@/components/ui/closing-cta";
 
 // Import vegetable silhouettes
 import chilliSilhouette from "@/assets/vegetables/chili-silhouette.png";
@@ -62,144 +62,20 @@ const Home = () => {
       {/* Why Choose Us */}
       <WhyChooseUs />
 
-      {/* Subscription Plans Preview */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-cream-pure to-coral-subtle/20 relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-subtle/10 via-transparent to-coral-light/10"></div>
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
-          <SectionHeader 
-            title="Choose Your Health Journey"
-            subtitle="Tailored nutrition plans for every lifestyle and health goal"
-            gradient="vitality"
-          />
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
-            {[
-              {
-                name: "Weight Loss (Veg/Non-Veg)",
-                description: "Burn fat, boost metabolism",
-                price: "₹22,999",
-                color: "emerald-deep",
-                features: ["Calorie-controlled", "Fat-burning foods", "Portion optimized"]
-              },
-              {
-                name: "Muscle Gain (Veg/Non-Veg)",
-                description: "Build strength, gain muscle",
-                price: "₹24,999",
-                color: "emerald-rich",
-                features: ["High protein", "Recovery foods", "Performance focused"]
-              },
-              {
-                name: "Diabetic-Friendly (Veg/Non-Veg)",
-                description: "Blood sugar management",
-                price: "₹23,999",
-                color: "coral-warm",
-                features: ["Low glycemic", "Sugar-free", "Doctor approved"]
-              },
-              {
-                name: "General Wellness (Veg/Non-Veg)",
-                description: "Balanced nutrition",
-                price: "₹21,999",
-                color: "emerald-soft",
-                features: ["All nutrients", "Immunity boost", "Energy focused"]
-              }
-            ].map((plan, index) => (
-              <PlanCard 
-                key={index}
-                title={plan.name}
-                description={plan.description}
-                price={plan.price}
-                features={plan.features}
-              />
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Button variant="fresh" size="lg" className="text-lg px-8" asChild>
-              <Link to="/plans">View All Plans & Pricing</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+      {/* Menu Preview */}
+      <MenuPreview />
 
       {/* Food Carousel */}
       <FoodCarousel />
 
       {/* Testimonials */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-emerald-subtle/20 to-cream-pure relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-coral-subtle/10 via-transparent to-emerald-light/10"></div>
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
-          <SectionHeader 
-            title="What Our Members Say"
-            subtitle="Real transformations, real results, real taste explosions!"
-            gradient="fresh"
-          />
+      <TestimonialsSection />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
-            {[
-              {
-                name: "Priya Sharma",
-                role: "Software Engineer",
-                content: "Lost 15kg in 3 months! The meals are so delicious, I never felt like I was on a diet. ZestyMonk changed my life!",
-                rating: 5,
-                image: "👩‍💻"
-              },
-              {
-                name: "Rohit Kumar",
-                role: "Fitness Trainer",
-                content: "As a trainer, I recommend ZestyMonk to all my clients. The muscle gain plan is perfect - high protein and incredibly tasty!",
-                rating: 5,
-                image: "🏋️‍♂️"
-              },
-              {
-                name: "Dr. Anjali Mehta",
-                role: "Diabetologist",
-                content: "The diabetic-friendly plan is scientifically sound. My patients love the taste and their blood sugar levels have improved significantly.",
-                rating: 5,
-                image: "👩‍⚕️"
-              }
-            ].map((testimonial, index) => (
-              <TestimonialCard 
-                key={index}
-                name={testimonial.name}
-                role={testimonial.role}
-                content={testimonial.content}
-                rating={testimonial.rating}
-                image={testimonial.image}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Plans & Pricing */}
+      <PlansPricing />
 
-      {/* CTA Section */}
-      <section className="py-20 md:py-32 bg-gradient-to-br from-emerald-deep to-emerald-rich relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-coral-warm/10 to-emerald-soft/10 animate-pulse"></div>
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-transparent via-emerald-light/5 to-coral-light/5"></div>
-        <div className="container mx-auto px-4 lg:px-8 text-center relative z-10">
-          <div className="space-y-6 md:space-y-8 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl lg:text-6xl font-orbitron font-bold text-cream-pure drop-shadow-lg">
-              Ready to Transform Your Health?
-            </h2>
-            <p className="text-lg md:text-xl text-cream-soft/90 font-exo font-medium">
-              Join thousands of healthy, happy ZestyMonk members. Your taste buds and body will thank you!
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center">
-              <Button variant="default" size="lg" className="text-lg px-8 py-4 bg-coral-warm hover:bg-coral-bright text-cream-pure font-semibold shadow-xl hover:shadow-2xl transition-all duration-300" asChild>
-                <Link to="/plans">
-                  <Zap className="mr-2" />
-                  View Meal Plans
-                </Link>
-              </Button>
-              <Button variant="outline" size="lg" className="text-lg border-2 border-cream-pure text-cream-pure hover:bg-cream-pure hover:text-emerald-deep font-semibold transition-all duration-300" asChild>
-                <Link to="/plans">Learn More</Link>
-              </Button>
-            </div>
-            <p className="text-sm text-cream-soft/80 font-exo font-medium">
-              🌱 Limited time: First week FREE for new members!
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Closing CTA */}
+      <ClosingCTA />
     </div>
   );
 };
