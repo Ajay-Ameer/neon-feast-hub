@@ -41,7 +41,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-orange-50 flex items-center overflow-hidden">
+    <section className="relative min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-orange-50 flex items-center overflow-hidden py-12">
       {/* Clean Background Elements */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-20 left-10 w-72 h-72 bg-green-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -49,51 +49,53 @@ const HeroSection = () => {
       </div>
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Content */}
-          <div className="space-y-8 text-center lg:text-left">
-            <div className="space-y-6">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-gray-900">
-                <span className="bg-gradient-to-r from-green-600 to-emerald-700 bg-clip-text text-transparent">
-                  Delivered Fresh,
-                </span>
-                <br />
-                <span className="text-gray-800">Powered by</span>
-                <br />
-                <span className="bg-gradient-to-r from-orange-500 to-yellow-600 bg-clip-text text-transparent">
-                  Nutrition AI
-                </span>
-              </h1>
-              
-              <p className="text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                Personalized meal plans, freshly crafted daily, delivered with patented smart-packaging 
-                technology that locks in <strong className="text-green-600">flavor and health</strong>.
-              </p>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button 
-                variant="default" 
-                size="lg" 
-                className="text-lg px-8 py-6 bg-green-600 hover:bg-green-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-                asChild
-              >
-                <Link to="/plans">Start My Transition</Link>
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="text-lg px-8 py-6 border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white font-semibold transition-all duration-300"
-                asChild
-              >
-                <Link to="/plans">View Meal Plans</Link>
-              </Button>
-            </div>
+        <div className="flex flex-col items-center space-y-12">
+          {/* Level 1: Title */}
+          <div className="w-full text-center">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-gray-900 max-w-5xl mx-auto">
+              <span className="text-gray-800">Food is a lifestyle, enhance it with</span>
+              <br />
+              <span className="bg-gradient-to-r from-green-600 to-emerald-700 bg-clip-text text-transparent">
+                Our Gut friendly delicacies
+              </span>
+              <br />
+              <span className="bg-gradient-to-r from-orange-500 to-yellow-600 bg-clip-text text-transparent">
+                Delivered Fresh to your door steps
+              </span>
+            </h1>
           </div>
 
-          {/* Right Content - Semi-Circular Track Animation */}
-          <div className="relative order-first lg:order-last">
-            <div className="relative mx-auto max-w-2xl h-[600px] flex items-center justify-center">
+          {/* Level 2: Subtitle */}
+          <div className="w-full text-center">
+            <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Personalized meal plans, freshly crafted daily, delivered with patented smart-packaging 
+              technology that locks in <strong className="text-green-600">flavor and health</strong>.
+            </p>
+          </div>
+
+          {/* Level 3: CTA Buttons */}
+          <div className="w-full flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              variant="default" 
+              size="lg" 
+              className="text-lg px-8 py-6 bg-green-600 hover:bg-green-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+              asChild
+            >
+              <Link to="/plans">Start My Transition</Link>
+            </Button>
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="text-lg px-8 py-6 border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white font-semibold transition-all duration-300"
+              asChild
+            >
+              <Link to="/plans">View Meal Plans</Link>
+            </Button>
+          </div>
+
+          {/* Level 4: Semi-Circular Track Animation */}
+          <div className="relative w-full max-w-4xl mt-8">
+            <div className="relative mx-auto h-[600px] flex items-center justify-center">
               {/* Semi-circular track background */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-[500px] h-[500px] border-4 border-dashed border-green-300/40 rounded-full" 
