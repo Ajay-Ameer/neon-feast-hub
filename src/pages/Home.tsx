@@ -12,7 +12,6 @@ import {
   Users
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import FoodCarousel from "@/components/FoodCarousel";
 import HeroSection from "@/components/ui/hero-section";
 import HowItWorks from "@/components/ui/how-it-works";
 import WhyChooseUs from "@/components/ui/why-choose-us";
@@ -46,9 +45,6 @@ const Home = () => {
 
       {/* Menu Preview */}
       <MenuPreview />
-
-      {/* Food Carousel */}
-      <FoodCarousel />
 
       {/* Testimonials */}
       <TestimonialsSection />

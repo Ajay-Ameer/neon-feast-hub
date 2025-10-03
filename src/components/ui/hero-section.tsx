@@ -4,38 +4,29 @@ import { useState, useEffect } from "react";
 import mediterraneanBowl from "@/assets/meals/mediterranean-bowl.jpg";
 import chickenWrap from "@/assets/meals/chicken-wrap.jpg";
 import powerBowl from "@/assets/meals/power-bowl.jpg";
+import grilledSalmon from "@/assets/meals/grilled-salmon.jpg";
+import paneerCurry from "@/assets/meals/spiced-paneer-curry.jpg";
+import buddhaBowl from "@/assets/meals/buddha-bowl-deluxe.jpg";
 
 const HeroSection = () => {
-  const [currentMeal, setCurrentMeal] = useState(0);
+  const [rotation, setRotation] = useState(0);
   
   const meals = [
-    { 
-      image: mediterraneanBowl,
-      name: "Mediterranean Bowl", 
-      calories: "420 cal",
-      nutrition: "High Protein • Low Carb"
-    },
-    { 
-      image: powerBowl,
-      name: "Quinoa Power Bowl", 
-      calories: "485 cal",
-      nutrition: "Plant-Based • High Fiber"
-    },
-    { 
-      image: chickenWrap,
-      name: "Lean Chicken Wrap", 
-      calories: "375 cal",
-      nutrition: "Balanced • Heart-Healthy"
-    }
+    { image: mediterraneanBowl, name: "Mediterranean Bowl", calories: "420 cal" },
+    { image: powerBowl, name: "Quinoa Power Bowl", calories: "485 cal" },
+    { image: chickenWrap, name: "Lean Chicken Wrap", calories: "375 cal" },
+    { image: grilledSalmon, name: "Grilled Salmon", calories: "390 cal" },
+    { image: paneerCurry, name: "Spiced Paneer Curry", calories: "425 cal" },
+    { image: buddhaBowl, name: "Buddha Bowl Deluxe", calories: "450 cal" }
   ];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentMeal((prev) => (prev + 1) % meals.length);
-    }, 4000);
+      setRotation((prev) => prev + 1);
+    }, 50);
 
     return () => clearInterval(interval);
-  }, [meals.length]);
+  }, []);
 
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-orange-50 flex items-center overflow-hidden">
@@ -88,51 +79,63 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right Content - Floating Meal Card */}
+          {/* Right Content - Semi-Circular Track Animation */}
           <div className="relative order-first lg:order-last">
-            <div className="relative mx-auto max-w-md">
-              {/* Floating Meal Card */}
-              <div className="bg-white rounded-3xl p-8 shadow-2xl border border-gray-100 transform hover:scale-105 transition-all duration-500 animate-float">
-                <div className="text-center space-y-6">
-                  <div className="w-48 h-48 mx-auto overflow-hidden rounded-3xl" key={currentMeal}>
-                    <img 
-                      src={meals[currentMeal].image} 
-                      alt={meals[currentMeal].name}
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                    />
-                  </div>
-                  
-                  <div className="space-y-3">
-                    <h3 className="text-2xl font-bold text-gray-900">
-                      {meals[currentMeal].name}
-                    </h3>
-                    
-                    <div className="space-y-2">
-                      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-100 text-green-700 font-semibold">
-                        <span>{meals[currentMeal].calories}</span>
-                      </div>
-                      
-                      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-100 text-orange-700 font-medium text-sm">
-                        <span>{meals[currentMeal].nutrition}</span>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Progress Indicators */}
-                  <div className="flex justify-center space-x-2">
-                    {meals.map((_, index) => (
-                      <div 
-                        key={index}
-                        className={`w-2 h-2 rounded-full transition-all duration-500 ${
-                          index === currentMeal 
-                            ? 'bg-green-500 w-8' 
-                            : 'bg-gray-300'
-                        }`}
-                      />
-                    ))}
-                  </div>
+            <div className="relative mx-auto max-w-lg h-[500px] flex items-center justify-center">
+              {/* Semi-circular track background */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-80 h-80 border-4 border-dashed border-green-300/40 rounded-full" 
+                     style={{ clipPath: 'polygon(0 50%, 0 100%, 100% 100%, 100% 50%)' }}>
                 </div>
               </div>
+
+              {/* Rotating food items */}
+              {meals.map((meal, index) => {
+                const angle = (rotation + (index * 60)) % 360;
+                const radians = (angle * Math.PI) / 180;
+                const radius = 160;
+                
+                // Only show items on the bottom semi-circle (180 to 360 degrees)
+                const adjustedAngle = 180 + (angle % 180);
+                const adjustedRadians = (adjustedAngle * Math.PI) / 180;
+                
+                const x = Math.cos(adjustedRadians) * radius;
+                const y = Math.sin(adjustedRadians) * radius;
+                
+                // Calculate if item is at center (90 degrees = bottom center)
+                const isAtCenter = Math.abs((angle % 180) - 90) < 15;
+                const scale = isAtCenter ? 1.5 : 0.8;
+                const zIndex = isAtCenter ? 50 : 10;
+                
+                return (
+                  <div
+                    key={index}
+                    className="absolute transition-all duration-300 ease-out"
+                    style={{
+                      left: `calc(50% + ${x}px)`,
+                      top: `calc(50% + ${y}px)`,
+                      transform: `translate(-50%, -50%) scale(${scale})`,
+                      zIndex: zIndex,
+                    }}
+                  >
+                    <div className={`relative ${isAtCenter ? 'animate-pulse' : ''}`}>
+                      <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl border-4 border-white">
+                        <img 
+                          src={meal.image} 
+                          alt={meal.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      {isAtCenter && (
+                        <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 bg-white px-4 py-2 rounded-full shadow-lg whitespace-nowrap">
+                          <p className="text-sm font-bold text-gray-900">{meal.name}</p>
+                          <p className="text-xs text-green-600 text-center">{meal.calories}</p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
