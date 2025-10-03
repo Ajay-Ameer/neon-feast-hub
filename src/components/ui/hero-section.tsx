@@ -7,23 +7,35 @@ import powerBowl from "@/assets/meals/power-bowl.jpg";
 import grilledSalmon from "@/assets/meals/grilled-salmon.jpg";
 import paneerCurry from "@/assets/meals/spiced-paneer-curry.jpg";
 import buddhaBowl from "@/assets/meals/buddha-bowl-deluxe.jpg";
+import grilledChickenQuinoa from "@/assets/meals/grilled-chicken-quinoa.jpg";
+import salmonTeriyaki from "@/assets/meals/salmon-teriyaki-bowl.jpg";
+import turkeyZucchini from "@/assets/meals/turkey-zucchini-noodles.jpg";
+import tofuStirFry from "@/assets/meals/tofu-stir-fry.jpg";
+import greekSalad from "@/assets/meals/greek-halloumi-salad.jpg";
+import coconutCurry from "@/assets/meals/coconut-curry-lentils.jpg";
 
 const HeroSection = () => {
   const [rotation, setRotation] = useState(0);
   
   const meals = [
-    { image: mediterraneanBowl, name: "Mediterranean Bowl", calories: "420 cal" },
-    { image: powerBowl, name: "Quinoa Power Bowl", calories: "485 cal" },
-    { image: chickenWrap, name: "Lean Chicken Wrap", calories: "375 cal" },
-    { image: grilledSalmon, name: "Grilled Salmon", calories: "390 cal" },
-    { image: paneerCurry, name: "Spiced Paneer Curry", calories: "425 cal" },
-    { image: buddhaBowl, name: "Buddha Bowl Deluxe", calories: "450 cal" }
+    { image: mediterraneanBowl, name: "Mediterranean Bowl", calories: "420 cal", nutrition: "High Protein" },
+    { image: powerBowl, name: "Quinoa Power Bowl", calories: "485 cal", nutrition: "Plant-Based" },
+    { image: chickenWrap, name: "Lean Chicken Wrap", calories: "375 cal", nutrition: "Balanced" },
+    { image: grilledSalmon, name: "Grilled Salmon", calories: "390 cal", nutrition: "Omega-3 Rich" },
+    { image: paneerCurry, name: "Spiced Paneer Curry", calories: "425 cal", nutrition: "Flavorful" },
+    { image: buddhaBowl, name: "Buddha Bowl Deluxe", calories: "450 cal", nutrition: "Nutrient-Dense" },
+    { image: grilledChickenQuinoa, name: "Grilled Chicken Quinoa", calories: "410 cal", nutrition: "Protein-Packed" },
+    { image: salmonTeriyaki, name: "Salmon Teriyaki Bowl", calories: "445 cal", nutrition: "Asian Fusion" },
+    { image: turkeyZucchini, name: "Turkey Zucchini Noodles", calories: "340 cal", nutrition: "Low-Carb" },
+    { image: tofuStirFry, name: "Tofu Stir-Fry", calories: "380 cal", nutrition: "Vegan" },
+    { image: greekSalad, name: "Greek Halloumi Salad", calories: "395 cal", nutrition: "Fresh & Light" },
+    { image: coconutCurry, name: "Coconut Curry Lentils", calories: "405 cal", nutrition: "Comfort Food" }
   ];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setRotation((prev) => prev + 1);
-    }, 50);
+      setRotation((prev) => prev + 0.5);
+    }, 30);
 
     return () => clearInterval(interval);
   }, []);
@@ -81,19 +93,18 @@ const HeroSection = () => {
 
           {/* Right Content - Semi-Circular Track Animation */}
           <div className="relative order-first lg:order-last">
-            <div className="relative mx-auto max-w-lg h-[500px] flex items-center justify-center">
+            <div className="relative mx-auto max-w-2xl h-[600px] flex items-center justify-center">
               {/* Semi-circular track background */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-80 h-80 border-4 border-dashed border-green-300/40 rounded-full" 
+                <div className="w-[500px] h-[500px] border-4 border-dashed border-green-300/40 rounded-full" 
                      style={{ clipPath: 'polygon(0 50%, 0 100%, 100% 100%, 100% 50%)' }}>
                 </div>
               </div>
 
               {/* Rotating food items */}
               {meals.map((meal, index) => {
-                const angle = (rotation + (index * 60)) % 360;
-                const radians = (angle * Math.PI) / 180;
-                const radius = 160;
+                const angle = (rotation + (index * (360 / meals.length))) % 360;
+                const radius = 200;
                 
                 // Only show items on the bottom semi-circle (180 to 360 degrees)
                 const adjustedAngle = 180 + (angle % 180);
@@ -103,33 +114,41 @@ const HeroSection = () => {
                 const y = Math.sin(adjustedRadians) * radius;
                 
                 // Calculate if item is at center (90 degrees = bottom center)
-                const isAtCenter = Math.abs((angle % 180) - 90) < 15;
-                const scale = isAtCenter ? 1.5 : 0.8;
+                const normalizedAngle = angle % 180;
+                const isAtCenter = Math.abs(normalizedAngle - 90) < 12;
+                const scale = isAtCenter ? 1 : 0.6;
+                const opacity = isAtCenter ? 1 : 0.7;
                 const zIndex = isAtCenter ? 50 : 10;
                 
                 return (
                   <div
                     key={index}
-                    className="absolute transition-all duration-300 ease-out"
+                    className="absolute transition-all duration-500 ease-out"
                     style={{
                       left: `calc(50% + ${x}px)`,
                       top: `calc(50% + ${y}px)`,
                       transform: `translate(-50%, -50%) scale(${scale})`,
                       zIndex: zIndex,
+                      opacity: opacity,
                     }}
                   >
-                    <div className={`relative ${isAtCenter ? 'animate-pulse' : ''}`}>
-                      <div className="w-24 h-24 rounded-full overflow-hidden shadow-xl border-4 border-white">
+                    <div className="relative">
+                      <div className={`${isAtCenter ? 'w-48 h-48' : 'w-28 h-28'} rounded-2xl overflow-hidden shadow-2xl border-4 border-white transition-all duration-500`}>
                         <img 
                           src={meal.image} 
                           alt={meal.name}
                           className="w-full h-full object-cover"
+                          loading="eager"
                         />
                       </div>
                       {isAtCenter && (
-                        <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 bg-white px-4 py-2 rounded-full shadow-lg whitespace-nowrap">
-                          <p className="text-sm font-bold text-gray-900">{meal.name}</p>
-                          <p className="text-xs text-green-600 text-center">{meal.calories}</p>
+                        <div className="absolute -bottom-20 left-1/2 transform -translate-x-1/2 bg-white px-6 py-3 rounded-2xl shadow-2xl border border-green-100 whitespace-nowrap animate-fade-in">
+                          <p className="text-lg font-bold text-gray-900 mb-1">{meal.name}</p>
+                          <div className="flex items-center justify-center gap-2">
+                            <span className="text-sm font-semibold text-green-600">{meal.calories}</span>
+                            <span className="text-xs text-gray-400">•</span>
+                            <span className="text-xs text-orange-600 font-medium">{meal.nutrition}</span>
+                          </div>
                         </div>
                       )}
                     </div>
