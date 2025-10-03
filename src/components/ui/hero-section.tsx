@@ -53,14 +53,12 @@ const HeroSection = () => {
           {/* Level 1: Title */}
           <div className="w-full text-center">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-gray-900 max-w-5xl mx-auto">
-              <span className="text-gray-800">Food is a lifestyle, enhance it with</span>
-              <br />
               <span className="bg-gradient-to-r from-green-600 to-emerald-700 bg-clip-text text-transparent">
-                Our Gut friendly delicacies
+                Gut loving delicacies
               </span>
               <br />
               <span className="bg-gradient-to-r from-orange-500 to-yellow-600 bg-clip-text text-transparent">
-                Delivered Fresh to your door steps
+                Delivered Fresh
               </span>
             </h1>
           </div>
