@@ -18,6 +18,7 @@ export default {
         'exo': ['Exo 2', 'sans-serif'],
         'playfair': ['Playfair Display', 'serif'],
         'inter': ['Inter', 'sans-serif'],
+        'knockout': ['Knockout Sumo', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",

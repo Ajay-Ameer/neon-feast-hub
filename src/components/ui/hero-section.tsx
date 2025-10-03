@@ -52,7 +52,7 @@ const HeroSection = () => {
         <div className="flex flex-col items-center space-y-12">
           {/* Level 1: Title */}
           <div className="w-full text-center">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-gray-900 max-w-5xl mx-auto">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-knockout font-bold leading-tight text-gray-900 max-w-5xl mx-auto">
               <span className="bg-gradient-to-r from-green-600 to-emerald-700 bg-clip-text text-transparent">
                 Gut loving delicacies
               </span>
@@ -92,11 +92,11 @@ const HeroSection = () => {
           </div>
 
           {/* Level 4: Semi-Circular Track Animation */}
-          <div className="relative w-full max-w-4xl mt-8">
-            <div className="relative mx-auto h-[600px] flex items-center justify-center">
+          <div className="relative w-full max-w-6xl mt-8">
+            <div className="relative mx-auto h-[700px] flex items-center justify-center">
               {/* Semi-circular track background */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-[500px] h-[500px] border-4 border-dashed border-green-300/40 rounded-full" 
+                <div className="w-[650px] h-[650px] border-4 border-dashed border-green-300/40 rounded-full" 
                      style={{ clipPath: 'polygon(0 50%, 0 100%, 100% 100%, 100% 50%)' }}>
                 </div>
               </div>
@@ -104,7 +104,7 @@ const HeroSection = () => {
               {/* Rotating food items */}
               {meals.map((meal, index) => {
                 const angle = (rotation + (index * (360 / meals.length))) % 360;
-                const radius = 200;
+                const radius = 260;
                 
                 // Only show items on the bottom semi-circle (180 to 360 degrees)
                 const adjustedAngle = 180 + (angle % 180);
@@ -133,7 +133,7 @@ const HeroSection = () => {
                     }}
                   >
                     <div className="relative">
-                      <div className={`${isAtCenter ? 'w-48 h-48' : 'w-28 h-28'} rounded-2xl overflow-hidden shadow-2xl border-4 border-white transition-all duration-500`}>
+                      <div className={`${isAtCenter ? 'w-56 h-56' : 'w-32 h-32'} rounded-2xl overflow-hidden shadow-2xl border-4 border-white transition-all duration-500`}>
                         <img 
                           src={meal.image} 
                           alt={meal.name}

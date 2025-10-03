@@ -107,8 +107,8 @@ const MenuPreview = () => {
         </div>
 
         {/* Rotating Carousel */}
-        <div className="relative max-w-5xl mx-auto">
-          <div className="overflow-hidden rounded-3xl">
+        <div className="relative max-w-6xl mx-auto">
+          <div className="overflow-hidden">
             <div 
               className="flex transition-transform duration-1000 ease-in-out"
               style={{ transform: `translateX(-${currentMealIndex * (100 / 4)}%)` }}
@@ -118,33 +118,34 @@ const MenuPreview = () => {
                   key={index}
                   className="w-1/4 flex-shrink-0 px-3"
                 >
-                  <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center group overflow-hidden h-full">
-                    {/* Image */}
-                    <div className="mb-6 overflow-hidden rounded-xl">
+                  <div className="bg-gradient-to-br from-green-50/50 to-orange-50/30 rounded-3xl p-8 shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 group overflow-hidden h-full relative">
+                    {/* Circular Image Container */}
+                    <div className="mb-6 overflow-hidden rounded-full mx-auto w-48 h-48 shadow-lg border-4 border-white">
                       <img 
                         src={meal.image} 
                         alt={meal.name}
-                        className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />
                     </div>
                     
                     {/* Content */}
-                    <div className="space-y-4">
-                      <h3 className="text-lg font-bold text-gray-900">
+                    <div className="space-y-3 text-center">
+                      <h3 className="text-xl font-bold text-gray-900">
                         {meal.name}
                       </h3>
-                      <p className="text-green-600 font-medium text-sm">
+                      <p className="text-gray-500 text-sm font-medium">
                         {meal.description}
                       </p>
                       
-                      <div className="space-y-2">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-100 text-green-700 font-semibold text-xs">
-                          <span>{meal.calories}</span>
-                        </div>
+                      {/* Price and Add Button */}
+                      <div className="flex items-center justify-between pt-4">
+                        <span className="text-2xl font-bold text-gray-900">
+                          {meal.calories}
+                        </span>
                         
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 text-orange-700 font-medium text-xs">
-                          <span>{meal.nutrition}</span>
-                        </div>
+                        <button className="w-12 h-12 rounded-full bg-green-600 hover:bg-green-700 text-white flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110">
+                          <span className="text-2xl font-light leading-none">+</span>
+                        </button>
                       </div>
                     </div>
                   </div>
