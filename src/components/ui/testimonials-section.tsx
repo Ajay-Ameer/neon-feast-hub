@@ -1,27 +1,33 @@
 import { Star } from "lucide-react";
+import fitWoman1 from "@/assets/testimonials/fit-woman-1.jpg";
+import fitMan1 from "@/assets/testimonials/fit-man-1.jpg";
+import fitWoman2 from "@/assets/testimonials/fit-woman-2.jpg";
 
 const TestimonialsSection = () => {
   const testimonials = [
     {
       name: "Priya Sharma",
-      role: "Software Engineer",
-      content: "Lost 15kg in 3 months! The meals are so delicious, I never felt like I was on a diet. ZestyMonk changed my life!",
+      role: "Lost 15kg in 3 months",
+      content: "The meals are so delicious, I never felt like I was on a diet. ZestyMonk changed my life!",
       rating: 5,
-      image: "👩‍💻"
+      image: fitWoman1,
+      result: "15kg Lost"
     },
     {
       name: "Rohit Kumar",
-      role: "Fitness Trainer",
-      content: "As a trainer, I recommend ZestyMonk to all my clients. The muscle gain plan is perfect - high protein and incredibly tasty!",
+      role: "Gained 8kg Muscle",
+      content: "The muscle gain plan is perfect - high protein and incredibly tasty! My strength increased by 40%.",
       rating: 5,
-      image: "🏋️‍♂️"
+      image: fitMan1,
+      result: "8kg Muscle Gained"
     },
     {
-      name: "Dr. Anjali Mehta",
-      role: "Diabetologist",
-      content: "The diabetic-friendly plan is scientifically sound. My patients love the taste and their blood sugar levels have improved significantly.",
+      name: "Anjali Mehta",
+      role: "Achieved Dream Body",
+      content: "From size 14 to size 8! The transformation is real. I feel confident and energetic every day.",
       rating: 5,
-      image: "👩‍⚕️"
+      image: fitWoman2,
+      result: "3 Sizes Down"
     }
   ];
 
@@ -41,28 +47,39 @@ const TestimonialsSection = () => {
           {testimonials.map((testimonial, index) => (
             <div 
               key={index}
-              className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center h-full"
+              className="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full group"
             >
-              {/* Quote Mark */}
-              <div className="text-4xl text-green-500 mb-4">"</div>
-              
-              {/* Stars */}
-              <div className="flex justify-center gap-1 mb-6">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                ))}
+              {/* Image with Result Badge */}
+              <div className="relative h-80 overflow-hidden">
+                <img 
+                  src={testimonial.image} 
+                  alt={testimonial.name}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute top-4 right-4 bg-green-600 text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg">
+                  {testimonial.result}
+                </div>
               </div>
               
               {/* Content */}
-              <p className="text-gray-600 leading-relaxed mb-6 italic">
-                {testimonial.content}
-              </p>
-              
-              {/* Profile */}
-              <div className="border-t pt-6">
-                <div className="text-4xl mb-3">{testimonial.image}</div>
-                <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
-                <p className="text-green-600 text-sm font-medium">{testimonial.role}</p>
+              <div className="p-6 space-y-4">
+                {/* Stars */}
+                <div className="flex justify-center gap-1">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                
+                {/* Quote */}
+                <p className="text-gray-600 leading-relaxed italic text-center">
+                  "{testimonial.content}"
+                </p>
+                
+                {/* Profile */}
+                <div className="text-center pt-4 border-t">
+                  <h4 className="font-bold text-gray-900 text-lg">{testimonial.name}</h4>
+                  <p className="text-green-600 text-sm font-semibold">{testimonial.role}</p>
+                </div>
               </div>
             </div>
           ))}
