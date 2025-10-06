@@ -1,39 +1,44 @@
-import { Shield, Brain, Truck, Clock, Award, Heart } from "lucide-react";
+import packagingImg from "@/assets/features/packaging.jpg";
+import nutritionImg from "@/assets/features/nutrition.jpg";
+import deliveryImg from "@/assets/features/delivery.jpg";
+import timeSavingImg from "@/assets/features/time-saving.jpg";
+import chefQualityImg from "@/assets/features/chef-quality.jpg";
+import healthFirstImg from "@/assets/features/health-first.jpg";
 
 const WhyChooseUs = () => {
   const features = [
     {
-      icon: <Shield className="w-10 h-10" />,
+      image: packagingImg,
       title: "Patented Packaging",
       description: "Locks in nutrients & flavor with our revolutionary smart-packaging technology that preserves freshness.",
       gradient: "from-green-500 to-emerald-600"
     },
     {
-      icon: <Brain className="w-10 h-10" />,
+      image: nutritionImg,
       title: "Personalized Nutrition",
       description: "AI-designed plans for your unique health goals, dietary preferences, and lifestyle needs.",
       gradient: "from-blue-500 to-green-600"
     },
     {
-      icon: <Truck className="w-10 h-10" />,
+      image: deliveryImg,
       title: "Fresh Daily Delivery",
       description: "Zero prep, zero stress, just fresh meals delivered to your door every single day.",
       gradient: "from-orange-500 to-green-600"
     },
     {
-      icon: <Clock className="w-10 h-10" />,
+      image: timeSavingImg,
       title: "Time-Saving Convenience",
       description: "Save hours weekly with ready-to-eat gourmet meals that fit your busy lifestyle perfectly.",
       gradient: "from-purple-500 to-green-600"
     },
     {
-      icon: <Award className="w-10 h-10" />,
+      image: chefQualityImg,
       title: "Chef-Crafted Quality",
       description: "Restaurant-quality meals designed by professional chefs using premium, locally-sourced ingredients.",
       gradient: "from-amber-500 to-green-600"
     },
     {
-      icon: <Heart className="w-10 h-10" />,
+      image: healthFirstImg,
       title: "Health-First Approach",
       description: "Every meal is nutritionally balanced by certified dietitians to support your wellness journey.",
       gradient: "from-red-500 to-green-600"
@@ -58,10 +63,14 @@ const WhyChooseUs = () => {
               key={index}
               className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center group h-full"
             >
-              {/* Icon */}
+              {/* Image */}
               <div className="mb-6">
-                <div className={`w-20 h-20 bg-gradient-to-r ${feature.gradient} rounded-2xl flex items-center justify-center text-white mx-auto group-hover:scale-110 transition-all duration-300 shadow-lg`}>
-                  {feature.icon}
+                <div className={`w-20 h-20 rounded-2xl overflow-hidden mx-auto group-hover:scale-110 transition-all duration-300 shadow-lg ring-2 ring-offset-2 ring-gray-200`}>
+                  <img 
+                    src={feature.image} 
+                    alt={feature.title}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
               

@@ -1,26 +1,34 @@
+import choosePlan from "@/assets/how-it-works/choose-plan.jpg";
 import selectMeals from "@/assets/how-it-works/select-meals.jpg";
+import prepareMeals from "@/assets/how-it-works/prepare-meals.jpg";
 import delivery from "@/assets/how-it-works/delivery.jpg";
 import enjoyMeal from "@/assets/how-it-works/enjoy-meal.jpg";
 
 const HowItWorks = () => {
   const steps = [
     {
-      image: selectMeals,
-      title: "Select Your Meals",
-      description: "Choose a meal plan that aligns with your goals and select from over 400 recipes.",
+      image: choosePlan,
+      title: "Choose Your Plan",
+      description: "Select a meal plan that perfectly aligns with your health goals and lifestyle.",
       number: "1"
     },
     {
-      image: delivery,
-      title: "Delivered to Your Door",
-      description: "Reliable Bangalore-wide meal delivery between 6 - 9 AM.",
+      image: selectMeals,
+      title: "Select Your Meals",
+      description: "Pick from over 400 delicious recipes tailored to your preferences.",
       number: "2"
+    },
+    {
+      image: prepareMeals,
+      title: "We Prepare & Deliver",
+      description: "Freshly prepared by our chefs and delivered to your door between 6-9 AM.",
+      number: "3"
     },
     {
       image: enjoyMeal,
       title: "Heat & Enjoy",
-      description: "Freshly prepared, delicious meals. Ready to eat. Simply heat and enjoy.",
-      number: "3"
+      description: "Simply heat your meal and enjoy restaurant-quality food in minutes.",
+      number: "4"
     }
   ];
 
@@ -36,7 +44,7 @@ const HowItWorks = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 max-w-7xl mx-auto">
           {steps.map((step, index) => (
             <div 
               key={index}
