@@ -49,10 +49,11 @@ const HeroSection = () => {
       </div>
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="flex flex-col items-center space-y-12">
-          {/* Level 1: Title */}
-          <div className="w-full text-center">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-knockout font-bold leading-tight text-gray-900 max-w-5xl mx-auto">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+          {/* Left Side: Content */}
+          <div className="flex-1 space-y-8 text-center lg:text-left">
+            {/* Title */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-knockout font-bold leading-tight text-gray-900">
               <span className="bg-gradient-to-r from-green-600 to-emerald-700 bg-clip-text text-transparent">
                 Gut loving delicacies
               </span>
@@ -61,39 +62,37 @@ const HeroSection = () => {
                 Delivered Fresh
               </span>
             </h1>
-          </div>
 
-          {/* Level 2: Subtitle */}
-          <div className="w-full text-center">
-            <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            {/* Subtitle */}
+            <p className="text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
               Personalized meal plans, freshly crafted daily, delivered with patented smart-packaging 
               technology that locks in <strong className="text-green-600">flavor and health</strong>.
             </p>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <Button 
+                variant="default" 
+                size="lg" 
+                className="text-lg px-8 py-6 bg-green-600 hover:bg-green-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                asChild
+              >
+                <Link to="/plans">Start My Transition</Link>
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="text-lg px-8 py-6 border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white font-semibold transition-all duration-300"
+                asChild
+              >
+                <Link to="/plans">View Meal Plans</Link>
+              </Button>
+            </div>
           </div>
 
-          {/* Level 3: CTA Buttons */}
-          <div className="w-full flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              variant="default" 
-              size="lg" 
-              className="text-lg px-8 py-6 bg-green-600 hover:bg-green-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-              asChild
-            >
-              <Link to="/plans">Start My Transition</Link>
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="text-lg px-8 py-6 border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white font-semibold transition-all duration-300"
-              asChild
-            >
-              <Link to="/plans">View Meal Plans</Link>
-            </Button>
-          </div>
-
-          {/* Level 4: Meal Carousel Animation - Semi Circle */}
-          <div className="relative w-full max-w-6xl mt-8">
-            <div className="relative mx-auto h-[400px] flex items-end justify-center overflow-hidden pb-12">
+          {/* Right Side: Meal Carousel Animation - Semi Circle */}
+          <div className="flex-1 relative w-full max-w-xl lg:max-w-2xl">
+            <div className="relative mx-auto h-[400px] flex items-end justify-center overflow-visible pb-12">
               {/* Rotating food items in semi-circle */}
               {meals.map((meal, index) => {
                 const angle = (rotation + (index * (360 / meals.length))) % 360;
@@ -105,7 +104,7 @@ const HeroSection = () => {
                 
                 // Adjust angle to semi-circle range (0° to 180° mapped from 90° to 270°)
                 const semiAngle = angle - 90;
-                const radius = 320;
+                const radius = 280;
                 
                 // Calculate position in semi-circle
                 const radians = ((semiAngle - 90) * Math.PI) / 180;
@@ -113,18 +112,18 @@ const HeroSection = () => {
                 const y = Math.sin(radians) * radius;
                 
                 // Item is at center (90 degrees = bottom center of semi-circle)
-                const isAtCenter = Math.abs(semiAngle - 90) < 12;
+                const isAtCenter = Math.abs(semiAngle - 90) < 10;
                 
-                // Smooth scaling based on distance from center
+                // Smooth, elegant scaling based on distance from center
                 const distanceFromCenter = Math.abs(semiAngle - 90);
-                const scale = isAtCenter ? 1.2 : Math.max(0.5, 1 - (distanceFromCenter / 90) * 0.5);
-                const opacity = isAtCenter ? 1 : Math.max(0.3, 1 - (distanceFromCenter / 90) * 0.7);
+                const scale = isAtCenter ? 1.3 : Math.max(0.45, 1 - (distanceFromCenter / 90) * 0.55);
+                const opacity = isAtCenter ? 1 : Math.max(0.25, 1 - (distanceFromCenter / 90) * 0.75);
                 const zIndex = isAtCenter ? 50 : Math.round(10 + (1 - distanceFromCenter / 90) * 20);
                 
                 return (
                   <div
                     key={index}
-                    className="absolute transition-all duration-700 ease-in-out"
+                    className="absolute transition-all duration-1000 ease-in-out"
                     style={{
                       left: `calc(50% + ${x}px)`,
                       top: `calc(100% + ${y}px)`,
@@ -134,7 +133,7 @@ const HeroSection = () => {
                     }}
                   >
                     <div className="relative">
-                      <div className={`${isAtCenter ? 'w-64 h-64' : 'w-28 h-28'} rounded-2xl overflow-hidden shadow-2xl border-4 border-white transition-all duration-700`}>
+                      <div className={`${isAtCenter ? 'w-72 h-72' : 'w-24 h-24'} rounded-2xl overflow-hidden shadow-2xl border-4 border-white transition-all duration-1000`}>
                         <img 
                           src={meal.image} 
                           alt={meal.name}

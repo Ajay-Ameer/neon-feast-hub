@@ -89,7 +89,7 @@ const MenuPreview = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentMealIndex((prev) => (prev + 1) % sampleMeals.length);
-    }, 3000);
+    }, 4000);
 
     return () => clearInterval(interval);
   }, [sampleMeals.length]);
@@ -106,25 +106,26 @@ const MenuPreview = () => {
           </p>
         </div>
 
-        {/* Rotating Carousel */}
+        {/* Continuous Carousel - duplicated items for seamless loop */}
         <div className="relative max-w-6xl mx-auto">
           <div className="overflow-hidden">
             <div 
-              className="flex transition-transform duration-1000 ease-in-out"
-              style={{ transform: `translateX(-${currentMealIndex * (100 / 4)}%)` }}
+              className="flex transition-transform duration-[2000ms] ease-in-out"
+              style={{ transform: `translateX(-${currentMealIndex * (100 / 3)}%)` }}
             >
-              {sampleMeals.map((meal, index) => (
+              {/* Duplicate meals array for continuous effect */}
+              {[...sampleMeals, ...sampleMeals].map((meal, index) => (
                 <div 
                   key={index}
-                  className="w-1/4 flex-shrink-0 px-3"
+                  className="w-1/3 flex-shrink-0 px-3"
                 >
-                  <div className="bg-gradient-to-br from-green-50/50 to-orange-50/30 rounded-3xl p-8 shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 group overflow-hidden h-full relative">
+                  <div className="bg-gradient-to-br from-green-50/50 to-orange-50/30 rounded-3xl p-8 shadow-md hover:shadow-2xl transition-all duration-700 hover:-translate-y-3 group overflow-hidden h-full relative">
                     {/* Circular Image Container */}
                     <div className="mb-6 overflow-hidden rounded-full mx-auto w-48 h-48 shadow-lg border-4 border-white">
                       <img 
                         src={meal.image} 
                         alt={meal.name}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       />
                     </div>
                     
@@ -137,7 +138,7 @@ const MenuPreview = () => {
                         {meal.description}
                       </p>
                       
-                      {/* Price and Add Button */}
+                      {/* Calories and Add Button */}
                       <div className="flex items-center justify-between pt-4">
                         <span className="text-2xl font-bold text-gray-900">
                           {meal.calories}
