@@ -91,33 +91,23 @@ const HeroSection = () => {
             </Button>
           </div>
 
-          {/* Level 4: Semi-Circular Track Animation */}
+          {/* Level 4: Meal Carousel Animation */}
           <div className="relative w-full max-w-6xl mt-8">
-            <div className="relative mx-auto h-[700px] flex items-center justify-center">
-              {/* Semi-circular track background */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-[650px] h-[650px] border-4 border-dashed border-green-300/40 rounded-full" 
-                     style={{ clipPath: 'polygon(0 50%, 0 100%, 100% 100%, 100% 50%)' }}>
-                </div>
-              </div>
-
-              {/* Rotating food items */}
+            <div className="relative mx-auto h-[500px] flex items-center justify-center overflow-hidden">
+              {/* Rotating food items - no visible track */}
               {meals.map((meal, index) => {
                 const angle = (rotation + (index * (360 / meals.length))) % 360;
-                const radius = 260;
+                const radius = 280;
                 
-                // Only show items on the bottom semi-circle (180 to 360 degrees)
-                const adjustedAngle = 180 + (angle % 180);
-                const adjustedRadians = (adjustedAngle * Math.PI) / 180;
+                // Calculate position in a full circle
+                const radians = (angle * Math.PI) / 180;
+                const x = Math.cos(radians) * radius;
+                const y = Math.sin(radians) * radius;
                 
-                const x = Math.cos(adjustedRadians) * radius;
-                const y = Math.sin(adjustedRadians) * radius;
-                
-                // Calculate if item is at center (90 degrees = bottom center)
-                const normalizedAngle = angle % 180;
-                const isAtCenter = Math.abs(normalizedAngle - 90) < 12;
-                const scale = isAtCenter ? 1 : 0.6;
-                const opacity = isAtCenter ? 1 : 0.7;
+                // Calculate if item is at center bottom (270 degrees)
+                const isAtCenter = Math.abs(((angle + 90) % 360) - 180) < 15;
+                const scale = isAtCenter ? 1 : 0.65;
+                const opacity = isAtCenter ? 1 : 0.5;
                 const zIndex = isAtCenter ? 50 : 10;
                 
                 return (

@@ -27,52 +27,58 @@ const Plans = () => {
     {
       id: "weight-loss",
       name: "Weight Loss Plan",
-      description: "Scientifically designed to help you lose weight healthily",
+      description: "Scientifically designed calorie-deficit meals that help you lose weight healthily while maintaining energy levels and nutrition",
       price: 25000,
       features: [
-        "1200-1500 calories per day",
-        "High protein, controlled portions",
-        "Metabolism boosting ingredients",
-        "Weekly progress tracking"
+        "Precisely calculated 1200-1500 calories per day",
+        "High protein content with controlled portions",
+        "Metabolism-boosting ingredients & thermogenic spices",
+        "Weekly progress tracking & body composition analysis",
+        "Hunger-satisfying fiber-rich meals",
+        "Anti-inflammatory ingredients for faster recovery"
       ],
       popular: false,
       icon: "💪",
       idealFor: "Weight Loss",
-      deliveryTime: "Daily",
+      deliveryTime: "Daily Fresh",
       mealsPerDay: "Up to 4"
     },
     {
       id: "muscle-gain",
       name: "Muscle Gain Plan", 
-      description: "High-protein meals to support muscle building",
+      description: "Performance-focused high-protein meals engineered to maximize muscle growth and strength with optimal workout nutrition",
       price: 28000,
       features: [
-        "2000-2500 calories per day",
-        "High protein (30g+ per meal)",
-        "Pre & post workout timing",
-        "Muscle recovery nutrients"
+        "Calorie surplus of 2000-2500 calories per day",
+        "Premium high-quality protein (30-40g per meal)",
+        "Strategic pre & post-workout meal timing",
+        "Muscle recovery nutrients & BCAAs from whole foods",
+        "Complex carbs for sustained energy & glycogen replenishment",
+        "Creatine-rich foods for strength gains"
       ],
       popular: true,
       icon: "🏋️",
-      idealFor: "Athletes",
-      deliveryTime: "Daily",
-      mealsPerDay: "Up to 4"
+      idealFor: "Athletes & Fitness Enthusiasts",
+      deliveryTime: "Daily Fresh",
+      mealsPerDay: "Up to 5"
     },
     {
       id: "wellness",
       name: "General Wellness",
-      description: "Balanced nutrition for overall health",
+      description: "Perfectly balanced nutritious meals designed for optimal health, immunity, and sustained energy throughout your day",
       price: 23000,
       features: [
-        "1600-1800 calories per day",
-        "Balanced macro nutrients",
-        "Immunity boosting foods",
-        "Seasonal variety"
+        "Balanced 1600-1800 calories per day",
+        "Perfect macro-nutrient ratio (40-30-30)",
+        "Immunity-boosting superfoods & antioxidants",
+        "Seasonal variety with locally-sourced ingredients",
+        "Gut-health promoting probiotics & prebiotics",
+        "Anti-aging nutrients & vitamins"
       ],
       popular: false,
       icon: "🌟",
       idealFor: "Everyone",
-      deliveryTime: "Daily", 
+      deliveryTime: "Daily Fresh", 
       mealsPerDay: "Up to 4"
     }
   ];
@@ -134,13 +140,13 @@ const Plans = () => {
                 )}
                 
                 <CardHeader className="text-center pb-4">
-                  <div className="text-4xl mb-2">{plan.icon}</div>
-                  <CardTitle className="text-2xl mb-2 text-gradient-food">{plan.name}</CardTitle>
-                  <div className="text-3xl font-bold text-fresh-green mb-2">
+                  <div className="text-5xl mb-3">{plan.icon}</div>
+                  <CardTitle className="text-2xl md:text-3xl mb-3 bg-gradient-to-r from-green-600 to-emerald-700 bg-clip-text text-transparent font-bold">{plan.name}</CardTitle>
+                  <div className="text-4xl font-bold bg-gradient-to-r from-orange-500 to-yellow-600 bg-clip-text text-transparent mb-3">
                     ₹{plan.price.toLocaleString()}
-                    <span className="text-sm text-muted-foreground font-normal">/month</span>
+                    <span className="text-base text-muted-foreground font-normal">/month</span>
                   </div>
-                  <p className="text-muted-foreground">{plan.description}</p>
+                  <p className="text-muted-foreground leading-relaxed text-base">{plan.description}</p>
                 </CardHeader>
 
                 <CardContent className="space-y-6">
@@ -178,8 +184,9 @@ const Plans = () => {
                   </div>
 
                   <Button 
-                    variant="fresh" 
-                    className="w-full"
+                    variant={plan.popular ? "hero" : "fresh"}
+                    size="lg"
+                    className="w-full text-base font-bold"
                     onClick={() => setSelectedPlan(plan.id)}
                   >
                     Select {plan.name}

@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import vegetablesFlying from "@/assets/vegetables-flying.png";
+import healthyLifestyle from "@/assets/healthy-lifestyle.jpg";
 
 const ClosingCTA = () => {
   return (
@@ -36,7 +36,7 @@ const ClosingCTA = () => {
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="text-lg border-2 border-white bg-transparent text-green-800 hover:bg-green-700 hover:text-white hover:border-green-700 font-semibold transition-all duration-300"
+                className="text-lg border-2 border-white bg-transparent text-white hover:bg-white/20 hover:text-white hover:border-white font-semibold transition-all duration-300"
                 asChild
               >
                 <Link to="/about">Learn More</Link>
@@ -47,9 +47,9 @@ const ClosingCTA = () => {
           {/* Image */}
           <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
             <img 
-              src={vegetablesFlying} 
-              alt="Fresh vegetables" 
-              className="w-full max-w-md lg:max-w-lg drop-shadow-2xl transform hover:scale-105 transition-transform duration-300"
+              src={healthyLifestyle} 
+              alt="Fresh healthy vegetables" 
+              className="w-full max-w-md lg:max-w-lg rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-300"
             />
           </div>
         </div>
