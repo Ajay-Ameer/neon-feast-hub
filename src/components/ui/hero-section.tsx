@@ -34,7 +34,7 @@ const HeroSection = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setRotation((prev) => (prev + 0.3) % 360);
+      setRotation((prev) => (prev + 0.2) % 360);
     }, 20);
 
     return () => clearInterval(interval);
@@ -90,50 +90,50 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right Side: Meal Carousel Animation - Semi Circle */}
+          {/* Right Side: Meal Carousel Animation - Vertical Semi Circle */}
           <div className="flex-1 relative w-full max-w-xl lg:max-w-2xl">
-            <div className="relative mx-auto h-[400px] flex items-end justify-center overflow-visible pb-12">
-              {/* Rotating food items in semi-circle */}
+            <div className="relative mx-auto h-[600px] flex items-center justify-center overflow-visible">
+              {/* Rotating food items in vertical semi-circle (top to bottom) */}
               {meals.map((meal, index) => {
                 const angle = (rotation + (index * (360 / meals.length))) % 360;
                 
-                // Only show items in bottom semi-circle (90° to 270°)
-                const isInBottomHalf = angle >= 90 && angle <= 270;
+                // Only show items in right semi-circle (270° to 90° going clockwise - top to bottom)
+                const isInRightHalf = angle >= 270 || angle <= 90;
                 
-                if (!isInBottomHalf) return null;
+                if (!isInRightHalf) return null;
                 
-                // Adjust angle to semi-circle range (0° to 180° mapped from 90° to 270°)
-                const semiAngle = angle - 90;
-                const radius = 280;
+                // Adjust angle to semi-circle range for vertical movement
+                const semiAngle = angle >= 270 ? angle - 270 : angle + 90;
+                const radius = 250;
                 
-                // Calculate position in semi-circle
+                // Calculate position in vertical semi-circle (top to bottom on right side)
                 const radians = ((semiAngle - 90) * Math.PI) / 180;
                 const x = Math.cos(radians) * radius;
                 const y = Math.sin(radians) * radius;
                 
-                // Item is at center (90 degrees = bottom center of semi-circle)
+                // Item is at center (90 degrees = middle right of semi-circle)
                 const isAtCenter = Math.abs(semiAngle - 90) < 10;
                 
-                // Smooth, elegant scaling based on distance from center
+                // Smooth, elegant scaling based on distance from center with zoom out effect
                 const distanceFromCenter = Math.abs(semiAngle - 90);
-                const scale = isAtCenter ? 1.3 : Math.max(0.45, 1 - (distanceFromCenter / 90) * 0.55);
-                const opacity = isAtCenter ? 1 : Math.max(0.25, 1 - (distanceFromCenter / 90) * 0.75);
+                const scale = isAtCenter ? 1.4 : Math.max(0.4, 1 - (distanceFromCenter / 90) * 0.6);
+                const opacity = isAtCenter ? 1 : Math.max(0.2, 1 - (distanceFromCenter / 90) * 0.8);
                 const zIndex = isAtCenter ? 50 : Math.round(10 + (1 - distanceFromCenter / 90) * 20);
                 
                 return (
                   <div
                     key={index}
-                    className="absolute transition-all duration-1000 ease-in-out"
+                    className="absolute transition-all duration-700 ease-out"
                     style={{
                       left: `calc(50% + ${x}px)`,
-                      top: `calc(100% + ${y}px)`,
+                      top: `calc(50% + ${y}px)`,
                       transform: `translate(-50%, -50%) scale(${scale})`,
                       zIndex: zIndex,
                       opacity: opacity,
                     }}
                   >
                     <div className="relative">
-                      <div className={`${isAtCenter ? 'w-72 h-72' : 'w-24 h-24'} rounded-2xl overflow-hidden shadow-2xl border-4 border-white transition-all duration-1000`}>
+                      <div className={`${isAtCenter ? 'w-80 h-80' : 'w-20 h-20'} rounded-2xl overflow-hidden shadow-2xl border-4 border-white transition-all duration-700`}>
                         <img 
                           src={meal.image} 
                           alt={meal.name}
@@ -142,12 +142,12 @@ const HeroSection = () => {
                         />
                       </div>
                       {isAtCenter && (
-                        <div className="absolute -bottom-24 left-1/2 transform -translate-x-1/2 bg-white px-6 py-3 rounded-2xl shadow-2xl border border-green-100 whitespace-nowrap animate-fade-in">
-                          <p className="text-lg font-bold text-gray-900 mb-1">{meal.name}</p>
-                          <div className="flex items-center justify-center gap-2">
-                            <span className="text-sm font-semibold text-green-600">{meal.calories}</span>
-                            <span className="text-xs text-gray-400">•</span>
-                            <span className="text-xs text-orange-600 font-medium">{meal.nutrition}</span>
+                        <div className="absolute -right-64 top-1/2 transform -translate-y-1/2 bg-white px-6 py-4 rounded-2xl shadow-2xl border border-green-100 whitespace-nowrap animate-fade-in">
+                          <p className="text-xl font-bold text-gray-900 mb-2">{meal.name}</p>
+                          <div className="flex items-center gap-3">
+                            <span className="text-base font-semibold text-green-600">{meal.calories}</span>
+                            <span className="text-sm text-gray-400">•</span>
+                            <span className="text-sm text-orange-600 font-medium">{meal.nutrition}</span>
                           </div>
                         </div>
                       )}
