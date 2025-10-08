@@ -51,7 +51,7 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className="text-foreground hover:text-neon-cyan transition-colors duration-200 font-exo font-medium hover-glow"
+                className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
               >
                 {item.name}
               </Link>
@@ -76,7 +76,7 @@ const Header = () => {
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" className="relative h-10 w-10 rounded-full">
                     <Avatar className="h-9 w-9">
-                      <AvatarFallback className="bg-gradient-to-r from-neon-cyan to-neon-blue text-black">
+                      <AvatarFallback className="bg-gradient-to-r from-fresh-green to-warm-amber text-white">
                         {profile?.first_name?.[0]?.toUpperCase() || user.email?.[0]?.toUpperCase()}
                       </AvatarFallback>
                     </Avatar>
@@ -115,7 +115,7 @@ const Header = () => {
                 <Button variant="outline" size="sm" asChild>
                   <Link to="/login">Sign In</Link>
                 </Button>
-                <Button variant="fresh" size="lg" className="fresh-border" asChild>
+                <Button variant="fresh" size="lg" asChild>
                   <Link to="/plans">Start My Plan</Link>
                 </Button>
               </>
@@ -126,7 +126,7 @@ const Header = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-foreground hover:text-neon-cyan transition-colors hover-glow"
+              className="text-foreground hover:text-primary transition-colors"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -141,7 +141,7 @@ const Header = () => {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className="block text-foreground hover:text-neon-cyan transition-colors duration-200 font-exo font-medium py-3 text-lg hover-glow"
+                  className="block text-foreground hover:text-primary transition-colors duration-200 font-medium py-3 text-lg"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
@@ -193,7 +193,7 @@ const Header = () => {
                   <Button variant="outline" className="w-full mt-4" asChild>
                     <Link to="/login" onClick={() => setIsMenuOpen(false)}>Sign In</Link>
                   </Button>
-                  <Button variant="fresh" size="lg" className="w-full mt-2 fresh-border" asChild>
+                  <Button variant="fresh" size="lg" className="w-full mt-2" asChild>
                     <Link to="/plans" onClick={() => setIsMenuOpen(false)}>Start My Plan</Link>
                   </Button>
                 </>

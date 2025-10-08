@@ -23,9 +23,9 @@ const About = () => {
             <Badge variant="outline" className="text-neon-orange border-neon-orange px-4 py-1">
               🚀 Our Story
             </Badge>
-            <h1 className="text-4xl lg:text-6xl font-orbitron font-black leading-tight">
-              <span className="text-gradient-neon">Revolutionizing</span><br />
-              <span className="text-gradient-food">Healthy Living</span>
+            <h1 className="text-4xl lg:text-6xl font-playfair font-bold leading-tight">
+              <span className="text-gradient-food">Revolutionizing</span><br />
+              <span className="text-gradient-warm">Healthy Living</span>
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
               At ZestyMonk, we believe that healthy food shouldn't be boring, complicated, or time-consuming. 
@@ -44,7 +44,7 @@ const About = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <h2 className="text-3xl lg:text-4xl font-orbitron font-bold text-gradient-neon">
+              <h2 className="text-3xl lg:text-4xl font-playfair font-bold text-gradient-food">
                 The ZestyMonk Story
               </h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
@@ -68,21 +68,21 @@ const About = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-neon-pink/20 to-neon-yellow/20 rounded-3xl blur-3xl"></div>
               <Card className="card-glow p-8 relative z-10">
                 <CardContent className="space-y-6 p-0">
-                  <div className="grid grid-cols-2 gap-6">
+                    <div className="grid grid-cols-2 gap-6">
                     <div className="text-center">
-                      <div className="text-3xl font-orbitron font-bold text-neon-green">50K+</div>
+                      <div className="text-3xl font-playfair font-bold text-gradient-food">50K+</div>
                       <div className="text-sm text-muted-foreground">Happy Members</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-3xl font-orbitron font-bold text-neon-orange">1M+</div>
+                      <div className="text-3xl font-playfair font-bold text-gradient-warm">1M+</div>
                       <div className="text-sm text-muted-foreground">Meals Delivered</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-3xl font-orbitron font-bold text-neon-pink">98%</div>
+                      <div className="text-3xl font-playfair font-bold text-gradient-food">98%</div>
                       <div className="text-sm text-muted-foreground">Nutrient Retention</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-3xl font-orbitron font-bold text-neon-yellow">25+</div>
+                      <div className="text-3xl font-playfair font-bold text-gradient-warm">25+</div>
                       <div className="text-sm text-muted-foreground">Cities Served</div>
                     </div>
                   </div>
@@ -97,7 +97,7 @@ const About = () => {
       <section className="py-20">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center space-y-4 mb-16">
-            <h2 className="text-3xl lg:text-5xl font-orbitron font-bold text-gradient-food">
+            <h2 className="text-3xl lg:text-5xl font-playfair font-bold text-gradient-food">
               Patented Retort Technology
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -131,7 +131,7 @@ const About = () => {
                   <div className={`w-16 h-16 rounded-full bg-gradient-to-r from-${tech.color} to-${tech.color}/70 mx-auto flex items-center justify-center text-black`}>
                     {tech.icon}
                   </div>
-                  <h3 className="text-xl font-orbitron font-bold text-foreground">
+                  <h3 className="text-xl font-playfair font-bold text-foreground">
                     {tech.title}
                   </h3>
                   <p className="text-muted-foreground">
@@ -148,7 +148,7 @@ const About = () => {
       <section className="py-20 bg-card">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center space-y-4 mb-16">
-            <h2 className="text-3xl lg:text-5xl font-orbitron font-bold text-gradient-neon">
+            <h2 className="text-3xl lg:text-5xl font-playfair font-bold text-gradient-food">
               Our Core Values
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -188,7 +188,7 @@ const About = () => {
                   <div className={`w-16 h-16 rounded-full bg-gradient-to-r from-${value.color} to-${value.color}/70 mx-auto flex items-center justify-center text-black group-hover:scale-110 transition-transform`}>
                     {value.icon}
                   </div>
-                  <h3 className="text-xl font-orbitron font-bold text-foreground">
+                  <h3 className="text-xl font-playfair font-bold text-foreground">
                     {value.title}
                   </h3>
                   <p className="text-muted-foreground">
@@ -205,7 +205,7 @@ const About = () => {
       <section className="py-20">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center space-y-8 max-w-4xl mx-auto">
-            <h2 className="text-3xl lg:text-5xl font-orbitron font-bold text-gradient-food">
+            <h2 className="text-3xl lg:text-5xl font-playfair font-bold text-gradient-food">
               Our Mission Goes Beyond Food
             </h2>
             <p className="text-xl text-muted-foreground leading-relaxed">
@@ -217,7 +217,7 @@ const About = () => {
                 <Target className="mr-2" />
                 Read Our Full Mission
               </Button>
-              <Button variant="outline" size="lg" className="text-lg border-neon-orange text-neon-orange hover:bg-neon-orange hover:text-black">
+              <Button variant="outline" size="lg" className="text-lg">
                 Meet Our Team
               </Button>
             </div>

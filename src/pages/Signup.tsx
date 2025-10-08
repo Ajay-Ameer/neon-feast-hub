@@ -63,10 +63,10 @@ const Signup = () => {
         {/* Logo */}
         <div className="text-center">
           <Link to="/" className="inline-flex items-center space-x-2 group">
-            <div className="p-3 rounded-lg bg-gradient-to-r from-neon-cyan to-neon-blue hover-glow">
-              <Zap className="h-8 w-8 text-black" />
+            <div className="p-3 rounded-lg bg-gradient-to-r from-fresh-green to-warm-amber">
+              <Zap className="h-8 w-8 text-white" />
             </div>
-            <span className="text-2xl font-orbitron font-bold text-gradient-cyber pulse-cyber">
+            <span className="text-2xl font-playfair font-bold text-gradient-food">
               ZestyMonk
             </span>
           </Link>
@@ -210,7 +210,7 @@ const Signup = () => {
                 Already have an account?{' '}
                 <Link
                   to="/login"
-                  className="text-neon-cyan hover:text-neon-blue transition-colors font-medium"
+                  className="text-primary hover:underline transition-colors font-medium"
                 >
                   Sign in
                 </Link>

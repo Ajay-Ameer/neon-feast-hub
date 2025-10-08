@@ -186,9 +186,9 @@ const Contact = () => {
                     ].map((social, index) => (
                       <Button
                         key={index}
-                        variant="outline"
+                        variant="vitality"
                         size="icon"
-                        className={`bg-gradient-to-r ${social.color} text-white border-none hover:scale-110 transition-transform`}
+                        className="hover:scale-110 transition-transform"
                       >
                         {social.icon}
                       </Button>
@@ -230,9 +230,9 @@ const Contact = () => {
               Check out our comprehensive FAQ section for instant answers to common questions about our meal plans, 
               delivery, and nutrition services.
             </p>
-            <Button variant="outline" size="lg" className="text-lg border-warm-amber text-warm-amber hover:bg-warm-amber hover:text-white">
-              Browse FAQ
-            </Button>
+              <Button variant="outline" size="lg" className="text-lg">
+                Browse FAQ
+              </Button>
           </div>
         </div>
       </section>

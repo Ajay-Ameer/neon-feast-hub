@@ -132,12 +132,8 @@ const Blog = () => {
             {categories.map((category, index) => (
               <Button
                 key={index}
-                variant={category.active ? "default" : "outline"}
-                className={`flex items-center gap-2 transition-all duration-300 ${
-                  category.active 
-                    ? 'bg-gradient-to-r from-green-500 to-orange-500 text-white shadow-lg transform scale-105' 
-                    : 'bg-white/90 text-gray-600 hover:bg-gradient-to-r hover:from-green-50 hover:to-orange-50 hover:text-green-600 border border-green-100'
-                }`}
+                variant={category.active ? "fresh" : "outline"}
+                className="flex items-center gap-2 transition-all duration-300"
               >
                 {category.icon}
                 {category.name}

@@ -30,7 +30,7 @@ const Cart = () => {
             <ShoppingBag className="w-16 h-16 text-muted-foreground mb-4" />
             <h3 className="text-xl font-semibold mb-2">Your cart is empty</h3>
             <p className="text-muted-foreground mb-6">Start adding some delicious meals to your cart!</p>
-            <Button asChild>
+            <Button variant="fresh" asChild>
               <a href="/meal-hub">Browse Meals</a>
             </Button>
           </div>
@@ -161,7 +161,7 @@ const Cart = () => {
                 </div>
                 <Separator />
                 <div className="space-y-3">
-                  <Button className="w-full" size="lg">
+                  <Button variant="fresh" className="w-full" size="lg">
                     Proceed to Checkout
                   </Button>
                   <Button 
@@ -179,7 +179,7 @@ const Cart = () => {
               <CardContent className="p-4">
                 <div className="text-center">
                   <h4 className="font-medium mb-2">Need More Meals?</h4>
-                  <Button variant="secondary" asChild className="w-full">
+                  <Button variant="outline" asChild className="w-full">
                     <a href="/meal-hub">Continue Shopping</a>
                   </Button>
                 </div>
