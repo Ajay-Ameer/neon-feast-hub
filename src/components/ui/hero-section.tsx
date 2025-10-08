@@ -34,8 +34,8 @@ const HeroSection = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setRotation((prev) => prev + 0.5);
-    }, 30);
+      setRotation((prev) => (prev + 0.3) % 360);
+    }, 20);
 
     return () => clearInterval(interval);
   }, []);
@@ -91,39 +91,50 @@ const HeroSection = () => {
             </Button>
           </div>
 
-          {/* Level 4: Meal Carousel Animation */}
+          {/* Level 4: Meal Carousel Animation - Semi Circle */}
           <div className="relative w-full max-w-6xl mt-8">
-            <div className="relative mx-auto h-[500px] flex items-center justify-center overflow-hidden">
-              {/* Rotating food items - no visible track */}
+            <div className="relative mx-auto h-[400px] flex items-end justify-center overflow-hidden pb-12">
+              {/* Rotating food items in semi-circle */}
               {meals.map((meal, index) => {
                 const angle = (rotation + (index * (360 / meals.length))) % 360;
-                const radius = 280;
                 
-                // Calculate position in a full circle
-                const radians = (angle * Math.PI) / 180;
+                // Only show items in bottom semi-circle (90° to 270°)
+                const isInBottomHalf = angle >= 90 && angle <= 270;
+                
+                if (!isInBottomHalf) return null;
+                
+                // Adjust angle to semi-circle range (0° to 180° mapped from 90° to 270°)
+                const semiAngle = angle - 90;
+                const radius = 320;
+                
+                // Calculate position in semi-circle
+                const radians = ((semiAngle - 90) * Math.PI) / 180;
                 const x = Math.cos(radians) * radius;
                 const y = Math.sin(radians) * radius;
                 
-                // Calculate if item is at center bottom (270 degrees)
-                const isAtCenter = Math.abs(((angle + 90) % 360) - 180) < 15;
-                const scale = isAtCenter ? 1 : 0.65;
-                const opacity = isAtCenter ? 1 : 0.5;
-                const zIndex = isAtCenter ? 50 : 10;
+                // Item is at center (90 degrees = bottom center of semi-circle)
+                const isAtCenter = Math.abs(semiAngle - 90) < 12;
+                
+                // Smooth scaling based on distance from center
+                const distanceFromCenter = Math.abs(semiAngle - 90);
+                const scale = isAtCenter ? 1.2 : Math.max(0.5, 1 - (distanceFromCenter / 90) * 0.5);
+                const opacity = isAtCenter ? 1 : Math.max(0.3, 1 - (distanceFromCenter / 90) * 0.7);
+                const zIndex = isAtCenter ? 50 : Math.round(10 + (1 - distanceFromCenter / 90) * 20);
                 
                 return (
                   <div
                     key={index}
-                    className="absolute transition-all duration-500 ease-out"
+                    className="absolute transition-all duration-700 ease-in-out"
                     style={{
                       left: `calc(50% + ${x}px)`,
-                      top: `calc(50% + ${y}px)`,
+                      top: `calc(100% + ${y}px)`,
                       transform: `translate(-50%, -50%) scale(${scale})`,
                       zIndex: zIndex,
                       opacity: opacity,
                     }}
                   >
                     <div className="relative">
-                      <div className={`${isAtCenter ? 'w-56 h-56' : 'w-32 h-32'} rounded-2xl overflow-hidden shadow-2xl border-4 border-white transition-all duration-500`}>
+                      <div className={`${isAtCenter ? 'w-64 h-64' : 'w-28 h-28'} rounded-2xl overflow-hidden shadow-2xl border-4 border-white transition-all duration-700`}>
                         <img 
                           src={meal.image} 
                           alt={meal.name}
@@ -132,7 +143,7 @@ const HeroSection = () => {
                         />
                       </div>
                       {isAtCenter && (
-                        <div className="absolute -bottom-20 left-1/2 transform -translate-x-1/2 bg-white px-6 py-3 rounded-2xl shadow-2xl border border-green-100 whitespace-nowrap animate-fade-in">
+                        <div className="absolute -bottom-24 left-1/2 transform -translate-x-1/2 bg-white px-6 py-3 rounded-2xl shadow-2xl border border-green-100 whitespace-nowrap animate-fade-in">
                           <p className="text-lg font-bold text-gray-900 mb-1">{meal.name}</p>
                           <div className="flex items-center justify-center gap-2">
                             <span className="text-sm font-semibold text-green-600">{meal.calories}</span>
