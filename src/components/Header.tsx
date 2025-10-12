@@ -40,7 +40,7 @@ const Header = () => {
             <div className="p-2 rounded-lg bg-gradient-to-r from-neon-cyan to-neon-blue hover-glow">
               <Zap className="h-6 w-6 text-black" />
             </div>
-            <span className="text-xl font-orbitron font-bold text-gradient-cyber pulse-cyber">
+            <span className="text-xl font-parisienne font-bold text-gradient-cyber pulse-cyber">
               ZestyMonk
             </span>
           </Link>

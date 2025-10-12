@@ -93,10 +93,15 @@ const PlansPricing = () => {
                   ))}
                 </ul>
                 
+                {/* Info Text */}
+                <p className="text-xs text-gray-500 italic mt-4">
+                  Eager to learn more on this plan? Click the button below!
+                </p>
+                
                 {/* CTA Button */}
                 <Button 
                   variant="outline" 
-                  className={`w-full mt-6 border-2 hover:scale-105 transition-all duration-300 ${
+                  className={`w-full mt-2 border-2 hover:scale-105 transition-all duration-300 ${
                     plan.popular 
                       ? 'border-orange-500 text-orange-600 hover:bg-orange-500 hover:text-white' 
                       : 'border-green-500 text-green-600 hover:bg-green-500 hover:text-white'

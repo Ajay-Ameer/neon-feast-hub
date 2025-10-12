@@ -53,9 +53,9 @@ const HeroSection = () => {
           {/* Left Side: Content */}
           <div className="flex-1 space-y-8 text-center lg:text-left">
             {/* Title */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-cinzel font-bold leading-tight text-gray-900">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-playfair font-bold leading-tight text-gray-900">
               <span className="bg-gradient-to-r from-green-600 to-emerald-700 bg-clip-text text-transparent">
-                Backed by Nutritionists.
+                Backed by Our Nutritionists.
               </span>
               <br />
               <span className="bg-gradient-to-r from-green-600 to-emerald-700 bg-clip-text text-transparent">
@@ -91,21 +91,12 @@ const HeroSection = () => {
                 size="lg" 
                 className="text-lg px-8 py-6 bg-green-600 hover:bg-green-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
                 onClick={() => {
-                  const element = document.getElementById('menu-preview');
+                  const element = document.getElementById('plans-pricing');
                   element?.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
-                Start My Gut Journey →
+                Start Your Transformation Now
               </Button>
-              <button
-                className="text-green-600 hover:text-green-700 font-medium text-lg transition-colors"
-                onClick={() => {
-                  const element = document.getElementById('how-it-works');
-                  element?.scrollIntoView({ behavior: 'smooth' });
-                }}
-              >
-                See how it works ↓
-              </button>
             </div>
           </div>
 

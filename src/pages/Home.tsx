@@ -47,7 +47,9 @@ const Home = () => {
       <WhyChooseUs />
 
       {/* Plans & Pricing */}
-      <PlansPricing />
+      <div id="plans-pricing">
+        <PlansPricing />
+      </div>
 
       {/* Menu Preview */}
       <div id="menu-preview">
