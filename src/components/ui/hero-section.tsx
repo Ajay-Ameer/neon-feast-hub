@@ -15,7 +15,7 @@ import greekSalad from "@/assets/meals/greek-halloumi-salad.jpg";
 import coconutCurry from "@/assets/meals/coconut-curry-lentils.jpg";
 
 const HeroSection = () => {
-  const [rotation, setRotation] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
   
   const meals = [
     { image: mediterraneanBowl, name: "Mediterranean Bowl", calories: "420 cal", nutrition: "High Protein" },
@@ -34,11 +34,11 @@ const HeroSection = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setRotation((prev) => (prev + 0.2) % 360);
-    }, 20);
+      setActiveIndex((prev) => (prev + 1) % meals.length);
+    }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [meals.length]);
 
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-orange-50 flex items-center overflow-hidden py-12">
@@ -90,71 +90,88 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right Side: Meal Carousel Animation - Vertical Semi Circle */}
-          <div className="flex-1 relative w-full max-w-md lg:max-w-lg">
-            <div className="relative mx-auto h-[600px] flex items-center justify-center overflow-visible">
-              {/* Rotating food items in vertical semi-circle (top to bottom) */}
-              {meals.map((meal, index) => {
-                const angle = (rotation + (index * (360 / meals.length))) % 360;
-                
-                // Only show items in right semi-circle (270° to 90° going clockwise - top to bottom)
-                const isInRightHalf = angle >= 270 || angle <= 90;
-                
-                if (!isInRightHalf) return null;
-                
-                // Adjust angle to semi-circle range for vertical movement
-                const semiAngle = angle >= 270 ? angle - 270 : angle + 90;
-                const radius = 250;
-                
-                // Calculate position in vertical semi-circle (top to bottom on right side)
-                const radians = ((semiAngle - 90) * Math.PI) / 180;
-                const x = Math.cos(radians) * radius;
-                const y = Math.sin(radians) * radius;
-                
-                // Item is at center (90 degrees = middle right of semi-circle)
-                const isAtCenter = Math.abs(semiAngle - 90) < 10;
-                
-                // Smooth, elegant scaling based on distance from center - medium size at center
-                const distanceFromCenter = Math.abs(semiAngle - 90);
-                const scale = isAtCenter ? 1.0 : Math.max(0.35, 1 - (distanceFromCenter / 90) * 0.65);
-                const opacity = isAtCenter ? 1 : Math.max(0.2, 1 - (distanceFromCenter / 90) * 0.8);
-                const zIndex = isAtCenter ? 50 : Math.round(10 + (1 - distanceFromCenter / 90) * 20);
-                
-                return (
-                  <div
-                    key={index}
-                    className="absolute transition-all duration-700 ease-out"
-                    style={{
-                      left: `calc(50% + ${x}px)`,
-                      top: `calc(50% + ${y}px)`,
-                      transform: `translate(-50%, -50%) scale(${scale})`,
-                      zIndex: zIndex,
-                      opacity: opacity,
-                    }}
-                  >
-                    <div className="relative">
-                      <div className={`${isAtCenter ? 'w-64 h-64' : 'w-20 h-20'} rounded-2xl overflow-hidden shadow-2xl border-4 border-white transition-all duration-700`}>
+          {/* Right Side: Flex Cards Animation */}
+          <div className="flex-1 relative w-full max-w-md lg:max-w-2xl">
+            <div className="relative h-[400px] lg:h-[500px] flex items-center justify-center px-4">
+              {/* Flex card container */}
+              <div className="flex items-center justify-center gap-2 lg:gap-3 w-full perspective-1000">
+                {meals.slice(0, 5).map((meal, index) => {
+                  const isActive = index === activeIndex % 5;
+                  const position = index - (activeIndex % 5);
+                  
+                  return (
+                    <div
+                      key={index}
+                      className="relative transition-all duration-700 ease-out"
+                      style={{
+                        flex: isActive ? '3' : '0.5',
+                        height: isActive ? '400px' : '300px',
+                        zIndex: isActive ? 20 : 10 - Math.abs(position),
+                        opacity: isActive ? 1 : 0.6,
+                      }}
+                    >
+                      <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white/80 bg-gradient-to-br from-white to-gray-50">
                         <img 
                           src={meal.image} 
                           alt={meal.name}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover transition-transform duration-700"
+                          style={{
+                            transform: isActive ? 'scale(1)' : 'scale(1.2)',
+                          }}
                           loading="eager"
                         />
-                      </div>
-                      {isAtCenter && (
-                        <div className="absolute -right-56 top-1/2 transform -translate-y-1/2 bg-white px-5 py-3 rounded-xl shadow-2xl border border-green-100 whitespace-nowrap animate-fade-in">
-                          <p className="text-lg font-bold text-gray-900 mb-1">{meal.name}</p>
-                          <div className="flex items-center gap-3">
-                            <span className="text-sm font-semibold text-green-600">{meal.calories}</span>
-                            <span className="text-xs text-gray-400">•</span>
-                            <span className="text-xs text-orange-600 font-medium">{meal.nutrition}</span>
+                        
+                        {/* Gradient overlay for non-active cards */}
+                        {!isActive && (
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        )}
+                        
+                        {/* Card details - visible on active card */}
+                        {isActive && (
+                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent p-6 lg:p-8 animate-fade-in">
+                            <div className="text-white space-y-2">
+                              <div className="flex items-center gap-2 text-sm lg:text-base text-green-400 font-semibold">
+                                <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                                <span>Featured Meal</span>
+                              </div>
+                              <h3 className="text-2xl lg:text-3xl font-bold">{meal.name}</h3>
+                              <div className="flex items-center gap-4 text-sm lg:text-base">
+                                <span className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full font-semibold">
+                                  {meal.calories}
+                                </span>
+                                <span className="px-3 py-1 bg-orange-500/30 backdrop-blur-sm rounded-full font-medium">
+                                  {meal.nutrition}
+                                </span>
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                      )}
+                        )}
+                        
+                        {/* Card number indicator for non-active cards */}
+                        {!isActive && (
+                          <div className="absolute top-4 left-4 w-10 h-10 lg:w-12 lg:h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center font-bold text-gray-800 shadow-lg">
+                            {String(index + 1).padStart(2, '0')}
+                          </div>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
+              
+              {/* Progress indicator */}
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+                {meals.slice(0, 5).map((_, index) => (
+                  <div
+                    key={index}
+                    className="h-1.5 rounded-full bg-white/30 backdrop-blur-sm transition-all duration-700"
+                    style={{
+                      width: index === activeIndex % 5 ? '32px' : '12px',
+                      backgroundColor: index === activeIndex % 5 ? 'rgb(34, 197, 94)' : 'rgba(255, 255, 255, 0.3)',
+                    }}
+                  ></div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
