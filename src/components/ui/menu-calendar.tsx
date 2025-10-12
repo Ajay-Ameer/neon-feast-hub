@@ -150,13 +150,17 @@ const MenuCalendar = ({ selectedMeals, duration, onBack }: MenuCalendarProps) =>
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center gap-4">
-        <Button variant="outline" onClick={onBack}>
+      <div className="mb-6">
+        <Button 
+          variant="outline" 
+          onClick={onBack}
+          className="mb-4 border-fresh-green text-fresh-green hover:bg-fresh-green/10"
+        >
           <ArrowLeft className="h-4 w-4 mr-2" />
           Back to Plan Selection
         </Button>
         <div>
-          <h2 className="text-2xl font-bold text-gradient-food">Your Menu Calendar</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-gradient-food">Your Menu Calendar</h2>
           <p className="text-muted-foreground">
             Plan duration: {duration} days ({format(startDate, 'MMM d')} - {format(endDate, 'MMM d, yyyy')})
           </p>
@@ -212,6 +216,7 @@ const MenuCalendar = ({ selectedMeals, duration, onBack }: MenuCalendarProps) =>
                         variant="outline"
                         size="sm"
                         onClick={() => handleSwapItem(format(selectedDate, 'yyyy-MM-dd'), mealType, meal.id)}
+                        className="border-fresh-green text-fresh-green hover:bg-fresh-green/10"
                       >
                         <Replace className="h-4 w-4 mr-1" />
                         Swap
@@ -260,7 +265,11 @@ const MenuCalendar = ({ selectedMeals, duration, onBack }: MenuCalendarProps) =>
 
       {/* Confirm Button */}
       <div className="flex justify-center">
-        <Button variant="fresh" size="lg" onClick={confirmAllMenus} className="px-8">
+        <Button 
+          size="lg" 
+          onClick={confirmAllMenus} 
+          className="px-8 bg-gradient-to-r from-fresh-green to-warm-amber hover:opacity-90 text-white shadow-lg"
+        >
           <Check className="h-5 w-5 mr-2" />
           Confirm Menu Plan
         </Button>
@@ -291,6 +300,7 @@ const MenuCalendar = ({ selectedMeals, duration, onBack }: MenuCalendarProps) =>
                         variant="ghost"
                         size="sm"
                         onClick={() => handleSwapItem(format(selectedDate, 'yyyy-MM-dd'), mealType, meal.id)}
+                        className="text-fresh-green hover:bg-fresh-green/10"
                       >
                         <Replace className="h-4 w-4" />
                       </Button>

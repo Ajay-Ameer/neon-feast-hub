@@ -14,6 +14,8 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Mission from "./pages/Mission";
 import Plans from "./pages/Plans";
+import PlanSelection from "./pages/PlanSelection";
+import MenuCalendar from "./pages/MenuCalendar";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
 import Blog from "./pages/Blog";
@@ -62,6 +64,8 @@ const App = () => {
                     <Route path="/about" element={<About />} />
                     <Route path="/mission" element={<Mission />} />
                     <Route path="/plans" element={<Plans />} />
+                    <Route path="/plan-selection" element={<PlanSelection />} />
+                    <Route path="/menu-calendar" element={<MenuCalendar />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/faq" element={<FAQ />} />
                     <Route path="/blog" element={<Blog />} />

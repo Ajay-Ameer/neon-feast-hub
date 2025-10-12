@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -30,6 +31,7 @@ const Plans = () => {
       name: "General Wellness Plan",
       description: "Balanced nutrition for everyday health - perfectly balanced nutritious meals designed for optimal health, immunity, and sustained energy",
       price: 23000,
+      pricePerDay: 260,
       features: [
         "Freshly cooked meals delivered daily",
         "Nutrient-dense recipes designed by certified nutritionists",
@@ -50,6 +52,7 @@ const Plans = () => {
       name: "Weight Loss Plan",
       description: "Smart meals for sustainable fat loss - scientifically designed calorie-deficit meals that help you lose weight healthily while maintaining energy",
       price: 25000,
+      pricePerDay: 270,
       features: [
         "Calorie-controlled meals optimized for fat loss",
         "Portion guidance and daily targets",
@@ -70,6 +73,7 @@ const Plans = () => {
       name: "Muscle Gain Plan", 
       description: "Protein-packed meals for strength & growth - performance-focused high-protein meals engineered to maximize muscle growth and strength",
       price: 28000,
+      pricePerDay: 290,
       features: [
         "High-protein recipes to support muscle building",
         "Muscle-building nutrition optimized for recovery",
@@ -90,6 +94,7 @@ const Plans = () => {
       name: "Diabetes Management Plan",
       description: "Scientifically balanced for sugar control - carefully designed meals with low-GI recipes to help manage blood sugar levels effectively",
       price: 26000,
+      pricePerDay: 275,
       features: [
         "Low-GI recipes for stable blood sugar control",
         "Dietitian-approved meals with balanced carbohydrates",
@@ -226,15 +231,13 @@ const Plans = () => {
                     </div>
 
                     <Button 
-                      className={`w-full text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-300 ${
-                        plan.popular 
-                          ? 'bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white' 
-                          : 'bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white'
-                      }`}
+                      className="w-full text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-r from-fresh-green to-warm-amber hover:opacity-90 text-white"
                       size="lg"
-                      onClick={() => setSelectedPlan(plan.id)}
+                      asChild
                     >
-                      Select Plan
+                      <Link to={`/plan-selection?plan=${encodeURIComponent(plan.name)}&type=${plan.id}&price=${plan.pricePerDay}`}>
+                        Select Plan
+                      </Link>
                     </Button>
                   </CardContent>
                 </Card>

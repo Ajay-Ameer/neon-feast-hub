@@ -16,6 +16,8 @@ const NavigationBreadcrumb = () => {
   const routeNames: Record<string, string> = {
     'about': 'About Us',
     'plans': 'Meal Plans',
+    'plan-selection': 'Choose Your Plan',
+    'menu-calendar': 'Menu Calendar',
     'contact': 'Contact Us',
     'blog': 'Nutrition Blog',
     'faq': 'FAQ',

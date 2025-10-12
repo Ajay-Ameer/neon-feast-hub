@@ -474,8 +474,7 @@ const PlanSelection = ({ planName, basePrice, planType, onPlanSelect }: PlanSele
             </div>
 
             <Button 
-              variant="fresh" 
-              className="w-full" 
+              className="w-full bg-gradient-to-r from-fresh-green to-warm-amber hover:opacity-90 text-white shadow-lg" 
               disabled={!isValidSelection}
               onClick={handleSubmit}
             >
