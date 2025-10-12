@@ -129,17 +129,17 @@ const HeroSection = () => {
                         {/* Card details - visible on active card */}
                         {isActive && (
                           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent p-6 lg:p-8 animate-fade-in">
-                            <div className="text-white space-y-2">
+                            <div className="text-white space-y-2 font-mirach">
                               <div className="flex items-center gap-2 text-sm lg:text-base text-green-400 font-semibold">
                                 <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
                                 <span>Featured Meal</span>
                               </div>
                               <h3 className="text-2xl lg:text-3xl font-bold">{meal.name}</h3>
-                              <div className="flex items-center gap-4 text-sm lg:text-base">
-                                <span className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full font-semibold">
+                              <div className="flex items-center gap-3 text-sm lg:text-base flex-wrap">
+                                <span className="px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full font-semibold whitespace-nowrap">
                                   {meal.calories}
                                 </span>
-                                <span className="px-3 py-1 bg-orange-500/30 backdrop-blur-sm rounded-full font-medium">
+                                <span className="px-3 py-1.5 bg-orange-500/30 backdrop-blur-sm rounded-full font-medium whitespace-nowrap">
                                   {meal.nutrition}
                                 </span>
                               </div>

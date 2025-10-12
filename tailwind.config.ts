@@ -19,6 +19,7 @@ export default {
         'playfair': ['Playfair Display', 'serif'],
         'inter': ['Inter', 'sans-serif'],
         'knockout': ['Knockout Sumo', 'sans-serif'],
+        'mirach': ['Mirach', 'serif'],
       },
       colors: {
         border: "hsl(var(--border))",
