@@ -39,19 +39,23 @@ const Home = () => {
       </div>
 
       {/* How It Works */}
-      <HowItWorks />
+      <div id="how-it-works">
+        <HowItWorks />
+      </div>
 
       {/* Why Choose Us */}
       <WhyChooseUs />
 
+      {/* Plans & Pricing */}
+      <PlansPricing />
+
       {/* Menu Preview */}
-      <MenuPreview />
+      <div id="menu-preview">
+        <MenuPreview />
+      </div>
 
       {/* Testimonials */}
       <TestimonialsSection />
-
-      {/* Plans & Pricing */}
-      <PlansPricing />
 
       {/* Closing CTA */}
       <ClosingCTA />

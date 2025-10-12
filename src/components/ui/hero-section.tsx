@@ -53,40 +53,59 @@ const HeroSection = () => {
           {/* Left Side: Content */}
           <div className="flex-1 space-y-8 text-center lg:text-left">
             {/* Title */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-knockout font-bold leading-tight text-gray-900">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-cinzel font-bold leading-tight text-gray-900">
               <span className="bg-gradient-to-r from-green-600 to-emerald-700 bg-clip-text text-transparent">
-                Gut loving delicacies
+                Backed by Nutritionists.
               </span>
               <br />
-              <span className="bg-gradient-to-r from-orange-500 to-yellow-600 bg-clip-text text-transparent">
-                Delivered Fresh
+              <span className="bg-gradient-to-r from-green-600 to-emerald-700 bg-clip-text text-transparent">
+                Loved by Your Gut.
               </span>
             </h1>
 
+            {/* Feature Badges */}
+            <div className="flex flex-wrap gap-4 justify-center lg:justify-start items-center">
+              <div className="flex items-center gap-2">
+                <span className="w-3 h-3 bg-green-500 rounded-full"></span>
+                <span className="text-gray-700 font-medium">Nutritionist Approved</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="w-3 h-3 bg-green-500 rounded-full"></span>
+                <span className="text-gray-700 font-medium">Smart-Packaged</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="w-3 h-3 bg-green-500 rounded-full"></span>
+                <span className="text-gray-700 font-medium">Daily Fresh</span>
+              </div>
+            </div>
+
             {/* Subtitle */}
             <p className="text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              Personalized meal plans, freshly crafted daily, delivered with patented smart-packaging 
-              technology that locks in <strong className="text-green-600">flavor and health</strong>.
+              Experience the perfect blend of science and nature with our <strong className="text-green-600">nutritionist-approved meals</strong>, delivered in <strong className="text-green-600">patented smart-packaging</strong> that preserves every nutrient, every flavor, just for you.
             </p>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            {/* CTA Button */}
+            <div className="flex gap-4 justify-center lg:justify-start items-center">
               <Button 
                 variant="default" 
                 size="lg" 
                 className="text-lg px-8 py-6 bg-green-600 hover:bg-green-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-                asChild
+                onClick={() => {
+                  const element = document.getElementById('menu-preview');
+                  element?.scrollIntoView({ behavior: 'smooth' });
+                }}
               >
-                <Link to="/plans">Start My Transition</Link>
+                Start My Gut Journey →
               </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="text-lg px-8 py-6 border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white font-semibold transition-all duration-300"
-                asChild
+              <button
+                className="text-green-600 hover:text-green-700 font-medium text-lg transition-colors"
+                onClick={() => {
+                  const element = document.getElementById('how-it-works');
+                  element?.scrollIntoView({ behavior: 'smooth' });
+                }}
               >
-                <Link to="/plans">View Meal Plans</Link>
-              </Button>
+                See how it works ↓
+              </button>
             </div>
           </div>
 
@@ -129,7 +148,7 @@ const HeroSection = () => {
                         {/* Card details - visible on active card */}
                         {isActive && (
                           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent p-6 lg:p-8 animate-fade-in">
-                            <div className="text-white space-y-2 font-mirach">
+                            <div className="text-white space-y-2 font-safira">
                               <div className="flex items-center gap-2 text-sm lg:text-base text-green-400 font-semibold">
                                 <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
                                 <span>Featured Meal</span>

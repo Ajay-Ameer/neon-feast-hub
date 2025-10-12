@@ -20,6 +20,9 @@ export default {
         'inter': ['Inter', 'sans-serif'],
         'knockout': ['Knockout Sumo', 'sans-serif'],
         'mirach': ['Mirach', 'serif'],
+        'safira': ['Safira March', 'cursive'],
+        'parisienne': ['Parisienne', 'cursive'],
+        'cinzel': ['Cinzel', 'serif'],
       },
       colors: {
         border: "hsl(var(--border))",
