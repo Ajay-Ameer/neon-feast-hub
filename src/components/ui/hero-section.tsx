@@ -49,7 +49,7 @@ const HeroSection = () => {
       </div>
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-8">
           {/* Left Side: Content */}
           <div className="flex-1 space-y-8 text-center lg:text-left">
             {/* Title */}
@@ -91,7 +91,7 @@ const HeroSection = () => {
           </div>
 
           {/* Right Side: Meal Carousel Animation - Vertical Semi Circle */}
-          <div className="flex-1 relative w-full max-w-xl lg:max-w-2xl">
+          <div className="flex-1 relative w-full max-w-md lg:max-w-lg">
             <div className="relative mx-auto h-[600px] flex items-center justify-center overflow-visible">
               {/* Rotating food items in vertical semi-circle (top to bottom) */}
               {meals.map((meal, index) => {
@@ -114,9 +114,9 @@ const HeroSection = () => {
                 // Item is at center (90 degrees = middle right of semi-circle)
                 const isAtCenter = Math.abs(semiAngle - 90) < 10;
                 
-                // Smooth, elegant scaling based on distance from center with zoom out effect
+                // Smooth, elegant scaling based on distance from center - medium size at center
                 const distanceFromCenter = Math.abs(semiAngle - 90);
-                const scale = isAtCenter ? 1.4 : Math.max(0.4, 1 - (distanceFromCenter / 90) * 0.6);
+                const scale = isAtCenter ? 1.0 : Math.max(0.35, 1 - (distanceFromCenter / 90) * 0.65);
                 const opacity = isAtCenter ? 1 : Math.max(0.2, 1 - (distanceFromCenter / 90) * 0.8);
                 const zIndex = isAtCenter ? 50 : Math.round(10 + (1 - distanceFromCenter / 90) * 20);
                 
@@ -133,7 +133,7 @@ const HeroSection = () => {
                     }}
                   >
                     <div className="relative">
-                      <div className={`${isAtCenter ? 'w-80 h-80' : 'w-20 h-20'} rounded-2xl overflow-hidden shadow-2xl border-4 border-white transition-all duration-700`}>
+                      <div className={`${isAtCenter ? 'w-64 h-64' : 'w-20 h-20'} rounded-2xl overflow-hidden shadow-2xl border-4 border-white transition-all duration-700`}>
                         <img 
                           src={meal.image} 
                           alt={meal.name}
@@ -142,12 +142,12 @@ const HeroSection = () => {
                         />
                       </div>
                       {isAtCenter && (
-                        <div className="absolute -right-64 top-1/2 transform -translate-y-1/2 bg-white px-6 py-4 rounded-2xl shadow-2xl border border-green-100 whitespace-nowrap animate-fade-in">
-                          <p className="text-xl font-bold text-gray-900 mb-2">{meal.name}</p>
+                        <div className="absolute -right-56 top-1/2 transform -translate-y-1/2 bg-white px-5 py-3 rounded-xl shadow-2xl border border-green-100 whitespace-nowrap animate-fade-in">
+                          <p className="text-lg font-bold text-gray-900 mb-1">{meal.name}</p>
                           <div className="flex items-center gap-3">
-                            <span className="text-base font-semibold text-green-600">{meal.calories}</span>
-                            <span className="text-sm text-gray-400">•</span>
-                            <span className="text-sm text-orange-600 font-medium">{meal.nutrition}</span>
+                            <span className="text-sm font-semibold text-green-600">{meal.calories}</span>
+                            <span className="text-xs text-gray-400">•</span>
+                            <span className="text-xs text-orange-600 font-medium">{meal.nutrition}</span>
                           </div>
                         </div>
                       )}

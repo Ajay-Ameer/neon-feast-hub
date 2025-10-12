@@ -19,6 +19,7 @@ import MenuPreview from "@/components/ui/menu-preview";
 import TestimonialsSection from "@/components/ui/testimonials-section";
 import PlansPricing from "@/components/ui/plans-pricing";
 import ClosingCTA from "@/components/ui/closing-cta";
+import StickyCTA from "@/components/StickyCTA";
 
 // Import vegetable silhouettes
 import chilliSilhouette from "@/assets/vegetables/chili-silhouette.png";
@@ -54,6 +55,9 @@ const Home = () => {
 
       {/* Closing CTA */}
       <ClosingCTA />
+
+      {/* Sticky CTA Bar */}
+      <StickyCTA />
     </div>
   );
 };
