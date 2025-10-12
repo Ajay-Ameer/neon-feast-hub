@@ -596,14 +596,14 @@ const MealHub = () => {
         title: "Item swapped successfully",
         description: `${meal.name} will replace your ${swapMode.mealType} for ${format(new Date(swapMode.date), 'MMMM d')}.`,
       });
-      navigate('/plans');
+      navigate('/menu-calendar');
     }
   };
 
   const cancelSwap = () => {
     sessionStorage.removeItem('swapMode');
     setSwapMode(null);
-    navigate('/plans');
+    navigate('/menu-calendar');
   };
 
   const toggleMealDetails = (mealId: string) => {
