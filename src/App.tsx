@@ -33,6 +33,12 @@ import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import { AdminRoute } from "./components/AdminRoute";
+import News from "./pages/News";
+import Announcements from "./pages/Announcements";
+import Releases from "./pages/Releases";
+import Community from "./pages/Community";
+import SocialEvents from "./pages/SocialEvents";
+import Careers from "./pages/Careers";
 
 const queryClient = new QueryClient();
 
@@ -89,6 +95,12 @@ const App = () => {
                         <AdminDashboard />
                       </AdminRoute>
                     } />
+                    <Route path="/news" element={<News />} />
+                    <Route path="/announcements" element={<Announcements />} />
+                    <Route path="/releases" element={<Releases />} />
+                    <Route path="/community" element={<Community />} />
+                    <Route path="/social-events" element={<SocialEvents />} />
+                    <Route path="/careers" element={<Careers />} />
                     {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                     <Route path="*" element={<NotFound />} />
                   </Routes>

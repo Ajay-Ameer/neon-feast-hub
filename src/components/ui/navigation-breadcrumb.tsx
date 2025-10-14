@@ -26,6 +26,12 @@ const NavigationBreadcrumb = () => {
     'privacy-policy': 'Privacy Policy',
     'cancellation-policy': 'Cancellation Policy',
     'shipping-policy': 'Shipping Policy',
+    'news': 'News',
+    'announcements': 'Announcements',
+    'releases': 'Releases',
+    'community': 'Community',
+    'social-events': 'Social Events',
+    'careers': 'Careers',
   };
 
   if (location.pathname === '/') {
