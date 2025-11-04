@@ -11,7 +11,8 @@ const PlansPricing = () => {
       features: ["Freshly cooked meals", "Nutrient-dense recipes", "Customizable options"],
       cta: "Start Wellness Journey",
       color: "from-green-500 to-emerald-600",
-      popular: false
+      popular: false,
+      url: "https://zestymonkpvtltd.rekart.io/products/category/1348"
     },
     {
       icon: <Scale className="w-8 h-8" />,
@@ -20,7 +21,8 @@ const PlansPricing = () => {
       features: ["Calorie-controlled meals", "Portion guidance", "AI tracking support"],
       cta: "Start Losing Weight",
       color: "from-orange-500 to-red-500",
-      popular: true
+      popular: true,
+      url: "https://zestymonkpvtltd.rekart.io/products/category/1347"
     },
     {
       icon: <Dumbbell className="w-8 h-8" />,
@@ -29,7 +31,8 @@ const PlansPricing = () => {
       features: ["High-protein recipes", "Muscle-building nutrition", "Recovery-focused design"],
       cta: "Start Building Muscle",
       color: "from-blue-500 to-purple-600",
-      popular: false
+      popular: false,
+      url: "https://zestymonkpvtltd.rekart.io/products/category/1349"
     },
     {
       icon: <Heart className="w-8 h-8" />,
@@ -38,7 +41,8 @@ const PlansPricing = () => {
       features: ["Low-GI recipes", "Dietitian-approved meals", "Stable energy support"],
       cta: "Start Diabetes Care",
       color: "from-red-500 to-pink-600",
-      popular: false
+      popular: false,
+      url: "https://zestymonkpvtltd.rekart.io/products/category/1348"
     }
   ];
 
@@ -108,7 +112,7 @@ const PlansPricing = () => {
                   }`}
                   asChild
                 >
-                  <Link to="/plans">{plan.cta}</Link>
+                  <a href={plan.url} target="_blank" rel="noopener noreferrer">{plan.cta}</a>
                 </Button>
               </div>
             </div>

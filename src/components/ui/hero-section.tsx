@@ -90,12 +90,11 @@ const HeroSection = () => {
                 variant="default" 
                 size="lg" 
                 className="text-lg px-8 py-6 bg-green-600 hover:bg-green-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-                onClick={() => {
-                  const element = document.getElementById('plans-pricing');
-                  element?.scrollIntoView({ behavior: 'smooth' });
-                }}
+                asChild
               >
-                Start Your Transformation Now
+                <a href="https://zestymonkpvtltd.rekart.io/products/category/1348" target="_blank" rel="noopener noreferrer">
+                  Start Your Transformation Now
+                </a>
               </Button>
             </div>
           </div>
