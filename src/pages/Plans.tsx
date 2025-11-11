@@ -173,75 +173,76 @@ const Plans = () => {
         ) : (
           <>
             {/* Plan Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 md:gap-8 mb-16">
-              {plans.map((plan) => (
-                <Card key={plan.id} className={`relative bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 ${plan.popular ? 'ring-2 ring-orange-500' : ''}`}>
-                  {plan.popular && (
-                    <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-orange-500 text-white px-4 py-1 rounded-full text-sm font-semibold shadow-lg z-10">
-                      Most Popular
-                    </div>
-                  )}
-                  
-                  <CardHeader className="text-center pb-4">
-                    <div className="mb-4 flex justify-center">
-                      <div className={`w-16 h-16 bg-gradient-to-r ${plan.color} rounded-2xl flex items-center justify-center text-white shadow-lg`}>
-                        {plan.icon}
+            <div className="flex justify-center mb-16">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-7xl">
+                {plans.map((plan) => (
+                  <Card key={plan.id} className={`relative bg-white rounded-2xl shadow-lg border-2 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 w-full max-w-[280px] ${plan.popular ? 'border-orange-400 shadow-orange-100' : 'border-gray-200'}`}>
+                    {plan.popular && (
+                      <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-1.5 rounded-full text-xs font-bold shadow-lg z-10">
+                        ⭐ Most Popular
                       </div>
-                    </div>
-                    <CardTitle className="text-xl md:text-2xl mb-3 text-gray-900 font-bold">{plan.name}</CardTitle>
-                    <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-                      ₹{plan.price.toLocaleString()}
-                      <span className="text-sm text-gray-500 font-normal">/month</span>
-                    </div>
-                    <p className="text-gray-600 leading-relaxed text-sm">{plan.description}</p>
-                  </CardHeader>
+                    )}
+                    
+                    <CardHeader className="text-center pb-3 pt-6">
+                      <div className="mb-3 flex justify-center">
+                        <div className={`w-14 h-14 bg-gradient-to-r ${plan.color} rounded-xl flex items-center justify-center text-white shadow-lg transform hover:scale-110 transition-transform`}>
+                          {plan.icon}
+                        </div>
+                      </div>
+                      <CardTitle className="text-lg mb-2 text-gray-900 font-bold leading-tight">{plan.name}</CardTitle>
+                      <div className="text-2xl font-bold text-gray-900 mb-2">
+                        ₹{plan.price.toLocaleString()}
+                        <span className="text-xs text-gray-500 font-normal">/month</span>
+                      </div>
+                      <p className="text-gray-600 text-xs leading-snug line-clamp-3">{plan.description}</p>
+                    </CardHeader>
 
-                  <CardContent className="space-y-6">
-                    <div className="space-y-2">
-                      {plan.features.slice(0, 3).map((feature, index) => (
-                        <div key={index} className="flex items-center gap-2">
-                          <CheckCircle className="h-4 w-4 text-green-600 flex-shrink-0" />
-                          <span className="text-sm text-gray-700">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
+                    <CardContent className="space-y-4 px-4 pb-5">
+                      <div className="space-y-1.5">
+                        {plan.features.slice(0, 3).map((feature, index) => (
+                          <div key={index} className="flex items-start gap-2">
+                            <CheckCircle className="h-3.5 w-3.5 text-green-600 flex-shrink-0 mt-0.5" />
+                            <span className="text-xs text-gray-700 leading-tight">{feature}</span>
+                          </div>
+                        ))}
+                      </div>
 
-                    <div className="grid grid-cols-3 gap-2 pt-4 border-t border-gray-100">
-                      <div className="text-center">
-                        <div className="flex items-center justify-center mb-1">
-                          <Users className="h-4 w-4 text-green-600" />
+                      <div className="grid grid-cols-3 gap-1 pt-3 border-t border-gray-100">
+                        <div className="text-center">
+                          <div className="flex items-center justify-center mb-0.5">
+                            <Users className="h-3.5 w-3.5 text-green-600" />
+                          </div>
+                          <div className="text-[10px] text-gray-500 leading-tight">Perfect for</div>
+                          <div className="text-[10px] font-semibold text-gray-900 leading-tight">{plan.idealFor}</div>
                         </div>
-                        <div className="text-xs text-gray-500">Perfect for</div>
-                        <div className="text-xs font-medium text-gray-900">{plan.idealFor}</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="flex items-center justify-center mb-1">
-                          <Clock className="h-4 w-4 text-orange-500" />
+                        <div className="text-center">
+                          <div className="flex items-center justify-center mb-0.5">
+                            <Clock className="h-3.5 w-3.5 text-orange-500" />
+                          </div>
+                          <div className="text-[10px] text-gray-500 leading-tight">Delivery</div>
+                          <div className="text-[10px] font-semibold text-gray-900 leading-tight">{plan.deliveryTime}</div>
                         </div>
-                        <div className="text-xs text-gray-500">Delivery</div>
-                        <div className="text-xs font-medium text-gray-900">{plan.deliveryTime}</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="flex items-center justify-center mb-1">
-                          <ChefHat className="h-4 w-4 text-purple-600" />
+                        <div className="text-center">
+                          <div className="flex items-center justify-center mb-0.5">
+                            <ChefHat className="h-3.5 w-3.5 text-purple-600" />
+                          </div>
+                          <div className="text-[10px] text-gray-500 leading-tight">Meals</div>
+                          <div className="text-[10px] font-semibold text-gray-900 leading-tight">{plan.mealsPerDay}</div>
                         </div>
-                        <div className="text-xs text-gray-500">Meals</div>
-                        <div className="text-xs font-medium text-gray-900">{plan.mealsPerDay}</div>
                       </div>
-                    </div>
 
-                    <Button 
-                      className="w-full text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-r from-fresh-green to-warm-amber hover:opacity-90 text-white"
-                      size="lg"
-                      asChild
-                    >
-                      <Link to={`/plan-selection?plan=${encodeURIComponent(plan.name)}&type=${plan.id}&price=${plan.pricePerDay}`}>
-                        Select Plan
-                      </Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
+                      <Button 
+                        className="w-full text-sm font-semibold shadow-md hover:shadow-lg transition-all duration-300 bg-gradient-to-r from-fresh-green to-warm-amber hover:opacity-90 text-white py-2"
+                        asChild
+                      >
+                        <Link to={`/plan-selection?plan=${encodeURIComponent(plan.name)}&type=${plan.id}&price=${plan.pricePerDay}`}>
+                          Select Plan
+                        </Link>
+                      </Button>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
             </div>
 
             {/* Feature Comparison Table */}
