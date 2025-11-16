@@ -23,12 +23,9 @@ const Header = () => {
   const navigation = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
-    { name: "Plans", href: "/plans" },
-    { name: "FAQ", href: "/faq" },
     { name: "Blog", href: "/blog" },
-    { name: "Meal Hub", href: "/meal-hub" },
     ...(user ? [{ name: "My Portal", href: "/customer-portal" }] : []),
-    { name: "Contact", href: "/contact" },
+    { name: "Contact & FAQ", href: "/contact" },
   ];
 
   return (
@@ -58,19 +55,8 @@ const Header = () => {
             ))}
           </div>
 
-          {/* Cart and User Menu */}
+          {/* User Menu */}
           <div className="hidden md:flex items-center gap-4">
-            <Button variant="ghost" size="sm" asChild className="relative">
-              <Link to="/cart">
-                <ShoppingCart className="h-5 w-5" />
-                {getTotalItems() > 0 && (
-                  <Badge variant="default" className="absolute -top-2 -right-2 h-5 w-5 p-0 flex items-center justify-center text-xs">
-                    {getTotalItems()}
-                  </Badge>
-                )}
-              </Link>
-            </Button>
-            
             {user ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -147,17 +133,6 @@ const Header = () => {
                   {item.name}
                 </Link>
               ))}
-              <Button variant="ghost" asChild className="relative justify-start w-full">
-                <Link to="/cart" onClick={() => setIsMenuOpen(false)}>
-                  <ShoppingCart className="h-5 w-5 mr-2" />
-                  Cart
-                  {getTotalItems() > 0 && (
-                    <Badge variant="default" className="ml-2 h-5 w-5 p-0 flex items-center justify-center text-xs">
-                      {getTotalItems()}
-                    </Badge>
-                  )}
-                </Link>
-              </Button>
               
               {user ? (
                 <>
