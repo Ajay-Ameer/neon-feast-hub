@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { Zap, Mail, Phone, MessageCircle, Instagram, Facebook, Twitter } from "lucide-react";
+import { Mail, Phone, MessageCircle, Instagram, Facebook, Twitter } from "lucide-react";
+import logo from '@/assets/zesty-monk-logo.png';
 
 const Footer = () => {
   return (
@@ -8,14 +9,14 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <div className="p-2 rounded-lg bg-gradient-to-r from-neon-green to-neon-yellow">
-                <Zap className="h-5 w-5 text-black" />
-              </div>
-              <span className="text-lg font-orbitron font-bold text-gradient-neon">
-                ZestyMonk
-              </span>
-            </div>
+            <Link to="/" className="flex items-center group">
+              <img 
+                src={logo} 
+                alt="ZestyMonk Logo" 
+                className="h-10 w-auto drop-shadow-lg group-hover:drop-shadow-xl transition-all duration-300 brightness-105 group-hover:scale-105"
+                style={{ filter: 'drop-shadow(0 2px 8px rgba(255, 107, 53, 0.3))' }}
+              />
+            </Link>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Revolutionizing healthy eating with personalized nutrition plans and 
               fresh daily meal delivery using our patented retort packaging technology.

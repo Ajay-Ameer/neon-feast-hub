@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, Zap, ShoppingCart, User, LogOut } from "lucide-react";
+import { Menu, X, ShoppingCart, User, LogOut } from "lucide-react";
+import logo from '@/assets/zesty-monk-logo.png';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useCart } from "@/contexts/CartContext";
@@ -33,13 +34,13 @@ const Header = () => {
       <nav className="container mx-auto px-4 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group">
-            <div className="p-2 rounded-lg bg-gradient-to-r from-neon-cyan to-neon-blue hover-glow">
-              <Zap className="h-6 w-6 text-black" />
-            </div>
-            <span className="text-xl font-parisienne font-bold text-gradient-cyber pulse-cyber">
-              ZestyMonk
-            </span>
+          <Link to="/" className="flex items-center hover:opacity-80 transition-opacity">
+            <img 
+              src={logo} 
+              alt="ZestyMonk Logo" 
+              className="h-12 w-auto drop-shadow-lg hover:drop-shadow-xl transition-all duration-300 brightness-105"
+              style={{ filter: 'drop-shadow(0 2px 8px rgba(255, 107, 53, 0.3))' }}
+            />
           </Link>
 
           {/* Desktop Navigation */}
