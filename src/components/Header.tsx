@@ -20,6 +20,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { getTotalItems } = useCart();
   const { user, profile, signOut } = useAuth();
+  // Logo updated to use custom image
 
   const navigation = [
     { name: "Home", href: "/" },
