@@ -3,6 +3,7 @@ import { Mail, Phone, MessageCircle, Instagram, Facebook, Twitter } from "lucide
 import logo from '@/assets/zesty-monk-logo.png';
 
 const Footer = () => {
+  // Custom logo implementation
   return (
     <footer className="footer-bg">
       <div className="container mx-auto px-4 lg:px-8 py-12">
@@ -10,7 +11,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <Link to="/" className="flex items-center group">
-              <img 
+              <img
                 src={logo} 
                 alt="ZestyMonk Logo" 
                 className="h-10 w-auto drop-shadow-lg group-hover:drop-shadow-xl transition-all duration-300 brightness-105 group-hover:scale-105"
