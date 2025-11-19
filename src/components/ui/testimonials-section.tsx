@@ -1,7 +1,7 @@
 import { Star } from "lucide-react";
-import fitWoman1 from "@/assets/testimonials/fit-woman-1.jpg";
-import fitMan1 from "@/assets/testimonials/fit-man-1.jpg";
-import fitWoman2 from "@/assets/testimonials/fit-woman-2.jpg";
+import indianWoman1 from "@/assets/testimonials/indian-woman-professional-1.jpg";
+import indianMan1 from "@/assets/testimonials/indian-man-professional-1.jpg";
+import indianWoman2 from "@/assets/testimonials/indian-woman-professional-2.jpg";
 import {
   Carousel,
   CarouselContent,
@@ -18,7 +18,7 @@ const TestimonialsSection = () => {
       role: "Lost 15kg in 3 months",
       content: "The meals are so delicious, I never felt like I was on a diet. ZestyMonk changed my life!",
       rating: 5,
-      image: fitWoman1,
+      image: indianWoman1,
       result: "15kg Lost"
     },
     {
@@ -26,7 +26,7 @@ const TestimonialsSection = () => {
       role: "Gained 8kg Muscle",
       content: "The muscle gain plan is perfect - high protein and incredibly tasty! My strength increased by 40%.",
       rating: 5,
-      image: fitMan1,
+      image: indianMan1,
       result: "8kg Muscle Gained"
     },
     {
@@ -34,7 +34,7 @@ const TestimonialsSection = () => {
       role: "Achieved Dream Body",
       content: "From size 14 to size 8! The transformation is real. I feel confident and energetic every day.",
       rating: 5,
-      image: fitWoman2,
+      image: indianWoman2,
       result: "3 Sizes Down"
     }
   ];

@@ -15,7 +15,7 @@ const HowItWorks = () => {
     {
       image: selectMeals,
       title: "Select Your Meals",
-      description: "Pick from over 400 delicious recipes tailored to your preferences.",
+      description: "Pick from over 100 delicious recipes tailored to your preferences.",
       number: "2"
     },
     {
