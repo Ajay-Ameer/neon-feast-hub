@@ -10,6 +10,7 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useAuth } from '@/contexts/AuthContext';
 import { toast } from 'sonner';
+import authCollage from '@/assets/auth-food-collage.jpg';
 
 const signupSchema = z.object({
   firstName: z.string().min(2, 'First name must be at least 2 characters'),
@@ -58,166 +59,186 @@ const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background to-muted/20 px-4 py-8">
-      <div className="w-full max-w-md space-y-8">
-        {/* Logo */}
-        <div className="text-center">
-          <Link to="/" className="inline-flex items-center space-x-2 group">
-            <div className="p-3 rounded-lg bg-gradient-to-r from-fresh-green to-warm-amber">
-              <Zap className="h-8 w-8 text-white" />
-            </div>
-            <span className="text-2xl font-playfair font-bold text-gradient-food">
-              ZestyMonk
-            </span>
-          </Link>
+    <div className="min-h-screen flex bg-gradient-to-br from-emerald-subtle via-cream-pure to-coral-subtle">
+      {/* Left Side - Food Collage */}
+      <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden">
+        <img 
+          src={authCollage} 
+          alt="Fresh food preparation and delivery" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-deep/20 via-transparent to-coral-warm/20"></div>
+        <div className="absolute bottom-8 left-8 right-8 text-white">
+          <h2 className="text-3xl font-playfair font-bold mb-2">
+            Start Your Health Journey Today
+          </h2>
+          <p className="text-lg opacity-90">
+            Join thousands enjoying chef-prepared, nutritious meals
+          </p>
         </div>
+      </div>
 
-        <Card className="backdrop-blur-md bg-card/80 border-border">
-          <CardHeader className="space-y-1">
-            <CardTitle className="text-2xl font-bold text-center">Create account</CardTitle>
-            <CardDescription className="text-center">
-              Sign up to get started with ZestyMonk
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+      {/* Right Side - Signup Form */}
+      <div className="flex-1 flex items-center justify-center px-4 py-12">
+        <div className="w-full max-w-md space-y-8">
+          {/* Logo */}
+          <div className="text-center">
+            <Link to="/" className="inline-flex items-center space-x-2 group">
+              <div className="p-3 rounded-lg bg-gradient-to-r from-emerald-soft to-coral-warm">
+                <Zap className="h-8 w-8 text-white" />
+              </div>
+              <span className="text-2xl font-playfair font-bold bg-gradient-to-r from-emerald-deep to-coral-warm bg-clip-text text-transparent">
+                ZestyMonk
+              </span>
+            </Link>
+          </div>
+
+          <Card className="border-2 border-emerald-light/50 shadow-xl">
+            <CardHeader className="space-y-1 text-center">
+              <CardTitle className="text-2xl font-bold text-foreground">Create account</CardTitle>
+              <CardDescription className="text-muted-foreground">
+                Sign up to get started with ZestyMonk
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="firstName" className="text-foreground">First Name</Label>
+                    <Input
+                      id="firstName"
+                      placeholder="First name"
+                      {...register('firstName')}
+                      className={`bg-background border-2 ${errors.firstName ? 'border-destructive' : 'border-emerald-light focus:border-emerald-soft'}`}
+                    />
+                    {errors.firstName && (
+                      <p className="text-sm text-destructive">{errors.firstName.message}</p>
+                    )}
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="lastName" className="text-foreground">Last Name</Label>
+                    <Input
+                      id="lastName"
+                      placeholder="Last name"
+                      {...register('lastName')}
+                      className={`bg-background border-2 ${errors.lastName ? 'border-destructive' : 'border-emerald-light focus:border-emerald-soft'}`}
+                    />
+                    {errors.lastName && (
+                      <p className="text-sm text-destructive">{errors.lastName.message}</p>
+                    )}
+                  </div>
+                </div>
+
                 <div className="space-y-2">
-                  <Label htmlFor="firstName">First Name</Label>
+                  <Label htmlFor="username" className="text-foreground">Username</Label>
                   <Input
-                    id="firstName"
-                    placeholder="First name"
-                    {...register('firstName')}
-                    className={errors.firstName ? 'border-destructive' : ''}
+                    id="username"
+                    placeholder="Choose a username"
+                    {...register('username')}
+                    className={`bg-background border-2 ${errors.username ? 'border-destructive' : 'border-emerald-light focus:border-emerald-soft'}`}
                   />
-                  {errors.firstName && (
-                    <p className="text-sm text-destructive">{errors.firstName.message}</p>
+                  {errors.username && (
+                    <p className="text-sm text-destructive">{errors.username.message}</p>
                   )}
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="lastName">Last Name</Label>
+                  <Label htmlFor="email" className="text-foreground">Email</Label>
                   <Input
-                    id="lastName"
-                    placeholder="Last name"
-                    {...register('lastName')}
-                    className={errors.lastName ? 'border-destructive' : ''}
+                    id="email"
+                    type="email"
+                    placeholder="Enter your email"
+                    {...register('email')}
+                    className={`bg-background border-2 ${errors.email ? 'border-destructive' : 'border-emerald-light focus:border-emerald-soft'}`}
                   />
-                  {errors.lastName && (
-                    <p className="text-sm text-destructive">{errors.lastName.message}</p>
+                  {errors.email && (
+                    <p className="text-sm text-destructive">{errors.email.message}</p>
                   )}
                 </div>
-              </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="username">Username</Label>
-                <Input
-                  id="username"
-                  placeholder="Choose a username"
-                  {...register('username')}
-                  className={errors.username ? 'border-destructive' : ''}
-                />
-                {errors.username && (
-                  <p className="text-sm text-destructive">{errors.username.message}</p>
-                )}
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="Enter your email"
-                  {...register('email')}
-                  className={errors.email ? 'border-destructive' : ''}
-                />
-                {errors.email && (
-                  <p className="text-sm text-destructive">{errors.email.message}</p>
-                )}
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="password">Password</Label>
-                <div className="relative">
-                  <Input
-                    id="password"
-                    type={showPassword ? 'text' : 'password'}
-                    placeholder="Create a password"
-                    {...register('password')}
-                    className={errors.password ? 'border-destructive' : ''}
-                  />
-                  <Button
-                    type="button"
-                    variant="ghost"
-                    size="sm"
-                    className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
-                    onClick={() => setShowPassword(!showPassword)}
-                  >
-                    {showPassword ? (
-                      <EyeOff className="h-4 w-4" />
-                    ) : (
-                      <Eye className="h-4 w-4" />
-                    )}
-                  </Button>
+                <div className="space-y-2">
+                  <Label htmlFor="password" className="text-foreground">Password</Label>
+                  <div className="relative">
+                    <Input
+                      id="password"
+                      type={showPassword ? 'text' : 'password'}
+                      placeholder="Create a password"
+                      {...register('password')}
+                      className={`bg-background border-2 ${errors.password ? 'border-destructive' : 'border-emerald-light focus:border-emerald-soft'}`}
+                    />
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      size="sm"
+                      className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent text-muted-foreground"
+                      onClick={() => setShowPassword(!showPassword)}
+                    >
+                      {showPassword ? (
+                        <EyeOff className="h-4 w-4" />
+                      ) : (
+                        <Eye className="h-4 w-4" />
+                      )}
+                    </Button>
+                  </div>
+                  {errors.password && (
+                    <p className="text-sm text-destructive">{errors.password.message}</p>
+                  )}
                 </div>
-                {errors.password && (
-                  <p className="text-sm text-destructive">{errors.password.message}</p>
-                )}
-              </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="confirmPassword">Confirm Password</Label>
-                <div className="relative">
-                  <Input
-                    id="confirmPassword"
-                    type={showConfirmPassword ? 'text' : 'password'}
-                    placeholder="Confirm your password"
-                    {...register('confirmPassword')}
-                    className={errors.confirmPassword ? 'border-destructive' : ''}
-                  />
-                  <Button
-                    type="button"
-                    variant="ghost"
-                    size="sm"
-                    className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
-                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                  >
-                    {showConfirmPassword ? (
-                      <EyeOff className="h-4 w-4" />
-                    ) : (
-                      <Eye className="h-4 w-4" />
-                    )}
-                  </Button>
+                <div className="space-y-2">
+                  <Label htmlFor="confirmPassword" className="text-foreground">Confirm Password</Label>
+                  <div className="relative">
+                    <Input
+                      id="confirmPassword"
+                      type={showConfirmPassword ? 'text' : 'password'}
+                      placeholder="Confirm your password"
+                      {...register('confirmPassword')}
+                      className={`bg-background border-2 ${errors.confirmPassword ? 'border-destructive' : 'border-emerald-light focus:border-emerald-soft'}`}
+                    />
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      size="sm"
+                      className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent text-muted-foreground"
+                      onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                    >
+                      {showConfirmPassword ? (
+                        <EyeOff className="h-4 w-4" />
+                      ) : (
+                        <Eye className="h-4 w-4" />
+                      )}
+                    </Button>
+                  </div>
+                  {errors.confirmPassword && (
+                    <p className="text-sm text-destructive">{errors.confirmPassword.message}</p>
+                  )}
                 </div>
-                {errors.confirmPassword && (
-                  <p className="text-sm text-destructive">{errors.confirmPassword.message}</p>
-                )}
-              </div>
 
-              <Button
-                type="submit"
-                className="w-full"
-                variant="fresh"
-                size="lg"
-                disabled={isLoading}
-              >
-                {isLoading ? 'Creating account...' : 'Create account'}
-              </Button>
-            </form>
-
-            <div className="mt-6 text-center">
-              <p className="text-sm text-muted-foreground">
-                Already have an account?{' '}
-                <Link
-                  to="/login"
-                  className="text-primary hover:underline transition-colors font-medium"
+                <Button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-emerald-soft to-emerald-rich hover:from-emerald-rich hover:to-emerald-deep text-white font-semibold"
+                  size="lg"
+                  disabled={isLoading}
                 >
-                  Sign in
-                </Link>
-              </p>
-            </div>
-          </CardContent>
-        </Card>
+                  {isLoading ? 'Creating account...' : 'Create account'}
+                </Button>
+              </form>
+
+              <div className="mt-6 text-center">
+                <p className="text-sm text-muted-foreground">
+                  Already have an account?{' '}
+                  <Link
+                    to="/login"
+                    className="text-emerald-rich hover:text-emerald-deep transition-colors font-medium"
+                  >
+                    Sign in
+                  </Link>
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   );
