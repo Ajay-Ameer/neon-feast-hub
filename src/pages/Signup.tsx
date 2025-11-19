@@ -3,7 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { Eye, EyeOff, Zap } from 'lucide-react';
+import { Eye, EyeOff } from 'lucide-react';
+import logo from '@/assets/zesty-monk-logo.png';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -83,13 +84,13 @@ const Signup = () => {
         <div className="w-full max-w-md space-y-8">
           {/* Logo */}
           <div className="text-center">
-            <Link to="/" className="inline-flex items-center space-x-2 group">
-              <div className="p-3 rounded-lg bg-gradient-to-r from-emerald-soft to-coral-warm">
-                <Zap className="h-8 w-8 text-white" />
-              </div>
-              <span className="text-2xl font-playfair font-bold bg-gradient-to-r from-emerald-deep to-coral-warm bg-clip-text text-transparent">
-                ZestyMonk
-              </span>
+            <Link to="/" className="inline-flex items-center group">
+              <img 
+                src={logo} 
+                alt="ZestyMonk Logo" 
+                className="h-20 w-auto mx-auto drop-shadow-2xl group-hover:drop-shadow-[0_0_25px_rgba(255,107,53,0.5)] transition-all duration-300 brightness-110 group-hover:scale-105"
+                style={{ filter: 'drop-shadow(0 4px 12px rgba(255, 107, 53, 0.4))' }}
+              />
             </Link>
           </div>
 
