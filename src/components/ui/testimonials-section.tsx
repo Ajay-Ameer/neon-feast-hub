@@ -1,56 +1,94 @@
-import { Star } from "lucide-react";
-import indianWoman1 from "@/assets/testimonials/indian-woman-professional-1.jpg";
-import indianMan1 from "@/assets/testimonials/indian-man-professional-1.jpg";
-import indianWoman2 from "@/assets/testimonials/indian-woman-professional-2.jpg";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import customer1 from "@/assets/testimonials/customer-1.jpg";
+import customer2 from "@/assets/testimonials/customer-2.jpg";
+import customer3 from "@/assets/testimonials/customer-3.jpg";
+import customer4 from "@/assets/testimonials/customer-4.jpg";
+import customer5 from "@/assets/testimonials/customer-5.jpg";
+import customer6 from "@/assets/testimonials/customer-6.jpg";
 
 const TestimonialsSection = () => {
-  const testimonials = [
+  const testimonialsRow1 = [
     {
-      name: "Priya Sharma",
-      role: "Lost 15kg in 3 months",
-      content: "The meals are so delicious, I never felt like I was on a diet. ZestyMonk changed my life!",
-      rating: 5,
-      image: indianWoman1,
-      result: "15kg Lost"
+      quote: "I've tried countless meal plans, but nothing compares to this one. Every sip feels like a warm hug! My mornings are incomplete without it.",
+      name: "Olivia Richardson",
+      location: "New York, USA",
+      image: customer1,
+      bgColor: "bg-pink-100"
     },
     {
-      name: "Rohit Kumar",
-      role: "Gained 8kg Muscle",
-      content: "The muscle gain plan is perfect - high protein and incredibly tasty! My strength increased by 40%.",
-      rating: 5,
-      image: indianMan1,
-      result: "8kg Muscle Gained"
+      quote: "As a tea lover, I appreciate the rich flavors and premium quality. The blend has become my go-to for relaxation after a long day!",
+      name: "Sophia Mitchell",
+      location: "London, UK",
+      image: customer2,
+      bgColor: "bg-yellow-100"
     },
     {
-      name: "Anjali Mehta",
-      role: "Achieved Dream Body",
-      content: "From size 14 to size 8! The transformation is real. I feel confident and energetic every day.",
-      rating: 5,
-      image: indianWoman2,
-      result: "3 Sizes Down"
+      quote: "I never knew tea could taste this good! The flavors are so vibrant. Plus, the packaging is beautiful—perfect for gifting too!",
+      name: "Aisha Khan",
+      location: "Dubai, UAE",
+      image: customer3,
+      bgColor: "bg-orange-100"
+    },
+    {
+      quote: "The variety of blends is amazing! Whether I need a morning energy boost or a calming bedtime tea, this brand has it all. Highly recommend!",
+      name: "Emily Sanders",
+      location: "Sydney, Australia",
+      image: customer4,
+      bgColor: "bg-green-100"
+    }
+  ];
+
+  const testimonialsRow2 = [
+    {
+      quote: "This meal plan has changed my daily routine for the better! Delicious and refreshing. Love the natural ingredients!",
+      name: "Priya Deshmukh",
+      location: "Mumbai, India",
+      image: customer5,
+      bgColor: "bg-blue-100"
+    },
+    {
+      quote: "I'm obsessed with the quality! Fresh ingredients and gives me the perfect balance. A must-try for all food enthusiasts!",
+      name: "Mia Lawrence",
+      location: "Toronto, Canada",
+      image: customer6,
+      bgColor: "bg-purple-100"
+    },
+    {
+      quote: "Simply delicious! Every meal feels premium, and I love supporting a brand that values quality. Will definitely order again!",
+      name: "Olivia Richardson",
+      location: "New York, USA",
+      image: customer1,
+      bgColor: "bg-pink-100"
+    },
+    {
+      quote: "The perfect blend for every occasion! From breakfast to dinner, these meals never disappoint. Absolutely love it!",
+      name: "Sophia Mitchell",
+      location: "London, UK",
+      image: customer2,
+      bgColor: "bg-yellow-100"
     }
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-b from-green-50/30 to-white relative">
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900">
-            Real Transformations, Real Results
+    <section className="py-16 md:py-24 bg-white overflow-hidden">
+      <div className="container mx-auto px-4 mb-16">
+        <div className="text-center">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-gray-900">
+            What people are saying?
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-            Hear from our satisfied customers who have transformed their health with ZestyMonk
+          <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
+            Don't just take our word for it—see what our customers have to say about their experience!
           </p>
         </div>
+      </div>
 
+      {/* First Row - Moving Right to Left */}
+      <div className="mb-8">
         <Carousel
           opts={{
             align: "start",
@@ -58,53 +96,72 @@ const TestimonialsSection = () => {
           }}
           plugins={[
             Autoplay({
-              delay: 4000,
+              delay: 3000,
             }),
           ]}
-          className="w-full max-w-6xl mx-auto"
+          className="w-full"
         >
           <CarouselContent className="-ml-4">
-            {testimonials.map((testimonial, index) => (
+            {testimonialsRow1.map((testimonial, index) => (
               <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                <div className="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full group">
-                  {/* Image with Result Badge */}
-                  <div className="relative h-80 overflow-hidden">
-                    <img 
-                      src={testimonial.image} 
+                <div className={`${testimonial.bgColor} rounded-2xl p-6 h-full transition-transform hover:scale-105 duration-300`}>
+                  <p className="text-gray-700 italic text-sm md:text-base leading-relaxed mb-6">
+                    "{testimonial.quote}"
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <img
+                      src={testimonial.image}
                       alt={testimonial.name}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-sm"
                     />
-                    <div className="absolute top-4 right-4 bg-green-600 text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg">
-                      {testimonial.result}
-                    </div>
-                  </div>
-                  
-                  {/* Content */}
-                  <div className="p-6 space-y-4">
-                    {/* Stars */}
-                    <div className="flex justify-center gap-1">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                      ))}
-                    </div>
-                    
-                    {/* Quote */}
-                    <p className="text-gray-600 leading-relaxed italic text-center">
-                      "{testimonial.content}"
-                    </p>
-                    
-                    {/* Profile */}
-                    <div className="text-center pt-4 border-t">
-                      <h4 className="font-bold text-gray-900 text-lg">{testimonial.name}</h4>
-                      <p className="text-green-600 text-sm font-semibold">{testimonial.role}</p>
+                    <div>
+                      <p className="font-semibold text-gray-900 text-sm">{testimonial.name}</p>
+                      <p className="text-xs text-gray-600">{testimonial.location}</p>
                     </div>
                   </div>
                 </div>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="hidden md:flex" />
-          <CarouselNext className="hidden md:flex" />
+        </Carousel>
+      </div>
+
+      {/* Second Row - Moving Left to Right (Opposite Direction) */}
+      <div>
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          plugins={[
+            Autoplay({
+              delay: 4500,
+            }),
+          ]}
+          className="w-full"
+        >
+          <CarouselContent className="-ml-4" dir="rtl">
+            {testimonialsRow2.map((testimonial, index) => (
+              <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3" dir="ltr">
+                <div className={`${testimonial.bgColor} rounded-2xl p-6 h-full transition-transform hover:scale-105 duration-300`}>
+                  <p className="text-gray-700 italic text-sm md:text-base leading-relaxed mb-6">
+                    "{testimonial.quote}"
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <img
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-sm"
+                    />
+                    <div>
+                      <p className="font-semibold text-gray-900 text-sm">{testimonial.name}</p>
+                      <p className="text-xs text-gray-600">{testimonial.location}</p>
+                    </div>
+                  </div>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
         </Carousel>
       </div>
     </section>
