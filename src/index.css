@@ -6,46 +6,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Exo+2:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700;900&display=swap');
 
 @layer base {
-:root {
-    --background: 27 20% 97%;
-    --foreground: 155 25% 15%;
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 140 20% 20%;
     --card: 0 0% 100%;
-    --card-foreground: 155 25% 15%;
+    --card-foreground: 140 20% 20%;
     --popover: 0 0% 100%;
-    --popover-foreground: 155 25% 15%;
-    --primary: 155 70% 25%;
-    --primary-foreground: 27 20% 97%;
-    --secondary: 155 15% 92%;
-    --secondary-foreground: 155 25% 15%;
-    --muted: 155 10% 94%;
-    --muted-foreground: 155 15% 45%;
-    --accent: 25 85% 65%;
-    --accent-foreground: 155 25% 15%;
+    --popover-foreground: 140 20% 20%;
+    --primary: 140 55% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 140 25% 92%;
+    --secondary-foreground: 140 20% 20%;
+    --muted: 140 15% 95%;
+    --muted-foreground: 140 15% 50%;
+    --accent: 35 90% 55%;
+    --accent-foreground: 140 20% 20%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --border: 155 20% 88%;
-    --input: 155 20% 88%;
-    --ring: 155 70% 25%;
+    --border: 140 20% 90%;
+    --input: 140 20% 90%;
+    --ring: 140 55% 45%;
     --radius: 1rem;
 
-    /* Custom Brand Colors - Sophisticated Food Brand Palette */
-    --emerald-deep: 155 70% 25%;
-    --emerald-rich: 155 60% 35%;
-    --emerald-soft: 155 40% 45%;
-    --emerald-light: 155 30% 85%;
-    --emerald-subtle: 155 20% 95%;
+    /* Custom Brand Colors - Light Food Fresh Palette */
+    --emerald-deep: 140 55% 45%;
+    --emerald-rich: 140 50% 55%;
+    --emerald-soft: 140 40% 65%;
+    --emerald-light: 140 30% 88%;
+    --emerald-subtle: 140 20% 96%;
     
-    --coral-warm: 25 85% 65%;
-    --coral-bright: 20 90% 70%;
-    --coral-soft: 25 70% 75%;
-    --coral-light: 25 50% 85%;
-    --coral-subtle: 25 30% 92%;
+    --coral-warm: 35 90% 65%;
+    --coral-bright: 30 95% 70%;
+    --coral-soft: 35 85% 75%;
+    --coral-light: 35 70% 88%;
+    --coral-subtle: 35 60% 95%;
     
-    --cream-pure: 27 20% 97%;
-    --cream-soft: 27 15% 94%;
-    --sage-muted: 155 15% 75%;
-    --gold-accent: 45 100% 75%;
+    --cream-pure: 0 0% 100%;
+    --cream-soft: 45 40% 98%;
+    --sage-muted: 140 20% 85%;
+    --gold-accent: 45 100% 70%;
 
     --sidebar-background: 0 0% 98%;
 
