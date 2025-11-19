@@ -14,63 +14,91 @@ import customer6 from "@/assets/testimonials/customer-6.jpg";
 const TestimonialsSection = () => {
   const testimonialsRow1 = [
     {
-      quote: "Lost 12kg in 3 months with the weight loss plan! The portion sizes are perfect and the variety keeps me excited for every meal.",
+      quote: "Lost 15kg in 4 months with the weight loss plan! The meals are tasty and kept me full. I feel healthier and more confident now.",
       name: "Priya Lakshmi",
       location: "Chennai, Tamil Nadu",
       image: customer1,
-      bgColor: "bg-gradient-to-br from-rose-50 to-pink-50"
+      bgColor: "bg-gradient-to-br from-rose-50 via-pink-50 to-rose-100"
     },
     {
-      quote: "The muscle gain plan helped me add 6kg of lean muscle. High protein meals taste amazing and delivery is always on time!",
+      quote: "The muscle gain plan helped me build 7kg of muscle. High-protein meals are delicious and fit perfectly into my workout routine!",
       name: "Karthik Rajesh",
       location: "Coimbatore, Tamil Nadu",
       image: customer2,
-      bgColor: "bg-gradient-to-br from-amber-50 to-orange-50"
+      bgColor: "bg-gradient-to-br from-amber-50 via-orange-50 to-amber-100"
     },
     {
-      quote: "As a working mom, the family plan is a lifesaver! Nutritious meals for the whole family without any cooking stress.",
+      quote: "Weight loss plan changed my life! Down from 85kg to 68kg. The variety of meals made it easy to stick with the plan.",
       name: "Deepa Suresh",
       location: "Madurai, Tamil Nadu",
       image: customer3,
-      bgColor: "bg-gradient-to-br from-emerald-50 to-teal-50"
+      bgColor: "bg-gradient-to-br from-emerald-50 via-teal-50 to-emerald-100"
     },
     {
-      quote: "The keto plan made my weight loss journey effortless. Down 2 dress sizes and feeling more energetic than ever!",
+      quote: "Muscle gain meals are perfect for my fitness goals. Gained lean muscle while enjoying every bite. Best decision I made!",
       name: "Arjun Kumar",
       location: "Trichy, Tamil Nadu",
       image: customer4,
-      bgColor: "bg-gradient-to-br from-blue-50 to-cyan-50"
+      bgColor: "bg-gradient-to-br from-blue-50 via-cyan-50 to-blue-100"
+    },
+    {
+      quote: "The maintenance plan keeps me at my ideal weight. Fresh, balanced meals delivered daily. No more meal prep stress!",
+      name: "Anjali Ramesh",
+      location: "Salem, Tamil Nadu",
+      image: customer5,
+      bgColor: "bg-gradient-to-br from-violet-50 via-purple-50 to-violet-100"
+    },
+    {
+      quote: "Weight loss meals made dieting feel easy. Lost 10kg without feeling hungry. The taste is amazing and portions are just right!",
+      name: "Venkatesh Iyer",
+      location: "Vellore, Tamil Nadu",
+      image: customer6,
+      bgColor: "bg-gradient-to-br from-fuchsia-50 via-pink-50 to-fuchsia-100"
     }
   ];
 
   const testimonialsRow2 = [
     {
-      quote: "Maintenance plan keeps me fit year-round. Fresh ingredients, balanced nutrition, and delicious taste—perfect combination!",
-      name: "Anjali Ramesh",
-      location: "Salem, Tamil Nadu",
-      image: customer5,
-      bgColor: "bg-gradient-to-br from-violet-50 to-purple-50"
-    },
-    {
-      quote: "The diabetic-friendly plan has been life-changing. Blood sugar levels are stable and I never feel deprived of good food!",
-      name: "Venkatesh Iyer",
-      location: "Vellore, Tamil Nadu",
-      image: customer6,
-      bgColor: "bg-gradient-to-br from-fuchsia-50 to-pink-50"
-    },
-    {
-      quote: "Athlete plan fuels my training perfectly! High protein, clean ingredients, and portion sizes that match my active lifestyle.",
+      quote: "Muscle gain plan exceeded my expectations! Added 8kg of solid muscle in 5 months. Meals are packed with protein and flavor.",
       name: "Meera Balaji",
       location: "Erode, Tamil Nadu",
       image: customer1,
-      bgColor: "bg-gradient-to-br from-lime-50 to-green-50"
+      bgColor: "bg-gradient-to-br from-lime-50 via-green-50 to-lime-100"
     },
     {
-      quote: "Weight gain plan helped me reach my goal weight healthily. Every meal is nutritious and perfectly portioned for my needs.",
+      quote: "Maintenance plan is exactly what I needed. Keeps me energized and fit without any extra effort. Love the convenience!",
       name: "Sanjay Krishnan",
       location: "Thanjavur, Tamil Nadu",
       image: customer2,
-      bgColor: "bg-gradient-to-br from-sky-50 to-indigo-50"
+      bgColor: "bg-gradient-to-br from-sky-50 via-indigo-50 to-sky-100"
+    },
+    {
+      quote: "Weight loss journey became enjoyable with these meals. Lost 18kg and my energy levels are through the roof. Highly recommend!",
+      name: "Lakshmi Pradeep",
+      location: "Karur, Tamil Nadu",
+      image: customer3,
+      bgColor: "bg-gradient-to-br from-red-50 via-rose-50 to-red-100"
+    },
+    {
+      quote: "The muscle gain meals helped me transform my physique. Gained quality muscle mass and strength. Results speak for themselves!",
+      name: "Rajesh Kumar",
+      location: "Tirunelveli, Tamil Nadu",
+      image: customer4,
+      bgColor: "bg-gradient-to-br from-yellow-50 via-amber-50 to-yellow-100"
+    },
+    {
+      quote: "Maintenance plan fits my lifestyle perfectly. Consistent energy, great taste, and no cooking hassle. It's been a game-changer!",
+      name: "Divya Selvam",
+      location: "Hosur, Tamil Nadu",
+      image: customer5,
+      bgColor: "bg-gradient-to-br from-teal-50 via-cyan-50 to-teal-100"
+    },
+    {
+      quote: "Weight loss plan made me lose 14kg in 3 months. Delicious meals that don't feel like diet food. Finally reached my goal weight!",
+      name: "Naveen Prabhu",
+      location: "Dindigul, Tamil Nadu",
+      image: customer6,
+      bgColor: "bg-gradient-to-br from-indigo-50 via-violet-50 to-indigo-100"
     }
   ];
 
@@ -87,12 +115,13 @@ const TestimonialsSection = () => {
         </div>
       </div>
 
-      {/* First Row - Moving Left to Right */}
+      {/* First Row - Moving Right to Left */}
       <div className="mb-8">
         <Carousel
           opts={{
             align: "start",
             loop: true,
+            direction: "rtl"
           }}
           plugins={[
             Autoplay({
@@ -101,10 +130,10 @@ const TestimonialsSection = () => {
           ]}
           className="w-full"
         >
-          <CarouselContent className="-ml-4">
+          <CarouselContent className="-ml-4" dir="rtl">
             {testimonialsRow1.map((testimonial, index) => (
-              <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                <div className={`${testimonial.bgColor} rounded-2xl p-6 h-full transition-all hover:shadow-lg duration-300 border border-gray-100`}>
+              <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3" dir="ltr">
+                <div className={`${testimonial.bgColor} rounded-2xl p-6 h-full transition-all hover:shadow-xl duration-500 border border-gray-200`}>
                   <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-6">
                     "{testimonial.quote}"
                   </p>
@@ -126,13 +155,12 @@ const TestimonialsSection = () => {
         </Carousel>
       </div>
 
-      {/* Second Row - Moving Right to Left (Opposite Direction) */}
+      {/* Second Row - Moving Left to Right (Opposite Direction) */}
       <div>
         <Carousel
           opts={{
             align: "start",
             loop: true,
-            direction: "rtl"
           }}
           plugins={[
             Autoplay({
@@ -141,10 +169,10 @@ const TestimonialsSection = () => {
           ]}
           className="w-full"
         >
-          <CarouselContent className="-ml-4" dir="rtl">
+          <CarouselContent className="-ml-4">
             {testimonialsRow2.map((testimonial, index) => (
-              <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3" dir="ltr">
-                <div className={`${testimonial.bgColor} rounded-2xl p-6 h-full transition-all hover:shadow-lg duration-300 border border-gray-100`}>
+              <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                <div className={`${testimonial.bgColor} rounded-2xl p-6 h-full transition-all hover:shadow-xl duration-500 border border-gray-200`}>
                   <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-6">
                     "{testimonial.quote}"
                   </p>
