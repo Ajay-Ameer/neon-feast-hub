@@ -18,28 +18,28 @@ const TestimonialsSection = () => {
       name: "Priya Lakshmi",
       location: "Chennai, Tamil Nadu",
       image: customer1,
-      bgColor: "bg-pink-100"
+      bgColor: "bg-gradient-to-br from-rose-50 to-pink-50"
     },
     {
       quote: "The muscle gain plan helped me add 6kg of lean muscle. High protein meals taste amazing and delivery is always on time!",
       name: "Karthik Rajesh",
       location: "Coimbatore, Tamil Nadu",
       image: customer2,
-      bgColor: "bg-yellow-100"
+      bgColor: "bg-gradient-to-br from-amber-50 to-orange-50"
     },
     {
       quote: "As a working mom, the family plan is a lifesaver! Nutritious meals for the whole family without any cooking stress.",
       name: "Deepa Suresh",
       location: "Madurai, Tamil Nadu",
       image: customer3,
-      bgColor: "bg-orange-100"
+      bgColor: "bg-gradient-to-br from-emerald-50 to-teal-50"
     },
     {
       quote: "The keto plan made my weight loss journey effortless. Down 2 dress sizes and feeling more energetic than ever!",
       name: "Arjun Kumar",
       location: "Trichy, Tamil Nadu",
       image: customer4,
-      bgColor: "bg-green-100"
+      bgColor: "bg-gradient-to-br from-blue-50 to-cyan-50"
     }
   ];
 
@@ -49,28 +49,28 @@ const TestimonialsSection = () => {
       name: "Anjali Ramesh",
       location: "Salem, Tamil Nadu",
       image: customer5,
-      bgColor: "bg-blue-100"
+      bgColor: "bg-gradient-to-br from-violet-50 to-purple-50"
     },
     {
       quote: "The diabetic-friendly plan has been life-changing. Blood sugar levels are stable and I never feel deprived of good food!",
       name: "Venkatesh Iyer",
       location: "Vellore, Tamil Nadu",
       image: customer6,
-      bgColor: "bg-purple-100"
+      bgColor: "bg-gradient-to-br from-fuchsia-50 to-pink-50"
     },
     {
       quote: "Athlete plan fuels my training perfectly! High protein, clean ingredients, and portion sizes that match my active lifestyle.",
       name: "Meera Balaji",
       location: "Erode, Tamil Nadu",
       image: customer1,
-      bgColor: "bg-pink-100"
+      bgColor: "bg-gradient-to-br from-lime-50 to-green-50"
     },
     {
       quote: "Weight gain plan helped me reach my goal weight healthily. Every meal is nutritious and perfectly portioned for my needs.",
       name: "Sanjay Krishnan",
       location: "Thanjavur, Tamil Nadu",
       image: customer2,
-      bgColor: "bg-yellow-100"
+      bgColor: "bg-gradient-to-br from-sky-50 to-indigo-50"
     }
   ];
 
@@ -101,18 +101,18 @@ const TestimonialsSection = () => {
           ]}
           className="w-full"
         >
-          <CarouselContent className="-ml-4" dir="rtl">
+          <CarouselContent className="-ml-4">
             {testimonialsRow1.map((testimonial, index) => (
-              <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3" dir="ltr">
-                <div className={`${testimonial.bgColor} rounded-2xl p-6 h-full transition-transform hover:scale-105 duration-300`}>
-                  <p className="text-gray-700 italic text-sm md:text-base leading-relaxed mb-6">
+              <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                <div className={`${testimonial.bgColor} rounded-2xl p-6 h-full transition-all hover:shadow-lg duration-300 border border-gray-100`}>
+                  <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-6">
                     "{testimonial.quote}"
                   </p>
                   <div className="flex items-center gap-3">
                     <img
                       src={testimonial.image}
                       alt={testimonial.name}
-                      className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-sm"
+                      className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-md"
                     />
                     <div>
                       <p className="font-semibold text-gray-900 text-sm">{testimonial.name}</p>
@@ -132,6 +132,7 @@ const TestimonialsSection = () => {
           opts={{
             align: "start",
             loop: true,
+            direction: "rtl"
           }}
           plugins={[
             Autoplay({
@@ -140,18 +141,18 @@ const TestimonialsSection = () => {
           ]}
           className="w-full"
         >
-          <CarouselContent className="-ml-4">
+          <CarouselContent className="-ml-4" dir="rtl">
             {testimonialsRow2.map((testimonial, index) => (
-              <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                <div className={`${testimonial.bgColor} rounded-2xl p-6 h-full transition-transform hover:scale-105 duration-300`}>
-                  <p className="text-gray-700 italic text-sm md:text-base leading-relaxed mb-6">
+              <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3" dir="ltr">
+                <div className={`${testimonial.bgColor} rounded-2xl p-6 h-full transition-all hover:shadow-lg duration-300 border border-gray-100`}>
+                  <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-6">
                     "{testimonial.quote}"
                   </p>
                   <div className="flex items-center gap-3">
                     <img
                       src={testimonial.image}
                       alt={testimonial.name}
-                      className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-sm"
+                      className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-md"
                     />
                     <div>
                       <p className="font-semibold text-gray-900 text-sm">{testimonial.name}</p>
