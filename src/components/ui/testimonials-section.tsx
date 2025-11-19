@@ -14,30 +14,30 @@ import customer6 from "@/assets/testimonials/customer-6.jpg";
 const TestimonialsSection = () => {
   const testimonialsRow1 = [
     {
-      quote: "I've tried countless meal plans, but nothing compares to this one. Every sip feels like a warm hug! My mornings are incomplete without it.",
-      name: "Olivia Richardson",
-      location: "New York, USA",
+      quote: "Lost 12kg in 3 months with the weight loss plan! The portion sizes are perfect and the variety keeps me excited for every meal.",
+      name: "Priya Lakshmi",
+      location: "Chennai, Tamil Nadu",
       image: customer1,
       bgColor: "bg-pink-100"
     },
     {
-      quote: "As a tea lover, I appreciate the rich flavors and premium quality. The blend has become my go-to for relaxation after a long day!",
-      name: "Sophia Mitchell",
-      location: "London, UK",
+      quote: "The muscle gain plan helped me add 6kg of lean muscle. High protein meals taste amazing and delivery is always on time!",
+      name: "Karthik Rajesh",
+      location: "Coimbatore, Tamil Nadu",
       image: customer2,
       bgColor: "bg-yellow-100"
     },
     {
-      quote: "I never knew tea could taste this good! The flavors are so vibrant. Plus, the packaging is beautiful—perfect for gifting too!",
-      name: "Aisha Khan",
-      location: "Dubai, UAE",
+      quote: "As a working mom, the family plan is a lifesaver! Nutritious meals for the whole family without any cooking stress.",
+      name: "Deepa Suresh",
+      location: "Madurai, Tamil Nadu",
       image: customer3,
       bgColor: "bg-orange-100"
     },
     {
-      quote: "The variety of blends is amazing! Whether I need a morning energy boost or a calming bedtime tea, this brand has it all. Highly recommend!",
-      name: "Emily Sanders",
-      location: "Sydney, Australia",
+      quote: "The keto plan made my weight loss journey effortless. Down 2 dress sizes and feeling more energetic than ever!",
+      name: "Arjun Kumar",
+      location: "Trichy, Tamil Nadu",
       image: customer4,
       bgColor: "bg-green-100"
     }
@@ -45,30 +45,30 @@ const TestimonialsSection = () => {
 
   const testimonialsRow2 = [
     {
-      quote: "This meal plan has changed my daily routine for the better! Delicious and refreshing. Love the natural ingredients!",
-      name: "Priya Deshmukh",
-      location: "Mumbai, India",
+      quote: "Maintenance plan keeps me fit year-round. Fresh ingredients, balanced nutrition, and delicious taste—perfect combination!",
+      name: "Anjali Ramesh",
+      location: "Salem, Tamil Nadu",
       image: customer5,
       bgColor: "bg-blue-100"
     },
     {
-      quote: "I'm obsessed with the quality! Fresh ingredients and gives me the perfect balance. A must-try for all food enthusiasts!",
-      name: "Mia Lawrence",
-      location: "Toronto, Canada",
+      quote: "The diabetic-friendly plan has been life-changing. Blood sugar levels are stable and I never feel deprived of good food!",
+      name: "Venkatesh Iyer",
+      location: "Vellore, Tamil Nadu",
       image: customer6,
       bgColor: "bg-purple-100"
     },
     {
-      quote: "Simply delicious! Every meal feels premium, and I love supporting a brand that values quality. Will definitely order again!",
-      name: "Olivia Richardson",
-      location: "New York, USA",
+      quote: "Athlete plan fuels my training perfectly! High protein, clean ingredients, and portion sizes that match my active lifestyle.",
+      name: "Meera Balaji",
+      location: "Erode, Tamil Nadu",
       image: customer1,
       bgColor: "bg-pink-100"
     },
     {
-      quote: "The perfect blend for every occasion! From breakfast to dinner, these meals never disappoint. Absolutely love it!",
-      name: "Sophia Mitchell",
-      location: "London, UK",
+      quote: "Weight gain plan helped me reach my goal weight healthily. Every meal is nutritious and perfectly portioned for my needs.",
+      name: "Sanjay Krishnan",
+      location: "Thanjavur, Tamil Nadu",
       image: customer2,
       bgColor: "bg-yellow-100"
     }
@@ -87,7 +87,7 @@ const TestimonialsSection = () => {
         </div>
       </div>
 
-      {/* First Row - Moving Right to Left */}
+      {/* First Row - Moving Left to Right */}
       <div className="mb-8">
         <Carousel
           opts={{
@@ -96,14 +96,14 @@ const TestimonialsSection = () => {
           }}
           plugins={[
             Autoplay({
-              delay: 3000,
+              delay: 2000,
             }),
           ]}
           className="w-full"
         >
-          <CarouselContent className="-ml-4">
+          <CarouselContent className="-ml-4" dir="rtl">
             {testimonialsRow1.map((testimonial, index) => (
-              <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
+              <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3" dir="ltr">
                 <div className={`${testimonial.bgColor} rounded-2xl p-6 h-full transition-transform hover:scale-105 duration-300`}>
                   <p className="text-gray-700 italic text-sm md:text-base leading-relaxed mb-6">
                     "{testimonial.quote}"
@@ -126,7 +126,7 @@ const TestimonialsSection = () => {
         </Carousel>
       </div>
 
-      {/* Second Row - Moving Left to Right (Opposite Direction) */}
+      {/* Second Row - Moving Right to Left (Opposite Direction) */}
       <div>
         <Carousel
           opts={{
@@ -135,14 +135,14 @@ const TestimonialsSection = () => {
           }}
           plugins={[
             Autoplay({
-              delay: 4500,
+              delay: 2000,
             }),
           ]}
           className="w-full"
         >
-          <CarouselContent className="-ml-4" dir="rtl">
+          <CarouselContent className="-ml-4">
             {testimonialsRow2.map((testimonial, index) => (
-              <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3" dir="ltr">
+              <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
                 <div className={`${testimonial.bgColor} rounded-2xl p-6 h-full transition-transform hover:scale-105 duration-300`}>
                   <p className="text-gray-700 italic text-sm md:text-base leading-relaxed mb-6">
                     "{testimonial.quote}"
