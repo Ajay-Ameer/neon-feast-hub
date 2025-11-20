@@ -1,88 +1,40 @@
 import { useState, useEffect } from "react";
-import grilledQuinoaBowl from "@/assets/meals/grilled-quinoa-bowl.jpg";
-import spicedPaneerCurry from "@/assets/meals/spiced-paneer-curry.jpg";
-import grilledSalmon from "@/assets/meals/grilled-salmon.jpg";
-import freshFruitMedley from "@/assets/meals/fresh-fruit-medley.jpg";
-import mediterraneanBowl from "@/assets/meals/mediterranean-bowl.jpg";
-import chickenWrap from "@/assets/meals/chicken-wrap.jpg";
-import powerBowl from "@/assets/meals/power-bowl.jpg";
-import grilledChickenQuinoa from "@/assets/meals/grilled-chicken-quinoa.jpg";
-import salmonTeriyakiBowl from "@/assets/meals/salmon-teriyaki-bowl.jpg";
-import buddhaBowlDeluxe from "@/assets/meals/buddha-bowl-deluxe.jpg";
+import nawabiChicken from "@/assets/hero-meals/nawabi-chicken.png";
+import palakMurgh from "@/assets/hero-meals/palak-murgh.png";
+import scrambledEggMasala from "@/assets/hero-meals/scrambled-egg-masala.png";
+import teriyakiChicken from "@/assets/hero-meals/teriyaki-chicken.png";
 
 const MenuPreview = () => {
   const [currentMealIndex, setCurrentMealIndex] = useState(0);
   
   const sampleMeals = [
     {
-      image: grilledQuinoaBowl,
-      name: "Grilled Quinoa Bowl",
-      description: "Protein-packed",
-      calories: "420 cal",
-      nutrition: "High Protein • Complete Amino Acids"
+      image: nawabiChicken,
+      name: "Nawabi Chicken",
+      description: "Royal taste with rich spices",
+      calories: "450 cal",
+      nutrition: "High Protein • Traditional Spices"
     },
     {
-      image: spicedPaneerCurry,
-      name: "Spiced Paneer Curry",
-      description: "Rich in taste, heart-healthy",
-      calories: "385 cal",
-      nutrition: "Traditional • Calcium Rich"
+      image: palakMurgh,
+      name: "Palak Murgh",
+      description: "Spinach & chicken perfection",
+      calories: "380 cal",
+      nutrition: "Iron Rich • High Protein"
     },
     {
-      image: grilledSalmon,
-      name: "Grilled Salmon",
-      description: "Omega-3 goodness",
-      calories: "350 cal",
-      nutrition: "Heart Healthy • Brain Boost"
+      image: scrambledEggMasala,
+      name: "Scrambled Egg Masala",
+      description: "Spicy protein-packed breakfast",
+      calories: "320 cal",
+      nutrition: "High Protein • Energy Boost"
     },
     {
-      image: freshFruitMedley,
-      name: "Fresh Fruit Medley",
-      description: "Naturally sweet, colorful",
-      calories: "125 cal",
-      nutrition: "Vitamin C • Antioxidants"
-    },
-    {
-      image: mediterraneanBowl,
-      name: "Mediterranean Bowl",
-      description: "Fresh & vibrant",
-      calories: "395 cal",
-      nutrition: "Mediterranean Diet • Healthy Fats"
-    },
-    {
-      image: chickenWrap,
-      name: "Lean Chicken Wrap",
-      description: "Balanced nutrition",
-      calories: "375 cal",
-      nutrition: "Balanced • Heart-Healthy"
-    },
-    {
-      image: powerBowl,
-      name: "Quinoa Power Bowl",
-      description: "Plant-based energy",
-      calories: "485 cal",
-      nutrition: "Plant-Based • High Fiber"
-    },
-    {
-      image: grilledChickenQuinoa,
-      name: "Grilled Chicken Quinoa",
-      description: "Lean protein perfection",
+      image: teriyakiChicken,
+      name: "Teriyaki Chicken",
+      description: "Asian-inspired healthy delight",
       calories: "410 cal",
-      nutrition: "Lean Protein • Complete Nutrition"
-    },
-    {
-      image: salmonTeriyakiBowl,
-      name: "Salmon Teriyaki Bowl",
-      description: "Asian-inspired healthy",
-      calories: "445 cal",
-      nutrition: "Omega-3 Rich • Anti-Inflammatory"
-    },
-    {
-      image: buddhaBowlDeluxe,
-      name: "Buddha Bowl Deluxe",
-      description: "Colorful superfood mix",
-      calories: "520 cal",
-      nutrition: "Superfood • Plant Power"
+      nutrition: "Lean Protein • Asian Fusion"
     }
   ];
 
@@ -111,13 +63,13 @@ const MenuPreview = () => {
           <div className="overflow-hidden">
             <div 
               className="flex transition-transform duration-[2000ms] ease-in-out"
-              style={{ transform: `translateX(-${currentMealIndex * (100 / 3)}%)` }}
+              style={{ transform: `translateX(-${currentMealIndex * 100}%)` }}
             >
               {/* Duplicate meals array for continuous effect */}
-              {[...sampleMeals, ...sampleMeals].map((meal, index) => (
+              {[...sampleMeals, ...sampleMeals, ...sampleMeals].map((meal, index) => (
                 <div 
                   key={index}
-                  className="w-1/3 flex-shrink-0 px-3"
+                  className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-3"
                 >
                   <div className="bg-gradient-to-br from-green-50/50 to-orange-50/30 rounded-3xl p-8 shadow-md hover:shadow-2xl transition-all duration-700 hover:-translate-y-3 group overflow-hidden h-full relative">
                     {/* Circular Image Container */}
