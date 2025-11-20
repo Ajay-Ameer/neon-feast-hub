@@ -26,7 +26,6 @@ const Header = () => {
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
     { name: "Blog", href: "/blog" },
-    ...(user ? [{ name: "My Portal", href: "/customer-portal" }] : []),
     { name: "Contact & FAQ", href: "/contact" },
   ];
 
@@ -85,13 +84,6 @@ const Header = () => {
                     </div>
                   </DropdownMenuLabel>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem asChild>
-                    <Link to="/customer-portal" className="cursor-pointer">
-                      <User className="mr-2 h-4 w-4" />
-                      <span>My Portal</span>
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuSeparator />
                   <DropdownMenuItem onClick={signOut} className="cursor-pointer">
                     <LogOut className="mr-2 h-4 w-4" />
                     <span>Log out</span>
@@ -147,12 +139,6 @@ const Header = () => {
                     </p>
                     <p className="text-xs text-muted-foreground">{user.email}</p>
                   </div>
-                  <Button variant="ghost" asChild className="justify-start w-full">
-                    <Link to="/customer-portal" onClick={() => setIsMenuOpen(false)}>
-                      <User className="h-5 w-5 mr-2" />
-                      My Portal
-                    </Link>
-                  </Button>
                   <Button 
                     variant="ghost" 
                     onClick={() => {
