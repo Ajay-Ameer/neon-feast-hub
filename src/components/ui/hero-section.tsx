@@ -1,35 +1,19 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import mediterraneanBowl from "@/assets/meals/mediterranean-bowl.jpg";
-import chickenWrap from "@/assets/meals/chicken-wrap.jpg";
-import powerBowl from "@/assets/meals/power-bowl.jpg";
-import grilledSalmon from "@/assets/meals/grilled-salmon.jpg";
-import paneerCurry from "@/assets/meals/spiced-paneer-curry.jpg";
-import buddhaBowl from "@/assets/meals/buddha-bowl-deluxe.jpg";
-import grilledChickenQuinoa from "@/assets/meals/grilled-chicken-quinoa.jpg";
-import salmonTeriyaki from "@/assets/meals/salmon-teriyaki-bowl.jpg";
-import turkeyZucchini from "@/assets/meals/turkey-zucchini-noodles.jpg";
-import tofuStirFry from "@/assets/meals/tofu-stir-fry.jpg";
-import greekSalad from "@/assets/meals/greek-halloumi-salad.jpg";
-import coconutCurry from "@/assets/meals/coconut-curry-lentils.jpg";
+import nawabiChicken from "@/assets/hero-meals/nawabi-chicken.png";
+import palakMurgh from "@/assets/hero-meals/palak-murgh.png";
+import scrambledEggMasala from "@/assets/hero-meals/scrambled-egg-masala.png";
+import teriyakiChicken from "@/assets/hero-meals/teriyaki-chicken.png";
 
 const HeroSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   
   const meals = [
-    { image: mediterraneanBowl, name: "Mediterranean Bowl", calories: "420 cal", nutrition: "High Protein" },
-    { image: powerBowl, name: "Quinoa Power Bowl", calories: "485 cal", nutrition: "Plant-Based" },
-    { image: chickenWrap, name: "Lean Chicken Wrap", calories: "375 cal", nutrition: "Balanced" },
-    { image: grilledSalmon, name: "Grilled Salmon", calories: "390 cal", nutrition: "Omega-3 Rich" },
-    { image: paneerCurry, name: "Spiced Paneer Curry", calories: "425 cal", nutrition: "Flavorful" },
-    { image: buddhaBowl, name: "Buddha Bowl Deluxe", calories: "450 cal", nutrition: "Nutrient-Dense" },
-    { image: grilledChickenQuinoa, name: "Grilled Chicken Quinoa", calories: "410 cal", nutrition: "Protein-Packed" },
-    { image: salmonTeriyaki, name: "Salmon Teriyaki Bowl", calories: "445 cal", nutrition: "Asian Fusion" },
-    { image: turkeyZucchini, name: "Turkey Zucchini Noodles", calories: "340 cal", nutrition: "Low-Carb" },
-    { image: tofuStirFry, name: "Tofu Stir-Fry", calories: "380 cal", nutrition: "Vegan" },
-    { image: greekSalad, name: "Greek Halloumi Salad", calories: "395 cal", nutrition: "Fresh & Light" },
-    { image: coconutCurry, name: "Coconut Curry Lentils", calories: "405 cal", nutrition: "Comfort Food" }
+    { image: nawabiChicken, name: "Nawabi Chicken", calories: "450 cal", nutrition: "High Protein" },
+    { image: palakMurgh, name: "Palak Murgh", calories: "380 cal", nutrition: "Iron Rich" },
+    { image: scrambledEggMasala, name: "Scrambled Egg Masala", calories: "320 cal", nutrition: "Balanced" },
+    { image: teriyakiChicken, name: "Teriyaki Chicken", calories: "410 cal", nutrition: "Asian Fusion" }
   ];
 
   useEffect(() => {
@@ -84,16 +68,26 @@ const HeroSection = () => {
               Experience the perfect blend of science and nature with our <strong className="text-green-600">nutritionist-approved meals</strong>, delivered in <strong className="text-green-600">patented smart-packaging</strong> that preserves every nutrient, every flavor, just for you.
             </p>
 
-            {/* CTA Button */}
-            <div className="flex gap-4 justify-center lg:justify-start items-center">
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
               <Button 
                 variant="default" 
                 size="lg" 
                 className="text-lg px-8 py-6 bg-green-600 hover:bg-green-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
                 asChild
               >
-                <a href="https://zestymonkpvtltd.rekart.io/products/category/1348" target="_blank" rel="noopener noreferrer">
-                  Start Your Transformation Now
+                <a href="#plans-pricing">
+                  Explore our plans
+                </a>
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="text-lg px-8 py-6 border-2 border-green-600 text-green-600 hover:bg-green-50 font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                asChild
+              >
+                <a href="#menu-preview">
+                  Check our yummy meals
                 </a>
               </Button>
             </div>
@@ -104,9 +98,9 @@ const HeroSection = () => {
             <div className="relative h-[400px] lg:h-[500px] flex items-center justify-center px-4">
               {/* Flex card container */}
               <div className="flex items-center justify-center gap-2 lg:gap-3 w-full perspective-1000">
-                {meals.slice(0, 5).map((meal, index) => {
-                  const isActive = index === activeIndex % 5;
-                  const position = index - (activeIndex % 5);
+                {meals.map((meal, index) => {
+                  const isActive = index === activeIndex % meals.length;
+                  const position = index - (activeIndex % meals.length);
                   
                   return (
                     <div
@@ -170,13 +164,13 @@ const HeroSection = () => {
               
               {/* Progress indicator */}
               <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
-                {meals.slice(0, 5).map((_, index) => (
+                {meals.map((_, index) => (
                   <div
                     key={index}
                     className="h-1.5 rounded-full bg-white/30 backdrop-blur-sm transition-all duration-700"
                     style={{
-                      width: index === activeIndex % 5 ? '32px' : '12px',
-                      backgroundColor: index === activeIndex % 5 ? 'rgb(34, 197, 94)' : 'rgba(255, 255, 255, 0.3)',
+                      width: index === activeIndex % meals.length ? '32px' : '12px',
+                      backgroundColor: index === activeIndex % meals.length ? 'rgb(34, 197, 94)' : 'rgba(255, 255, 255, 0.3)',
                     }}
                   ></div>
                 ))}
