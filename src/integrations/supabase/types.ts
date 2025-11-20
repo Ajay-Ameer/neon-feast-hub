@@ -307,6 +307,45 @@ export type Database = {
           },
         ]
       }
+      landing_page_content: {
+        Row: {
+          content: Json
+          created_at: string
+          created_by: string | null
+          display_order: number | null
+          id: string
+          is_active: boolean | null
+          section_key: string
+          section_type: string
+          updated_at: string
+          updated_by: string | null
+        }
+        Insert: {
+          content?: Json
+          created_at?: string
+          created_by?: string | null
+          display_order?: number | null
+          id?: string
+          is_active?: boolean | null
+          section_key: string
+          section_type: string
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Update: {
+          content?: Json
+          created_at?: string
+          created_by?: string | null
+          display_order?: number | null
+          id?: string
+          is_active?: boolean | null
+          section_key?: string
+          section_type?: string
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Relationships: []
+      }
       meal_categories: {
         Row: {
           created_at: string

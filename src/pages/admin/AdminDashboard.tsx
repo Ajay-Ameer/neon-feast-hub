@@ -18,6 +18,7 @@ import { ContentManager } from './ContentManager';
 import { MediaManager } from './MediaManager';
 import { UserManager } from './UserManager';
 import { AuditLogs } from './AuditLogs';
+import LandingPageManager from './LandingPageManager';
 
 export default function AdminDashboard() {
   const [activeTab, setActiveTab] = useState('overview');
@@ -72,8 +73,9 @@ export default function AdminDashboard() {
 
       <div className="container mx-auto px-4 py-6">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
-          <TabsList className="grid w-full grid-cols-6">
+          <TabsList className="grid w-full grid-cols-7">
             <TabsTrigger value="overview">Overview</TabsTrigger>
+            <TabsTrigger value="landing">Landing Page</TabsTrigger>
             <TabsTrigger value="meals">Meals</TabsTrigger>
             <TabsTrigger value="content">Content</TabsTrigger>
             <TabsTrigger value="media">Media</TabsTrigger>
@@ -161,6 +163,10 @@ export default function AdminDashboard() {
                 </CardContent>
               </Card>
             </div>
+          </TabsContent>
+
+          <TabsContent value="landing">
+            <LandingPageManager />
           </TabsContent>
 
           <TabsContent value="meals">
